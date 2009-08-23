@@ -1,0 +1,30 @@
+/*!
+
+\page pageDocumentation Documentation
+
+This page contains an overview about the available documentation and its structure.
+
+The main page and entry point is at page \ref main "Startseite"
+
+The whole project documentation (mainly done in word) is available as HTML and/or PDF, see page \subpage pageWordDocuments "Project Documentation"
+
+The <b>architecture and design</b> is described in NuvoControl_1300_Software_Architektur_und_Design.doc 
+see <a href="./NuvoControl_1300_Software_Architektur_und_Design.doc.html">here</a>, or as <a href="./NuvoControl_1300_Software_Architektur_und_Design.doc.pdf">PDF</a>
+
+We used Enterprise Architect as UML modelling tool. Once during the requiremnts analysis phase and later during the architecture and
+design phase. The model files of enterprise architect are also part of the HTML documentation, see \subpage pageDocEA "Enterprise Architect Documentation"
+
+
+\section secDocPicture Photos and Images
+
+We used in our project either own photos and images or downloaded free pictures from http://www.freedigitalphotos.net/ 
+
+They allow the usage of their photos as long you credit FreeDigitalPhotos.net as the image source.
+That's what we are doing here. We used several photos and images from FreeDigitalPhotos.net.
+More information about the terms, are available at http://www.freedigitalphotos.net/images/terms.php 
+
+
+<BR>
+Back to \ref main "main page"
+	
+*/
