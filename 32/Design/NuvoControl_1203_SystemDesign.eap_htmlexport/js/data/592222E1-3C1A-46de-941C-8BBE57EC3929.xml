@@ -1,0 +1,5 @@
+tocTab[tocTab.length] = new Array("4.1.3.3:1", "", "MonitorAndControlService", "EARoot/EA4/EA1/EA3/EA3/EA413.htm", "175.png", "79", "0", "", "Logical diagram0","{907A4AA8-047B-4259-9A1F-F5DCD59F5442}");
+tocTab[tocTab.length] = new Array("4.1.3.3:2", "", "«interface» IMonitorAndControl", "EARoot/EA4/EA1/EA3/EA3/EA415.htm", "8.png", "367", "0", "", "Interface0","{4435AB8E-EAE5-4244-AF95-C497001E482B}");
+tocTab[tocTab.length] = new Array("4.1.3.3:3", "", "«interface» IMonitorAndControlNotification", "EARoot/EA4/EA1/EA3/EA3/EA416.htm", "8.png", "366", "0", "", "Interface0","{0F753491-D6E8-4da3-BDDB-2D0BD61A36B0}");
+tocTab[tocTab.length] = new Array("4.1.3.3:4", "", "MonitorAndControlService", "EARoot/EA4/EA1/EA3/EA3/EA417.htm", "5.png", "368", "0", "", "Class0","{926EB402-E030-466d-8CF3-5589FF7D2E40}");
+tocTab[tocTab.length] = new Array("4.1.3.3:5", "", "ServiceHostMc", "EARoot/EA4/EA1/EA3/EA3/EA418.htm", "5.png", "370", "0", "", "Class0","{0F3E2E2A-B5D7-4ad9-9BA0-0B1BEC608284}");
