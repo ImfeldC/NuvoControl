@@ -1,0 +1,4 @@
+tocTab[tocTab.length] = new Array("4.1.1.1.2:1", "", "«interface» IMonitorAndControl", "EARoot/EA4/EA1/EA1/EA1/EA2/EA278.htm", "8.png", "433", "0", "", "Interface0","{906A4553-01AD-4b72-9984-5D9019C3FBF1}");
+tocTab[tocTab.length] = new Array("4.1.1.1.2:2", "", "«interface» IMonitorAndControlCallback", "EARoot/EA4/EA1/EA1/EA1/EA2/EA279.htm", "8.png", "434", "0", "", "Interface0","{0C122640-EBB0-432e-8524-E973953553DA}");
+tocTab[tocTab.length] = new Array("4.1.1.1.2:3", "", "«interface» IMonitorAndControlChannel", "EARoot/EA4/EA1/EA1/EA1/EA2/EA280.htm", "8.png", "435", "0", "", "Interface0","{85049DCE-D3B0-411a-8AB1-08E3B9E78F92}");
+tocTab[tocTab.length] = new Array("4.1.1.1.2:4", "", "MonitorAndControlClient", "EARoot/EA4/EA1/EA1/EA1/EA2/EA281.htm", "5.png", "436", "0", "", "Class0","{FE0FF6CA-59FA-4212-8611-22EA49D23A10}");
