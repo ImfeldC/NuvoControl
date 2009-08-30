@@ -1,0 +1,467 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>WcfHostConsole::WcfHost</title>
+<link href="../../../../../css/ea.css" rel="stylesheet" type="text/css" />
+<script>
+function initPage(src) {
+	if(parent==this&&(this.location+"").indexOf('EARoot')!=-1)
+		document.location=(this.location+"").substring(0,(this.location+"").indexOf('EARoot'))+"index"+(this.location+"").substring((this.location+"").lastIndexOf('.'))+"?goto="+((this.location+"").substring((this.location+"").indexOf('EARoot')+7,(this.location+"").lastIndexOf('.')).replace(/\//g,':').replace(/EA/g,""));
+	else
+		parent.initPage(src);
+}
+</script>
+</head>
+<body onload="initPage(this);" class="Content">
+<div class="pageHeader"></div>
+<div class="PageBody">
+	<span class="ObjectTitle">WcfHost  : public   class</span>
+	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic">Created:</td>
+			<td width="85%" class="ObjectDetailsValue">29.06.2009 16:11:35</td>
+		</tr>
+		<tr>
+			<td class="ObjectDetailsTopic">Modified:</td>
+			<td class="ObjectDetailsValue">29.06.2009 16:11:35</td>
+		</tr>
+		<tr style="height: 10px"><td colspan="2"></td></tr>
+		<tr>
+			<td class="ObjectDetailsTopic"><img src="../../../../../images/plus03.gif" align="absmiddle" id="proj" onclick="parent.toggleData(this.id)" />Project:</td>
+			<td class="ObjectDetailsValue"></td>
+		</tr>
+		<tr id="proj00" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
+			<td class="ObjectDetailsValue">LimacheB</td>
+		</tr>
+		<tr id="proj01" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
+			<td class="ObjectDetailsValue">1.0</td>
+		</tr>
+		<tr id="proj02" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Phase:</td>
+			<td class="ObjectDetailsValue">1.0</td>
+		</tr>
+		<tr id="proj03" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Status:</td>
+			<td class="ObjectDetailsValue">Proposed</td>
+		</tr>
+		<tr id="proj04" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Complexity:</td>
+			<td class="ObjectDetailsValue">Easy</td>
+		</tr>
+		<tr>
+			<td class="ObjectDetailsTopic"><img src="../../../../../images/plus03.gif" align="absmiddle" id="adv" onclick="parent.toggleData(this.id)" />Advanced:</td>
+			<td class="ObjectDetailsValue"></td>
+		</tr>
+		<tr id="adv00" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
+			<td class="ObjectDetailsValue">{3B614579-DB67-4fde-8B46-6A9EBC3D5534}</td>
+		</tr>
+		<tr id="adv01" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
+			<td class="ObjectDetailsValue"><a href="../EA368.htm">Server Startup</a></td>
+		</tr>
+	</table>
+	
+	<div class="TableGroup" id="TableGroup">
+		<ul class="ItemTitle">
+			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
+			<li onClick="parent.toggleItem('Operations');" id="OperationsTitle">Operations</li>
+			<li onClick="parent.toggleItem('AssociationsTo');" id="AssociationsToTitle">Associations To</li>
+			<li onClick="parent.toggleItem('MessagesTo');" id="MessagesToTitle">Messages To</li>
+			<li onClick="parent.toggleItem('MessagesFrom');" id="MessagesFromTitle">Messages From</li>
+		</ul>
+<div class="ItemBody" id="AttributesTable">
+	<table border="0" cellspacing="0" cellpadding="0" class="Table">
+		<tr>
+			<td width="40%" class="TableHeading">Attribute</td>
+			<td width="60%" class="TableHeading">Details</td>
+		</tr>
+						<tr>
+				<td width="40%" class="TableRow" valign="top"><i>private static NuvoControl.Server.ConfigurationService.ConfigurationService</i><br /><strong>&nbsp;&nbsp;_configurationService</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> null<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Holds the loaded system configuration.&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>private static <a href="../../../../EA5/EA1/EA524.htm">IFunction</a></i><br /><strong>&nbsp;&nbsp;_functionService</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> null<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Holds a reference to the function service.&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>private static ILog</i><br /><strong>&nbsp;&nbsp;_log</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> LogManager.GetCurrentClassLogger()<br></i>&nbsp;</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>private static Dictionary<int, IProtocol></i><br /><strong>&nbsp;&nbsp;_protocolDrivers</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> new Dictionary<int, IProtocol>()<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Holds the protocol drivers per NuvoEssentia.&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>private static <a href="../EA7/EA502.htm">IZoneServer</a></i><br /><strong>&nbsp;&nbsp;_zoneServer</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> null<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Holds a reference to the zone server.&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>
+		</table>
+</div><div class="ItemBody" id="OperationsTable">
+	<table border="0" cellspacing="0" cellpadding="0" class="Table">
+		<tr>
+			<td width="40%" class="TableHeading">Operation</td>
+			<td width="60%" class="TableHeading">Details</td>
+		</tr>
+						<tr>
+				<td width="40%" class="TableRow">
+					<i>private static</i><br />
+					<strong>HostAllServices</strong>():void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private static</i><br />
+					<strong>InstantiateZoneServer</strong>():void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Instantiates the the zone server. This object holds all zone controllers.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private static</i><br />
+					<strong>LoadConfigurationService</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{709A8C9A-0146-429a-B27B-8F5B1B2DE695}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{709A8C9A-0146-429a-B27B-8F5B1B2DE695}" border="0" />configurationFile: string</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{709A8C9A-0146-429a-B27B-8F5B1B2DE695}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{709A8C9A-0146-429a-B27B-8F5B1B2DE695}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{709A8C9A-0146-429a-B27B-8F5B1B2DE695}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{709A8C9A-0146-429a-B27B-8F5B1B2DE695}03" style="display: none;">
+							<td width="50"></td>
+							<td></td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Reads the XML configuration file and instantiates accordingly the system configuration objects of NuvoControl.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private static</i><br />
+					<strong>LoadProtocolDrivers</strong>():void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Loads the protocol drivers according to the NuvoControl system configuration.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private static</i><br />
+					<strong>Main</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{D683BA67-0E13-42bb-8A95-6DF14C41213C}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{D683BA67-0E13-42bb-8A95-6DF14C41213C}" border="0" />args: string[]</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{D683BA67-0E13-42bb-8A95-6DF14C41213C}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{D683BA67-0E13-42bb-8A95-6DF14C41213C}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{D683BA67-0E13-42bb-8A95-6DF14C41213C}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{D683BA67-0E13-42bb-8A95-6DF14C41213C}03" style="display: none;">
+							<td width="50"></td>
+							<td></td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Main function
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+
+		</table>
+</div>		<div class="ItemBody" id="AssociationsToTable">
+			<table border="0" cellspacing="0" cellpadding="0" class="Table">
+				<tr>
+					<td width="20%" class="TableHeading">Element</td>
+					<td width="25%" class="TableHeading">Source Role</td>
+					<td width="25%" class="TableHeading">Target Role</td>
+					<td width="30%" class="TableHeading">Details</td>
+				</tr>
+				<tr>
+					<td width="20%" class="TableRow" valign="top">
+						<a href="../EA1/EA407.htm">ConfigurationService</a><br />
+						Class &nbsp;
+					</td>
+					<td width="20%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;
+					</td>
+					<td width="20%" class="TableRow" valign="top">
+						<strong>Name:</strong> _configurationService<br />
+						&nbsp;	
+					</td>
+					<td width="30%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="20%" class="TableRow" valign="top">
+						<a href="../EA7/EA502.htm">«interface» IZoneServer</a><br />
+						Interface &nbsp;
+					</td>
+					<td width="20%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;
+					</td>
+					<td width="20%" class="TableRow" valign="top">
+						<strong>Name:</strong> _zoneServer<br />
+						&nbsp;	
+					</td>
+					<td width="30%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="20%" class="TableRow" valign="top">
+						<a href="../../../../EA5/EA1/EA524.htm">«interface» IFunction</a><br />
+						Interface &nbsp;
+					</td>
+					<td width="20%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;
+					</td>
+					<td width="20%" class="TableRow" valign="top">
+						<strong>Name:</strong> _functionService<br />
+						&nbsp;	
+					</td>
+					<td width="30%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+
+			</table>
+		</div>
+		<div class="ItemBody" id="MessagesToTable">
+			<table border="0" cellspacing="0" cellpadding="0" class="Table">
+				<tr>
+					<td width="30%" class="TableHeading">Element</td>
+					<td width="30%" class="TableHeading">Message</td>
+					<td width="40%" class="TableHeading">Details</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../EA377.htm">: ConfigurationService</a></td>
+					<td width="30%" class="TableRow" valign="top">&nbsp;</td>
+					<td width="40%" class="TableRow" valign="top"><strong>Type:</strong> New<br />Synchronous Call</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA498.htm">WcfHost</a></td>
+					<td width="30%" class="TableRow" valign="top">LoadConfigurationService(string)</td>
+					<td width="40%" class="TableRow" valign="top"><strong>Type:</strong> Sequence<br />Synchronous Call</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../EA379.htm">: ZoneServer</a></td>
+					<td width="30%" class="TableRow" valign="top">&nbsp;</td>
+					<td width="40%" class="TableRow" valign="top"><strong>Type:</strong> New<br />Synchronous Call</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA498.htm">WcfHost</a></td>
+					<td width="30%" class="TableRow" valign="top">LoadProtocolDrivers()</td>
+					<td width="40%" class="TableRow" valign="top"><strong>Type:</strong> Sequence<br />Synchronous Call</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../EA4/EA1/EA467.htm">ProtocolDriverFactory</a></td>
+					<td width="30%" class="TableRow" valign="top">LoadDriver(string,  string)</td>
+					<td width="40%" class="TableRow" valign="top"><strong>Type:</strong> Sequence<br />Synchronous Call</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA498.htm">WcfHost</a></td>
+					<td width="30%" class="TableRow" valign="top">InstantiateZoneServer()</td>
+					<td width="40%" class="TableRow" valign="top"><strong>Type:</strong> Sequence<br />Synchronous Call</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../EA379.htm">: ZoneServer</a></td>
+					<td width="30%" class="TableRow" valign="top">StartUp()</td>
+					<td width="40%" class="TableRow" valign="top"><strong>Type:</strong> Sequence<br />Synchronous Call</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../EA380.htm">: ZoneController</a></td>
+					<td width="30%" class="TableRow" valign="top">&nbsp;</td>
+					<td width="40%" class="TableRow" valign="top"><strong>Type:</strong> New<br />Synchronous Call</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA498.htm">WcfHost</a></td>
+					<td width="30%" class="TableRow" valign="top">HostAllServices()</td>
+					<td width="40%" class="TableRow" valign="top"><strong>Type:</strong> Sequence<br />Synchronous Call</td>
+				</tr>
+
+			</table>
+		</div>
+		<div class="ItemBody" id="MessagesFromTable">
+			<table border="0" cellspacing="0" cellpadding="0" class="Table">
+				<tr>
+					<td width="30%" class="TableHeading">Element</td>
+					<td width="30%" class="TableHeading">Message</td>
+					<td width="40%" class="TableHeading">Details</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA498.htm">WcfHost</a></td>
+					<td width="30%" class="TableRow" valign="top">LoadConfigurationService(string)</td>
+					<td width="40%" class="TableRow" valign="top"><strong>Type:</strong> Sequence<br />Synchronous Call</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../EA377.htm">: ConfigurationService</a></td>
+					<td width="30%" class="TableRow" valign="top">&nbsp;</td>
+					<td width="40%" class="TableRow" valign="top"><strong>Type:</strong> Sequence<br />Synchronous Call</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA498.htm">WcfHost</a></td>
+					<td width="30%" class="TableRow" valign="top">LoadProtocolDrivers()</td>
+					<td width="40%" class="TableRow" valign="top"><strong>Type:</strong> Sequence<br />Synchronous Call</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../EA4/EA1/EA467.htm">ProtocolDriverFactory</a></td>
+					<td width="30%" class="TableRow" valign="top">&nbsp;</td>
+					<td width="40%" class="TableRow" valign="top"><strong>Type:</strong> Sequence<br />Synchronous Call</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA498.htm">WcfHost</a></td>
+					<td width="30%" class="TableRow" valign="top">InstantiateZoneServer()</td>
+					<td width="40%" class="TableRow" valign="top"><strong>Type:</strong> Sequence<br />Synchronous Call</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../EA379.htm">: ZoneServer</a></td>
+					<td width="30%" class="TableRow" valign="top">&nbsp;</td>
+					<td width="40%" class="TableRow" valign="top"><strong>Type:</strong> Sequence<br />Synchronous Call</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA498.htm">WcfHost</a></td>
+					<td width="30%" class="TableRow" valign="top">HostAllServices()</td>
+					<td width="40%" class="TableRow" valign="top"><strong>Type:</strong> Sequence<br />Synchronous Call</td>
+				</tr>
+
+			</table>
+		</div>
+	</div>
+<div class="pageFooter"></div>
+ 
+</body>
+</html>
