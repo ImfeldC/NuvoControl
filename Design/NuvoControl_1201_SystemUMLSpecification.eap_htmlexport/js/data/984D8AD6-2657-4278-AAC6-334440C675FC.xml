@@ -1,6 +1,0 @@
-tocTab[tocTab.length] = new Array("7.3:1", "", "Help System", "EARoot/EA7/EA3/EA365.htm", "188.png", "35", "0", "", "Custom diagram0","{D76E536A-525F-4481-8D1A-8ABB0EF10ED4}");
-tocTab[tocTab.length] = new Array("7.3:2", "", "Content", "EARoot/EA7/EA3/EA368.htm", "11.png", "126", "0", "", "Screen0","{EE5FA1BB-B9D9-444c-B0D8-1956DADB97B5}");
-tocTab[tocTab.length] = new Array("7.3:3", "", "Help", "EARoot/EA7/EA3/EA369.htm", "11.png", "124", "0", "", "Screen0","{0A74319D-938A-497a-89A9-44331B8F543A}");
-tocTab[tocTab.length] = new Array("7.3:4", "", "Index", "EARoot/EA7/EA3/EA370.htm", "11.png", "123", "0", "", "Screen0","{9B303040-FA91-4032-963A-26DF2E30B57B}");
-tocTab[tocTab.length] = new Array("7.3:5", "", "Search", "EARoot/EA7/EA3/EA371.htm", "11.png", "122", "0", "", "Screen0","{730C5953-BCB0-420a-BEA9-8A305FB69C1C}");
-tocTab[tocTab.length] = new Array("7.3:6", "", "«button» Toolbar", "EARoot/EA7/EA3/EA372.htm", "16.png", "125", "124", "", "GUIElement0","{5938B477-6F2C-46c9-AC19-F17A5FF523B2}");
