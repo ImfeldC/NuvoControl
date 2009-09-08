@@ -1,0 +1,25 @@
+/*!
+
+\page pageDeployment Deployment
+
+This page describes the used deployment strategy.
+
+The NuvoControl installer (MSI setup image file) is build as ouptut of the Visual Studio project called \b NuvoControlSetup, as part
+of the whole solution NuvoControl.
+
+The output of this project is copied to the CD image. We distribute at the moment both build kind (relase and debug).
+
+\section secDeploymentLinks External Links
+
+The possible deployment strategies within Visual Studio 2008 are described in the
+following <a href="http://msdn.microsoft.com/en-us/library/wtzawcsz.aspx">link</a> .
+
+We use for NuvoControl the deployment strategy called "Windows Installer Deployment" .
+
+In <a href="http://msdn.microsoft.com/en-us/library/fyh6k4k4.aspx">How to: Create or Add Deployment Projects</a> 
+is explained how to setup a deployment project in Visual Studio.
+
+<BR>
+Back to \ref main "main page"
+	
+*/
