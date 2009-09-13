@@ -1,0 +1,4 @@
+tocTab[tocTab.length] = new Array("4.1.1.1.1:1", "", "ConfigureClient", "EARoot/EA4/EA1/EA1/EA1/EA1/EA274.htm", "5.png", "431", "0", "", "Class0","{A2C13BB6-CEC6-421a-A4E1-0F6C71909684}");
+tocTab[tocTab.length] = new Array("4.1.1.1.1:2", "", "«interface» IConfigure", "EARoot/EA4/EA1/EA1/EA1/EA1/EA275.htm", "8.png", "429", "0", "", "Interface0","{15359BC9-0B24-447c-AA58-FF6C7D4CE037}");
+tocTab[tocTab.length] = new Array("4.1.1.1.1:3", "", "«interface» IConfigureChannel", "EARoot/EA4/EA1/EA1/EA1/EA1/EA276.htm", "8.png", "430", "0", "", "Interface0","{44F53F35-C145-422b-92B4-4D4F2301321D}");
+tocTab[tocTab.length] = new Array("4.1.1.1.1:4", "", "«struct» Point", "EARoot/EA4/EA1/EA1/EA1/EA1/EA277.htm", "5.png", "428", "0", "", "Class0","{013409C5-8C8D-479a-B544-B4AF8425E177}");
