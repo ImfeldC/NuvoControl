@@ -1,0 +1,14 @@
+﻿<Window x:Class="NuvoControl.Client.TestViewer.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Test Viewer" Height="805.161" Width="803.964" Background="#FFECE9D8" WindowStartupLocation="CenterScreen" Icon="/NuvoControl.Client.TestViewer;component/NuvoControl.ico">
+    <DockPanel Name="dockMain" LastChildFill="True">
+        <Menu DockPanel.Dock="Top"  Height="22" Name="menuMain" HorizontalAlignment="Left" Width="100" BorderBrush="Black">
+            <MenuItem Header="_File" />
+            <MenuItem Header="_Tools" />
+        </Menu>
+        <ToolBar Height="26" Name="toolBar1" Width="200" DockPanel.Dock="Top" HorizontalAlignment="Left" />
+        <StatusBar Height="23" Name="statusBar" Width="120" DockPanel.Dock="Bottom" HorizontalAlignment="Left" />
+        <Grid Name="_gridMain" ShowGridLines="True"></Grid>
+    </DockPanel>
+</Window>

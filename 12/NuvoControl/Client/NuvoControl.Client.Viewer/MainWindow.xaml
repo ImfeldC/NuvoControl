@@ -1,0 +1,114 @@
+﻿<Window x:Class="NuvoControl.Client.Viewer.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:commands="clr-namespace:NuvoControl.Client.Viewer.Commands"
+    Title="Nuvo Control" Height="600" Width="800"
+    commands:CreateCommandBindingCollection.CommandBindingsDynamic="{Binding Path=CommandBindingsDynamic}"
+    Name="_mainWindow" Icon="/NuvoControl.Client.Viewer;component/Images/Loudspeaker.PNG" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Skins/NuvoControlStylesFreak.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel Name="dockPanel1" LastChildFill="True">
+        <Menu  Name="menu1" DockPanel.Dock="Top" HorizontalAlignment="Stretch" VerticalAlignment="Top" Style="{DynamicResource BarStyle}">
+            <MenuItem Header="_File" Style="{DynamicResource BarStyle}">
+                <MenuItem Command="commands:CustomCommands.AppExit"  Style="{DynamicResource SubMenuItemStyle}"/>
+            </MenuItem>
+            <MenuItem Header="_Edit"  Style="{DynamicResource BarStyle}"></MenuItem>
+            <MenuItem Header="_View"  Style="{DynamicResource BarStyle}">
+                <MenuItem Command="BrowseBack" Style="{DynamicResource SubMenuItemStyle}"/>
+                <MenuItem Command="BrowseForward" Style="{DynamicResource SubMenuItemStyle}"/>
+                <MenuItem Command="commands:CustomCommands.BrowseUp" Style="{DynamicResource SubMenuItemStyle}"/>
+                <MenuItem Command="commands:CustomCommands.BrowseDown" Style="{DynamicResource SubMenuItemStyle}"/>
+                <MenuItem Command="commands:CustomCommands.BrowsePrevious" Style="{DynamicResource SubMenuItemStyle}"/>
+                <MenuItem Command="commands:CustomCommands.BrowseNext" Style="{DynamicResource SubMenuItemStyle}"/>
+            </MenuItem>
+            <MenuItem Header="_Skins"  Style="{DynamicResource BarStyle}">
+                <MenuItem Name="_btnMenuClassic" Header="Classic" IsCheckable="True" Checked="_btnMenuClassic_Checked"  Style="{DynamicResource SubMenuItemStyle}"/>
+                <MenuItem Name="_btnMenuSmooth" Header="Smooth" IsCheckable="True"  Checked="_btnMenuSmooth_Checked" IsChecked="True"  Style="{DynamicResource SubMenuItemStyle}"/>
+                <MenuItem Name="_btnMenuSteel" Header="Steel" IsCheckable="True"  Checked="_btnMenuSteel_Checked"  Style="{DynamicResource SubMenuItemStyle}"/>
+                <MenuItem Name="_btnMenuTechno" Header="Machine" IsCheckable="True"  Checked="_btnMenuTechno_Checked"  Style="{DynamicResource SubMenuItemStyle}"/>
+                <MenuItem Name="_btnMenuFreak" Header="Freak" IsCheckable="True"  Checked="_btnMenuFreak_Checked"  Style="{DynamicResource SubMenuItemStyle}"/>
+            </MenuItem>
+            <MenuItem Header="_Help"  Style="{DynamicResource BarStyle}"></MenuItem>
+        </Menu>
+        <ToolBar Height="40" Name="toolBar1" HorizontalAlignment="Stretch" VerticalAlignment="Top" DockPanel.Dock="Top" Style="{DynamicResource ToolbarStyle}">
+            <Button Name="_btnBack" Padding="0" Command="NavigationCommands.BrowseBack" ToolTip="{Binding Path=BackToolTip}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Image Source="/NuvoControl.Client.Viewer;component/Images/BackImage.PNG" Margin="2"></Image>
+                    <Label Grid.Column="1" VerticalContentAlignment="Center" Content="{Binding ElementName=_btnBack, Path=Command.Text}"  Style="{DynamicResource ToolbarItemStyle}"></Label>
+                </Grid></Button>
+            <Button Name="_btnFwd" Padding="0" Command="NavigationCommands.BrowseForward" ToolTip="{Binding Path=ForwardToolTip}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Image Source="/NuvoControl.Client.Viewer;component/Images/ForwardImage.png" Margin="2"></Image>
+                    <Label Grid.Column="1" VerticalContentAlignment="Center" Content="{Binding ElementName=_btnFwd, Path=Command.Text}"  Style="{DynamicResource ToolbarItemStyle}"></Label>
+                </Grid>
+            </Button>
+            <Separator Width="3"></Separator>
+            <Button Name="_btnUp" Padding="0" Command="commands:CustomCommands.BrowseUp" ToolTip="{Binding Path=UpToolTip}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Image Source="/NuvoControl.Client.Viewer;component/Images/UpImage.png" Margin="2"></Image>
+                    <Label Grid.Column="1" VerticalContentAlignment="Center" Content="{Binding ElementName=_btnUp, Path=Command.Text}"  Style="{DynamicResource ToolbarItemStyle}"></Label>
+                </Grid>
+            </Button>
+            <Button Name="_btnDown" Padding="0" Command="commands:CustomCommands.BrowseDown" ToolTip="{Binding Path=DownToolTip}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Image Source="/NuvoControl.Client.Viewer;component/Images/DownImage.png" Margin="2"></Image>
+                    <Label Grid.Column="1" VerticalContentAlignment="Center" Content="{Binding ElementName=_btnDown, Path=Command.Text}"  Style="{DynamicResource ToolbarItemStyle}"></Label>
+                </Grid>
+            </Button>
+            <Button Name="_btnPrev" Padding="0" Command="commands:CustomCommands.BrowsePrevious" ToolTip="{Binding Path=PreviousToolTip}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Image Source="/NuvoControl.Client.Viewer;component/Images/PreviousImage.png" Margin="2"></Image>
+                    <Label Grid.Column="1" VerticalContentAlignment="Center" Content="{Binding ElementName=_btnPrev, Path=Command.Text}"  Style="{DynamicResource ToolbarItemStyle}"></Label>
+                </Grid>
+            </Button>
+            <Button Name="_btnNext" Padding="0" Command="commands:CustomCommands.BrowseNext" ToolTip="{Binding Path=NextToolTip}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Image Source="/NuvoControl.Client.Viewer;component/Images/NextImage.png" Margin="2"></Image>
+                    <Label Grid.Column="1" VerticalContentAlignment="Center" Content="{Binding ElementName=_btnNext, Path=Command.Text}"  Style="{DynamicResource ToolbarItemStyle}"></Label>
+                </Grid>
+            </Button>
+            <Separator Width="3"></Separator>
+            <Label VerticalAlignment="Center" Margin="5" Style="{DynamicResource ToolbarItemStyle}">View:</Label>
+            <ComboBox Name="_viewName" MinWidth="150" ItemsSource="{Binding Path=NavigationItems}" SelectedItem="{Binding Path=SelectedNavigationItem}"
+                      IsSynchronizedWithCurrentItem="True" Style="{DynamicResource ToolbarItemStyle}"></ComboBox>
+        </ToolBar>
+        <StatusBar Height="23" Name="statusBar1" DockPanel.Dock="Bottom" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" VerticalContentAlignment="Top" Style="{DynamicResource BarStyle}"/>
+        <Grid Name="_mainGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinWidth="100" MinHeight="100" Style="{DynamicResource ZonePopupStyle}">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+        </Grid>
+    </DockPanel>
+</Window>
