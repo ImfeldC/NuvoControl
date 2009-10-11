@@ -1,0 +1,1271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>ProtocolDriver::NuvoEssentiaProtocolDriver</title>
+<link href="../../../../../css/ea.css" rel="stylesheet" type="text/css" />
+<script>
+function initPage(src) {
+	if(parent==this&&(this.location+"").indexOf('EARoot')!=-1)
+		document.location=(this.location+"").substring(0,(this.location+"").indexOf('EARoot'))+"index"+(this.location+"").substring((this.location+"").lastIndexOf('.'))+"?goto="+((this.location+"").substring((this.location+"").indexOf('EARoot')+7,(this.location+"").lastIndexOf('.')).replace(/\//g,':').replace(/EA/g,""));
+	else
+		parent.initPage(src);
+}
+</script>
+</head>
+<body onload="initPage(this);" class="Content">
+<div class="pageHeader"></div>
+<div class="PageBody">
+	<span class="ObjectTitle">NuvoEssentiaProtocolDriver  : public   class</span>
+	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic">Created:</td>
+			<td width="85%" class="ObjectDetailsValue">29.06.2009 17:02:11</td>
+		</tr>
+		<tr>
+			<td class="ObjectDetailsTopic">Modified:</td>
+			<td class="ObjectDetailsValue">29.06.2009 17:02:11</td>
+		</tr>
+		<tr style="height: 10px"><td colspan="2"></td></tr>
+		<tr>
+			<td class="ObjectDetailsTopic"><img src="../../../../../images/plus03.gif" align="absmiddle" id="proj" onclick="parent.toggleData(this.id)" />Project:</td>
+			<td class="ObjectDetailsValue"></td>
+		</tr>
+		<tr id="proj00" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
+			<td class="ObjectDetailsValue">LimacheB</td>
+		</tr>
+		<tr id="proj01" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
+			<td class="ObjectDetailsValue">1.0</td>
+		</tr>
+		<tr id="proj02" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Phase:</td>
+			<td class="ObjectDetailsValue">1.0</td>
+		</tr>
+		<tr id="proj03" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Status:</td>
+			<td class="ObjectDetailsValue">Proposed</td>
+		</tr>
+		<tr id="proj04" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Complexity:</td>
+			<td class="ObjectDetailsValue">Easy</td>
+		</tr>
+		<tr>
+			<td class="ObjectDetailsTopic"><img src="../../../../../images/plus03.gif" align="absmiddle" id="adv" onclick="parent.toggleData(this.id)" />Advanced:</td>
+			<td class="ObjectDetailsValue"></td>
+		</tr>
+		<tr id="adv00" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
+			<td class="ObjectDetailsValue">{C2AFF3F2-B9EB-4762-AECA-9E21C43A293B}</td>
+		</tr>
+		<tr id="adv01" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
+			<td class="ObjectDetailsValue"><a href="EA419.htm">ProtocolDriver</a></td>
+		</tr>
+	</table>
+	<div class="ObjectDetailsNotes">&lt;p&gt;This class implements the protocol stack to acces the Nuvo Essentia. This is the main class which combines the access to the protocol stack. It implements the extended &lt;c&gt;INuvoProtocol&lt;/c&gt; interface, which inherits from&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;c&gt;IProtocol&lt;/c&gt; interface. An application should use this class to instantiate a protocol stack to one or more devices.&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;The following class diagram shows the interface hirarchy: &lt;a href=&quot;../ClassDiagrams/ProtocolDriverInterfaceOverview.jpg&quot;&gt;ProtocolDriverInterfaceOverview&lt;/a&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;The following class diagram shows the protocol stack: &lt;a href=&quot;../ClassDiagrams/ProtocolDriverOverview.jpg&quot;&gt;ProtocolDriverOverview&lt;/a&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;</div>
+
+	<div class="TableGroup" id="TableGroup">
+		<ul class="ItemTitle">
+			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
+			<li onClick="parent.toggleItem('Operations');" id="OperationsTitle">Operations</li>
+			<li onClick="parent.toggleItem('Links');" id="LinksTitle">Other Links</li>
+		</ul>
+<div class="ItemBody" id="AttributesTable">
+	<table border="0" cellspacing="0" cellpadding="0" class="Table">
+		<tr>
+			<td width="40%" class="TableHeading">Attribute</td>
+			<td width="60%" class="TableHeading">Details</td>
+		</tr>
+						<tr>
+				<td width="40%" class="TableRow" valign="top"><i>private Dictionary<int, DictEntry></i><br /><strong>&nbsp;&nbsp;_deviceList</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> new Dictionary<int, DictEntry>()<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Private list holding all protocol driver stacks (for each device).&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>private ILog</i><br /><strong>&nbsp;&nbsp;_log</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> LogManager.GetCurrentClassLogger()<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Common logger object. Requires the using directive &lt;c&gt;Common.Logging&lt;/c&gt;. See&lt;br /&gt;&lt;see cref=&quot;LogManager&quot;/&gt; for more information.&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>private Timer</i><br /><strong>&nbsp;&nbsp;_timerPing</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> new Timer()<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Private member to hold the timer used to send a &#39;ping&#39; to the device.&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>
+		</table>
+</div><div class="ItemBody" id="OperationsTable">
+	<table border="0" cellspacing="0" cellpadding="0" class="Table">
+		<tr>
+			<td width="40%" class="TableHeading">Operation</td>
+			<td width="60%" class="TableHeading">Details</td>
+		</tr>
+						<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>_essentiaProtocol_onCommandReceived</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{BAA4A79F-8BF3-4014-9231-30103E2AF996}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{BAA4A79F-8BF3-4014-9231-30103E2AF996}" border="0" />sender: object</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{BAA4A79F-8BF3-4014-9231-30103E2AF996}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{BAA4A79F-8BF3-4014-9231-30103E2AF996}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{BAA4A79F-8BF3-4014-9231-30103E2AF996}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{BAA4A79F-8BF3-4014-9231-30103E2AF996}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">This pointer,  to the sender of this event.</div>
+</td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{FE46F14A-1B0E-43b2-BD7B-0321AD791B6F}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{FE46F14A-1B0E-43b2-BD7B-0321AD791B6F}" border="0" />e: <a href="./EA1/EA447.htm">ConcreteProtocolEventArgs</a></a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{FE46F14A-1B0E-43b2-BD7B-0321AD791B6F}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{FE46F14A-1B0E-43b2-BD7B-0321AD791B6F}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{FE46F14A-1B0E-43b2-BD7B-0321AD791B6F}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{FE46F14A-1B0E-43b2-BD7B-0321AD791B6F}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Event argument,  containing the Nuvo Essentia command.</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Event handler of the Essentia Protocol layer, to receive commands from the Nuvo Essentia device.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>_timerPing_Elapsed</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{68458752-BFC5-4def-9A99-3042AB84D7CE}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{68458752-BFC5-4def-9A99-3042AB84D7CE}" border="0" />sender: object</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{68458752-BFC5-4def-9A99-3042AB84D7CE}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{68458752-BFC5-4def-9A99-3042AB84D7CE}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{68458752-BFC5-4def-9A99-3042AB84D7CE}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{68458752-BFC5-4def-9A99-3042AB84D7CE}03" style="display: none;">
+							<td width="50"></td>
+							<td></td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{EE6E0FDA-2A07-4301-A237-660F232FAB1D}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{EE6E0FDA-2A07-4301-A237-660F232FAB1D}" border="0" />e: ElapsedEventArgs</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{EE6E0FDA-2A07-4301-A237-660F232FAB1D}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{EE6E0FDA-2A07-4301-A237-660F232FAB1D}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{EE6E0FDA-2A07-4301-A237-660F232FAB1D}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{EE6E0FDA-2A07-4301-A237-660F232FAB1D}03" style="display: none;">
+							<td width="50"></td>
+							<td></td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Timer event method, to check the connection to the devices. It checks for all attached devcies the time the last update was received. If the &lt;c&gt;SendPingTimeSpan&lt;/c&gt; is exceeded, a ping command is send to the device. If the &lt;c&gt;MarkAsOfflineTimeSpan&lt;/c&gt; is exceeded, the device is marked as offline. If the device is sending again commands, the device quality is set back to online. It executes the event &lt;c&gt;onDeviceStatusUpdate&lt;/c&gt; to notify any subscriber about any device quality change.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>checkZoneDeviceId</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{CEF62503-6C14-4a76-9006-6E6E052DE9C0}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{CEF62503-6C14-4a76-9006-6E6E052DE9C0}" border="0" />deviceId: int</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{CEF62503-6C14-4a76-9006-6E6E052DE9C0}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{CEF62503-6C14-4a76-9006-6E6E052DE9C0}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{CEF62503-6C14-4a76-9006-6E6E052DE9C0}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{CEF62503-6C14-4a76-9006-6E6E052DE9C0}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Device id to check.</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Method checks the zone address. If the device id is not available an error message is written to the console and an exception is thrown.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>public</i><br />
+					<strong>Close</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{F7735134-631A-4a78-B6B3-83C7254BADED}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{F7735134-631A-4a78-B6B3-83C7254BADED}" border="0" />deviceId: int</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{F7735134-631A-4a78-B6B3-83C7254BADED}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{F7735134-631A-4a78-B6B3-83C7254BADED}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{F7735134-631A-4a78-B6B3-83C7254BADED}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{F7735134-631A-4a78-B6B3-83C7254BADED}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Device Id,  to close the connection</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Public method to close a connection.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>public</i><br />
+					<strong>CommandSetSource</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{C27718AB-C9B9-49be-81EA-ED9CDA4C5659}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{C27718AB-C9B9-49be-81EA-ED9CDA4C5659}" border="0" />zoneAddress: <a href="../../EA2/EA1/EA353.htm">Address</a></a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{C27718AB-C9B9-49be-81EA-ED9CDA4C5659}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{C27718AB-C9B9-49be-81EA-ED9CDA4C5659}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{C27718AB-C9B9-49be-81EA-ED9CDA4C5659}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{C27718AB-C9B9-49be-81EA-ED9CDA4C5659}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Zone Adress,  containing device and zone id.</div>
+</td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{DAFCA566-5B7E-45f1-90CC-A86BD4D7DCAA}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{DAFCA566-5B7E-45f1-90CC-A86BD4D7DCAA}" border="0" />sourceAddress: <a href="../../EA2/EA1/EA353.htm">Address</a></a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{DAFCA566-5B7E-45f1-90CC-A86BD4D7DCAA}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{DAFCA566-5B7E-45f1-90CC-A86BD4D7DCAA}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{DAFCA566-5B7E-45f1-90CC-A86BD4D7DCAA}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{DAFCA566-5B7E-45f1-90CC-A86BD4D7DCAA}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Source Adress,  containing device and source id.</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Public method to set the Source of a zone.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>public</i><br />
+					<strong>CommandSetVolume</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{21C57C7F-6A54-4d22-8A94-5C57353F92EF}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{21C57C7F-6A54-4d22-8A94-5C57353F92EF}" border="0" />zoneAddress: <a href="../../EA2/EA1/EA353.htm">Address</a></a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{21C57C7F-6A54-4d22-8A94-5C57353F92EF}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{21C57C7F-6A54-4d22-8A94-5C57353F92EF}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{21C57C7F-6A54-4d22-8A94-5C57353F92EF}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{21C57C7F-6A54-4d22-8A94-5C57353F92EF}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Zone Adress,  containing device and zone id.</div>
+</td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{39903D29-A536-42ee-A843-3204133BD0BD}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{39903D29-A536-42ee-A843-3204133BD0BD}" border="0" />volumeLevel: int</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{39903D29-A536-42ee-A843-3204133BD0BD}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{39903D29-A536-42ee-A843-3204133BD0BD}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{39903D29-A536-42ee-A843-3204133BD0BD}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{39903D29-A536-42ee-A843-3204133BD0BD}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Volume level.</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Public method to set the volume of a zone.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>public</i><br />
+					<strong>CommandSwitchZoneOFF</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{C6801297-BA3D-478b-909D-392DABF64B6B}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{C6801297-BA3D-478b-909D-392DABF64B6B}" border="0" />zoneAddress: <a href="../../EA2/EA1/EA353.htm">Address</a></a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{C6801297-BA3D-478b-909D-392DABF64B6B}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{C6801297-BA3D-478b-909D-392DABF64B6B}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{C6801297-BA3D-478b-909D-392DABF64B6B}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{C6801297-BA3D-478b-909D-392DABF64B6B}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Zone Adress,  containing device and zone id.</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Public method to turn a zone off.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>public</i><br />
+					<strong>CommandSwitchZoneON</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{E657F23D-CB5B-4101-85E9-555EE8AFE6D6}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{E657F23D-CB5B-4101-85E9-555EE8AFE6D6}" border="0" />zoneAddress: <a href="../../EA2/EA1/EA353.htm">Address</a></a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{E657F23D-CB5B-4101-85E9-555EE8AFE6D6}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{E657F23D-CB5B-4101-85E9-555EE8AFE6D6}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{E657F23D-CB5B-4101-85E9-555EE8AFE6D6}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{E657F23D-CB5B-4101-85E9-555EE8AFE6D6}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Zone Adress,  containing device and zone id.</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Public method to turn a zone on.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>convertAddressSource2EssentiaSource</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{A191467E-EB1B-4393-9AD8-85570DE51AD6}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{A191467E-EB1B-4393-9AD8-85570DE51AD6}" border="0" />sourceAddress: <a href="../../EA2/EA1/EA353.htm">Address</a></a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{A191467E-EB1B-4393-9AD8-85570DE51AD6}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{A191467E-EB1B-4393-9AD8-85570DE51AD6}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{A191467E-EB1B-4393-9AD8-85570DE51AD6}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{A191467E-EB1B-4393-9AD8-85570DE51AD6}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Source address with the object id to convert.</div>
+</td>
+						</tr>
+					</table>
+):<a href="./EA1/EA451.htm">ENuvoEssentiaSources</a>
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Converts the source id read from address into a Nuvo Essentia source id.&lt;br /&gt;&lt;br /&gt;@returns Converted source id.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>convertAddressZone2EssentiaZone</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{17DEB5A4-F6BB-48be-BCD1-4C306BF6D824}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{17DEB5A4-F6BB-48be-BCD1-4C306BF6D824}" border="0" />zoneAddress: <a href="../../EA2/EA1/EA353.htm">Address</a></a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{17DEB5A4-F6BB-48be-BCD1-4C306BF6D824}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{17DEB5A4-F6BB-48be-BCD1-4C306BF6D824}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{17DEB5A4-F6BB-48be-BCD1-4C306BF6D824}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{17DEB5A4-F6BB-48be-BCD1-4C306BF6D824}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Zone address with the object id to convert.</div>
+</td>
+						</tr>
+					</table>
+):<a href="./EA1/EA452.htm">ENuvoEssentiaZones</a>
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Converts the zone id read from address into a Nuvo Essentia zone id.&lt;br /&gt;&lt;br /&gt;@returns Converted zone id.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>public</i><br />
+					<strong>Dispose</strong>():void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Public Dispose method.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>public</i><br />
+					<strong>NuvoEssentiaProtocolDriver</strong>():
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Constructor for &lt;c&gt;NuvoEssentiaProtocolDriver&lt;/c&gt;. It uses the application setting &lt;c&gt;PingIntervall&lt;/c&gt;. This intervall specifies in [s] the intervall which is used to send the ping command. The minimum is 2 [s].
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>public</i><br />
+					<strong>onCommandReceived</strong>():ProtocolCommandReceivedEventHandler
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential &lt;&lt;event&gt;&gt; </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Public event in case a (single) command is received from the device (zone).
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>public</i><br />
+					<strong>onDeviceStatusUpdate</strong>():ProtocolDeviceUpdatedEventHandler
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential &lt;&lt;event&gt;&gt; </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Public event in case the state of a device has changed.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>public</i><br />
+					<strong>onZoneStatusUpdate</strong>():ProtocolZoneUpdatedEventHandler
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential &lt;&lt;event&gt;&gt; </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Public event in case a full zone state is received from the device (zone).
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>public</i><br />
+					<strong>Open</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{85CE6D8F-DC2A-4782-BE94-4BB73F33B57F}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{85CE6D8F-DC2A-4782-BE94-4BB73F33B57F}" border="0" />system: <a href="./EA1/EA453.htm">ENuvoSystem</a></a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{85CE6D8F-DC2A-4782-BE94-4BB73F33B57F}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{85CE6D8F-DC2A-4782-BE94-4BB73F33B57F}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{85CE6D8F-DC2A-4782-BE94-4BB73F33B57F}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{85CE6D8F-DC2A-4782-BE94-4BB73F33B57F}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">System Type,  to connect to.</div>
+</td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{C5C6664C-64D0-4efe-8865-A1E1F677B717}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{C5C6664C-64D0-4efe-8865-A1E1F677B717}" border="0" />deviceId: int</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{C5C6664C-64D0-4efe-8865-A1E1F677B717}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{C5C6664C-64D0-4efe-8865-A1E1F677B717}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{C5C6664C-64D0-4efe-8865-A1E1F677B717}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{C5C6664C-64D0-4efe-8865-A1E1F677B717}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Device Id,  to connect to</div>
+</td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{CFA471F9-1A65-4b73-B8C1-D9C2BD4B0AFE}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{CFA471F9-1A65-4b73-B8C1-D9C2BD4B0AFE}" border="0" />communicationConfiguration: <a href="../../EA2/EA1/EA356.htm">Communication</a></a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{CFA471F9-1A65-4b73-B8C1-D9C2BD4B0AFE}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{CFA471F9-1A65-4b73-B8C1-D9C2BD4B0AFE}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{CFA471F9-1A65-4b73-B8C1-D9C2BD4B0AFE}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{CFA471F9-1A65-4b73-B8C1-D9C2BD4B0AFE}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Communication Configuration,  used to connect to the device.</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Public method to open a connection to a device.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>public</i><br />
+					<strong>Open</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{326B7E85-31C9-4482-B4E0-76F45BBDB11E}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{326B7E85-31C9-4482-B4E0-76F45BBDB11E}" border="0" />system: <a href="./EA1/EA453.htm">ENuvoSystem</a></a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{326B7E85-31C9-4482-B4E0-76F45BBDB11E}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{326B7E85-31C9-4482-B4E0-76F45BBDB11E}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{326B7E85-31C9-4482-B4E0-76F45BBDB11E}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{326B7E85-31C9-4482-B4E0-76F45BBDB11E}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">System Type,  to connect to.</div>
+</td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{FB298F0E-7B8C-4559-9065-A7EBA53654DD}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{FB298F0E-7B8C-4559-9065-A7EBA53654DD}" border="0" />deviceId: int</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{FB298F0E-7B8C-4559-9065-A7EBA53654DD}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{FB298F0E-7B8C-4559-9065-A7EBA53654DD}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{FB298F0E-7B8C-4559-9065-A7EBA53654DD}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{FB298F0E-7B8C-4559-9065-A7EBA53654DD}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Device Id,  to connect to</div>
+</td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{E6C96918-57D9-4684-A682-24BAA71D5E8E}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{E6C96918-57D9-4684-A682-24BAA71D5E8E}" border="0" />communicationConfiguration: <a href="../../EA2/EA1/EA356.htm">Communication</a></a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{E6C96918-57D9-4684-A682-24BAA71D5E8E}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{E6C96918-57D9-4684-A682-24BAA71D5E8E}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{E6C96918-57D9-4684-A682-24BAA71D5E8E}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{E6C96918-57D9-4684-A682-24BAA71D5E8E}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Communication Configuration,  used to connect to the device.</div>
+</td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{6B8E4B33-5890-4c51-8AA7-3AFCA8001EF1}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{6B8E4B33-5890-4c51-8AA7-3AFCA8001EF1}" border="0" />essentiaProtocol: <a href="./EA1/EA458.htm">IConcreteProtocol</a></a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{6B8E4B33-5890-4c51-8AA7-3AFCA8001EF1}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{6B8E4B33-5890-4c51-8AA7-3AFCA8001EF1}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{6B8E4B33-5890-4c51-8AA7-3AFCA8001EF1}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{6B8E4B33-5890-4c51-8AA7-3AFCA8001EF1}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Optional protocol layer object,  used in case of test environment. Pass &lt;c&gt;null&lt;/c&gt; in case of productive system.</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Public method - specific for Nuvo - to connect to.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>public</i><br />
+					<strong>ReadZoneState</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{B8EFFF56-CD01-4418-8614-7E01591E00F3}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{B8EFFF56-CD01-4418-8614-7E01591E00F3}" border="0" />zoneAddress: <a href="../../EA2/EA1/EA353.htm">Address</a></a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{B8EFFF56-CD01-4418-8614-7E01591E00F3}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{B8EFFF56-CD01-4418-8614-7E01591E00F3}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{B8EFFF56-CD01-4418-8614-7E01591E00F3}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{B8EFFF56-CD01-4418-8614-7E01591E00F3}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Zone Adress,  containing device and zone id.</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Public method to read a zone state.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>public</i><br />
+					<strong>SendCommand</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{87625387-4474-494a-BA5B-0A3C64E685A6}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{87625387-4474-494a-BA5B-0A3C64E685A6}" border="0" />zoneAddress: <a href="../../EA2/EA1/EA353.htm">Address</a></a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{87625387-4474-494a-BA5B-0A3C64E685A6}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{87625387-4474-494a-BA5B-0A3C64E685A6}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{87625387-4474-494a-BA5B-0A3C64E685A6}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{87625387-4474-494a-BA5B-0A3C64E685A6}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Zone Adress,  containing device and zone id.</div>
+</td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{87008BA3-496B-4598-883A-A04BF3F19544}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{87008BA3-496B-4598-883A-A04BF3F19544}" border="0" />command: INuvoEssentiaSingleCommand</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{87008BA3-496B-4598-883A-A04BF3F19544}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{87008BA3-496B-4598-883A-A04BF3F19544}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{87008BA3-496B-4598-883A-A04BF3F19544}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{87008BA3-496B-4598-883A-A04BF3F19544}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Command,  to send to the device.</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Public method - specific for Nuvo - to send a single command.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>public</i><br />
+					<strong>SendCommand</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{2F2C49D9-5217-46a6-9E1E-F278A0F3523F}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{2F2C49D9-5217-46a6-9E1E-F278A0F3523F}" border="0" />zoneAddress: <a href="../../EA2/EA1/EA353.htm">Address</a></a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{2F2C49D9-5217-46a6-9E1E-F278A0F3523F}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{2F2C49D9-5217-46a6-9E1E-F278A0F3523F}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{2F2C49D9-5217-46a6-9E1E-F278A0F3523F}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{2F2C49D9-5217-46a6-9E1E-F278A0F3523F}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Zone Adress,  containing device and zone id.</div>
+</td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{45818B07-E436-457c-A8FB-D8CFEC55B4B6}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{45818B07-E436-457c-A8FB-D8CFEC55B4B6}" border="0" />command: INuvoEssentiaCommand</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{45818B07-E436-457c-A8FB-D8CFEC55B4B6}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{45818B07-E436-457c-A8FB-D8CFEC55B4B6}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{45818B07-E436-457c-A8FB-D8CFEC55B4B6}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{45818B07-E436-457c-A8FB-D8CFEC55B4B6}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Command,  to send to the device.</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Public method - specific for Nuvo - to send a command, which contains one or more single command.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>public</i><br />
+					<strong>SetZoneState</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{5BB71641-80C6-4284-B7DA-5098F7183647}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{5BB71641-80C6-4284-B7DA-5098F7183647}" border="0" />zoneAddress: <a href="../../EA2/EA1/EA353.htm">Address</a></a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{5BB71641-80C6-4284-B7DA-5098F7183647}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{5BB71641-80C6-4284-B7DA-5098F7183647}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{5BB71641-80C6-4284-B7DA-5098F7183647}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{5BB71641-80C6-4284-B7DA-5098F7183647}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Zone Adress,  containing device and zone id.</div>
+</td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{B8990382-6750-476a-B4E6-5A4B9FBFB523}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{B8990382-6750-476a-B4E6-5A4B9FBFB523}" border="0" />zoneState: <a href="../../EA2/EA350.htm">ZoneState</a></a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{B8990382-6750-476a-B4E6-5A4B9FBFB523}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{B8990382-6750-476a-B4E6-5A4B9FBFB523}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{B8990382-6750-476a-B4E6-5A4B9FBFB523}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{B8990382-6750-476a-B4E6-5A4B9FBFB523}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Zone state,  which shall be applied.</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Public method to set a zone state, according to a zone state object passed in.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+
+		</table>
+</div>		<div class="ItemBody" id="LinksTable">
+			<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
+				<tr>
+					<td width="30%" class="TableHeading">Object</td>
+					<td width="15%" class="TableHeading">Type</td>
+					<td width="15%" class="TableHeading">Connection</td>
+					<td width="40%" class="TableHeading">Notes</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="./EA1/EA461.htm">«interface» INuvoProtocol</a></td>
+					<td width="15%" class="TableRow" valign="top">Interface</td>
+					<td width="15%" class="TableRow" valign="top">Generalization</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+
+			</table>
+		</div>
+	</div>
+<div class="pageFooter"></div>
+ 
+</body>
+</html>
