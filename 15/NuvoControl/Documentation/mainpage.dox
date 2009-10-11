@@ -1,0 +1,41 @@
+/*! 
+
+  \mainpage NuvoControl Start Page
+ 
+  \section intro Introduction
+ 
+  Bei dem Projekt NuvoControl handelt es sich um eine Software zu Ansteuerung und Visualisierung einer Audio Multiraum Anlage 
+  von Nuvo Systems.
+  
+  Eine kurze <b>Projektbeschreibung</b> ist im Dokument <a href="./NuvoControl_8100_ProjektKurzbeschreibung.doc.html">NuvoControl_8100_ProjektKurzbeschreibung.doc</a>
+  
+  Die Architektur und Design wird im Dokument NuvoControl_1300_Software_Architektur_und_Design.doc beschrieben, siehe <a href="./NuvoControl_1300_Software_Architektur_und_Design.doc.html">hier</a>, oder als <a href="./NuvoControl_1300_Software_Architektur_und_Design.doc.pdf">PDF</a> \n
+  Das dazugehörige Enterprise Architect File ist NuvoControl_1203_SystemDesign.eap, siehe <a href="./NuvoControl_1203_SystemDesign.eap_htmlexport/index.htm" target="_blank">hier</a>
+
+
+  \section content Inhalt
+ 
+  Die Dokumentation ist wie folgt aufgebaut.
+ 
+    - Hauptseite \n 
+      Diese \ref main "Startseite" ist der Einstiegspunkt bzw. die Hauptseite der Dokumentation.
+  
+  	- Projekt Dokumentation \n
+  	  Sämtliche Word Dokumente die während der Projektabwicklung erstellt wurden, sind ebenfalls Teil dieser HTML Dokumentation.
+  	  Auf der Seite \ref pageWordDocuments "Project Documentation" ist einer Liste mit desen Links aufgeführt.
+  
+    - Diverse Themen (Related Pages)\n
+      Neben der - aus dem Sourcode generierten Dokumentation - sind noch verschiedene Themen zusätzlich beschrieben, als eigene Seiten (bzw. Module).
+      Diese Module sind einzelne Themen die als ganzes in einem Kapitel (bzw. Seite) beschrieben werden.
+      Eine Übersicht der verfügbaren <a href="pages.html">Seiten</a> ist unter dem Tab 'Related Pages' zu finden.
+ 
+    - Source Code Beschreibung \n
+      Die mit Doxygen genereirte Dokumentation (zu welcher diese Startseite auch gehört) beschreibt in 
+      weiteren Tabs - wie 'Namespaces', 'Classes' und 'Files' - die generierte Dokumentation aus dem Sourcecode.
+ 
+ Mehr zur Dokumentation ist auf der Seite \ref pageDocumentation "Documentation" zu finden.
+ \n
+ \n
+ 
+ */
+
