@@ -1,0 +1,609 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Interface::ENuvoEssentiaCommands</title>
+<link href="../../../../../../css/ea.css" rel="stylesheet" type="text/css" />
+<script>
+function initPage(src) {
+	if(parent==this&&(this.location+"").indexOf('EARoot')!=-1)
+		document.location=(this.location+"").substring(0,(this.location+"").indexOf('EARoot'))+"index"+(this.location+"").substring((this.location+"").lastIndexOf('.'))+"?goto="+((this.location+"").substring((this.location+"").indexOf('EARoot')+7,(this.location+"").lastIndexOf('.')).replace(/\//g,':').replace(/EA/g,""));
+	else
+		parent.initPage(src);
+}
+</script>
+</head>
+<body onload="initPage(this);" class="Content">
+<div class="pageHeader"></div>
+<div class="PageBody">
+	<span class="ObjectTitle">ENuvoEssentiaCommands  : public  &lt;&lt;enumeration&gt;&gt; class</span>
+	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic">Created:</td>
+			<td width="85%" class="ObjectDetailsValue">25.05.2009 19:03:23</td>
+		</tr>
+		<tr>
+			<td class="ObjectDetailsTopic">Modified:</td>
+			<td class="ObjectDetailsValue">29.06.2009 17:02:32</td>
+		</tr>
+		<tr style="height: 10px"><td colspan="2"></td></tr>
+		<tr>
+			<td class="ObjectDetailsTopic"><img src="../../../../../../images/plus03.gif" align="absmiddle" id="proj" onclick="parent.toggleData(this.id)" />Project:</td>
+			<td class="ObjectDetailsValue"></td>
+		</tr>
+		<tr id="proj00" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
+			<td class="ObjectDetailsValue">LimacheB</td>
+		</tr>
+		<tr id="proj01" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
+			<td class="ObjectDetailsValue">1.0</td>
+		</tr>
+		<tr id="proj02" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Phase:</td>
+			<td class="ObjectDetailsValue">1.0</td>
+		</tr>
+		<tr id="proj03" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Status:</td>
+			<td class="ObjectDetailsValue">Proposed</td>
+		</tr>
+		<tr id="proj04" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Complexity:</td>
+			<td class="ObjectDetailsValue">Easy</td>
+		</tr>
+		<tr>
+			<td class="ObjectDetailsTopic"><img src="../../../../../../images/plus03.gif" align="absmiddle" id="adv" onclick="parent.toggleData(this.id)" />Advanced:</td>
+			<td class="ObjectDetailsValue"></td>
+		</tr>
+		<tr id="adv00" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
+			<td class="ObjectDetailsValue">{B27EB7C3-3F8B-4767-BDB4-E2019021AA29}</td>
+		</tr>
+		<tr id="adv01" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
+			<td class="ObjectDetailsValue"><a href="EA445.htm">Interface</a></td>
+		</tr>
+	</table>
+	<div class="ObjectDetailsNotes">&lt;p&gt;NuVo Essentia Commands&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;</div>
+
+	<div class="TableGroup" id="TableGroup">
+		<ul class="ItemTitle">
+			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
+			<li onClick="parent.toggleItem('AssociationsFrom');" id="AssociationsFromTitle">Associations From</li>
+			<li onClick="parent.toggleItem('TaggedVal');" id="TaggedValTitle">Tagged Values</li>
+		</ul>
+<div class="ItemBody" id="AttributesTable">
+	<table border="0" cellspacing="0" cellpadding="0" class="Table">
+		<tr>
+			<td width="40%" class="TableHeading">Attribute</td>
+			<td width="60%" class="TableHeading">Details</td>
+		</tr>
+						<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;ReadStatusSOURCEIR</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 0<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Command: *IRSETSR&lt;CR&gt; – Reads status of SOURCE IR carrier frequency settings RESPONSE:#IRSET:aa,bb,cc,dd,ee,ff&lt;CR&gt; where:aa = IR carrier frequency of SOURCE 1 (&quot;38&quot; or &quot;56&quot;) bb = carrier frequency of SOURCE 2 (&quot;38&quot; or &quot;56&quot;) cc = carrier frequency of SOURCE 3 (&quot;38&quot; or &quot;56&quot;) dd = carrier frequency of SOURCE 4 (&quot;38&quot; or &quot;56&quot;) ee = carrier frequency of SOURCE 5 (&quot;38&quot; or &quot;56&quot;) ff = carrier frequency of SOURCE 6 (&quot;38&quot; or &quot;56&quot;) NOTE – the Main Unit ships with the carrier frequency DEFAULT setting of38 KHz for all six sources&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;RestoreDefaultSOURCEIR</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 1<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			COMMAND: *IRSETDF&lt;CR&gt; – Restores DEFAULT SOURCE IR carrier frequency settings (38 KHz for all six sources). RESPONSE: Same response as for #IRSETSR&lt;CR&gt;&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;SetSOURCEIR56</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 2<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			COMMAND: *SxIR56SET&lt;CR&gt; - sets SOURCE x to 56 KHz IR repeat carrier (x is 1 to 6). RESPONSE: Same response as for #IRSETSR&lt;CR&gt;&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;SetSOURCEIR38</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 3<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			COMMAND: *SxIR38SET&lt;CR&gt; - sets SOURCE x to 38 KHz IR repeat carrier (x is 1 to 6). RESPONSE: Same response as for #IRSETSR&lt;CR&gt;&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;ReadStatusCONNECT</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 4<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			COMMAND: *ZxxCONSR&lt;CR&gt; - Connect STATUS REQUEST where xx is zone # from 1 to 12 RESPONSE:#ZxxPWRppp,SRCs,GRPq,VOL-yy&lt;CR&gt; -ppp = &quot;ON&quot; (2 characters)or &quot;OFF&quot; (3 characters) -s = SOURCE NUMBER 1 to 6 -q = 0 if SOURCE GROUP is ON / 1 if SOURCE GROUP is OFF -yy = level below max in dB: -00 to -79 dB (include lead 0 for all single-digit values) -yy = &quot;MT&quot; if in MUTE state -yy = &quot;XM&quot; if external MUTE is being held active This response will also be issued in response to pressing the ON/OFF, VOLUME, or SOURCEkeys on a KEYPAD. NOTE – the response will be issued if a SOURCE key is press`ed on azone that is powered OFF even though the key press has no effect on the system. It will beoutput at every increment during a volume ramp initiated by HOLDING a VOLUME UP orVOLUME DOWN key on a keypad. It will also be issued at every increment of a volumeramp commanded by the *ZxxVOL+&lt;CR&gt; and *ZxxVOL-&lt;CR&gt; commands (see below). The MUTE value will be asserted if a *ZxMTON&lt;CR&gt; command has been received, OR if thevolume is run all the way to the lowest possible point (volume off). An active EXTERNALMUTE input, however, will always override other volume response values with the &quot;XM&quot; response.&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;ReadStatusZONE</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 5<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			COMMAND:*ZxxSETSR&lt;CR&gt; – ZoneSet STATUS REQUEST where xx is zone # from 1 to 12 RESPONSE:#ZxxORp,BASSyy,TREByy,GRPq,VRSTr&lt;CR&gt; -p = 1 if DIP switches are overridden*0 if DIP switches are in control -yy = EQ level, dB, –8 to +0 (flat) to +8 in 1 dB increments -q = 0 if SOURCE GROUP is ON / 1 if SOURCE GROUP is OFF (This follows DIP switch definition.) -r = 0 if VOLUME RESET is ON / 1 if VOLUME RESET is OFF (This follows DIP switch definition.) override set to 1 FOR THIS ZONE only if one of commands *ZxxBASSyy&lt;CR&gt;, *ZxxTREByy&lt;CR&gt;, *ZxxGRPq&lt;CR&gt;, or *ZxxVRSTr&lt;CR&gt; are issued (seedescriptions below). Once it is SET by one of these commands: a. It will remain set until power is cycled on the unit. b. Non-address DIP switch changes on a connected KEYPAD connected to this zone will be ignored. If override state is &quot;0&quot;, this response is also issued whenever non-address KEYPAD DIP switches are changed&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;TurnZoneON</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 6<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			COMMAND: *ZxxON&lt;CR&gt; – Turn zone xx ON RESPONSE:Same response as for *ZxxCONSR&lt;CR&gt;&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;TurnZoneOFF</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 7<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			COMMAND: *ZxxOFF&lt;CR&gt; – Turn zone xx OFF RESPONSE:Same response as for *ZxxCONSR&lt;CR&gt;&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;TurnALLZoneOFF</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 8<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			COMMAND: *ALLOFF&lt;CR&gt; – Turn ALL zones OFF RESPONSE:#ALLOFF&lt;CR&gt; This RESPONSE is also issued when ALL OFF is pressed on any KEYPAD&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;RampVolumeALLZoneUP</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 9<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			COMMAND: *ALLV+&lt;CR&gt; – Ramp ALL zones UP at a 10 dB/second rate in 1 dB steps RESPONSE:#ALLV+&lt;CR&gt; The ramp action will be cancelled when all zones reach MAXIMUM volume, or when an *ALLHLD&lt;CR&gt; Command is received. Note that to stop theramp with this command before maximum volume, one reference zone must be periodically polled with a *ZxxCONSR&lt;CR&gt; Command to determinewhen the desired volume point has been reached. Note that ramps in different zones may start at different levels and will all ramp at the samerate.&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;RampVolumeALLZoneDOWN</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 10<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			COMMAND: *ALLV-&lt;CR&gt; – Ramp ALL zones DOWN at a 10 dB/second rate in 1 dB steps RESPONSE:#ALLV-&lt;CR&gt; The ramp action will be cancelled when all zones reach MINIMUM (OFF) volume, or when an *ALLHLD&lt;CR&gt; Command is received. Note that tostop the ramp with this command before the minimum volume, one reference zone must be periodically polled with a *ZxxCONSR&lt;CR&gt; Commandto determine when the desired volume point has been reached. Note that ramps in different zones may start at different levels and will all rampat the same rate&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;StopRampVolumeALLZone</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 11<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			COMMAND: *ALLHLD&lt;CR&gt; – Stops ramp action initiated by *ALLV+&lt;CR&gt; Or *ALLV-&lt;CR&gt; RESPONSE:#ALLHLD-&lt;CR&gt; This results in a HOLD of the level at time of command receipt&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;MuteALLZoneON</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 12<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			COMMAND: *ALLMON&lt;CR&gt; – ALL MUTE ON RESPONSE:# ALLMON&lt;CR&gt;&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;MuteALLZoneOFF</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 13<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			COMMAND: *ALLMOFF&lt;CR&gt; – ALL MUTE OFF RESPONSE:#ALLMOFF&lt;CR&gt;&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;SetSource</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 14<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			COMMAND: *ZxxSRCp&lt;CR&gt; – Switch zone xx to SOURCE p ( 1 to 6). RESPONSE:Same response as for *ZxxCONSR&lt;CR&gt;&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;SetVolume</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 15<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			COMMAND: *ZxxVOLyy&lt;CR&gt; – Set volume of zone xx to level yy below max in dB from –0 to –78 dB (include lead 0 for all single-digit values). RESPONSE:Same response as for *ZxxCONSR&lt;CR&gt;&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;RampVolumeUP</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 16<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			COMMAND:*ZxxVOL+&lt;CR&gt; – STARTS zone xx volume ramp UP at the rate of +10 dB per second in +1 dB steps. (This is the same as holding VOLUME UP key on a KEYPAD for 1 second). RESPONSE: Same response as for *ZxxCONSR&lt;CR&gt;, updated 10 times per second.&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;RampVolumeDOWN</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 17<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			COMMAND:*ZxxVOL-&lt;CR&gt; – STARTS zone xx volume ramp DOWN at the rate of -10 dB per second in -1 dB steps. (This is the same as holding VOLUME UP key on a KEYPAD for 1 second). RESPONSE: Same response as for *ZxxCONSR&lt;CR&gt;, updated 10 times per second.&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;StopRampVolume</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 18<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			COMMAND:*ZxxVHLD&lt;CR&gt; – STOPS zone xx volume ramp initiated by *ZxxVOL+&lt;CR&gt; or *ZxxVOL-&lt;CR&gt; commands. This results in a HOLD of the level at time of command receipt. RESPONSE: #ZxxVHLD&lt;CR&gt;&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;MuteON</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 19<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			COMMAND:*ZxxMTON&lt;CR&gt; – zone xx MUTE ON (mutes currently connected source) RESPONSE:Same response as for *ZxxCONSR&lt;CR&gt;&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;MuteOFF</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 20<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			COMMAND:*ZxxMTOFF&lt;CR&gt; – zone xx MUTE OFF (returns zone output to currently connected source at previous volume setting). RESPONSE:Same response as for *ZxxCONSR&lt;CR&gt;&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;SetBassLevel</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 21<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			COMMAND:*ZxxBASSyyy&lt;CR&gt; – zone xx BASS EQ with yyy = EQ level, dB, –12 to +0 (flat) to +12 in 2 dB increments. USE LEAD &quot;0&quot; IN TENS PLACE FOR VALUE LESS THAN 10. RESPONSE:Same response as for *ZxxSETSR&lt;CR&gt; NOTE: sending this command to the E6D will set override (lock out KEYPAD non-address DIP switches) for this zone until power is cycled&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;SetTrebleLevel</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 22<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			COMMAND: *ZxxTREByyy&lt;CR&gt; – zone xx TREBLE EQ with yyy = EQ level, dB, –12 to +0 (flat) to +12 in 2 dB increments. USE LEAD &quot;0&quot; IN TENS PLACE FOR VALUE LESS THAN 10. RESPONSE:Same response as for *ZxxSETSR&lt;CR&gt; NOTE: sending this command to the E6D will set override (lock out KEYPAD non-address DIP switches) for this zone until power is cycled.&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;SetSourceGroupON</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 23<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			COMMAND:*ZxxGRPON&lt;CR&gt; – zone xx SOURCE GROUP ON. RESPONSE:Same response as for *ZxxSETSR&lt;CR&gt; NOTE: sending this command to the E6D will set override (lock out KEYPAD non-address DIP switches) for this zone until power is cycled.&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;SetSourceGroupOFF</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 24<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			COMMAND:*ZxxGRPOFF&lt;CR&gt; – zone xx SOURCE GROUP OFF. RESPONSE:Same response as for *ZxxSETSR&lt;CR&gt; NOTE: sending this command to the E6D will set override (lock out KEYPAD non-address DIP switches) for this zone until power is cycled.&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;SetVolumeResetON</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 25<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			COMMAND:*ZxxVRSTON&lt;CR&gt; – zone xx VOLUME RESET ON. RESPONSE:Same response as for *ZxxSETSR&lt;CR&gt; NOTE: sending this command to the E6D will set override (lock out KEYPAD non-address DIP switches) for this zone until power is cycled.&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;SetVolumeResetOFF</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 26<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			COMMAND:*ZxxVRSTOFF&lt;CR&gt; – zone xx VOLUME RESET OFF. RESPONSE:Same response as for *ZxxSETSR&lt;CR&gt; NOTE: sending this command to the E6D will set override (lock out KEYPAD non-address DIP switches) for this zone until power is cycled.&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;SetKeypadLockON</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 27<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			COMMAND:*ZxxLKON&lt;CR&gt; – zone xx KEYPAD LOCK ON – This will INHIBIT ANY keypad control input on the zone. This is the same as activating the Parental lock control at a keypad by holding down a SOURCE key for three seconds). RESPONSE:#ZxxLKON&lt;CR&gt;&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;SetKeypadLockOFF</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 28<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			COMMAND:*ZxxLKOFF&lt;CR&gt; – zone xx KEYPAD LOCK ON – This will RESTORE ALL keypad control input on the zone (useful as Parental lock control) . This is the same as de-activating the Parental lock control at a keypad byholding down a SOURCE key for three seconds). RESPONSE: #ZxxLKOFF&lt;CR&gt;&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;ReadVersion</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 29<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			COMMAND:*VER&lt;CR&gt; – Firmware version query. RESPONSE: #NUVO_E6D_vx.yy&lt;CR&gt; where x is the major version number and yyis the minor version number.&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;ExternalMuteActivated</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 30<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			RESPONSE: #EXTMON&lt;CR&gt; Issued whenever the External MUTE first activates (closure to ground) and 0 whenever the External MUTE de-activates (open connection to ground). NOTE – there is no COMMAND associated with this response; it is always initiated by a change at the EXT. MUTE input.&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;ExternalMuteDeactivated</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 31<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			RESPONSE: #EXTMOFF&lt;CR&gt; Issued whenever External MUTE de-activates (open connection to ground). NOTE – there is no COMMAND associated with this response; it is always initiated by a change at the EXT. MUTE input&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;ErrorInCommand</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 32<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			RESPONSE: #?&lt;CR&gt; If a command has an error in it (does not adhere to exact command syntax), the E6D will respond with a &quot;#?&lt;CR&gt;&quot; string. NOTE – there is no COMMAND associated with this response; it is always initiated if an error has been found in a command.&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;SetZoneStatus</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 60<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			COMMAND: Three commands =&gt; TurnZoneON, SetVolume and SetSource. RESPONSE: see the single command&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;GetZoneStatus</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 61<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			COMMAND: Two commands =&gt; ReadStatusCONNECT and ReadStatusZONE. RESPONSE: see the single command&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;NoCommand</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 100<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			NO Comamnd&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>
+		</table>
+</div>		<div class="ItemBody" id="AssociationsFromTable">
+			<table border="0" cellspacing="0" cellpadding="0" class="Table">
+				<tr>
+					<td width="20%" class="TableHeading">Element</td>
+					<td width="25%" class="TableHeading">Source Role</td>
+					<td width="25%" class="TableHeading">Target Role</td>
+					<td width="30%" class="TableHeading">Details</td>
+				</tr>
+				<tr>
+					<td width="20%" class="TableRow" valign="top">
+						<a href="../EA434.htm">NuvoEssentiaCommand</a><br />
+						Class &nbsp;
+					</td>
+					<td width="20%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;
+					</td>
+					<td width="20%" class="TableRow" valign="top">
+						<strong>Name:</strong> _command<br />
+						&nbsp;	
+					</td>
+					<td width="30%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="20%" class="TableRow" valign="top">
+						<a href="../EA437.htm">NuvoEssentiaSingleCommand</a><br />
+						Class &nbsp;
+					</td>
+					<td width="20%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;
+					</td>
+					<td width="20%" class="TableRow" valign="top">
+						<strong>Name:</strong> _command<br />
+						&nbsp;	
+					</td>
+					<td width="30%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+
+			</table>
+		</div>
+<div class="ItemBody" id="TaggedValTable">
+	<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
+	<tr>
+			<td width="30%" class="TableHeading">Tag</td>
+			<td width="30%" class="TableHeading">Value</td>
+			<td width="40%" class="TableHeading">Details</td>
+	</tr>
+					<tr>
+				<td width="30%" class="TableRow" valign="top">Attribute</td>
+				<td width="30%" class="TableRow" valign="top">[Serializable]</td>
+				<td width="30%" class="TableRow" valign="top">&nbsp;</td>
+			</tr>
+</table>
+</div>	</div>
+<div class="pageFooter"></div>
+ 
+</body>
+</html>
