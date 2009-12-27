@@ -1,0 +1,6 @@
+tocTab[tocTab.length] = new Array("5:1", "", "Component Model", "EARoot/EA5/EA507.htm", "178.png", "21", "0", "", "Component diagram0","{EB14F07B-B8DC-41b3-8CAC-94E65495C032}");
+tocTab[tocTab.length] = new Array("5:2", "", "DataStorage (XML file)", "EARoot/EA5/EA516.htm", "10.png", "144", "0", "", "Component0","{771D3AD9-16EC-40ff-B9B4-FF8E2AAD2553}");
+tocTab[tocTab.length] = new Array("5:3", "", "NuvoEssentia", "EARoot/EA5/EA519.htm", "10.png", "145", "0", "", "Component0","{42C6E8D0-609F-4935-950F-8C8876BAB601}");
+tocTab[tocTab.length] = new Array("5.1", "1", "Components", "EARoot/EA5/EA514.htm", "4.png", "", "", "{68175FB5-77EF-4e8a-8444-61228BC4B544}", "Package");
+tocTab[tocTab.length] = new Array("5.2", "1", "Connections", "EARoot/EA5/EA515.htm", "4.png", "", "", "{C5CF50FF-9000-49bf-B780-F50B7BEDC092}", "Package");
+tocTab[tocTab.length] = new Array("5.3", "1", "Internal Structures", "EARoot/EA5/EA517.htm", "4.png", "", "", "{2551517E-C0C9-4e20-994C-B0BC5B27B3EC}", "Package");
