@@ -1,0 +1,2206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Simulator::NuvoControlSimulator</title>
+<link href="../../../../../css/ea.css" rel="stylesheet" type="text/css" />
+<script>
+function initPage(src) {
+	if(parent==this&&(this.location+"").indexOf('EARoot')!=-1)
+		document.location=(this.location+"").substring(0,(this.location+"").indexOf('EARoot'))+"index"+(this.location+"").substring((this.location+"").lastIndexOf('.'))+"?goto="+((this.location+"").substring((this.location+"").indexOf('EARoot')+7,(this.location+"").lastIndexOf('.')).replace(/\//g,':').replace(/EA/g,""));
+	else
+		parent.initPage(src);
+}
+</script>
+</head>
+<body onload="initPage(this);" class="Content">
+<div class="pageHeader"></div>
+<div class="PageBody">
+	<span class="ObjectTitle">NuvoControlSimulator  : public   class</span>
+	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic">Created:</td>
+			<td width="85%" class="ObjectDetailsValue">17.08.2009 17:09:16</td>
+		</tr>
+		<tr>
+			<td class="ObjectDetailsTopic">Modified:</td>
+			<td class="ObjectDetailsValue">17.08.2009 17:09:16</td>
+		</tr>
+		<tr style="height: 10px"><td colspan="2"></td></tr>
+		<tr>
+			<td class="ObjectDetailsTopic"><img src="../../../../../images/plus03.gif" align="absmiddle" id="proj" onclick="parent.toggleData(this.id)" />Project:</td>
+			<td class="ObjectDetailsValue"></td>
+		</tr>
+		<tr id="proj00" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
+			<td class="ObjectDetailsValue">ImfeldC</td>
+		</tr>
+		<tr id="proj01" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
+			<td class="ObjectDetailsValue">1.0</td>
+		</tr>
+		<tr id="proj02" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Phase:</td>
+			<td class="ObjectDetailsValue">1.0</td>
+		</tr>
+		<tr id="proj03" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Status:</td>
+			<td class="ObjectDetailsValue">Proposed</td>
+		</tr>
+		<tr id="proj04" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Complexity:</td>
+			<td class="ObjectDetailsValue">Easy</td>
+		</tr>
+		<tr>
+			<td class="ObjectDetailsTopic"><img src="../../../../../images/plus03.gif" align="absmiddle" id="adv" onclick="parent.toggleData(this.id)" />Advanced:</td>
+			<td class="ObjectDetailsValue"></td>
+		</tr>
+		<tr id="adv00" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
+			<td class="ObjectDetailsValue">{98C224A2-B38D-4d3a-A0C8-C16125D27B89}</td>
+		</tr>
+		<tr id="adv01" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
+			<td class="ObjectDetailsValue"><a href="EA480.htm">Simulator</a></td>
+		</tr>
+	</table>
+	<div class="ObjectDetailsNotes">&lt;p&gt;Main form class of the Nuvo Control Simulator.&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;</div>
+
+	<div class="TableGroup" id="TableGroup">
+		<ul class="ItemTitle">
+			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
+			<li onClick="parent.toggleItem('Operations');" id="OperationsTitle">Operations</li>
+			<li onClick="parent.toggleItem('AssociationsTo');" id="AssociationsToTitle">Associations To</li>
+			<li onClick="parent.toggleItem('TaggedVal');" id="TaggedValTitle">Tagged Values</li>
+		</ul>
+<div class="ItemBody" id="AttributesTable">
+	<table border="0" cellspacing="0" cellpadding="0" class="Table">
+		<tr>
+			<td width="40%" class="TableHeading">Attribute</td>
+			<td width="60%" class="TableHeading">Details</td>
+		</tr>
+						<tr>
+				<td width="40%" class="TableRow" valign="top"><i>private int</i><br /><strong>&nbsp;&nbsp;_deviceId</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 1<br></i>&nbsp;</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>private Queue<ReceiveCompletedEventArgs></i><br /><strong>&nbsp;&nbsp;_incommingCommands</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> new Queue<ReceiveCompletedEventArgs>()<br></i>&nbsp;</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>private ILog</i><br /><strong>&nbsp;&nbsp;_log</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> LogManager.GetCurrentClassLogger()<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Common logger object. Requires the using directive &lt;c&gt;Common.Logging&lt;/c&gt;. See&lt;br /&gt;&lt;see cref=&quot;LogManager&quot;/&gt; for more information.&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>private Color</i><br /><strong>&nbsp;&nbsp;_MessageColor</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> { Color.Blue, Color.Green, Color.Black, Color.Orange, Color.Red }<br></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Private variable to store the colors used for the message types. See &lt;see cref=&quot;MessageType&quot;/&gt; for more information.&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>private int</i><br /><strong>&nbsp;&nbsp;_numOfZones</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> 12<br></i>const=true<br>&nbsp;</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>private Queue<string></i><br /><strong>&nbsp;&nbsp;_outgoingCommands</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> new Queue<string>()<br></i>&nbsp;</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>private MessageQueue</i><br /><strong>&nbsp;&nbsp;_rcvQueue</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Private receiver message queue.&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>private string</i><br /><strong>&nbsp;&nbsp;_rcvQueueName</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> ".\\private$\\toNuvoEssentia"<br></i>const=true<br><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Constant with the name of the receiver queue. NOTE: In the simulator the send- and receive-queue are switched. compared to the NuvoControl server.&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>private MessageQueue</i><br /><strong>&nbsp;&nbsp;_sendQueue</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Private sender message queue.&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>private string</i><br /><strong>&nbsp;&nbsp;_sendQueueName</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i><i>Initial:</i> ".\\private$\\fromNuvoEssentia"<br></i>const=true<br><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Constant with the name of the sender queue. NOTE: In the simulator the send- and receive-queue are switched. compared to the NuvoControl server.&lt;br /&gt;&lt;br /&gt;
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>			<tr>
+				<td width="40%" class="TableRow" valign="top"><i>private <a href="EA487.htm">ZoneStateController</a></i><br /><strong>&nbsp;&nbsp;_zoneSateController</strong></td>
+				<td width="60%" class="TableRow" valign="top"><i></i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Simulator members
+		</td>
+	</tr>
+</table></div>
+</td>
+			</tr>
+		</table>
+</div><div class="ItemBody" id="OperationsTable">
+	<table border="0" cellspacing="0" cellpadding="0" class="Table">
+		<tr>
+			<td width="40%" class="TableHeading">Operation</td>
+			<td width="60%" class="TableHeading">Details</td>
+		</tr>
+						<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>_rcvQueue_ReceiveCompleted</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{027A3F94-3B0F-4dd4-B721-1482434159CF}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{027A3F94-3B0F-4dd4-B721-1482434159CF}" border="0" />sender: object</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{027A3F94-3B0F-4dd4-B721-1482434159CF}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{027A3F94-3B0F-4dd4-B721-1482434159CF}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{027A3F94-3B0F-4dd4-B721-1482434159CF}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{027A3F94-3B0F-4dd4-B721-1482434159CF}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">MSMQ sender</div>
+</td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{B7D4A1EB-BE0D-4ca8-BF7D-8F2483849686}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{B7D4A1EB-BE0D-4ca8-BF7D-8F2483849686}" border="0" />eventArg: ReceiveCompletedEventArgs</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{B7D4A1EB-BE0D-4ca8-BF7D-8F2483849686}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{B7D4A1EB-BE0D-4ca8-BF7D-8F2483849686}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{B7D4A1EB-BE0D-4ca8-BF7D-8F2483849686}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{B7D4A1EB-BE0D-4ca8-BF7D-8F2483849686}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Event argument,  containing the message</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Event method to receive messages via the MSMQ queue.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>_zoneSateController_onZoneUpdated</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{74E54551-AE16-48e6-9A46-2341BA9F5AB6}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{74E54551-AE16-48e6-9A46-2341BA9F5AB6}" border="0" />sender: object</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{74E54551-AE16-48e6-9A46-2341BA9F5AB6}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{74E54551-AE16-48e6-9A46-2341BA9F5AB6}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{74E54551-AE16-48e6-9A46-2341BA9F5AB6}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{74E54551-AE16-48e6-9A46-2341BA9F5AB6}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Sender Zone State Controller of the zone update.</div>
+</td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{1C620072-A8A3-4e94-87DA-D78287A32BF1}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{1C620072-A8A3-4e94-87DA-D78287A32BF1}" border="0" />e: <a href="EA488.htm">ZoneStateEventArgs</a></a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{1C620072-A8A3-4e94-87DA-D78287A32BF1}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{1C620072-A8A3-4e94-87DA-D78287A32BF1}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{1C620072-A8A3-4e94-87DA-D78287A32BF1}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{1C620072-A8A3-4e94-87DA-D78287A32BF1}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Event Argument,  send by the zone state controller.</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Private method to dispatch the &#39;Zone Updated&#39; event from the Zone State Controller (see &lt;see cref=&quot;ZoneStateController&quot;/&gt;). The receiving user control needs to check if the update is relevant for them.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>CloseQueues</strong>():void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Close the queues of this class.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>cmbSimModeSelect_SelectedIndexChanged</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{B0C505F9-6F35-47fc-8E32-979A74801728}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{B0C505F9-6F35-47fc-8E32-979A74801728}" border="0" />sender: object</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{B0C505F9-6F35-47fc-8E32-979A74801728}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{B0C505F9-6F35-47fc-8E32-979A74801728}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{B0C505F9-6F35-47fc-8E32-979A74801728}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{B0C505F9-6F35-47fc-8E32-979A74801728}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Simulation Mode combo box.</div>
+</td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{8A8FCD76-0DA0-497c-8A43-E6D3A54CFD58}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{8A8FCD76-0DA0-497c-8A43-E6D3A54CFD58}" border="0" />e: EventArgs</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{8A8FCD76-0DA0-497c-8A43-E6D3A54CFD58}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{8A8FCD76-0DA0-497c-8A43-E6D3A54CFD58}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{8A8FCD76-0DA0-497c-8A43-E6D3A54CFD58}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{8A8FCD76-0DA0-497c-8A43-E6D3A54CFD58}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Event argument,  send by the combo box.</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Private event handler in case the simualtion mode has been changed. It starts the timer for the simulation incase the mode is not &lt;c&gt;NoSimulation&lt;/c&gt;.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>DisplayData</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{15D0D0E2-FA14-49d9-A941-3C9A28881D4E}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{15D0D0E2-FA14-49d9-A941-3C9A28881D4E}" border="0" />type: <a href="EA491.htm">MessageType</a></a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{15D0D0E2-FA14-49d9-A941-3C9A28881D4E}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{15D0D0E2-FA14-49d9-A941-3C9A28881D4E}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{15D0D0E2-FA14-49d9-A941-3C9A28881D4E}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{15D0D0E2-FA14-49d9-A941-3C9A28881D4E}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">MessageType of the message</div>
+</td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{E38494B3-5E2D-4cf9-B41F-C0EDC62A1A66}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{E38494B3-5E2D-4cf9-B41F-C0EDC62A1A66}" border="0" />msg: string</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{E38494B3-5E2D-4cf9-B41F-C0EDC62A1A66}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{E38494B3-5E2D-4cf9-B41F-C0EDC62A1A66}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{E38494B3-5E2D-4cf9-B41F-C0EDC62A1A66}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{E38494B3-5E2D-4cf9-B41F-C0EDC62A1A66}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Message to display</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i>Tags:</i><span style="margin-left: .7cm;"> </span></td>
+							<td>Attribute=[STAThread]</td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			method to display the data to and from the port on the screen
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>public static</i><br />
+					<strong>GetQueue</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{CBF2DF9B-E855-4c6a-8A05-8B7F3EECAE24}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{CBF2DF9B-E855-4c6a-8A05-8B7F3EECAE24}" border="0" />queueName: string</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{CBF2DF9B-E855-4c6a-8A05-8B7F3EECAE24}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{CBF2DF9B-E855-4c6a-8A05-8B7F3EECAE24}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{CBF2DF9B-E855-4c6a-8A05-8B7F3EECAE24}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{CBF2DF9B-E855-4c6a-8A05-8B7F3EECAE24}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Name of the queue.</div>
+</td>
+						</tr>
+					</table>
+):MessageQueue
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Gets a queue specified with its name. If the queue doesn&#39;t exists, it will be created. An exception is thrown if the queue is not available or cannot be created.&lt;br /&gt;&lt;br /&gt;@returns Queue. null if cannot be created.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>importEnumeration</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{D80AF257-F333-4661-B71A-E5CB4A0BFD95}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{D80AF257-F333-4661-B71A-E5CB4A0BFD95}" border="0" />t: Type</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{D80AF257-F333-4661-B71A-E5CB4A0BFD95}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{D80AF257-F333-4661-B71A-E5CB4A0BFD95}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{D80AF257-F333-4661-B71A-E5CB4A0BFD95}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{D80AF257-F333-4661-B71A-E5CB4A0BFD95}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Enumeration type,  to load into combo box.</div>
+</td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{7C575B4E-7D72-4648-981A-C7026BF68989}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{7C575B4E-7D72-4648-981A-C7026BF68989}" border="0" />comboBox: ComboBox</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{7C575B4E-7D72-4648-981A-C7026BF68989}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{7C575B4E-7D72-4648-981A-C7026BF68989}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{7C575B4E-7D72-4648-981A-C7026BF68989}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{7C575B4E-7D72-4648-981A-C7026BF68989}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Combo box,  to fill with enumeration.</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Example from http://marioschneider.blogspot.com/2008/01/folgende-methode-ermglicht-es-alle.html
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>initZoneUserControl</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{0251CD78-7ABF-42f6-B0DF-40123A2E030B}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{0251CD78-7ABF-42f6-B0DF-40123A2E030B}" border="0" />uc: <a href="EA490.htm">ZoneUserControl</a></a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{0251CD78-7ABF-42f6-B0DF-40123A2E030B}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{0251CD78-7ABF-42f6-B0DF-40123A2E030B}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{0251CD78-7ABF-42f6-B0DF-40123A2E030B}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{0251CD78-7ABF-42f6-B0DF-40123A2E030B}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Zone User Control,  which will be initialized.</div>
+</td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{79CC9FF8-E3DC-44ea-8D79-D43E146D869B}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{79CC9FF8-E3DC-44ea-8D79-D43E146D869B}" border="0" />zoneId: <a href="../EA4/EA1/EA452.htm">ENuvoEssentiaZones</a></a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{79CC9FF8-E3DC-44ea-8D79-D43E146D869B}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{79CC9FF8-E3DC-44ea-8D79-D43E146D869B}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{79CC9FF8-E3DC-44ea-8D79-D43E146D869B}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{79CC9FF8-E3DC-44ea-8D79-D43E146D869B}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Zone Id,  to set.</div>
+</td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{C278A37B-575F-40b9-8D8D-9B59550F5445}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{C278A37B-575F-40b9-8D8D-9B59550F5445}" border="0" />zoneState: <a href="../../EA2/EA350.htm">ZoneState</a></a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{C278A37B-575F-40b9-8D8D-9B59550F5445}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{C278A37B-575F-40b9-8D8D-9B59550F5445}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{C278A37B-575F-40b9-8D8D-9B59550F5445}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{C278A37B-575F-40b9-8D8D-9B59550F5445}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Zone State,  to set.</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Private method to initialize a zone use control, with the zone id and zone state.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>numDelay_ValueChanged</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{F9354631-72E8-45b1-8533-7670C5C270CF}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{F9354631-72E8-45b1-8533-7670C5C270CF}" border="0" />sender: object</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{F9354631-72E8-45b1-8533-7670C5C270CF}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{F9354631-72E8-45b1-8533-7670C5C270CF}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{F9354631-72E8-45b1-8533-7670C5C270CF}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{F9354631-72E8-45b1-8533-7670C5C270CF}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">This pointer,  to the numeric control.</div>
+</td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{2AECE988-3EF5-465b-A759-720B872C189A}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{2AECE988-3EF5-465b-A759-720B872C189A}" border="0" />e: EventArgs</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{2AECE988-3EF5-465b-A759-720B872C189A}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{2AECE988-3EF5-465b-A759-720B872C189A}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{2AECE988-3EF5-465b-A759-720B872C189A}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{2AECE988-3EF5-465b-A759-720B872C189A}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Event argument,  send by the numeric control in case the value has changed.</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Event handler method in case the delay time is adjusted. It sets directly the intervall method of the send out timer. See &lt;see cref=&quot;System.Windows.Forms.Timer.Interval&quot;/&gt;. It also sets the periodic update timer, to send out automated updates.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>numPeriodicUpdate_ValueChanged</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{20D5BF61-55CD-479b-86A5-A1C6EE75D028}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{20D5BF61-55CD-479b-86A5-A1C6EE75D028}" border="0" />sender: object</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{20D5BF61-55CD-479b-86A5-A1C6EE75D028}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{20D5BF61-55CD-479b-86A5-A1C6EE75D028}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{20D5BF61-55CD-479b-86A5-A1C6EE75D028}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{20D5BF61-55CD-479b-86A5-A1C6EE75D028}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">This pointer,  to the numeric control.</div>
+</td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{1F73BCDF-CCA3-425d-AFA0-CF5C9EE61915}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{1F73BCDF-CCA3-425d-AFA0-CF5C9EE61915}" border="0" />e: EventArgs</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{1F73BCDF-CCA3-425d-AFA0-CF5C9EE61915}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{1F73BCDF-CCA3-425d-AFA0-CF5C9EE61915}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{1F73BCDF-CCA3-425d-AFA0-CF5C9EE61915}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{1F73BCDF-CCA3-425d-AFA0-CF5C9EE61915}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Event argument,  send by the numeric control in case the value has changed.</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Event handler method in case the periodic update time is adjusted.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>public</i><br />
+					<strong>NuvoControlSimulator</strong>():
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Constructor to create the form class for the Nuvo Control Simulator.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>NuvoControlSimulator_FormClosed</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{6AFD8420-17F9-4551-8673-983E60076BBC}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{6AFD8420-17F9-4551-8673-983E60076BBC}" border="0" />sender: object</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{6AFD8420-17F9-4551-8673-983E60076BBC}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{6AFD8420-17F9-4551-8673-983E60076BBC}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{6AFD8420-17F9-4551-8673-983E60076BBC}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{6AFD8420-17F9-4551-8673-983E60076BBC}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Sender of the event.</div>
+</td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{3EAC611D-6706-47c0-971C-895075EFE7F7}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{3EAC611D-6706-47c0-971C-895075EFE7F7}" border="0" />e: FormClosedEventArgs</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{3EAC611D-6706-47c0-971C-895075EFE7F7}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{3EAC611D-6706-47c0-971C-895075EFE7F7}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{3EAC611D-6706-47c0-971C-895075EFE7F7}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{3EAC611D-6706-47c0-971C-895075EFE7F7}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Event Argument.</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Private event handler method at &#39;Form Closed&#39;. Closes the queues and stops all timers.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>NuvoControlSimulator_Load</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{5074D827-AEB0-4250-84DB-9AE15E0EC393}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{5074D827-AEB0-4250-84DB-9AE15E0EC393}" border="0" />sender: object</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{5074D827-AEB0-4250-84DB-9AE15E0EC393}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{5074D827-AEB0-4250-84DB-9AE15E0EC393}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{5074D827-AEB0-4250-84DB-9AE15E0EC393}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{5074D827-AEB0-4250-84DB-9AE15E0EC393}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Sender of the event.</div>
+</td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{32C58DDD-2529-45e0-8365-EDA0E8CD2450}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{32C58DDD-2529-45e0-8365-EDA0E8CD2450}" border="0" />e: EventArgs</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{32C58DDD-2529-45e0-8365-EDA0E8CD2450}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{32C58DDD-2529-45e0-8365-EDA0E8CD2450}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{32C58DDD-2529-45e0-8365-EDA0E8CD2450}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{32C58DDD-2529-45e0-8365-EDA0E8CD2450}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Event Argument.</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Private event handler method at &#39;Form Load&#39;. Initialize all user controls and establish a connection to the queues.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>onZoneUpdated</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{49F09243-FA42-449c-9001-CCA5A3A7E1D6}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{49F09243-FA42-449c-9001-CCA5A3A7E1D6}" border="0" />uc: <a href="EA490.htm">ZoneUserControl</a></a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{49F09243-FA42-449c-9001-CCA5A3A7E1D6}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{49F09243-FA42-449c-9001-CCA5A3A7E1D6}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{49F09243-FA42-449c-9001-CCA5A3A7E1D6}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{49F09243-FA42-449c-9001-CCA5A3A7E1D6}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Zone User Control,  where to send the update.</div>
+</td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{231A58D4-D316-403f-81C8-89835C494D2C}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{231A58D4-D316-403f-81C8-89835C494D2C}" border="0" />e: <a href="EA488.htm">ZoneStateEventArgs</a></a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{231A58D4-D316-403f-81C8-89835C494D2C}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{231A58D4-D316-403f-81C8-89835C494D2C}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{231A58D4-D316-403f-81C8-89835C494D2C}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{231A58D4-D316-403f-81C8-89835C494D2C}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Event Argument,  send by the zone state controller.</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Private helper method for the &#39;Zone Updated&#39; event. See &lt;see cref=&quot;_zoneSateController_onZoneUpdated&quot;/&gt;. This method passes the update event to the user control passed into as paramter.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>OpenQueues</strong>():void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Opens the queues of this class and disposes all messages in the queues.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>PowerStatusSelect_sendCommandForManualChanges</strong>():void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>PurgeQueue</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{093D205F-BAE4-410a-89E1-0DCD820EA2DE}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{093D205F-BAE4-410a-89E1-0DCD820EA2DE}" border="0" />msgQueue: MessageQueue</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{093D205F-BAE4-410a-89E1-0DCD820EA2DE}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{093D205F-BAE4-410a-89E1-0DCD820EA2DE}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{093D205F-BAE4-410a-89E1-0DCD820EA2DE}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{093D205F-BAE4-410a-89E1-0DCD820EA2DE}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Queue,  where to delete the messages.</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Purges the content of a queue. Writes a log message with the number of disposed (deleted) messages.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>sendCommandForManualChanges</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{BBF7E916-67BD-4e7d-A0D3-6970554BA6C5}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{BBF7E916-67BD-4e7d-A0D3-6970554BA6C5}" border="0" />commandType: <a href="../EA4/EA1/EA450.htm">ENuvoEssentiaCommands</a></a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{BBF7E916-67BD-4e7d-A0D3-6970554BA6C5}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{BBF7E916-67BD-4e7d-A0D3-6970554BA6C5}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{BBF7E916-67BD-4e7d-A0D3-6970554BA6C5}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{BBF7E916-67BD-4e7d-A0D3-6970554BA6C5}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Command type,  which shall be send.</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Private method to send a command, based on the settings in the zone user control &lt;c&gt;ucZoneManual&lt;/c&gt;. The command parameters are read from the zone user control, and then put into teh queue.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>sendCommandForSimulation</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{5EF15172-ACEE-4335-AC02-B46421626851}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{5EF15172-ACEE-4335-AC02-B46421626851}" border="0" />uc: <a href="EA490.htm">ZoneUserControl</a></a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{5EF15172-ACEE-4335-AC02-B46421626851}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{5EF15172-ACEE-4335-AC02-B46421626851}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{5EF15172-ACEE-4335-AC02-B46421626851}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{5EF15172-ACEE-4335-AC02-B46421626851}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Zone User Control,  which shall be used as source for the command.</div>
+</td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{3596BCF7-F353-42ad-8196-C6AEC63BFAC1}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{3596BCF7-F353-42ad-8196-C6AEC63BFAC1}" border="0" />commandType: <a href="../EA4/EA1/EA450.htm">ENuvoEssentiaCommands</a></a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{3596BCF7-F353-42ad-8196-C6AEC63BFAC1}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{3596BCF7-F353-42ad-8196-C6AEC63BFAC1}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{3596BCF7-F353-42ad-8196-C6AEC63BFAC1}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{3596BCF7-F353-42ad-8196-C6AEC63BFAC1}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Command type to send back.</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Sends a command back to the system. It puts the outgoing commands on the outgoing commands queue. In case a delay of more than 500 [ms] is defined a message is shown at the UI, to inform the user that the message will be send out delayed.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>simulate</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{B937A1FE-B489-4a37-9AC7-D662301E145A}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{B937A1FE-B489-4a37-9AC7-D662301E145A}" border="0" />eventArg: ReceiveCompletedEventArgs</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{B937A1FE-B489-4a37-9AC7-D662301E145A}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{B937A1FE-B489-4a37-9AC7-D662301E145A}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{B937A1FE-B489-4a37-9AC7-D662301E145A}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{B937A1FE-B489-4a37-9AC7-D662301E145A}03" style="display: none;">
+							<td width="50"></td>
+							<td></td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Private method, which handles the different simulation modes. It calculates the outgoing command - depending of the selected simulation mode - and sends them back (see &lt;see cref=&quot;sendCommandForSimulation&quot;/&gt;).
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>SourceSelect_sendCommandForManualChanges</strong>():void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>timerPeriodicUpdate_Tick</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{79E1F5DC-5746-47d9-B3C6-91008F07DF99}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{79E1F5DC-5746-47d9-B3C6-91008F07DF99}" border="0" />sender: object</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{79E1F5DC-5746-47d9-B3C6-91008F07DF99}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{79E1F5DC-5746-47d9-B3C6-91008F07DF99}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{79E1F5DC-5746-47d9-B3C6-91008F07DF99}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{79E1F5DC-5746-47d9-B3C6-91008F07DF99}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">This pointer,  to the timer periodic update timer.</div>
+</td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{B3A9AFC4-81A8-4a81-B41F-AAC3DCBA72A7}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{B3A9AFC4-81A8-4a81-B41F-AAC3DCBA72A7}" border="0" />e: EventArgs</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{B3A9AFC4-81A8-4a81-B41F-AAC3DCBA72A7}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{B3A9AFC4-81A8-4a81-B41F-AAC3DCBA72A7}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{B3A9AFC4-81A8-4a81-B41F-AAC3DCBA72A7}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{B3A9AFC4-81A8-4a81-B41F-AAC3DCBA72A7}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Event argument,  of the timer event.</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Event handler for the periodic timer. It sends periodically an update command to the system.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>timerSendOut_Tick</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{4A8852C5-C782-4396-B931-1374B4AFE059}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{4A8852C5-C782-4396-B931-1374B4AFE059}" border="0" />sender: object</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{4A8852C5-C782-4396-B931-1374B4AFE059}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{4A8852C5-C782-4396-B931-1374B4AFE059}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{4A8852C5-C782-4396-B931-1374B4AFE059}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{4A8852C5-C782-4396-B931-1374B4AFE059}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Timer control,  which fires this event.</div>
+</td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{B56A8F91-5DFF-4039-B748-00DCB566AE43}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{B56A8F91-5DFF-4039-B748-00DCB566AE43}" border="0" />e: EventArgs</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{B56A8F91-5DFF-4039-B748-00DCB566AE43}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{B56A8F91-5DFF-4039-B748-00DCB566AE43}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{B56A8F91-5DFF-4039-B748-00DCB566AE43}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{B56A8F91-5DFF-4039-B748-00DCB566AE43}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Event argument,  for this timer event.</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Private timer event handler to send out the outgoing command queue. This method checkes the outgoing queue and sends the command on top of the queue to the message queue. A delay is set via the intervall length of the timer. As example, if the delay is 5[s], this timer is only called once every 5[s].
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>timerSimulate_Tick</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{FF942666-2185-40b7-9175-6550980FBF59}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{FF942666-2185-40b7-9175-6550980FBF59}" border="0" />sender: object</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{FF942666-2185-40b7-9175-6550980FBF59}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{FF942666-2185-40b7-9175-6550980FBF59}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{FF942666-2185-40b7-9175-6550980FBF59}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{FF942666-2185-40b7-9175-6550980FBF59}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Timer control,  which fires this event.</div>
+</td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{7B648532-9E6B-424c-B028-F0B2154D01A1}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{7B648532-9E6B-424c-B028-F0B2154D01A1}" border="0" />e: EventArgs</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{7B648532-9E6B-424c-B028-F0B2154D01A1}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{7B648532-9E6B-424c-B028-F0B2154D01A1}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{7B648532-9E6B-424c-B028-F0B2154D01A1}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{7B648532-9E6B-424c-B028-F0B2154D01A1}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Event argument,  for this timer event.</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Private timer event handler for the simulation. This timer method is called every 300 [ms]. See &lt;see cref=&quot;System.Windows.Forms.Timer.Interval&quot;/&gt;. In case a command is received in the incoming queue (&lt;see cref=&quot;_incommingCommands&quot;/&gt;), it calls the private method &lt;see cref=&quot;simulate&quot;/&gt;, whichs handles the different simulation modes.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>Trace</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{A7A84E85-9728-4495-BCD5-E6AD03CAF671}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{A7A84E85-9728-4495-BCD5-E6AD03CAF671}" border="0" />format: string</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{A7A84E85-9728-4495-BCD5-E6AD03CAF671}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{A7A84E85-9728-4495-BCD5-E6AD03CAF671}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{A7A84E85-9728-4495-BCD5-E6AD03CAF671}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{A7A84E85-9728-4495-BCD5-E6AD03CAF671}03" style="display: none;">
+							<td width="50"></td>
+							<td></td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{17666119-6B4B-4a3b-B2A6-E4695F4E30EB}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{17666119-6B4B-4a3b-B2A6-E4695F4E30EB}" border="0" />args: object[]</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{17666119-6B4B-4a3b-B2A6-E4695F4E30EB}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{17666119-6B4B-4a3b-B2A6-E4695F4E30EB}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{17666119-6B4B-4a3b-B2A6-E4695F4E30EB}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{17666119-6B4B-4a3b-B2A6-E4695F4E30EB}03" style="display: none;">
+							<td width="50"></td>
+							<td></td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Private Trace method for thsi class. It sends the trace to the common logger &lt;see cref=&quot;ILog&quot;/&gt;. In addition it also sends them to the rich text box.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>trackBass_Scroll</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{8442FC66-B444-45ed-9A57-4B56DE175CB5}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{8442FC66-B444-45ed-9A57-4B56DE175CB5}" border="0" />sender: object</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{8442FC66-B444-45ed-9A57-4B56DE175CB5}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{8442FC66-B444-45ed-9A57-4B56DE175CB5}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{8442FC66-B444-45ed-9A57-4B56DE175CB5}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{8442FC66-B444-45ed-9A57-4B56DE175CB5}03" style="display: none;">
+							<td width="50"></td>
+							<td></td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{45D86DBE-207D-4956-9D9B-EB155D885533}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{45D86DBE-207D-4956-9D9B-EB155D885533}" border="0" />e: EventArgs</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{45D86DBE-207D-4956-9D9B-EB155D885533}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{45D86DBE-207D-4956-9D9B-EB155D885533}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{45D86DBE-207D-4956-9D9B-EB155D885533}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{45D86DBE-207D-4956-9D9B-EB155D885533}03" style="display: none;">
+							<td width="50"></td>
+							<td></td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>trackTreble_Scroll</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{932FA50B-37E3-4a2a-B7D7-5B7981BDB859}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{932FA50B-37E3-4a2a-B7D7-5B7981BDB859}" border="0" />sender: object</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{932FA50B-37E3-4a2a-B7D7-5B7981BDB859}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{932FA50B-37E3-4a2a-B7D7-5B7981BDB859}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{932FA50B-37E3-4a2a-B7D7-5B7981BDB859}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{932FA50B-37E3-4a2a-B7D7-5B7981BDB859}03" style="display: none;">
+							<td width="50"></td>
+							<td></td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{7CF134E1-40D3-4199-AEC2-FA5C7F5C2FD8}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{7CF134E1-40D3-4199-AEC2-FA5C7F5C2FD8}" border="0" />e: EventArgs</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{7CF134E1-40D3-4199-AEC2-FA5C7F5C2FD8}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{7CF134E1-40D3-4199-AEC2-FA5C7F5C2FD8}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{7CF134E1-40D3-4199-AEC2-FA5C7F5C2FD8}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{7CF134E1-40D3-4199-AEC2-FA5C7F5C2FD8}03" style="display: none;">
+							<td width="50"></td>
+							<td></td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>ucZone1_onZoneChanged</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{CF375CF2-692B-4995-A31F-1D68D523B3E5}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{CF375CF2-692B-4995-A31F-1D68D523B3E5}" border="0" />sender: object</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{CF375CF2-692B-4995-A31F-1D68D523B3E5}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{CF375CF2-692B-4995-A31F-1D68D523B3E5}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{CF375CF2-692B-4995-A31F-1D68D523B3E5}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{CF375CF2-692B-4995-A31F-1D68D523B3E5}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">This pointer,  to the zone user control.</div>
+</td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{5E9BA084-0421-4ec9-805D-E805AB891B79}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{5E9BA084-0421-4ec9-805D-E805AB891B79}" border="0" />e: ZoneUserControl.ZoneUserControlEventArgs</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{5E9BA084-0421-4ec9-805D-E805AB891B79}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{5E9BA084-0421-4ec9-805D-E805AB891B79}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{5E9BA084-0421-4ec9-805D-E805AB891B79}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{5E9BA084-0421-4ec9-805D-E805AB891B79}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Event argument,  send from zone user control.</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Private Event handler for 1st Zone User Control
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>ucZone2_onZoneChanged</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{2053A5CE-996E-4aed-B5D7-F489483C8E68}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{2053A5CE-996E-4aed-B5D7-F489483C8E68}" border="0" />sender: object</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{2053A5CE-996E-4aed-B5D7-F489483C8E68}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{2053A5CE-996E-4aed-B5D7-F489483C8E68}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{2053A5CE-996E-4aed-B5D7-F489483C8E68}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{2053A5CE-996E-4aed-B5D7-F489483C8E68}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">This pointer,  to the zone user control.</div>
+</td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{CCAFAC39-1DCD-4061-BEA9-8D19AB69DD94}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{CCAFAC39-1DCD-4061-BEA9-8D19AB69DD94}" border="0" />e: ZoneUserControl.ZoneUserControlEventArgs</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{CCAFAC39-1DCD-4061-BEA9-8D19AB69DD94}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{CCAFAC39-1DCD-4061-BEA9-8D19AB69DD94}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{CCAFAC39-1DCD-4061-BEA9-8D19AB69DD94}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{CCAFAC39-1DCD-4061-BEA9-8D19AB69DD94}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Event argument,  send from zone user control.</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Private Event handler for 2nd Zone User Control
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>ucZone3_onZoneChanged</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{664A00BC-C2F1-4f89-9577-451636F1ACF9}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{664A00BC-C2F1-4f89-9577-451636F1ACF9}" border="0" />sender: object</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{664A00BC-C2F1-4f89-9577-451636F1ACF9}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{664A00BC-C2F1-4f89-9577-451636F1ACF9}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{664A00BC-C2F1-4f89-9577-451636F1ACF9}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{664A00BC-C2F1-4f89-9577-451636F1ACF9}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">This pointer,  to the zone user control.</div>
+</td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{CEFB8167-3E2F-464b-9AF1-F794226A36BC}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{CEFB8167-3E2F-464b-9AF1-F794226A36BC}" border="0" />e: ZoneUserControl.ZoneUserControlEventArgs</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{CEFB8167-3E2F-464b-9AF1-F794226A36BC}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{CEFB8167-3E2F-464b-9AF1-F794226A36BC}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{CEFB8167-3E2F-464b-9AF1-F794226A36BC}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{CEFB8167-3E2F-464b-9AF1-F794226A36BC}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Event argument,  send from zone user control.</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Private Event handler for 3rd Zone User Control
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>ucZone4_onZoneChanged</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{E7AFD603-FACE-462f-B0D0-8FBCBDB8670B}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{E7AFD603-FACE-462f-B0D0-8FBCBDB8670B}" border="0" />sender: object</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{E7AFD603-FACE-462f-B0D0-8FBCBDB8670B}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{E7AFD603-FACE-462f-B0D0-8FBCBDB8670B}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{E7AFD603-FACE-462f-B0D0-8FBCBDB8670B}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{E7AFD603-FACE-462f-B0D0-8FBCBDB8670B}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">This pointer,  to the zone user control.</div>
+</td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{7471E70A-AF82-49ff-A04A-AF4946829C95}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{7471E70A-AF82-49ff-A04A-AF4946829C95}" border="0" />e: ZoneUserControl.ZoneUserControlEventArgs</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{7471E70A-AF82-49ff-A04A-AF4946829C95}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{7471E70A-AF82-49ff-A04A-AF4946829C95}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{7471E70A-AF82-49ff-A04A-AF4946829C95}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{7471E70A-AF82-49ff-A04A-AF4946829C95}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Event argument,  send from zone user control.</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Private Event handler for 4th Zone User Control
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>ucZoneManual_onSelectionChanged</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{3E71BFF2-888E-4576-A807-98F3794A1F34}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{3E71BFF2-888E-4576-A807-98F3794A1F34}" border="0" />sender: object</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{3E71BFF2-888E-4576-A807-98F3794A1F34}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{3E71BFF2-888E-4576-A807-98F3794A1F34}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{3E71BFF2-888E-4576-A807-98F3794A1F34}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{3E71BFF2-888E-4576-A807-98F3794A1F34}03" style="display: none;">
+							<td width="50"></td>
+							<td></td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{13B7E0E6-F429-4f9a-93D1-4F30C349DF65}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{13B7E0E6-F429-4f9a-93D1-4F30C349DF65}" border="0" />e: ZoneUserControl.ZoneUserControlEventArgs</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{13B7E0E6-F429-4f9a-93D1-4F30C349DF65}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{13B7E0E6-F429-4f9a-93D1-4F30C349DF65}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{13B7E0E6-F429-4f9a-93D1-4F30C349DF65}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{13B7E0E6-F429-4f9a-93D1-4F30C349DF65}03" style="display: none;">
+							<td width="50"></td>
+							<td></td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>ucZoneManual_onZoneChanged</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{C046E15B-A4D7-4f4a-956A-49A011F3C2E5}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{C046E15B-A4D7-4f4a-956A-49A011F3C2E5}" border="0" />sender: object</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{C046E15B-A4D7-4f4a-956A-49A011F3C2E5}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{C046E15B-A4D7-4f4a-956A-49A011F3C2E5}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{C046E15B-A4D7-4f4a-956A-49A011F3C2E5}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{C046E15B-A4D7-4f4a-956A-49A011F3C2E5}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">This pointer,  to the zone user control.</div>
+</td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{0FBA764B-E259-4e42-BCA7-2EC050B55660}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{0FBA764B-E259-4e42-BCA7-2EC050B55660}" border="0" />e: ZoneUserControl.ZoneUserControlEventArgs</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{0FBA764B-E259-4e42-BCA7-2EC050B55660}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{0FBA764B-E259-4e42-BCA7-2EC050B55660}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{0FBA764B-E259-4e42-BCA7-2EC050B55660}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{0FBA764B-E259-4e42-BCA7-2EC050B55660}03" style="display: none;">
+							<td width="50"></td>
+							<td><div class="ObjectDetailsNotes">Event argument,  send from zone user control.</div>
+</td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Private Event handler for Zone User Control, which is used to send commands spontaneous.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>Volume_sendCommandForManualChanges</strong>():void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" class="TableRow">
+					<i>private</i><br />
+					<strong>Zonex_onZoneChanged</strong>(<br />
+					<a href="#" onclick="parent.toggleData('param{809E7713-1612-4f31-8C08-D4BC85E90D74}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{809E7713-1612-4f31-8C08-D4BC85E90D74}" border="0" />zoneUserControl: <a href="EA490.htm">ZoneUserControl</a></a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{809E7713-1612-4f31-8C08-D4BC85E90D74}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{809E7713-1612-4f31-8C08-D4BC85E90D74}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{809E7713-1612-4f31-8C08-D4BC85E90D74}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{809E7713-1612-4f31-8C08-D4BC85E90D74}03" style="display: none;">
+							<td width="50"></td>
+							<td></td>
+						</tr>
+					</table>
+					<a href="#" onclick="parent.toggleData('param{49E8C596-1B3E-4c96-931C-3C8ABD388942}')" style="text-decoration: none; color: #000000;"><img src="../../../../../images/plus03.gif" align="absmiddle" id="param{49E8C596-1B3E-4c96-931C-3C8ABD388942}" border="0" />eventArg: ZoneUserControl.ZoneUserControlEventArgs</a>, 
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+						<tr id="param{49E8C596-1B3E-4c96-931C-3C8ABD388942}00" style="display: none;">
+							<td width="50"><strong>Default:</strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{49E8C596-1B3E-4c96-931C-3C8ABD388942}01" style="display: none;">
+							<td width="50"><strong>Kind:</strong></td>
+							<td>in</td>
+						</tr>
+						<tr id="param{49E8C596-1B3E-4c96-931C-3C8ABD388942}02" style="display: none;">
+							<td width="50"><strong>Stereotype: </strong></td>
+							<td></td>
+						</tr>
+						<tr id="param{49E8C596-1B3E-4c96-931C-3C8ABD388942}03" style="display: none;">
+							<td width="50"></td>
+							<td></td>
+						</tr>
+					</table>
+):void
+				</td>
+				<td width="60%" class="TableRow">
+					<i>Sequential  </i>
+					<table>
+						<tr>
+							<td valign = "top"><i></i><span style="margin-left: .7cm;"> </span></td>
+							<td></td>
+						</tr>
+					</table>
+					<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Private general event handler, used by the specific event hanbdler of the different zone user controls. See &lt;see cref=&quot;ucZone1_onZoneChanged&quot;/&gt;, &lt;see cref=&quot;ucZone2_onZoneChanged&quot;/&gt;,&lt;br /&gt;&lt;see cref=&quot;ucZone3_onZoneChanged&quot;/&gt; and &lt;see cref=&quot;ucZone4_onZoneChanged&quot;/&gt; for more information.
+		</td>
+	</tr>
+</table></div>
+
+				</td>
+			</tr>
+
+		</table>
+</div>		<div class="ItemBody" id="AssociationsToTable">
+			<table border="0" cellspacing="0" cellpadding="0" class="Table">
+				<tr>
+					<td width="20%" class="TableHeading">Element</td>
+					<td width="25%" class="TableHeading">Source Role</td>
+					<td width="25%" class="TableHeading">Target Role</td>
+					<td width="30%" class="TableHeading">Details</td>
+				</tr>
+				<tr>
+					<td width="20%" class="TableRow" valign="top">
+						<a href="EA487.htm">ZoneStateController</a><br />
+						Class &nbsp;
+					</td>
+					<td width="20%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;
+					</td>
+					<td width="20%" class="TableRow" valign="top">
+						<strong>Name:</strong> _zoneSateController<br />
+						&nbsp;	
+					</td>
+					<td width="30%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+
+			</table>
+		</div>
+<div class="ItemBody" id="TaggedValTable">
+	<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
+	<tr>
+			<td width="30%" class="TableHeading">Tag</td>
+			<td width="30%" class="TableHeading">Value</td>
+			<td width="40%" class="TableHeading">Details</td>
+	</tr>
+					<tr>
+				<td width="30%" class="TableRow" valign="top">partial</td>
+				<td width="30%" class="TableRow" valign="top">true</td>
+				<td width="30%" class="TableRow" valign="top">&nbsp;</td>
+			</tr>
+</table>
+</div>	</div>
+<div class="pageFooter"></div>
+ 
+</body>
+</html>
