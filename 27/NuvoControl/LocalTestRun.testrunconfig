@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRunConfiguration name="Local Test Run" id="03237ba3-ad24-42ff-9179-159bbdbe7551" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2006">
+  <Description>This is a default test run configuration for a local test run.</Description>
+  <Deployment>
+    <DeploymentItem filename="Server\NuvoControl.Server.ProtocolDriver\NuvoEssentiaProfile.xml" />
+    <DeploymentItem filename="Config\" />
+    <DeploymentItem filename="ExternalLibraries\Common.Logging.xml" />
+  </Deployment>
+  <TestTypeSpecific />
+</TestRunConfiguration>
