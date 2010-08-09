@@ -72,7 +72,7 @@ namespace NuvoControl.Server.WcfHostConsole
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            Console.WriteLine(">>> Starting WCF services...");
+            Console.WriteLine(">>> Starting WCF services V1 ...");
             Console.WriteLine();
 
             try
