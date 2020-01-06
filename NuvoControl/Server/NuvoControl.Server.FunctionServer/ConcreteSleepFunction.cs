@@ -20,7 +20,9 @@ using NuvoControl.Common;
 using NuvoControl.Common.Configuration;
 using NuvoControl.Server.ZoneServer;
 using NuvoControl.Server.ProtocolDriver.Interface;
+using System.Runtime.CompilerServices;
 
+[assembly: InternalsVisibleTo("NuvoControl.Server.FunctionServer.UnitTest.dll")]
 
 namespace NuvoControl.Server.FunctionServer
 {
@@ -35,8 +37,8 @@ namespace NuvoControl.Server.FunctionServer
     /// If active and the zone status is longer in status 'ON' then the specified 
     /// Sleep Duration, the zone is switched off.
     /// 
-    /// </summary>
-    class ConcreteSleepFunction : ConcreteFunction, IDisposable
+
+     class ConcreteSleepFunction : ConcreteFunction, IDisposable
     {
 
         /// <summary>

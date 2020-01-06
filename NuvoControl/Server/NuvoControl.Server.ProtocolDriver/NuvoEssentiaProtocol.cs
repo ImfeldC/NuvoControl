@@ -26,6 +26,9 @@ using Common.Logging;
 using System.Collections;
 using AMS.Profile;
 using System.Threading;
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("NuvoControl.Server.ProtocolDriver.Test.dll")]
 
 namespace NuvoControl.Server.ProtocolDriver
 {

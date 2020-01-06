@@ -59,10 +59,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>A4AC2F0535FA7CF4E26691973FE5B27145A40185</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>E2EB9F39865BE9FBA076688ABFA60D3949380075</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>NuvoControl.TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>NuvoControl.Client.WcfTestConsole_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -107,6 +107,7 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="NuvoControl.Client.WcfTestConsole_TemporaryKey.pfx" />
     <None Include="NuvoControl.TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\NuvoControl.Common.Configuration.Function.datasource" />

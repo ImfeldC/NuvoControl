@@ -16,8 +16,8 @@
     <WarningLevel>4</WarningLevel>
     <ApplicationIcon>NuvoControl.ico</ApplicationIcon>
     <IsWebBootstrapper>true</IsWebBootstrapper>
-    <ManifestCertificateThumbprint>A4AC2F0535FA7CF4E26691973FE5B27145A40185</ManifestCertificateThumbprint>
-    <ManifestKeyFile>NuvoControl.TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestCertificateThumbprint>E93565F4F6EC78036219FE4346D55992EBE22632</ManifestCertificateThumbprint>
+    <ManifestKeyFile>NuvoControl.Client.Viewer_TemporaryKey.pfx</ManifestKeyFile>
     <GenerateManifests>true</GenerateManifests>
     <SignManifests>true</SignManifests>
     <FileUpgradeFlags>
@@ -285,6 +285,7 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="NuvoControl.Client.Viewer_TemporaryKey.pfx" />
     <None Include="NuvoControl.TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
@@ -415,8 +416,8 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>mkdir Images
-copy $(SolutionDir)\Images\*.* .\Images\
-copy $(ProjectDir)\Images\*.* .\Images\</PostBuildEvent>
+    <PostBuildEvent>mkdir images
+copy "$(SolutionDir)\Images\*.*" .\images\
+copy "$(ProjectDir)\Images\*.*" .\images\</PostBuildEvent>
   </PropertyGroup>
 </Project>

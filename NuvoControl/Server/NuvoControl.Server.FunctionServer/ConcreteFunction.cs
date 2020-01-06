@@ -20,6 +20,9 @@ using NuvoControl.Common;
 using NuvoControl.Common.Configuration;
 using NuvoControl.Server.ZoneServer;
 using NuvoControl.Server.ProtocolDriver.Interface;
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("NuvoControl.Server.FunctionServer.UnitTest.dll")]
 
 
 namespace NuvoControl.Server.FunctionServer
