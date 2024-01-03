@@ -1,10 +1,33 @@
 
 Dieses Readme-File enthält einige Informationen zu der NuvoControl Solution.
 
-1) Subversion Integration in Visual Studio
-------------------------------------------
-Wir verwenden AnkhSVN um Subversion in Visual Studio zu integrieren.
-Da wir die neueste Subversion Client Version 1.6 verwenden, müssen wir bei AnkhSVN einen Pre-Release bzw. Daily-Build verwenden.
-Dieser kann über den Link http://ankhsvn.open.collab.net/daily/ heruntergeladen werden.
-Wir verwenden die Version "AnkhSVN 2.1.6768"
+1) Integration in Stream Deck
+-----------------------------
+Um mit dem Stream Deck OSC Befehle abzusetzen verwenden wir das Plugin: https://github.com/shells-dw/StreamDeck-OSC
 
+Einmal installiert, könenn beliebig viele Kommandos zum Deck hinzugefügt werden.
+Bei 'IP-Adress' und 'Port' die Adresse und Port vom Server eingeben (Z.B. 192.168.1.119 und 8000).
+Unter OSC Message das OSC Kommando eingeben, z.B. /NuvoControl/Zone2/Status
+Als Wert wird ein Integer/Dezimal verwendet; 0 um die Zone abzuschalten bzw. 1 um die Zone einzuschalten.
+
+
+2) Anschluss der NuVo Box via RS232
+-----------------------------------
+Da die meisten PCs heute keinen RS232 Anschluss mehr haben, kann die NuVo Box nicht mehr direkt an den Laptop oder PC angeschlossen werden.
+Zudem steht die NuvO Box örtlich in einem anderen Zimmer als der PC, somit ist auch deshalb kein direkter Anschluss möglich.
+
+Ich habe die NuVo Box via einem Comm-Server 58211 von W&T anbgeschlossen: https://www.wut.de/e-58211-ww-dade-000.php
+Trotz dem solzen Alter von beinahe 25 Jahren konnte ich noch einen Firmware Update machen: V1.33 (vom 04.08.2006) https://www.wut.de/e-58211-14-inde-000.php
+Mittels 'Virtuelle COM-Ports für Windows' (https://www.wut.de/e-00102-ww-dade-000.php#Revisionlist) kann der Comm-Server via COM1 an den PC angeschlossen werden. Für die Applikation sieht die serielle Schnittstelle wir eine lokale Schnittstelle aus.
+Einmal aufgesetzt kann der NuVoControl Server via COM1 auf die NuVo Box zugrefifen.
+
+
+3) NuVo Products - End of Life Announcement
+-------------------------------------------
+Thank you for your interest in Nuvo, As of 2022 we have discontinued the majority of Nuvo’s product line but encourage you to explore this page to discover resources and how we plan to support your Nuvo products. 
+For more information, click the button below for frequently asked questions about Nuvo products, support and our warranty policies.
+Siehe https://www.legrand.us/nuvo
+
+
+
+CI / 03-Jan-2024

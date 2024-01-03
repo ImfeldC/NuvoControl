@@ -25,13 +25,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Config", "Config", "{482B57
 		Config\NuvoControlKonfigurationUnitTest2.xml = Config\NuvoControlKonfigurationUnitTest2.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ClassDiagrams", "ClassDiagrams", "{3B6640D6-D2CA-4048-B143-4DA380D5C590}"
-	ProjectSection(SolutionItems) = preProject
-		ClassDiagrams\ProtocolDriverInterfaceOverview.jpg = ClassDiagrams\ProtocolDriverInterfaceOverview.jpg
-		ClassDiagrams\ProtocolDriverOverview.jpg = ClassDiagrams\ProtocolDriverOverview.jpg
-		ClassDiagrams\READ-ME ClassDiagrams.txt = ClassDiagrams\READ-ME ClassDiagrams.txt
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{01BFE656-F730-4DD7-A073-1758BAB21E63}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{C4D004E8-15CA-4E89-B0CE-88F9290FE23E}"
@@ -585,7 +578,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{482B5795-E159-4968-9BB4-85E8CAC6E0C2} = {4D3BB3D4-A8C6-4145-88F3-355FF74233CA}
-		{3B6640D6-D2CA-4048-B143-4DA380D5C590} = {4D3BB3D4-A8C6-4145-88F3-355FF74233CA}
 		{2070EE5E-856D-4DA6-A1A5-B47D136C758E} = {9D46B0CC-8007-469D-BE8A-7C14EE109FA6}
 		{2FFFAF91-470F-4EEB-91E0-1FBA94B1A46D} = {9D46B0CC-8007-469D-BE8A-7C14EE109FA6}
 		{2C8F1A31-ADF8-4BF1-BCA7-032007ED6C61} = {C4D004E8-15CA-4E89-B0CE-88F9290FE23E}
