@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4D3BB3D4-A8C6-4145-88F3-355FF74233CA}"
 	ProjectSection(SolutionItems) = preProject
@@ -35,8 +35,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{01BFE656-F730-4DD7-A073-1758BAB21E63}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{C4D004E8-15CA-4E89-B0CE-88F9290FE23E}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Setup", "Setup", "{F4E0293A-B740-4A88-96EE-4E17B3B142BB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{CBD6573E-F187-4603-AF71-2D277BAA4042}"
 EndProject
@@ -94,8 +92,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NuvoControl.Client.ServiceA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NuvoControl.Client.ServiceMock", "Client\NuvoControl.Client.ServiceMock\NuvoControl.Client.ServiceMock.csproj", "{3BE5E7EF-2946-4989-96A3-D70B3338236E}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "NuvoControlSetup", "NuvoControlSetup\NuvoControlSetup.vdproj", "{C8685BE1-3312-4D21-8342-365FE40E9AE9}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NuvoControl.Server.FunctionServer", "Server\NuvoControl.Server.FunctionServer\NuvoControl.Server.FunctionServer.csproj", "{2350F54C-FB02-4FA6-93AE-A2FF68A27EB8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NuvoControl.Server.FunctionServer.UnitTest", "Server\NuvoControl.Server.FunctionServer.UnitTest\NuvoControl.Server.FunctionServer.UnitTest.csproj", "{CE54087A-C5AC-42C7-8FE8-A18A4FDEB50E}"
@@ -128,10 +124,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TouchOSC Template", "TouchO
 	EndProjectSection
 EndProject
 Global
-	GlobalSection(SubversionScc) = preSolution
-		Svn-Managed = True
-		Manager = AnkhSVN - Subversion Support for Visual Studio
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -431,20 +423,6 @@ Global
 		{3BE5E7EF-2946-4989-96A3-D70B3338236E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{3BE5E7EF-2946-4989-96A3-D70B3338236E}.Release|x64.ActiveCfg = Release|Any CPU
 		{3BE5E7EF-2946-4989-96A3-D70B3338236E}.Release|x86.ActiveCfg = Release|Any CPU
-		{C8685BE1-3312-4D21-8342-365FE40E9AE9}.Debug|Any CPU.ActiveCfg = Debug
-		{C8685BE1-3312-4D21-8342-365FE40E9AE9}.Debug|Any CPU.Build.0 = Debug
-		{C8685BE1-3312-4D21-8342-365FE40E9AE9}.Debug|Mixed Platforms.ActiveCfg = Debug
-		{C8685BE1-3312-4D21-8342-365FE40E9AE9}.Debug|Mixed Platforms.Build.0 = Debug
-		{C8685BE1-3312-4D21-8342-365FE40E9AE9}.Debug|x64.ActiveCfg = Debug
-		{C8685BE1-3312-4D21-8342-365FE40E9AE9}.Debug|x86.ActiveCfg = Debug
-		{C8685BE1-3312-4D21-8342-365FE40E9AE9}.Debug|x86.Build.0 = Debug
-		{C8685BE1-3312-4D21-8342-365FE40E9AE9}.Release|Any CPU.ActiveCfg = Release
-		{C8685BE1-3312-4D21-8342-365FE40E9AE9}.Release|Any CPU.Build.0 = Release
-		{C8685BE1-3312-4D21-8342-365FE40E9AE9}.Release|Mixed Platforms.ActiveCfg = Release
-		{C8685BE1-3312-4D21-8342-365FE40E9AE9}.Release|Mixed Platforms.Build.0 = Release
-		{C8685BE1-3312-4D21-8342-365FE40E9AE9}.Release|x64.ActiveCfg = Release
-		{C8685BE1-3312-4D21-8342-365FE40E9AE9}.Release|x86.ActiveCfg = Release
-		{C8685BE1-3312-4D21-8342-365FE40E9AE9}.Release|x86.Build.0 = Release
 		{2350F54C-FB02-4FA6-93AE-A2FF68A27EB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2350F54C-FB02-4FA6-93AE-A2FF68A27EB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2350F54C-FB02-4FA6-93AE-A2FF68A27EB8}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -634,7 +612,6 @@ Global
 		{9AD39785-4760-414B-942C-19A9129023E7} = {01BFE656-F730-4DD7-A073-1758BAB21E63}
 		{A98EC60A-AD98-4D73-8B4F-BB6496120E06} = {01BFE656-F730-4DD7-A073-1758BAB21E63}
 		{3BE5E7EF-2946-4989-96A3-D70B3338236E} = {01BFE656-F730-4DD7-A073-1758BAB21E63}
-		{C8685BE1-3312-4D21-8342-365FE40E9AE9} = {F4E0293A-B740-4A88-96EE-4E17B3B142BB}
 		{2350F54C-FB02-4FA6-93AE-A2FF68A27EB8} = {9D46B0CC-8007-469D-BE8A-7C14EE109FA6}
 		{CE54087A-C5AC-42C7-8FE8-A18A4FDEB50E} = {9D46B0CC-8007-469D-BE8A-7C14EE109FA6}
 		{A14EAAFC-3500-4DBF-B337-DC08A398C44B} = {9D46B0CC-8007-469D-BE8A-7C14EE109FA6}
@@ -648,6 +625,10 @@ Global
 		{835E1D83-BF61-4AB9-9BBC-B62836F8F7B2} = {C4D004E8-15CA-4E89-B0CE-88F9290FE23E}
 		{9A1BF150-83FF-4DF7-998F-187A6B71E47A} = {9D46B0CC-8007-469D-BE8A-7C14EE109FA6}
 		{F3FACBFA-5121-4200-9B65-5A050D5E3CEB} = {4D3BB3D4-A8C6-4145-88F3-355FF74233CA}
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
 	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = NuvoControl9.vsmdi
