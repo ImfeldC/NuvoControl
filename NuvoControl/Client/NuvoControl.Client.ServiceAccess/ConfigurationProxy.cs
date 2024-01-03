@@ -29,6 +29,15 @@ using Common.Logging;
 using NuvoControl.Common;
 using NuvoControl.Common.Configuration;
 using NuvoControl.Client.ServiceAccess.ConfigurationService;
+using NuvoControl.Server.ConfigurationService;
+using NuvoControl.Server.WebServer.ConfigurationServiceReference;
+using IConfigure = NuvoControl.Server.ConfigurationService.IConfigure;
+using Graphic = NuvoControl.Common.Configuration.Graphic;
+using NuvoImage = NuvoControl.Common.Configuration.NuvoImage;
+
+//using IConfigure = NuvoControl.Server.ConfigurationService.IConfigure;
+//using NuvoImage = NuvoControl.Server.WebServer.ConfigurationServiceReference.NuvoImage;
+//using Graphic = NuvoControl.Server.WebServer.ConfigurationServiceReference.Graphic;
 
 namespace NuvoControl.Client.ServiceAccess
 {
@@ -150,7 +159,7 @@ namespace NuvoControl.Client.ServiceAccess
             {
                 _log.Trace(m=>m("Configuration Proxy; Initialize()"));
 
-                _cfgServiceProxy = CreateConfigureClient();
+                _cfgServiceProxy = (IConfigure)CreateConfigureClient();
 
                 _timerRenewLease = new Timer(OnRenewLeaseCallback);
                 _timerRenewLease.Change(RENEW_LEASE_TIME, Timeout.Infinite);

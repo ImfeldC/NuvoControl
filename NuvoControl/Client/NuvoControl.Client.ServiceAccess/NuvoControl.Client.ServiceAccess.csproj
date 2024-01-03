@@ -95,6 +95,14 @@
       <Project>{2C8F1A31-ADF8-4BF1-BCA7-032007ED6C61}</Project>
       <Name>NuvoControl.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Server\NuvoControl.Server.ConfigurationService\NuvoControl.Server.ConfigurationService.csproj">
+      <Project>{D44A08E5-4C37-4DD6-BBEE-25D0D9F10FA1}</Project>
+      <Name>NuvoControl.Server.ConfigurationService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Server\NuvoControl.Server.WebServer\NuvoControl.Server.WebServer.csproj">
+      <Project>{A14EAAFC-3500-4DBF-B337-DC08A398C44B}</Project>
+      <Name>NuvoControl.Server.WebServer</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
