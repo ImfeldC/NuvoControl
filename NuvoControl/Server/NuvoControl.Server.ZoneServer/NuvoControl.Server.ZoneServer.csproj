@@ -59,7 +59,6 @@
   <ItemGroup>
     <Compile Include="IZoneController.cs" />
     <Compile Include="IZoneServer.cs" />
-    <Compile Include="NamespaceDoc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ZoneController.cs" />
     <Compile Include="ZoneServer.cs" />
@@ -73,9 +72,6 @@
       <Project>{817F6C4B-65C6-4A90-966E-F76FD8AC4202}</Project>
       <Name>NuvoControl.Server.ProtocolDriver.Interface</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="NamespaceDoc.dox" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
