@@ -62,7 +62,6 @@
   <ItemGroup>
     <Compile Include="IMonitorAndControl.cs" />
     <Compile Include="MonitorAndControlService.cs" />
-    <Compile Include="NamespaceDoc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceHostMc.cs" />
   </ItemGroup>
@@ -75,9 +74,6 @@
       <Project>{A4C12624-2950-45AC-9A17-B83AD9427331}</Project>
       <Name>NuvoControl.Server.ZoneServer</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="NamespaceDoc.dox" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
