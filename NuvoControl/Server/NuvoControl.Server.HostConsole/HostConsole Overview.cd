@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="NuvoControl.Server.HostConsole.HostConsole">
+    <Position X="0.5" Y="0.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>CEEABIACGYCAQoAACAIAAgAAQAAgiIAAMQAABAhAQBQ=</HashCode>
+      <FileName>HostConsole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NuvoControl.Server.ZoneServer.ZoneController">
+    <Position X="6.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NuvoControl.Server.ZoneServer.ZoneServer">
+    <Position X="5" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NuvoControl.Server.ZoneServer.ZoneStateEventArgs" Collapsed="true">
+    <Position X="6.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="System.Object" Collapsed="true">
+    <Position X="5" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="NuvoControl.Server.OscServer.OscDeviceController">
+    <Position X="10.5" Y="8" Width="2.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="NuvoControl.Server.OscServer.OscServer">
+    <Position X="8.75" Y="8" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="NuvoControl.Server.ProtocolDriver.Interface.ProtocolCommandReceivedEventArgs" Collapsed="true">
+    <Position X="20" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="NuvoControl.Server.ProtocolDriver.Interface.ProtocolZoneUpdatedEventArgs" Collapsed="true">
+    <Position X="20" Y="5.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="NuvoControl.Server.ProtocolDriver.Interface.ProtocolDeviceUpdatedEventArgs" Collapsed="true">
+    <Position X="21.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="NuvoControl.Server.ProtocolDriver.Interface.OscEvent" Collapsed="true">
+    <Position X="20" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="NuvoControl.Server.ProtocolDriver.Interface.OscEventReceivedEventArgs" Collapsed="true">
+    <Position X="21.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="NuvoControl.Common.ZoneState" Collapsed="true">
+    <Position X="17.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="NuvoControl.Server.ProtocolDriver.NuvoEssentiaProtocolDriver">
+    <Position X="13.25" Y="1.25" Width="3.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="NuvoControl.Server.ZoneServer.IZoneController" Collapsed="true">
+    <Position X="6.75" Y="8" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="NuvoControl.Server.ZoneServer.IZoneServer" Collapsed="true">
+    <Position X="5" Y="8" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="NuvoControl.Server.ProtocolDriver.Interface.IProtocol" Collapsed="true">
+    <Position X="20" Y="6.5" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="NuvoControl.Server.ProtocolDriver.Interface.IOscDriver" Collapsed="true">
+    <Position X="20" Y="1.75" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Enum Name="NuvoControl.Server.ProtocolDriver.Interface.eOscEvent" Collapsed="true">
+    <Position X="20" Y="2.5" Width="1.5" />
+    <TypeIdentifier />
+  </Enum>
+  <Enum Name="NuvoControl.Common.ZoneQuality" Collapsed="true">
+    <Position X="17.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier />
+  </Enum>
+  <Delegate Name="NuvoControl.Server.ZoneServer.ZoneNotification" Collapsed="true">
+    <Position X="6.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier />
+  </Delegate>
+  <Delegate Name="NuvoControl.Server.ProtocolDriver.Interface.ProtocolCommandReceivedEventHandler" Collapsed="true">
+    <Position X="20" Y="7.25" Width="1.5" />
+    <TypeIdentifier />
+  </Delegate>
+  <Delegate Name="NuvoControl.Server.ProtocolDriver.Interface.ProtocolZoneUpdatedEventHandler" Collapsed="true">
+    <Position X="20" Y="8" Width="1.5" />
+    <TypeIdentifier />
+  </Delegate>
+  <Delegate Name="NuvoControl.Server.ProtocolDriver.Interface.ProtocolDeviceUpdatedEventHandler" Collapsed="true">
+    <Position X="21.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier />
+  </Delegate>
+  <Delegate Name="NuvoControl.Server.ProtocolDriver.Interface.OscEventReceivedEventHandler" Collapsed="true">
+    <Position X="20" Y="3.25" Width="1.5" />
+    <TypeIdentifier />
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
