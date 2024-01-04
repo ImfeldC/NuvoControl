@@ -70,7 +70,6 @@
     <Compile Include="..\..\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="NamespaceDoc.cs" />
     <Compile Include="NuvoEssentiaCommand.cs" />
     <Compile Include="NuvoEssentiaSingleCommand.cs" />
     <Compile Include="NuvoEssentiaProtocol.cs" />
@@ -122,7 +121,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="NamespaceDoc.dox" />
     <None Include="NuvoControl.Server.ProtocolDriver.cd" />
     <None Include="ProtocolDriverConfiguration.dox" />
     <None Include="ProtocolDriverOverview.cd" />

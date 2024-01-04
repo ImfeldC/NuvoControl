@@ -63,7 +63,6 @@
     <Compile Include="ConfigurationService.cs" />
     <Compile Include="IConfigure.cs" />
     <Compile Include="IConfigureInternal.cs" />
-    <Compile Include="NamespaceDoc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -75,9 +74,6 @@
       <Project>{295025FA-7870-4A53-996F-2CDCE2AFBAFF}</Project>
       <Name>NuvoControl.Server.Dal</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="NamespaceDoc.dox" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

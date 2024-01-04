@@ -68,7 +68,6 @@
     <Compile Include="IAudioDriver.cs" />
     <Compile Include="INuvoProtocol.cs" />
     <Compile Include="IOscDriver.cs" />
-    <Compile Include="NamespaceDoc.cs" />
     <Compile Include="SerialPortFactory.cs" />
     <Compile Include="INuvoEssentiaCommand.cs" />
     <Compile Include="INuvoEssentiaSingleCommand.cs" />
@@ -81,7 +80,6 @@
     <Compile Include="ProtocolDriverFactory.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="NamespaceDoc.dox" />
     <None Include="NuvoControl.Server.ProtocolDriver.Interface.cd" />
     <None Include="ProtocolDriver.Interface.NuvoEnumerations.cd" />
     <None Include="ProtocolDriverInterfaceOverview.cd" />
