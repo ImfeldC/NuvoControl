@@ -286,17 +286,41 @@ namespace NuvoControl.Server.OscServer
             {
                 if (oscEvent.OscLabel.Contains("/Status"))
                 {
-                    if (oscEvent.getOscData == 0)
+                    if (oscEvent.OscData.Count > 0)
                     {
-                        _protocolDriver.CommandSwitchZoneOFF(zoneAddress);
-                    }
-                    else if (oscEvent.getOscData == 1)
-                    {
-                        _protocolDriver.CommandSwitchZoneON(zoneAddress);
+                        if (oscEvent.getOscData == 0)
+                        {
+                            _protocolDriver.CommandSwitchZoneOFF(zoneAddress);
+                        }
+                        else if (oscEvent.getOscData == 1)
+                        {
+                            _protocolDriver.CommandSwitchZoneON(zoneAddress);
+                        }
+                        else
+                        {
+                            // Trace error, received an unkown status
+                        }
                     }
                     else
                     {
-                        // Trace error, received an unkown status
+                        if (_zoneStateList.ContainsKey(zoneAddress))
+                        {
+                            LogHelper.Log(LogLevel.Trace, string.Format("[OSC] Zone state (with id {0}) found, can 'toogle' power status. Incoming OSC command: {1}", zoneAddress, oscEvent.ToString()));
+                            if (_zoneStateList[zoneAddress].PowerStatus)
+                            {
+                                // Zone is ON -> Switch off
+                                _protocolDriver.CommandSwitchZoneOFF(zoneAddress);
+                            }
+                            else
+                            {
+                                // Zone is OFF -> Switch on
+                                _protocolDriver.CommandSwitchZoneON(zoneAddress);
+                            }
+                        }
+                        else
+                        {
+                            LogHelper.Log(LogLevel.Warn, string.Format("[OSC] Zone state (with id {0}) unknonw, cannot 'toogle' power status. Ignore incoming OSC command: {1}", zoneAddress, oscEvent.ToString()));
+                        }
                     }
                 }
                 else if (oscEvent.OscLabel.Contains("/SourceSelection"))
