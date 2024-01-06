@@ -100,7 +100,7 @@ namespace NuvoControl.Server.ProtocolDriver.Interface
 
         public int getOscData
         {
-            get { return Convert.ToInt32(mData[0]); }
+            get {return Convert.ToInt32(mData[0]); }
         }
 
         public int getZoneId

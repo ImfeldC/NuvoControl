@@ -29,5 +29,11 @@ For more information, click the button below for frequently asked questions abou
 Siehe https://www.legrand.us/nuvo
 
 
+4) For Test Purpose, use "QUEUE"
+--------------------------------
+For test purpose you can use "QUEUE" (as name for the serial port); this opens a connection to a message queue. This allows to use the NuVo simulator 'NuvoControl.Server.Simulator.exe' to test the NoVoControl server.
+This requires to install the 'MSMQ' on all systems which shall be used for testing.
+Specifiy "QUEUE" instead of "COM1" to connect to this (test) channel.
 
-CI / 03-Jan-2024
+
+CI / 04-Jan-2024

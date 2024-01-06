@@ -385,7 +385,7 @@ namespace NuvoControl.Server.ProtocolDriver
             {
                 try
                 {
-                    ZoneState zoneState = new ZoneState(new Address(e.DeviceId, (int)e.Command.SourceId), (e.Command.PowerStatus == EZonePowerStatus.ZoneStatusON ? true : false),
+                    ZoneState zoneState = new ZoneState(new Address(e.DeviceId, (int)e.Command.SourceId), (e.Command.PowerStatus == EZonePowerStatus.ZoneStatusON ? true : false), (e.Command.VolumeLevel == ZoneState.VOLUME_MUTE ? true : false),
                         NuvoEssentiaCommand.calcVolume2NuvoControl(e.Command.VolumeLevel), ZoneQuality.Online);
                     onZoneStatusUpdate(this, new ProtocolZoneUpdatedEventArgs(new Address(e.DeviceId, (int)e.Command.ZoneId), zoneState, e));
                 }

@@ -350,17 +350,41 @@ namespace NuvoControl.Server.OscServer
                 }
                 else if (oscEvent.OscLabel.Contains("/Mute"))
                 {
-                    if (oscEvent.getOscData == 0)
+                    if (oscEvent.OscData.Count > 0)
                     {
-                        _protocolDriver.CommandMuteOFF(zoneAddress);
-                    }
-                    else if (oscEvent.getOscData == 1)
-                    {
-                        _protocolDriver.CommandMuteON(zoneAddress);
+                        if (oscEvent.getOscData == 0)
+                        {
+                            _protocolDriver.CommandMuteOFF(zoneAddress);
+                        }
+                        else if (oscEvent.getOscData == 1)
+                        {
+                            _protocolDriver.CommandMuteON(zoneAddress);
+                        }
+                        else
+                        {
+                            // Trace error, received an unkown status
+                        }
                     }
                     else
                     {
-                        // Trace error, received an unkown status
+                        if (_zoneStateList.ContainsKey(zoneAddress))
+                        {
+                            LogHelper.Log(LogLevel.Trace, string.Format("[OSC] Zone state (with id {0}) found, can 'toogle' mute. Incoming OSC command: {1}", zoneAddress, oscEvent.ToString()));
+                            if ( _zoneStateList[zoneAddress].MuteStatus )
+                            {
+                                // Zone is muted -> unmute them
+                                _protocolDriver.CommandMuteOFF(zoneAddress);
+                            }
+                            else
+                            {
+                                // Zone is unmuted -> mute them
+                                _protocolDriver.CommandMuteON(zoneAddress);
+                            }
+                        }
+                        else
+                        {
+                            LogHelper.Log(LogLevel.Warn, string.Format("[OSC] Zone state (with id {0}) unknonw, cannot 'toogle' mute. Ignore incoming OSC command: {1}", zoneAddress, oscEvent.ToString()));
+                        }
                     }
                 }
                 else if (oscEvent.OscLabel.Contains("/KeyPadLock"))

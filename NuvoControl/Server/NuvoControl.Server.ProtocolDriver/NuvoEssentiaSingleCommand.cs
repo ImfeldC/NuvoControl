@@ -1608,6 +1608,7 @@ namespace NuvoControl.Server.ProtocolDriver
         /// <summary>
         /// Extracts the volume level out of the recieved command string.
         /// The member _incomingCommandTemplate needs to be set prior.
+        /// Handles also 'mute' state:  "Z02PWRON,SRC1,GRP1,VOL-MT"
         /// </summary>
         /// <param name="commandString">Command string received from Nuvo Essentia.</param>
         /// <param name="commandStringTemplate">Command Template, expected for this command.</param>
@@ -1617,13 +1618,21 @@ namespace NuvoControl.Server.ProtocolDriver
             string stringVolumeLevel = parseCommand(commandString, commandStringTemplate, "yy");
             if (stringVolumeLevel != "")
             {
-                try
+                if(stringVolumeLevel != "MT" )
                 {
-                    return Convert.ToInt32(stringVolumeLevel) * -1;
+                    try
+                    {
+                        return Convert.ToInt32(stringVolumeLevel) * -1;
+                    }
+                    catch (System.FormatException ex)
+                    {
+                        LogManager.GetCurrentClassLogger().Fatal(m => m("Parse EXCEPTION: Cannot parse Volume Level. Wrong command '{0}' received! Exception={1}", stringVolumeLevel, ex));
+                    }
                 }
-                catch (System.FormatException ex)
+                else
                 {
-                    LogManager.GetCurrentClassLogger().Fatal(m => m("Parse EXCEPTION: Cannot parse Volume Level. Wrong command '{0}' received! Exception={1}", stringVolumeLevel, ex));
+                    // Hanlde case hwn zone is in mute state.
+                    return ZoneState.VOLUME_MUTE;
                 }
             }
             return ZoneState.VALUE_UNDEFINED;

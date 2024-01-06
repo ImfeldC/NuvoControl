@@ -82,6 +82,12 @@ namespace NuvoControl.Common
         /// </summary>
         public const int VOLUME_MINVALUE = 0;
 
+        /// <summary>
+        /// Public constant defining the volume value when zone is muted.
+        /// Used for the Volume Level only
+        /// </summary>
+        public const int VOLUME_MUTE = -998;
+
         #endregion
 
         #region Fields
@@ -108,6 +114,8 @@ namespace NuvoControl.Common
         private int _volume = VALUE_UNDEFINED;
         [DataMember]
         private bool _powerStatus = false;
+        [DataMember]
+        private bool _muteStatus = false;
         [DataMember]
         private Address _source = new Address();
         [DataMember]
@@ -140,6 +148,24 @@ namespace NuvoControl.Common
         {
             _source = source;
             _powerStatus = powerStatus;
+            _muteStatus = false;
+            Volume = volume;
+            ZoneQuality = zoneQuality;
+        }
+
+        /// <summary>
+        /// Constructor to set the memebers.
+        /// </summary>
+        /// <param name="source">Source, selected in this zone.</param>
+        /// <param name="powerStatus">Power Status, of this zone.</param>
+        /// <param name="muteStatus">Mute Status, of this zone.</param>
+        /// <param name="volume">Volume, of this zone.</param>
+        /// <param name="zoneQuality">Zone Quality, of this zone.</param>
+        public ZoneState(Address source, bool powerStatus, bool muteStatus, int volume, ZoneQuality zoneQuality) : this()
+        {
+            _source = source;
+            _powerStatus = powerStatus;
+            _muteStatus = muteStatus;
             Volume = volume;
             ZoneQuality = zoneQuality;
         }
@@ -164,7 +190,8 @@ namespace NuvoControl.Common
                 _zoneQuality = sourceZoneState._zoneQuality;
                 _source = sourceZoneState._source;
                 _powerStatus = sourceZoneState._powerStatus;
-                Volume = sourceZoneState._volume;
+                _muteStatus = sourceZoneState._muteStatus;
+                _volume = sourceZoneState._volume;
                 _commandUnacknowledged = sourceZoneState._commandUnacknowledged;
             }
         }
@@ -205,6 +232,15 @@ namespace NuvoControl.Common
         }
 
         /// <summary>
+        /// Gets and Sets the Mute Status.
+        /// </summary>
+        public bool MuteStatus
+        {
+            get { return _muteStatus; }
+            set { _muteStatus = value; }
+        }
+
+        /// <summary>
         /// Gets and Sets the Source
         /// </summary>
         public Address Source
@@ -242,7 +278,7 @@ namespace NuvoControl.Common
         public string ToStringShort()
         {
             return string.Format("Power={0} Source={1} Volume={2}",
-                (_powerStatus ? "ON" : "OFF"), _source.ToString(), _volume);
+                (_powerStatus ? "ON" : "OFF"), _source.ToString(), (_muteStatus ? "Muted" : _volume.ToString()));
         }
 
         /// <summary>
@@ -252,7 +288,7 @@ namespace NuvoControl.Common
         public override string ToString() 
         {
             return string.Format("Power={0} Source={1} Volume={2} Quality={3} Unack={4} LastUpdated={5}",
-                (_powerStatus ? "ON" : "OFF"), _source.ToString(), _volume, _zoneQuality, _commandUnacknowledged, _lastUpdate.ToString());
+                (_powerStatus ? "ON" : "OFF"), _source.ToString(), (_muteStatus ? "Muted" : _volume.ToString()), _zoneQuality, _commandUnacknowledged, _lastUpdate.ToString());
         }
 
         /// <summary>

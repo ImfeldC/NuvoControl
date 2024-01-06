@@ -162,13 +162,22 @@ namespace NuvoControl.Server.ProtocolDriver
         /// LE = Laustärke Essentia
         /// L  = ((LE + 79) * 100) / 79
         /// LE = ((L * 79) / 100) - 79
+        /// Handle case when zone is muted:
         /// </summary>
         /// <param name="volume">Volume Level, from NuvoControl</param>
         /// <returns>Volume Level, for NuvoEssentia.</returns>
         public static int calcVolume2NuvoControl(int volume)
         {
-            //TODO: Use constants for calculation
-            return ((volume + 79) * 100) / 79;
+            if (volume != ZoneState.VOLUME_MUTE)
+            {
+                //TODO: Use constants for calculation
+                return ((volume + 79) * 100) / 79;
+            }
+            else 
+            {
+                return ZoneState.VOLUME_MUTE;
+            }
+
         }
 
         #region INuvoEssentiaCommand Members

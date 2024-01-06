@@ -219,7 +219,13 @@ namespace NuvoControl.Server.ProtocolDriver
             if (message.Address.IndexOf("/NuvoControl") == 0)
             {
                 sendDebugMessage(String.Format("{0}", message.Address), message.SourceEndPoint.Address, _oscDevice.SendPort);
-                return new OscEvent(eOscEvent.NuvoControl, message.Address, double.Parse(convertDataString(message.Data[0])));
+                if(message.Data.Count > 0 )
+                {
+                    return new OscEvent(eOscEvent.NuvoControl, message.Address, double.Parse(convertDataString(message.Data[0])));
+                } else {
+                    return new OscEvent(eOscEvent.NuvoControl, message.Address);
+                }
+                
             }
 
             return null;

@@ -50,6 +50,9 @@
   </Class>
   <Class Name="NuvoControl.Server.ProtocolDriver.NuvoEssentiaProtocolDriver">
     <Position X="3.25" Y="0.5" Width="3.25" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
     <NestedTypes>
       <Class Name="NuvoControl.Server.ProtocolDriver.NuvoEssentiaProtocolDriver.DictEntry" Collapsed="true">
         <TypeIdentifier>
