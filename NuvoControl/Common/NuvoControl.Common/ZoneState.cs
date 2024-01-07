@@ -307,7 +307,7 @@ namespace NuvoControl.Common
         {
             return ((object)left != null) && ((object)right != null) &&
                    (left._volume == right._volume) && (left._source == right._source) && 
-                   (left._powerStatus == right._powerStatus) && (left._zoneQuality == right._zoneQuality) &&
+                   (left._powerStatus == right._powerStatus) && (left._muteStatus == right._muteStatus) && (left._zoneQuality == right._zoneQuality) &&
                    (left._commandUnacknowledged == right._commandUnacknowledged) && (left._lastUpdate == right._lastUpdate);
         }
 

@@ -345,6 +345,7 @@ namespace NuvoControl.Server.Dal.UnitTest
 
         }
 
+        /* Remote configuration file no longer available
         /// <summary>
         /// A test to load configuration from remote lcoation
         /// </summary>
@@ -367,6 +368,7 @@ namespace NuvoControl.Server.Dal.UnitTest
             Assert.AreEqual(10, systemConfiguration.Functions.Count);
 
         }
+        */
 
         /* Remote configuration file, is not supported!
         /// <summary>
@@ -383,7 +385,7 @@ namespace NuvoControl.Server.Dal.UnitTest
         }
         */
 
-
+        /* Remote configuration file no longer available
         /// <summary>
         /// A test to check if date/time of configuration file changed
         /// </summary>
@@ -400,7 +402,8 @@ namespace NuvoControl.Server.Dal.UnitTest
             Assert.IsFalse(bChanged);
 
         }
-
+        */
+ 
     }
 }
 

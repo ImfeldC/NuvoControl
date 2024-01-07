@@ -132,7 +132,7 @@ namespace NuvoControl.UnitTest
         public void op_Equality1Test()
         {
             ZoneState left = new ZoneState();
-            ZoneState right = new ZoneState();
+            ZoneState right = new ZoneState(left);
             bool actual;
             actual = (left == right);
             Assert.AreEqual(true, actual);
