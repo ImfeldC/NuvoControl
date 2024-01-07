@@ -16,7 +16,7 @@
     <WarningLevel>4</WarningLevel>
     <ApplicationIcon>NuvoControl.ico</ApplicationIcon>
     <IsWebBootstrapper>true</IsWebBootstrapper>
-    <ManifestCertificateThumbprint>E93565F4F6EC78036219FE4346D55992EBE22632</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>2B074D5F6D58CD8C96D2B75D2BFA80A7349E75AC</ManifestCertificateThumbprint>
     <ManifestKeyFile>NuvoControl.Client.Viewer_TemporaryKey.pfx</ManifestKeyFile>
     <GenerateManifests>true</GenerateManifests>
     <SignManifests>true</SignManifests>
@@ -288,7 +288,6 @@
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="NuvoControl.Client.Viewer_TemporaryKey.pfx" />
-    <None Include="NuvoControl.TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
