@@ -61,7 +61,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>E2EB9F39865BE9FBA076688ABFA60D3949380075</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>32C0AC6C8263FE5E51244BD22099BB01662A6397</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>NuvoControl.Client.WcfTestConsole_TemporaryKey.pfx</ManifestKeyFile>
