@@ -72,6 +72,21 @@ namespace NuvoControl.Server.ProtocolDriver.Interface
             _sourceId = parseSourceId(_oscLabel);
         }
 
+        public OscEvent(eOscEvent oscEvent, string oscLabel, string value)
+        {
+            initMembers();
+            _oscEvent = oscEvent;
+            _oscLabel = oscLabel;
+            mData.Add(value);
+            _zoneId = parseZoneId(_oscLabel);
+            _sourceId = parseSourceId(_oscLabel);
+            if (_sourceId < 0 )
+            {
+                // if source id is nto found, parse string data
+                _sourceId = parseSourceId(value);
+            }
+        }
+
         public OscEvent(eOscEvent oscEvent, string oscLabel, double value1, double value2)
         {
             initMembers();
@@ -101,6 +116,11 @@ namespace NuvoControl.Server.ProtocolDriver.Interface
         public int getOscData
         {
             get {return Convert.ToInt32(mData[0]); }
+        }
+
+        public string getOscDataString
+        {
+            get { return Convert.ToString(mData[0]); }
         }
 
         public int getZoneId
@@ -147,6 +167,10 @@ namespace NuvoControl.Server.ProtocolDriver.Interface
 
         /// <summary>
         /// Private method, which retrievs the source id from the osc message string
+        /// Several message formats are supported:
+        /// (1) TouchOSC: {[NuvoControl-/NuvoControl/Zone2/SourceSelection/1/5]} -> the seleetced source is passed as 6. part, accesed with parts[5]
+        /// (2) Source selection in message: {[NuvoControl-/NuvoControl/Zone2/SourceSelection/Source2]} -> The source is selected with the key word Source followed by the source number.
+        /// (3) Source selection as data string: 
         /// </summary>
         /// <param name="oscLabel">Osc message string.</param>
         /// <returns>Source id found in the message, otherwise -1 is returned.</returns>
@@ -158,10 +182,15 @@ namespace NuvoControl.Server.ProtocolDriver.Interface
             {
                 if (part.IndexOf("SourceSelection") == 0)
                 {
-                    return int.Parse(parts[5]);
+                    if(parts.Count() == 6)
+                    {
+                        // (1) TouchOSC format
+                        return int.Parse(parts[5]);
+                    }
                 }
                 if ((part.IndexOf("Source") == 0) && (part.Length == len + 1 || part.Length == len + 2))
                 {
+                    // (2) Source selection in message
                     return int.Parse(part.Substring(len));
                 }
             }

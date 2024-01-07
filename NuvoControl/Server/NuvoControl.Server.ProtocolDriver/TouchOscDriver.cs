@@ -221,7 +221,18 @@ namespace NuvoControl.Server.ProtocolDriver
                 sendDebugMessage(String.Format("{0}", message.Address), message.SourceEndPoint.Address, _oscDevice.SendPort);
                 if(message.Data.Count > 0 )
                 {
-                    return new OscEvent(eOscEvent.NuvoControl, message.Address, double.Parse(convertDataString(message.Data[0])));
+                    string strData = convertDataString(message.Data[0]);
+                    double doubleData;
+                    if (double.TryParse(strData, out doubleData))
+                    {
+                        // data has been succesful converted into 'double'
+                        return new OscEvent(eOscEvent.NuvoControl, message.Address, doubleData);
+                    }
+                    else
+                    {
+                        // keep data as 'string'
+                        return new OscEvent(eOscEvent.NuvoControl, message.Address, strData);
+                    }
                 } else {
                     return new OscEvent(eOscEvent.NuvoControl, message.Address);
                 }

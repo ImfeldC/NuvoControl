@@ -21,6 +21,7 @@ using NuvoControl.Common;
 using NuvoControl.Common.Configuration;
 using NuvoControl.Server.ProtocolDriver.Interface;
 using NuvoControl.Server.ProtocolDriver;
+using System.Diagnostics.Eventing.Reader;
 
 
 
@@ -325,17 +326,34 @@ namespace NuvoControl.Server.OscServer
                 }
                 else if (oscEvent.OscLabel.Contains("/SourceSelection"))
                 {
-                    if (oscEvent.getOscData == 0)
+                    if (oscEvent.OscData.Count > 0)
                     {
-                        // ignore message with value 0, as this is only the "disable" message for the previous selected source
-                    }
-                    else if (oscEvent.getOscData == 1)
-                    {
-                        _protocolDriver.CommandSetSource(zoneAddress, new Address(zoneAddress.DeviceId, oscEvent.getSourceId));
+                        if ( oscEvent.getOscDataString.Contains("Source") )
+                        {
+                            // (3) Source selection as data string
+                            _protocolDriver.CommandSetSource(zoneAddress, new Address(zoneAddress.DeviceId, oscEvent.getSourceId));
+                        }
+                        else
+                        {
+                            // (1) TouchOSC
+                            if (oscEvent.getOscData == 0)
+                            {
+                                // ignore message with value 0, as this is only the "disable" message for the previous selected source
+                            }
+                            else if (oscEvent.getOscData == 1)
+                            {
+                                _protocolDriver.CommandSetSource(zoneAddress, new Address(zoneAddress.DeviceId, oscEvent.getSourceId));
+                            }
+                            else
+                            {
+                                // Trace error, received an unkown source command
+                            }
+                        }
                     }
                     else
                     {
-                        // Trace error, received an unkown source command
+                        // (2) Source selection in message
+                        _protocolDriver.CommandSetSource(zoneAddress, new Address(zoneAddress.DeviceId, oscEvent.getSourceId));
                     }
                 }
                 else if (oscEvent.OscLabel.Contains("/VolumeUp"))
