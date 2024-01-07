@@ -299,10 +299,6 @@
       <Project>{2C8F1A31-ADF8-4BF1-BCA7-032007ED6C61}</Project>
       <Name>NuvoControl.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NuvoControl.Client.ServiceMock\NuvoControl.Client.ServiceMock.csproj">
-      <Project>{3BE5E7EF-2946-4989-96A3-D70B3338236E}</Project>
-      <Name>NuvoControl.Client.ServiceMock</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\DataSources\NuvoControl.Common.Configuration.Function.datasource" />
