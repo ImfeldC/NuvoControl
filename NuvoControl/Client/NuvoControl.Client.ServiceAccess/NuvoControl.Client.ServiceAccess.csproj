@@ -93,10 +93,6 @@
       <Project>{96a210b6-ccd8-451a-898f-be40d09baa49}</Project>
       <Name>NuvoControl.Server.MonitorAndControlService</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Server\NuvoControl.Server.WebServer\NuvoControl.Server.WebServer.csproj">
-      <Project>{A14EAAFC-3500-4DBF-B337-DC08A398C44B}</Project>
-      <Name>NuvoControl.Server.WebServer</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

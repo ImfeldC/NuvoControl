@@ -26,6 +26,7 @@ using NuvoControl.Client.ServiceAccess.MonitorAndControlService;
 using NuvoControl.Client.ServiceAccess.ConfigurationService;
 using Common.Logging;
 using NuvoControl.Server.ConfigurationService;
+using NuvoControl.Server.MonitorAndControlService;
 
 //using NuvoControl.Server.ConfigurationService;
 

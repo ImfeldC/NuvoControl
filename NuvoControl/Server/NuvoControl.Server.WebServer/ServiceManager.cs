@@ -17,6 +17,7 @@ using Address = NuvoControl.Common.Configuration.Address;
 using Graphic = NuvoControl.Common.Configuration.Graphic;
 using Function = NuvoControl.Common.Configuration.Function;
 using NuvoControl.Server.MonitorAndControlService;
+using NuvoControl.Server.ConfigurationService;
 //using ZoneState = NuvoControl.Server.WebServer.MonitorAndControlServiceReference.ZoneState;
 //using Address = NuvoControl.Server.WebServer.MonitorAndControlServiceReference.Address;
 //using Graphic = NuvoControl.Server.WebServer.ConfigurationServiceReference.Graphic;

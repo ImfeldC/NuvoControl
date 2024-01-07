@@ -12,7 +12,7 @@ using Common.Logging;
 using NuvoControl.Common.Configuration;
 using NuvoControl.Common;
 
-using NuvoControl.Server.WebServer.MonitorAndControlServiceReference;
+//using NuvoControl.Server.WebServer.MonitorAndControlServiceReference;
 
 namespace NuvoControl.Server.WebServer
 {

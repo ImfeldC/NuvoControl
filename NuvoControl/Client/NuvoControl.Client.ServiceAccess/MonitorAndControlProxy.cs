@@ -27,7 +27,10 @@ using System.ServiceModel.Discovery;
 using Common.Logging;
 //using NuvoControl.Common;
 //using NuvoControl.Common.Configuration;
-using NuvoControl.Client.ServiceAccess.MonitorAndControlService;
+//using NuvoControl.Client.ServiceAccess.MonitorAndControlService;
+using NuvoControl.Common.Configuration;
+using NuvoControl.Common;
+using NuvoControl.Server.MonitorAndControlService;
 
 //using Address = NuvoControl.Client.ServiceAccess.MonitorAndControlService.Address;
 //using ZoneState = NuvoControl.Client.ServiceAccess.MonitorAndControlService.ZoneState;
