@@ -88,6 +88,7 @@ namespace NuvoControl.Server.ConfigurationService
         /// <returns>True, if the function is valid; otherwise false.</returns>
         [OperationContract]
         bool AddFunction(Function newFunction);
+        Zone GetZoneHWConfiguration(Address zoneId);
     }
 }
 

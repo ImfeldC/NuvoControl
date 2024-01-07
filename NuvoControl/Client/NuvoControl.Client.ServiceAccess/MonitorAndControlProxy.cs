@@ -40,7 +40,7 @@ namespace NuvoControl.Client.ServiceAccess
     /// Dispatches the notifications of the service to the appropriate zone contexts.
     /// </summary>
     [CallbackBehavior(UseSynchronizationContext = false)]
-    public class MonitorAndControlProxy: IMonitorAndControlCallback, IDisposable
+    public class MonitorAndControlProxy: IMonitorAndControlNotification, IDisposable
     {
         #region Nested Class
 
@@ -378,7 +378,7 @@ namespace NuvoControl.Client.ServiceAccess
         private MonitorAndControlClient CreateMCClient(string clientIpOrName)
         {
             MonitorAndControlClient mcIfc = null;
-            IMonitorAndControlCallback serverCallback = this;
+            IMonitorAndControlNotification serverCallback = this;
             if (ServiceProxy.ServiceDiscovery.isServiceDiscovered(serviceName))
             {
                 mcIfc = new MonitorAndControlClient(new InstanceContext(serverCallback));
@@ -401,7 +401,7 @@ namespace NuvoControl.Client.ServiceAccess
         private MonitorAndControlClient CreateMCClient(EndpointAddress endPointAddress, string clientIpOrName)
         {
             MonitorAndControlClient mcIfc = null;
-            IMonitorAndControlCallback serverCallback = this;
+            IMonitorAndControlNotification serverCallback = this;
             mcIfc = new MonitorAndControlClient(new InstanceContext(serverCallback));
             // Connect to the defined service endpoint
             mcIfc.Endpoint.Address = endPointAddress;
@@ -412,7 +412,7 @@ namespace NuvoControl.Client.ServiceAccess
 
         #endregion
 
-        #region IMonitorAndControlCallback Members
+        #region IMonitorAndControlNotification Members
 
         /// <summary>
         /// Notification from service on zone state changes.

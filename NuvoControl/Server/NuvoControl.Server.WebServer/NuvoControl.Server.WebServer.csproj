@@ -85,23 +85,6 @@
     <None Include="Properties\DataSources\NuvoControl.Common.Configuration.NuvoImage.datasource" />
     <None Include="Properties\DataSources\NuvoControl.Common.Configuration.Zone.datasource" />
     <None Include="Properties\DataSources\NuvoControl.Common.ZoneState.datasource" />
-    <None Include="Service References\ConfigurationServiceReference\ConfigurationService.disco" />
-    <None Include="Service References\ConfigurationServiceReference\configuration91.svcinfo" />
-    <None Include="Service References\ConfigurationServiceReference\configuration.svcinfo" />
-    <Content Include="Service References\ConfigurationServiceReference\NuvoControl.Server.WebServer.ConfigurationServiceReference.Graphic.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <None Include="Service References\ConfigurationServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\MonitorAndControlServiceReference\MonitorAndControlService.disco" />
-    <None Include="Service References\MonitorAndControlServiceReference\configuration91.svcinfo" />
-    <None Include="Service References\MonitorAndControlServiceReference\configuration.svcinfo" />
-    <None Include="Service References\MonitorAndControlServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <Content Include="Images\nuvo_IMFI_logo.gif" />
     <Content Include="Images\nuvo_logo_top.gif" />
     <Content Include="Status.aspx" />
@@ -118,35 +101,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <None Include="Service References\ConfigurationServiceReference\ConfigurationService.wsdl" />
-    <None Include="Service References\ConfigurationServiceReference\ConfigurationService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ConfigurationServiceReference\ConfigurationService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ConfigurationServiceReference\ConfigurationService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ConfigurationServiceReference\ConfigurationService3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ConfigurationServiceReference\ConfigurationService4.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\MonitorAndControlServiceReference\MonitorAndControlService.wsdl" />
-    <None Include="Service References\MonitorAndControlServiceReference\MonitorAndControlService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\MonitorAndControlServiceReference\MonitorAndControlService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\MonitorAndControlServiceReference\MonitorAndControlService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\MonitorAndControlServiceReference\MonitorAndControlService3.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.aspx.cs">
@@ -195,16 +149,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\ConfigurationServiceReference\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\MonitorAndControlServiceReference\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="ServiceManager.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -247,13 +191,13 @@
       <Project>{2C8F1A31-ADF8-4BF1-BCA7-032007ED6C61}</Project>
       <Name>NuvoControl.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NuvoControl.Server.MonitorAndControlService\NuvoControl.Server.MonitorAndControlService.csproj">
+      <Project>{96a210b6-ccd8-451a-898f-be40d09baa49}</Project>
+      <Name>NuvoControl.Server.MonitorAndControlService</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ConfigurationServiceReference\" />
-    <WCFMetadataStorage Include="Service References\MonitorAndControlServiceReference\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

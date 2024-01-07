@@ -62,8 +62,13 @@ namespace NuvoControl.Client.WcfTestConsole
     public class ServerCallback : IMonitorAndControlNotification
     {
         public int _id = 1;
-        #region IMonitorAndControlCallback Members
+        #region IMonitorAndControlNotification Members
 
+        /// <summary>
+        /// see IMonitorAndControlNotification
+        /// </summary>
+        /// <param name="zoneId"></param>
+        /// <param name="zoneState"></param>
         public void OnZoneStateChanged(Address zoneId, ZoneState zoneState)
         {
             Console.WriteLine("+++ Notification from server zone: zoneId={0} / zoneState={1}", zoneId.ToString(), zoneState.ToString());

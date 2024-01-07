@@ -26,7 +26,7 @@ namespace NuvoControl.Client.TestViewer
     /// Interaction logic for Window1.xaml
     /// </summary>
     [CallbackBehavior(UseSynchronizationContext = false)]
-    public partial class Window1 : Window, IMonitorAndControlCallback
+    public partial class Window1 : Window, IMonitorAndControlNotification
     {
         private ConfigureClient _configurationProxy = null;
         private MonitorAndControlClient _monitorAndControlProxy = null;
@@ -66,7 +66,7 @@ namespace NuvoControl.Client.TestViewer
         {
             try
             {
-                IMonitorAndControlCallback serverCallback = this;
+                IMonitorAndControlNotification serverCallback = this;
                 _monitorAndControlProxy = new MonitorAndControlClient(new InstanceContext(serverCallback));
                 _monitorAndControlProxy.SetClientBaseAddress();
                 _monitorAndControlProxy.Connect();
@@ -216,8 +216,13 @@ namespace NuvoControl.Client.TestViewer
         }
 
 
-        #region IMonitorAndControlCallback Members
+        #region IMonitorAndControlNotification Members
 
+        /// <summary>
+        /// See IMonitorAndControlNotification
+        /// </summary>
+        /// <param name="zoneId"></param>
+        /// <param name="zoneState"></param>
         public void OnZoneStateChanged(Address zoneId, ZoneState zoneState)
         {
             if (_zoneControlByAddress.ContainsKey(zoneId))

@@ -71,16 +71,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Service References\ConfigurationService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\MonitorAndControlService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="ConfigurationProxy.cs" />
     <Compile Include="MonitorAndControlProxy.cs" />
     <Compile Include="ServiceDiscoveryProxy.cs" />
@@ -99,6 +89,10 @@
       <Project>{D44A08E5-4C37-4DD6-BBEE-25D0D9F10FA1}</Project>
       <Name>NuvoControl.Server.ConfigurationService</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Server\NuvoControl.Server.MonitorAndControlService\NuvoControl.Server.MonitorAndControlService.csproj">
+      <Project>{96a210b6-ccd8-451a-898f-be40d09baa49}</Project>
+      <Name>NuvoControl.Server.MonitorAndControlService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Server\NuvoControl.Server.WebServer\NuvoControl.Server.WebServer.csproj">
       <Project>{A14EAAFC-3500-4DBF-B337-DC08A398C44B}</Project>
       <Name>NuvoControl.Server.WebServer</Name>
@@ -108,54 +102,17 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ConfigurationService\" />
-    <WCFMetadataStorage Include="Service References\MonitorAndControlService\" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Properties\DataSources\NuvoControl.Common.ZoneState.datasource" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\DataSources\NuvoControl.Common.Configuration.Function.datasource" />
     <None Include="Properties\DataSources\NuvoControl.Common.Configuration.Graphic.datasource" />
     <None Include="Properties\DataSources\NuvoControl.Common.Configuration.Zone.datasource" />
-    <None Include="Service References\ConfigurationService\ConfigurationService.wsdl" />
-    <None Include="Service References\ConfigurationService\ConfigurationService.xsd" />
-    <None Include="Service References\ConfigurationService\ConfigurationService1.xsd" />
-    <None Include="Service References\ConfigurationService\ConfigurationService2.xsd" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ConfigurationService\ConfigurationService.disco" />
-    <None Include="Service References\ConfigurationService\ConfigurationService3.xsd" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ConfigurationService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ConfigurationService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\MonitorAndControlService\MonitorAndControlService.xsd" />
-    <None Include="Service References\MonitorAndControlService\MonitorAndControlService1.xsd" />
-    <None Include="Service References\MonitorAndControlService\MonitorAndControlService2.xsd" />
-    <None Include="Service References\MonitorAndControlService\MonitorAndControlService3.xsd" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\MonitorAndControlService\MonitorAndControlService.disco" />
-    <None Include="Service References\MonitorAndControlService\MonitorAndControlService.wsdl" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\MonitorAndControlService\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\MonitorAndControlService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

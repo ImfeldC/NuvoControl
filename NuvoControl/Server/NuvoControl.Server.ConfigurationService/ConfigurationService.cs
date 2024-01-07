@@ -135,7 +135,11 @@ namespace NuvoControl.Server.ConfigurationService
             return img;
         }
 
-
+        /// <summary>
+        /// <see cref="IConfigure"/>
+        /// </summary>
+        /// <param name="zoneId"></param>
+        /// <returns></returns>
         public Zone GetZoneHWConfiguration(Address zoneId)
         {
             Device device = _systemConfiguration.Hardware.getDevice(zoneId);
@@ -178,7 +182,11 @@ namespace NuvoControl.Server.ConfigurationService
             return zones[0];
         }
 
-
+        /// <summary>
+        /// <see cref="IConfigure"/>
+        /// </summary>
+        /// <param name="sourceId"></param>
+        /// <returns></returns>
         public Source GetSourceHWConfiguration(Address sourceId)
         {
             Device device = _systemConfiguration.Hardware.getDevice(sourceId);
@@ -192,6 +200,11 @@ namespace NuvoControl.Server.ConfigurationService
             return null;
         }
 
+        /// <summary>
+        /// <see cref="IConfigure"/>
+        /// </summary>
+        /// <param name="sourceId"></param>
+        /// <returns></returns>
         public SourceGraphic GetSourceGraphicConfiguration(Address sourceId)
         {
             foreach (SourceGraphic source in _systemConfiguration.Graphic.Sources)

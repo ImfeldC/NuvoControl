@@ -15,7 +15,7 @@ namespace NuvoControl.Client.ServiceMock
         private Dictionary<Address, Address> _zonesSubscribed = new Dictionary<Address, Address>();
         private Dictionary<Address, ZoneState> _zonesStates = new Dictionary<Address, ZoneState>();
         private Timer _timer;
-        private IMonitorAndControlCallback _callback;
+        private IMonitorAndControlNotification _callback;
         private int _sourceCounter = 0;
         private bool _continuousSimulation = false;
 
@@ -27,7 +27,7 @@ namespace NuvoControl.Client.ServiceMock
                 _timer.Change(10000, Timeout.Infinite);
         }
 
-        public void SetCallback(IMonitorAndControlCallback callback)
+        public void SetCallback(IMonitorAndControlNotification callback)
         {
             _callback = callback;
         }

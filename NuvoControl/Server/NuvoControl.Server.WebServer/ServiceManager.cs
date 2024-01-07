@@ -7,11 +7,21 @@ using System.ServiceModel;
 using System.ServiceModel.Discovery;
 using Common.Logging;
 
-using NuvoControl.Server.WebServer.ConfigurationServiceReference;
-using NuvoControl.Server.WebServer.MonitorAndControlServiceReference;
+//using NuvoControl.Server.WebServer.ConfigurationServiceReference;
+//using NuvoControl.Server.WebServer.MonitorAndControlServiceReference;
 
 using NuvoControl.Common.Configuration;
 using NuvoControl.Common;
+using ZoneState = NuvoControl.Common.ZoneState;
+using Address = NuvoControl.Common.Configuration.Address;
+using Graphic = NuvoControl.Common.Configuration.Graphic;
+using Function = NuvoControl.Common.Configuration.Function;
+using NuvoControl.Server.MonitorAndControlService;
+//using ZoneState = NuvoControl.Server.WebServer.MonitorAndControlServiceReference.ZoneState;
+//using Address = NuvoControl.Server.WebServer.MonitorAndControlServiceReference.Address;
+//using Graphic = NuvoControl.Server.WebServer.ConfigurationServiceReference.Graphic;
+//using Function = NuvoControl.Server.WebServer.ConfigurationServiceReference.Function;
+//using Floor = NuvoControl.Server.WebServer.ConfigurationServiceReference.Floor;
 
 
 
@@ -21,11 +31,11 @@ namespace NuvoControl.Server.WebServer
     /// <summary>
     /// This class is used as server callback interface.
     /// </summary>
-    public class ServcieManagerCallback : IMonitorAndControlCallback
+    public class ServcieManagerCallback : IMonitorAndControlNotification
     {
         private static ILog _log = LogManager.GetCurrentClassLogger();
 
-        #region IMonitorAndControlCallback Members
+        #region IMonitorAndControlNotification Members
 
         public void OnZoneStateChanged(Address zoneId, ZoneState zoneState)
         {
@@ -362,7 +372,7 @@ namespace NuvoControl.Server.WebServer
         private MonitorAndControlClient getMCProxy()
         {
             MonitorAndControlClient mcProxy = null;
-            IMonitorAndControlCallback serverCallback = new ServcieManagerCallback();
+            IMonitorAndControlNotification serverCallback = new ServcieManagerCallback();
             mcProxy = new MonitorAndControlClient(new InstanceContext(serverCallback));
             // Connect to the discovered service endpoint
             mcProxy.Endpoint.Address = monitorControlServiceHostAddress;
