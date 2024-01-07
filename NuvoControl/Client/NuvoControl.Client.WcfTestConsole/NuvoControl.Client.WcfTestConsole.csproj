@@ -137,10 +137,6 @@
       <Project>{58DCB860-91E2-4A66-8459-1FBE41C64FCC}</Project>
       <Name>NuvoControl.Server.WcfHostConsole</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NuvoControl.Client.ServiceAccess\NuvoControl.Client.ServiceAccess.csproj">
-      <Project>{A98EC60A-AD98-4D73-8B4F-BB6496120E06}</Project>
-      <Name>NuvoControl.Client.ServiceAccess</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\DataSources\NuvoControl.Common.ZoneState.datasource" />

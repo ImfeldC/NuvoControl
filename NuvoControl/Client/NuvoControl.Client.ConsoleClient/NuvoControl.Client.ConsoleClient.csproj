@@ -75,10 +75,6 @@
       <Project>{96A210B6-CCD8-451A-898F-BE40D09BAA49}</Project>
       <Name>NuvoControl.Server.MonitorAndControlService</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NuvoControl.Client.ServiceAccess\NuvoControl.Client.ServiceAccess.csproj">
-      <Project>{A98EC60A-AD98-4D73-8B4F-BB6496120E06}</Project>
-      <Name>NuvoControl.Client.ServiceAccess</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

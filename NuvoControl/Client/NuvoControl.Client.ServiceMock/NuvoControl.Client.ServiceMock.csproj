@@ -65,10 +65,6 @@
       <Project>{D44A08E5-4C37-4DD6-BBEE-25D0D9F10FA1}</Project>
       <Name>NuvoControl.Server.ConfigurationService</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NuvoControl.Client.ServiceAccess\NuvoControl.Client.ServiceAccess.csproj">
-      <Project>{A98EC60A-AD98-4D73-8B4F-BB6496120E06}</Project>
-      <Name>NuvoControl.Client.ServiceAccess</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
