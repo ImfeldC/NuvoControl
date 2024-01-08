@@ -172,13 +172,13 @@ namespace NuvoControl.Server.ProtocolDriver
 
             if (msg != "")
             {
+                LogHelper.Log(LogLevel.Debug, "(readData) Message received:" + msg.Trim().Replace('\r', '-'));
                 //raise the event, and pass data to next layer
                 if (onDataReceived != null)
                 {
                     onDataReceived(this,
                       new SerialPortEventArgs(msg));
                 }
-                LogHelper.Log(LogLevel.Debug, "(readData) Message received:" + msg.Trim().Replace('\r','-'));
             }
 
             return msg;
