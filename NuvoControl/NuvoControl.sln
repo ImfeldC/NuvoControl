@@ -104,6 +104,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TouchOSC Template", "TouchO
 		NuvoControl.1.touchosc = NuvoControl.1.touchosc
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NuvoControl.Server.WebConsole", "Server\NuvoControl.Server.WebConsole\NuvoControl.Server.WebConsole.csproj", "{2111640D-606A-4559-AC0C-3B980D4B6266}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -490,6 +492,22 @@ Global
 		{9A1BF150-83FF-4DF7-998F-187A6B71E47A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{9A1BF150-83FF-4DF7-998F-187A6B71E47A}.Release|x64.ActiveCfg = Release|Any CPU
 		{9A1BF150-83FF-4DF7-998F-187A6B71E47A}.Release|x86.ActiveCfg = Release|Any CPU
+		{2111640D-606A-4559-AC0C-3B980D4B6266}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2111640D-606A-4559-AC0C-3B980D4B6266}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2111640D-606A-4559-AC0C-3B980D4B6266}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2111640D-606A-4559-AC0C-3B980D4B6266}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{2111640D-606A-4559-AC0C-3B980D4B6266}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2111640D-606A-4559-AC0C-3B980D4B6266}.Debug|x64.Build.0 = Debug|Any CPU
+		{2111640D-606A-4559-AC0C-3B980D4B6266}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2111640D-606A-4559-AC0C-3B980D4B6266}.Debug|x86.Build.0 = Debug|Any CPU
+		{2111640D-606A-4559-AC0C-3B980D4B6266}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2111640D-606A-4559-AC0C-3B980D4B6266}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2111640D-606A-4559-AC0C-3B980D4B6266}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{2111640D-606A-4559-AC0C-3B980D4B6266}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{2111640D-606A-4559-AC0C-3B980D4B6266}.Release|x64.ActiveCfg = Release|Any CPU
+		{2111640D-606A-4559-AC0C-3B980D4B6266}.Release|x64.Build.0 = Release|Any CPU
+		{2111640D-606A-4559-AC0C-3B980D4B6266}.Release|x86.ActiveCfg = Release|Any CPU
+		{2111640D-606A-4559-AC0C-3B980D4B6266}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -529,6 +547,7 @@ Global
 		{835E1D83-BF61-4AB9-9BBC-B62836F8F7B2} = {C4D004E8-15CA-4E89-B0CE-88F9290FE23E}
 		{9A1BF150-83FF-4DF7-998F-187A6B71E47A} = {9D46B0CC-8007-469D-BE8A-7C14EE109FA6}
 		{F3FACBFA-5121-4200-9B65-5A050D5E3CEB} = {4D3BB3D4-A8C6-4145-88F3-355FF74233CA}
+		{2111640D-606A-4559-AC0C-3B980D4B6266} = {9D46B0CC-8007-469D-BE8A-7C14EE109FA6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6653D42A-2A96-4898-B57F-81A52ECFEFC8}
