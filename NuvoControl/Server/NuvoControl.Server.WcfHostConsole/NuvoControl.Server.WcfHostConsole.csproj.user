@@ -16,4 +16,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <StartArguments>-p COM1 -r 700 -v -l 3 --senddata *Z01OFF --command SetSource --zone Zone2 --source Source2 --powerstatus ZoneStatusOFF</StartArguments>
   </PropertyGroup>
+  <PropertyGroup>
+    <EnableSecurityDebugging>false</EnableSecurityDebugging>
+  </PropertyGroup>
 </Project>
