@@ -1,0 +1,6 @@
+@NuvoControl.Server.WebConsole_HostAddress = http://localhost:5192
+
+GET {{NuvoControl.Server.WebConsole_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
