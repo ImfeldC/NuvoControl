@@ -21,7 +21,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Messaging;
+//using System.Messaging;
+using MSMQ.Messaging;
 using NuvoControl.Server.ProtocolDriver.Interface;
 using Common.Logging;
 

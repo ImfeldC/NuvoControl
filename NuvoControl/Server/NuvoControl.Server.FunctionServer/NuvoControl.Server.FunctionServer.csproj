@@ -1,41 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{2350F54C-FB02-4FA6-93AE-A2FF68A27EB8}</ProjectGuid>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NuvoControl.Server.FunctionServer</RootNamespace>
-    <AssemblyName>NuvoControl.Server.FunctionServer</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <OldToolsVersion>3.5</OldToolsVersion>
-    <UpgradeBackupLocation />
-    <TargetFrameworkProfile />
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AssemblyTitle>NuvoControl.Server.FunctionServer</AssemblyTitle>
+    <Company>NuvoControl</Company>
+    <Product>NuvoControl.Server.FunctionServer</Product>
+    <Copyright>Copyright © B.Limacher and Ch.Imfeld</Copyright>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <FileVersion>2.0.0.0</FileVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CommandLine, Version=1.9.71.2, Culture=neutral, PublicKeyToken=de6f01bd326f8c32, processorArchitecture=MSIL">
@@ -46,83 +19,30 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\ExternalLibraries\Common.Logging.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core">
+    <Reference Update="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Xml.Linq">
+    <Reference Update="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Data.DataSetExtensions">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Command\ConcreteSendNuvoCommand.cs" />
-    <Compile Include="ConcreteAlarmFunction.cs" />
-    <Compile Include="Command\ConcreteCommand.cs" />
-    <Compile Include="ConcreteCommandFactory.cs" />
-    <Compile Include="ConcreteFunction.cs" />
-    <Compile Include="ConcreteFunctionFactory.cs" />
-    <Compile Include="Command\ConcretePlaySoundCommand.cs" />
-    <Compile Include="Command\ConcreteSendMailCommand.cs" />
-    <Compile Include="ConcreteOscEventFunction.cs" />
-    <Compile Include="ConcreteSleepFunction.cs" />
-    <Compile Include="ConcreteZoneChangeFunction.cs" />
-    <Compile Include="FunctionServer.cs" />
-    <Compile Include="FunctionServerException.cs" />
-    <Compile Include="Command\IConcreteCommand.cs" />
-    <Compile Include="Properties\FunctionServer.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>FunctionServer.settings</DependentUpon>
-    </Compile>
-    <Compile Include="IConcreteFunction.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Common\NuvoControl.Common\NuvoControl.Common.csproj">
-      <Project>{2C8F1A31-ADF8-4BF1-BCA7-032007ED6C61}</Project>
-      <Name>NuvoControl.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NuvoControl.Server.ProtocolDriver.Interface\NuvoControl.Server.ProtocolDriver.Interface.csproj">
-      <Project>{817F6C4B-65C6-4A90-966E-F76FD8AC4202}</Project>
-      <Name>NuvoControl.Server.ProtocolDriver.Interface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NuvoControl.Server.ZoneServer\NuvoControl.Server.ZoneServer.csproj">
-      <Project>{A4C12624-2950-45AC-9A17-B83AD9427331}</Project>
-      <Name>NuvoControl.Server.ZoneServer</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="Properties\FunctionServer.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>FunctionServer.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="FunctionServerOverview.cd" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
+    <ProjectReference Include="..\..\Common\NuvoControl.Common\NuvoControl.Common.csproj" />
+    <ProjectReference Include="..\NuvoControl.Server.ProtocolDriver.Interface\NuvoControl.Server.ProtocolDriver.Interface.csproj" />
+    <ProjectReference Include="..\NuvoControl.Server.ZoneServer\NuvoControl.Server.ZoneServer.csproj" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  <ItemGroup>
+    <PackageReference Include="CoreWCF.ConfigurationManager" Version="1.5.1" />
+    <PackageReference Include="CoreWCF.Http" Version="1.5.1" />
+    <PackageReference Include="CoreWCF.NetFramingBase" Version="1.5.1" />
+    <PackageReference Include="CoreWCF.NetTcp" Version="1.5.1" />
+    <PackageReference Include="CoreWCF.Primitives" Version="1.5.1" />
+    <PackageReference Include="CoreWCF.WebHttp" Version="1.5.1" />
+    <PackageReference Include="Microsoft.Data.OData" Version="5.8.5" />
+    <PackageReference Include="Microsoft.OData.Core" Version="7.20.0" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+  </ItemGroup>
 </Project>

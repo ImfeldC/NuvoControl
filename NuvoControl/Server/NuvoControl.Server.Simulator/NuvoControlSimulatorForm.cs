@@ -25,7 +25,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Messaging;
+//using System.Messaging;
+using MSMQ.Messaging;
 using Common.Logging;
 using NuvoControl.Server.ProtocolDriver.Interface;
 using NuvoControl.Server.ProtocolDriver;
@@ -400,7 +401,7 @@ namespace NuvoControl.Server.Simulator
         {
             if (msgQueue != null)
             {
-                System.Messaging.Message[] msgs = msgQueue.GetAllMessages();
+                MSMQ.Messaging.Message[] msgs = msgQueue.GetAllMessages();
                 if (msgs.Count() > 0)
                 {
                     msgQueue.Purge();

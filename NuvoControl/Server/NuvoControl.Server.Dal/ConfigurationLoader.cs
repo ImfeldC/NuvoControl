@@ -33,6 +33,7 @@ using NuvoControl.Common;
 using NuvoControl.Common.Configuration;
 using System.Net;
 using System.Security.Cryptography;
+using System.Drawing;
 
 
 namespace NuvoControl.Server.Dal
@@ -500,7 +501,7 @@ namespace NuvoControl.Server.Dal
                         (string)zone.Element("Picture").Attribute("PictureType"),
                         (from pt in zone.Element("FloorPlanCoordinates").Elements("Point")
                          select new Point((int)pt.Attribute("x"), (int)pt.Attribute("y"))).ToList<Point>(),
-                         new Point((double)zone.Element("ZoneControlCoordinate").Attribute("x"), (double)zone.Element("ZoneControlCoordinate").Attribute("y")))).ToList<ZoneGraphic>()
+                         new Point((int)zone.Element("ZoneControlCoordinate").Attribute("x"), (int)zone.Element("ZoneControlCoordinate").Attribute("y")))).ToList<ZoneGraphic>()
                      );
 
             return floors.ToList<Floor>();

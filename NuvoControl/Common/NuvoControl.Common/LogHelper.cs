@@ -170,6 +170,7 @@ namespace NuvoControl.Common
             Log(LogLevel.Info, String.Format("    Command line arguments: {0}\n", strargs));
         }
 
+/*
         /// <summary>
         /// Static method to print the endpoint collection to the logger.
         /// </summary>
@@ -189,7 +190,9 @@ namespace NuvoControl.Common
                 Log(LogLevel.Info, String.Format("Version={0}", ep.Version), logger);
             }
         }
+*/
 
+/*
         /// <summary>
         /// Static method to print the endpoint collection to the console.
         /// </summary>
@@ -208,6 +211,7 @@ namespace NuvoControl.Common
                 Console.WriteLine("Version={0}", ep.Version);
             }
         }
+*/
 
     }
 }

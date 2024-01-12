@@ -1,101 +1,46 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{817F6C4B-65C6-4A90-966E-F76FD8AC4202}</ProjectGuid>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NuvoControl.Server.ProtocolDriver.Interface</RootNamespace>
-    <AssemblyName>NuvoControl.Server.ProtocolDriver.Interface</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
     <SccProjectName>Rational ClearCase</SccProjectName>
     <SccLocalPath>Rational ClearCase</SccLocalPath>
     <SccAuxPath>Rational ClearCase</SccAuxPath>
     <SccProvider>Rational ClearCase</SccProvider>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <OldToolsVersion>3.5</OldToolsVersion>
-    <UpgradeBackupLocation />
-    <TargetFrameworkProfile />
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AssemblyTitle>NuvoControl.Server.ProtocolDriver.Interface</AssemblyTitle>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <FileVersion>2.0.0.0</FileVersion>
+    <Company>NuvoControl</Company>
+    <Copyright>Copyright © B.Limacher and Ch.Imfeld</Copyright>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Debug\NuvoControl.Server.ProtocolDriver.Interface.XML</DocumentationFile>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\NuvoControl.Server.ProtocolDriver.Interface.XML</DocumentationFile>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Common.Logging, Version=2.0.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\ExternalLibraries\Common.Logging.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core">
+    <Reference Update="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Xml.Linq">
+    <Reference Update="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Data.DataSetExtensions">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="IAudioDriver.cs" />
-    <Compile Include="INuvoProtocol.cs" />
-    <Compile Include="IOscDriver.cs" />
-    <Compile Include="SerialPortFactory.cs" />
-    <Compile Include="INuvoEssentiaCommand.cs" />
-    <Compile Include="INuvoEssentiaSingleCommand.cs" />
-    <Compile Include="IConcreteProtocol.cs" />
-    <Compile Include="ITelegram.cs" />
-    <Compile Include="IProtocol.cs" />
-    <Compile Include="ISerialPort.cs" />
-    <Compile Include="NuvoEnumerations.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ProtocolDriverFactory.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="NuvoControl.Server.ProtocolDriver.Interface.cd" />
-    <None Include="ProtocolDriver.Interface.NuvoEnumerations.cd" />
-    <None Include="ProtocolDriverInterfaceOverview.cd" />
+    <ProjectReference Include="..\..\Common\NuvoControl.Common\NuvoControl.Common.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\NuvoControl.Common\NuvoControl.Common.csproj">
-      <Project>{2C8F1A31-ADF8-4BF1-BCA7-032007ED6C61}</Project>
-      <Name>NuvoControl.Common</Name>
-    </ProjectReference>
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+    <PackageReference Include="System.IO.Ports" Version="8.0.0" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

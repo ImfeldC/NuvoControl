@@ -1,28 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{58DCB860-91E2-4A66-8459-1FBE41C64FCC}</ProjectGuid>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <OutputType>Exe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NuvoControl.Server.WcfHostConsole</RootNamespace>
-    <AssemblyName>NuvoControl.Server.WcfHostConsole</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
     <ApplicationIcon>NuvoControl.ico</ApplicationIcon>
     <IsWebBootstrapper>true</IsWebBootstrapper>
     <ManifestCertificateThumbprint>916FC03A75D02D9541D333A82ED2B55E24126204</ManifestCertificateThumbprint>
     <ManifestKeyFile>NuvoControl.Server.WcfHostConsole_TemporaryKey.pfx</ManifestKeyFile>
     <GenerateManifests>true</GenerateManifests>
     <SignManifests>true</SignManifests>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <OldToolsVersion>3.5</OldToolsVersion>
-    <UpgradeBackupLocation />
-    <TargetFrameworkProfile />
     <PublishUrl>ftp://www.imfeld.net/html/publish/NuvoControl.Server.WcfHostConsole/</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
@@ -43,26 +28,18 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+    <AssemblyTitle>NuvoControl.Server.WcfHostConsole</AssemblyTitle>
+    <Company>NuvoControl</Company>
+    <Product>NuvoControl.Server.WcfHostConsole</Product>
+    <Copyright>Copyright © B.Limacher and Ch.Imfeld</Copyright>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <FileVersion>2.0.0.0</FileVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Debug\NuvoControl.Server.WcfHostConsole.XML</DocumentationFile>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CommandLine, Version=1.9.71.2, Culture=neutral, PublicKeyToken=de6f01bd326f8c32, processorArchitecture=MSIL">
@@ -73,79 +50,29 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\ExternalLibraries\Common.Logging.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core">
+    <Reference Update="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Deployment" />
     <Reference Include="System.ServiceModel">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.ServiceModel.Discovery" />
-    <Reference Include="System.Xml.Linq">
+    <Reference Update="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Data.DataSetExtensions">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IPingTest.cs" />
-    <Compile Include="Options.cs" />
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="WcfHost.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Common\NuvoControl.Common\NuvoControl.Common.csproj">
-      <Project>{2C8F1A31-ADF8-4BF1-BCA7-032007ED6C61}</Project>
-      <Name>NuvoControl.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NuvoControl.Server.ConfigurationService\NuvoControl.Server.ConfigurationService.csproj">
-      <Project>{D44A08E5-4C37-4DD6-BBEE-25D0D9F10FA1}</Project>
-      <Name>NuvoControl.Server.ConfigurationService</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NuvoControl.Server.FunctionServer\NuvoControl.Server.FunctionServer.csproj">
-      <Project>{2350F54C-FB02-4FA6-93AE-A2FF68A27EB8}</Project>
-      <Name>NuvoControl.Server.FunctionServer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NuvoControl.Server.FunctionService\NuvoControl.Server.FunctionService.csproj">
-      <Project>{1F25736C-42C9-4AEC-A514-9F4CEF0923EE}</Project>
-      <Name>NuvoControl.Server.FunctionService</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NuvoControl.Server.MonitorAndControlService\NuvoControl.Server.MonitorAndControlService.csproj">
-      <Project>{96A210B6-CCD8-451A-898F-BE40D09BAA49}</Project>
-      <Name>NuvoControl.Server.MonitorAndControlService</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NuvoControl.Server.ProtocolDriver.Interface\NuvoControl.Server.ProtocolDriver.Interface.csproj">
-      <Project>{817F6C4B-65C6-4A90-966E-F76FD8AC4202}</Project>
-      <Name>NuvoControl.Server.ProtocolDriver.Interface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NuvoControl.Server.ProtocolDriver\NuvoControl.Server.ProtocolDriver.csproj">
-      <Project>{C5C321D7-92B9-4A5B-A278-F89FF09664B2}</Project>
-      <Name>NuvoControl.Server.ProtocolDriver</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NuvoControl.Server.ZoneServer\NuvoControl.Server.ZoneServer.csproj">
-      <Project>{A4C12624-2950-45AC-9A17-B83AD9427331}</Project>
-      <Name>NuvoControl.Server.ZoneServer</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\..\Common\NuvoControl.Common\NuvoControl.Common.csproj" />
+    <ProjectReference Include="..\NuvoControl.Server.ConfigurationService\NuvoControl.Server.ConfigurationService.csproj" />
+    <ProjectReference Include="..\NuvoControl.Server.FunctionServer\NuvoControl.Server.FunctionServer.csproj" />
+    <ProjectReference Include="..\NuvoControl.Server.FunctionService\NuvoControl.Server.FunctionService.csproj" />
+    <ProjectReference Include="..\NuvoControl.Server.MonitorAndControlService\NuvoControl.Server.MonitorAndControlService.csproj" />
+    <ProjectReference Include="..\NuvoControl.Server.ProtocolDriver.Interface\NuvoControl.Server.ProtocolDriver.Interface.csproj" />
+    <ProjectReference Include="..\NuvoControl.Server.ProtocolDriver\NuvoControl.Server.ProtocolDriver.csproj" />
+    <ProjectReference Include="..\NuvoControl.Server.ZoneServer\NuvoControl.Server.ZoneServer.csproj" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="NuvoControl.Server.WcfHostConsole_TemporaryKey.pfx" />
-    <None Include="Properties\Settings.settings">
-      <Generator>PublicSettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\..\Config\NuvoControlKonfiguration.xml">
@@ -305,12 +232,7 @@
       <FileType>File</FileType>
     </PublishFile>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  <ItemGroup>
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+  </ItemGroup>
 </Project>

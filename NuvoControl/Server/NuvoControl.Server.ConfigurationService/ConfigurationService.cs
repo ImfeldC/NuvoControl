@@ -42,7 +42,7 @@ namespace NuvoControl.Server.ConfigurationService
     /// It defines functionality to modify the actual configuration of the NuvoControl system.
     /// It defines functionality to save the actual configuration of the NuvoControl system.
     /// </summary>
-    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Single)]
+    //TODO - not available in .NET 8.0 -> [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Single)]
     public class ConfigurationService : IConfigureInternal, IDisposable
     {
         #region Fields

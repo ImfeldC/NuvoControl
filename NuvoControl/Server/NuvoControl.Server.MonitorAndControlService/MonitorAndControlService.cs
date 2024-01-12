@@ -39,7 +39,7 @@ namespace NuvoControl.Server.MonitorAndControlService
     /// instantiated per client proxy. This allows to keep state per client proxy.
     /// The monitor and control service keeps following state, related to a client: Callback interface and all subscribed zones.
     /// </summary>
-    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession, ConcurrencyMode = ConcurrencyMode.Single)]
+    //TODO -> [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession, ConcurrencyMode = ConcurrencyMode.Single)]
     public class MonitorAndControlService: IMonitorAndControl, IDisposable
     {
         #region Fields

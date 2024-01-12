@@ -27,13 +27,13 @@ using NuvoControl.Common.Configuration;
 
 namespace NuvoControl.Server.FunctionService
 {
-    public class ServiceHostFunction: ServiceHost
+    public class ServiceHostFunction //TODO: ServiceHost
     {
         private IZoneServer _zoneServer = null;
         private List<Function> _functions = null;
 
         public ServiceHostFunction(Type serviceType, IZoneServer zoneServer, List<Function> _functions, params Uri[] baseAddresses)
-            : base(serviceType, baseAddresses)
+            //TODO: base(serviceType, baseAddresses)
         {
             this._zoneServer = zoneServer;
             this._functions = Functions;

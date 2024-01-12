@@ -1,130 +1,66 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C5C321D7-92B9-4A5B-A278-F89FF09664B2}</ProjectGuid>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NuvoControl.Server.ProtocolDriver</RootNamespace>
-    <AssemblyName>NuvoControl.Server.ProtocolDriver</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
     <SccProjectName>Rational ClearCase</SccProjectName>
     <SccLocalPath>Rational ClearCase</SccLocalPath>
     <SccAuxPath>Rational ClearCase</SccAuxPath>
     <SccProvider>Rational ClearCase</SccProvider>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <OldToolsVersion>3.5</OldToolsVersion>
-    <UpgradeBackupLocation />
-    <TargetFrameworkProfile />
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AssemblyTitle>NuvoControl.Server.ProtocolDriver</AssemblyTitle>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <FileVersion>2.0.0.0</FileVersion>
+    <Company>NuvoCOntrol</Company>
+    <Copyright>Copyright © B.Limacher and Ch.Imfeld</Copyright>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Debug\NuvoControl.Server.ProtocolDriver.XML</DocumentationFile>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\NuvoControl.Server.ProtocolDriver.XML</DocumentationFile>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AMS.Profile, Version=2.0.3427.39950, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\ExternalLibraries\AMS.Profile.dll</HintPath>
-    </Reference>
     <Reference Include="Common.Logging, Version=2.0.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\ExternalLibraries\Common.Logging.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core">
+    <Reference Update="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Messaging" />
-    <Reference Include="System.Xml.Linq">
+    <Reference Update="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Data.DataSetExtensions">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="NuvoEssentiaCommand.cs" />
-    <Compile Include="NuvoEssentiaSingleCommand.cs" />
-    <Compile Include="NuvoEssentiaProtocol.cs" />
-    <Compile Include="NuvoTelegram.cs" />
-    <Compile Include="AudioDriver.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
+    <Compile Update="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Properties\Settings.Designer.cs">
+    <Compile Update="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="ProtocolDriver.cs" />
-    <Compile Include="ProtocolDriverException.cs" />
-    <Compile Include="ProtocolDriverSimulator.cs" />
-    <Compile Include="SerialPort.cs" />
-    <Compile Include="SerialPortQueue.cs" />
-    <Compile Include="Settings.cs" />
-    <Compile Include="TouchOscDriver.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Bespoken\Bespoke.Common.Osc\Bespoke.Common.Osc.csproj">
-      <Project>{35d30dcb-74d1-40a2-9d22-40e1394ffc09}</Project>
-      <Name>Bespoke.Common.Osc</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Bespoken\Bespoke.Common\Bespoke.Common.csproj">
-      <Project>{f8a1578f-bebe-4bbe-ab11-a0496bdb746a}</Project>
-      <Name>Bespoke.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Common\NuvoControl.Common\NuvoControl.Common.csproj">
-      <Project>{2C8F1A31-ADF8-4BF1-BCA7-032007ED6C61}</Project>
-      <Name>NuvoControl.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NuvoControl.Server.ProtocolDriver.Interface\NuvoControl.Server.ProtocolDriver.Interface.csproj">
-      <Project>{817F6C4B-65C6-4A90-966E-F76FD8AC4202}</Project>
-      <Name>NuvoControl.Server.ProtocolDriver.Interface</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\..\Bespoken\Bespoke.Common.Osc\Bespoke.Common.Osc.csproj" />
+    <ProjectReference Include="..\..\Bespoken\Bespoke.Common\Bespoke.Common.csproj" />
+    <ProjectReference Include="..\..\Common\NuvoControl.Common\NuvoControl.Common.csproj" />
+    <ProjectReference Include="..\NuvoControl.Server.ProtocolDriver.Interface\NuvoControl.Server.ProtocolDriver.Interface.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Properties\Resources.resx">
+    <EmbeddedResource Update="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="NuvoControl.Server.ProtocolDriver.cd" />
-    <None Include="ProtocolDriverConfiguration.dox" />
-    <None Include="ProtocolDriverOverview.cd" />
-    <None Include="Properties\Settings.settings">
+    <None Update="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
@@ -134,12 +70,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  <ItemGroup>
+    <PackageReference Include="Ams.Profile" Version="1.0.0" />
+    <PackageReference Include="MSMQ.Messaging" Version="1.0.4" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+  </ItemGroup>
 </Project>

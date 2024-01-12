@@ -1,5 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+//using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NuvoControl.Common.Configuration;
 
 namespace NuvoControl.Common.UnitTest

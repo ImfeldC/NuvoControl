@@ -1,19 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{21875D36-042E-44A8-B902-A6566CF280D1}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NuvoControl.Server.HostConsole</RootNamespace>
-    <AssemblyName>NuvoControl.Server.HostConsole</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
-    <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
@@ -29,30 +18,18 @@
     <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>NuVo.ico</ApplicationIcon>
+    <AssemblyTitle>NuvoControl.Server.HostConsole</AssemblyTitle>
+    <Company>Licence Owner</Company>
+    <Product>NuvoControl.Server.HostConsole</Product>
+    <Copyright>Copyright © Licence Owner 2016</Copyright>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CommandLine">
@@ -61,71 +38,17 @@
     <Reference Include="Common.Logging">
       <HintPath>..\..\ExternalLibraries\Common.Logging.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HostConsole.cs" />
-    <Compile Include="Options.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="Settings.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Bespoken\Bespoke.Common.Osc\Bespoke.Common.Osc.csproj">
-      <Project>{35d30dcb-74d1-40a2-9d22-40e1394ffc09}</Project>
-      <Name>Bespoke.Common.Osc</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Bespoken\Bespoke.Common\Bespoke.Common.csproj">
-      <Project>{f8a1578f-bebe-4bbe-ab11-a0496bdb746a}</Project>
-      <Name>Bespoke.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Common\NuvoControl.Common\NuvoControl.Common.csproj">
-      <Project>{2C8F1A31-ADF8-4BF1-BCA7-032007ED6C61}</Project>
-      <Name>NuvoControl.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\NuvoControl.Server.OscServer\NuvoControl.Server.OscServer.csproj">
-      <Project>{9a1bf150-83ff-4df7-998f-187a6b71e47a}</Project>
-      <Name>NuvoControl.Server.OscServer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NuvoControl.Server.ConfigurationService\NuvoControl.Server.ConfigurationService.csproj">
-      <Project>{D44A08E5-4C37-4DD6-BBEE-25D0D9F10FA1}</Project>
-      <Name>NuvoControl.Server.ConfigurationService</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NuvoControl.Server.FunctionServer\NuvoControl.Server.FunctionServer.csproj">
-      <Project>{2350F54C-FB02-4FA6-93AE-A2FF68A27EB8}</Project>
-      <Name>NuvoControl.Server.FunctionServer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NuvoControl.Server.ProtocolDriver.Interface\NuvoControl.Server.ProtocolDriver.Interface.csproj">
-      <Project>{817F6C4B-65C6-4A90-966E-F76FD8AC4202}</Project>
-      <Name>NuvoControl.Server.ProtocolDriver.Interface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NuvoControl.Server.ProtocolDriver\NuvoControl.Server.ProtocolDriver.csproj">
-      <Project>{C5C321D7-92B9-4A5B-A278-F89FF09664B2}</Project>
-      <Name>NuvoControl.Server.ProtocolDriver</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NuvoControl.Server.ZoneServer\NuvoControl.Server.ZoneServer.csproj">
-      <Project>{A4C12624-2950-45AC-9A17-B83AD9427331}</Project>
-      <Name>NuvoControl.Server.ZoneServer</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="HostConsole Overview.cd" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
+    <ProjectReference Include="..\..\Bespoken\Bespoke.Common.Osc\Bespoke.Common.Osc.csproj" />
+    <ProjectReference Include="..\..\Bespoken\Bespoke.Common\Bespoke.Common.csproj" />
+    <ProjectReference Include="..\..\Common\NuvoControl.Common\NuvoControl.Common.csproj" />
+    <ProjectReference Include="..\..\NuvoControl.Server.OscServer\NuvoControl.Server.OscServer.csproj" />
+    <ProjectReference Include="..\NuvoControl.Server.ConfigurationService\NuvoControl.Server.ConfigurationService.csproj" />
+    <ProjectReference Include="..\NuvoControl.Server.FunctionServer\NuvoControl.Server.FunctionServer.csproj" />
+    <ProjectReference Include="..\NuvoControl.Server.ProtocolDriver.Interface\NuvoControl.Server.ProtocolDriver.Interface.csproj" />
+    <ProjectReference Include="..\NuvoControl.Server.ProtocolDriver\NuvoControl.Server.ProtocolDriver.csproj" />
+    <ProjectReference Include="..\NuvoControl.Server.ZoneServer\NuvoControl.Server.ZoneServer.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\..\Config\NuvoControlKonfiguration.xml">
@@ -147,12 +70,14 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  <ItemGroup>
+    <PackageReference Include="CoreWCF.ConfigurationManager" Version="1.5.1" />
+    <PackageReference Include="CoreWCF.Http" Version="1.5.1" />
+    <PackageReference Include="CoreWCF.NetFramingBase" Version="1.5.1" />
+    <PackageReference Include="CoreWCF.NetTcp" Version="1.5.1" />
+    <PackageReference Include="CoreWCF.Primitives" Version="1.5.1" />
+    <PackageReference Include="CoreWCF.WebHttp" Version="1.5.1" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+  </ItemGroup>
 </Project>
