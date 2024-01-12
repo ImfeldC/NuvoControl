@@ -1,4 +1,3 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
@@ -14,11 +13,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Logging.ndoc = Logging.ndoc
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Logging.2008", "modules\Common.Logging\src\Common\Common.Logging\Common.Logging.2008.csproj", "{440D903A-D409-48FC-A6C4-3EE69CCD663B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Logging.2008", "modules\Common.Logging\src\Common\Common.Logging\Common.Logging.2008.csproj", "{440D903A-D409-48FC-A6C4-3EE69CCD663B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Logging.Log4Net.2008", "modules\Common.Logging.Log4Net\src\Common\Common.Logging.Log4Net\Common.Logging.Log4Net.2008.csproj", "{0FEA262C-4EAF-49DB-8D32-8E90DDEF23B6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Logging.Log4Net129.2008", "modules\Common.Logging.Log4Net129\src\Common\Common.Logging.Log4Net129\Common.Logging.Log4Net129.2008.csproj", "{A6A7257A-D1AE-4A09-8C1C-F55E099C8A8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Logging.Log4Net.2008", "modules\Common.Logging.Log4Net\src\Common\Common.Logging.Log4Net\Common.Logging.Log4Net.2008.csproj", "{0FEA262C-4EAF-49DB-8D32-8E90DDEF23B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,17 +31,13 @@ Global
 		{0FEA262C-4EAF-49DB-8D32-8E90DDEF23B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FEA262C-4EAF-49DB-8D32-8E90DDEF23B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FEA262C-4EAF-49DB-8D32-8E90DDEF23B6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A6A7257A-D1AE-4A09-8C1C-F55E099C8A8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A6A7257A-D1AE-4A09-8C1C-F55E099C8A8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A6A7257A-D1AE-4A09-8C1C-F55E099C8A8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A6A7257A-D1AE-4A09-8C1C-F55E099C8A8A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		NAntAddinLastFileName = Common.Logging.build
 		SolutionGuid = {7CE1D888-4A83-40D7-8E10-C22816D64019}
+		NAntAddinLastFileName = Common.Logging.build
 	EndGlobalSection
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
