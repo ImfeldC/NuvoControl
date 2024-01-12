@@ -1,6 +1,19 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EC54316A-A3B9-4EF5-A74C-1EC2344D0EA4}"
+	ProjectSection(SolutionItems) = preProject
+		changelog.txt = changelog.txt
+		shared\common-project.include = shared\common-project.include
+		doc\api\introduction.html = doc\api\introduction.html
+		shared\Logging.build = shared\Logging.build
+		Logging.build = Logging.build
+		shared\Logging.include = shared\Logging.include
+		Logging.ndoc = Logging.ndoc
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Logging.2008", "modules\Common.Logging\src\Common\Common.Logging\Common.Logging.2008.csproj", "{440D903A-D409-48FC-A6C4-3EE69CCD663B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Logging.Tests.2008", "modules\Common.Logging\test\Common\Common.Logging.Tests\Common.Logging.Tests.2008.csproj", "{94E4E1B4-D424-4EB9-BF34-2EE8CC3D7048}"
@@ -37,22 +50,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Logging.NLog.Integra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Logging.EntLib41.Integration.Tests.2008", "modules\Common.Logging.EntLib41\test\Common\Common.Logging.EntLib41.Integration.Tests\Common.Logging.EntLib41.Integration.Tests.2008.csproj", "{E641F51F-1B51-4B94-B419-F902EABCE4D5}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EC54316A-A3B9-4EF5-A74C-1EC2344D0EA4}"
-	ProjectSection(SolutionItems) = preProject
-		changelog.txt = changelog.txt
-		shared\common-project.include = shared\common-project.include
-		doc\api\introduction.html = doc\api\introduction.html
-		shared\Logging.build = shared\Logging.build
-		Logging.build = Logging.build
-		shared\Logging.include = shared\Logging.include
-		Logging.ndoc = Logging.ndoc
-	EndProjectSection
-EndProject
 Global
-	GlobalSection(SubversionScc) = preSolution
-		Svn-Managed = True
-		Manager = AnkhSVN - Subversion Support for Visual Studio
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -136,5 +134,10 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		NAntAddinLastFileName = Common.Logging.build
+		SolutionGuid = {7CE1D888-4A83-40D7-8E10-C22816D64019}
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
 	EndGlobalSection
 EndGlobal
