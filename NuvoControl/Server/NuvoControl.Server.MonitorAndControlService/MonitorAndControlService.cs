@@ -97,9 +97,9 @@ namespace NuvoControl.Server.MonitorAndControlService
 
             IMonitorAndControlNotification callback = OperationContext.Current.GetCallbackChannel<IMonitorAndControlNotification>();
             this._subscriber = callback;
-            ServiceHostMc host = OperationContext.Current.Host as ServiceHostMc;
-            Debug.Assert(host != null);
-            _zoneServer = host.ZoneServer;
+            //TODO ServiceHostMc host = OperationContext.Current.Host as ServiceHostMc;
+            //TODO Debug.Assert(host != null);
+            //TODO _zoneServer = host.ZoneServer;
         }
 
 

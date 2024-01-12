@@ -19,7 +19,7 @@ namespace NuvoControl.Client.ConsoleClient
       [Option('h', "host", HelpText = "Hostname or IP address of the server to connect.")]
       public string Host { get; set; }
 
-      [Option('p', "port", DefaultValue = 8080, HelpText = "Port number of the service.")]
+      [Option('p', "port", HelpText = "Port number of the service.")]
       public int Port { get; set; }
 
     }

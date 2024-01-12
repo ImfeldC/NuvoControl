@@ -34,6 +34,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+    <PackageReference Include="System.IO.Ports" Version="8.0.0" />
     <PackageReference Include="System.ServiceModel.Primitives" Version="8.0.0" />
     <PackageReference Include="System.ServiceModel.Http" Version="8.0.0" />
     <PackageReference Include="System.ServiceModel.Duplex" Version="6.0.0" />

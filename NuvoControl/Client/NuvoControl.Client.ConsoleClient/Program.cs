@@ -47,14 +47,14 @@ namespace NuvoControl.Client.ConsoleClient
             ILog _log = LogManager.GetCurrentClassLogger();
 
             // Load command line argumnets
-            var options = new Options();
-            CommandLine.Parser.Default.ParseArguments(args, options);
+            Options _options = new Options();
+            CommandLine.Parser.Default.ParseArguments(args, _options);
             // Set global verbose mode
-            LogHelper.SetOptions(options);
+            LogHelper.SetOptions(_options);
             LogHelper.LogAppStart("**** Console client started. *******");
-            if (options.Help)
+            if (_options.Help)
             {
-                Console.WriteLine(options.GetUsage());
+                Console.WriteLine(_options.GetUsage());
             }
 
 

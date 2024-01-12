@@ -29,7 +29,7 @@ namespace NuvoControl.Server.MonitorAndControlService
     /// <summary>
     /// Derivation of the <see cref="ServiceHost"/> class needed to add access to the zone server.
     /// </summary>
-    public class ServiceHostMc: ServiceHost
+    public class ServiceHostMc //TODO: ServiceHost
     {
         /// <summary>
         /// The zone server.
@@ -43,7 +43,7 @@ namespace NuvoControl.Server.MonitorAndControlService
         /// <param name="zoneServer">The zone server.</param>
         /// <param name="baseAddresses">Options base addresses of the service.</param>
         public ServiceHostMc(Type serviceType, IZoneServer zoneServer, params Uri[] baseAddresses)
-            : base(serviceType, baseAddresses)
+            //TODO: base(serviceType, baseAddresses)
         {
             this._zoneServer = zoneServer;
         }

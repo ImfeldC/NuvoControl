@@ -18,8 +18,6 @@
     <Reference Include="Common.Logging">
       <HintPath>..\..\ExternalLibraries\Common.Logging.dll</HintPath>
     </Reference>
-    <Reference Include="System.ServiceModel" />
-    <Reference Include="System.ServiceModel.Discovery" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\NuvoControl.Common\NuvoControl.Common.csproj" />
@@ -28,7 +26,6 @@
     <ProjectReference Include="..\..\Server\NuvoControl.Server.MonitorAndControlService\NuvoControl.Server.MonitorAndControlService.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="CommandLineParser" Version="2.9.1" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
   </ItemGroup>

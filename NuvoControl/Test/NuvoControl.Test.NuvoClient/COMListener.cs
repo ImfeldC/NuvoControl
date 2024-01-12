@@ -29,8 +29,9 @@ using System.IO.Ports;
 using NuvoControl.Server.ProtocolDriver;
 using NuvoControl.Server.ProtocolDriver.Interface;
 using NuvoControl.Common.Configuration;
-using System.Messaging;
+//using System.Messaging;
 using NuvoControl.Server.ProtocolDriver.Simulator;
+using MSMQ.Messaging;
 
 namespace NuvoControl.Test.NuvoClient
 {

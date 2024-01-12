@@ -91,6 +91,7 @@
     <Content Include="NuvoControl.ico" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="MSMQ.Messaging" Version="1.0.4" />
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
   </ItemGroup>
 </Project>

@@ -23,7 +23,8 @@ using System.Drawing;
 using System.IO.Ports;
 using System.Windows.Forms;
 using NuvoControl.Server.ProtocolDriver.Interface;
-using System.Messaging;
+using MSMQ.Messaging;
+//using System.Messaging;
 
 namespace NuvoControl.Test.NuvoClient
 {
