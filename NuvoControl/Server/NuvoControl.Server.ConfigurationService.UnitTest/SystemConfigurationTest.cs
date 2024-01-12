@@ -17,19 +17,10 @@
  * 
  **************************************************************************************************/
 
-
-using NuvoControl.Server;
-using NuvoControl.Common.Configuration;
-
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using System;
-using System.IO;
-using System.Xml;
-using System.Drawing;
-
 namespace NuvoControl.Server.ConfigurationService.UnitTest
-{ 
+{
     /// <summary>
     /// Test class for SystemConfigurationTest 
     /// 

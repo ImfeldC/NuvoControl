@@ -24,7 +24,7 @@ using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
 using System.ServiceModel;
-using System.ServiceModel.Discovery;
+//using System.ServiceModel.Discovery;
 using System.Collections.ObjectModel;
 
 using CommandLine;
@@ -67,6 +67,7 @@ namespace NuvoControl.Client.ConsoleClient
 
         }
 
+/*
         /// <summary>
         /// Discover specific servcie type.
         /// </summary>
@@ -102,7 +103,7 @@ namespace NuvoControl.Client.ConsoleClient
             }
             return discovered;
         }
-
-    
+*/
     }
+    
 }

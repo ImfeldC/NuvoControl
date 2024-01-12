@@ -22,7 +22,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.ServiceModel;
-using System.ServiceModel.Discovery;
+//using System.ServiceModel.Discovery;
 using System.ServiceModel.Description;      // WCF PingTest
 
 using Common.Logging;
@@ -70,7 +70,7 @@ namespace NuvoControl.Server.WcfHostConsole
         private static System.Timers.Timer _timerCheckConfiguration = new System.Timers.Timer();
 
 
-        private static ServiceHost _configurationServiceHost = null;
+        //TODO private static ServiceHost _configurationServiceHost = null;
 
         private static ServiceHostMc _mCServiceHost = null;
 
@@ -272,8 +272,8 @@ namespace NuvoControl.Server.WcfHostConsole
             string hostname = System.Environment.MachineName;
             int portnumber = 7400;
             var baseAddress = new UriBuilder("http", hostname, portnumber, "ConfigurationService");
-            _configurationServiceHost = new ServiceHost(
-                /*typeof(NuvoControl.Server.ConfigurationService.ConfigurationService)*/ _configurationService, new UriBuilder("http", hostname, portnumber, "ConfigurationService").Uri);
+            //TODO _configurationServiceHost = new ServiceHost(
+            //TODO     _configurationService, new UriBuilder("http", hostname, portnumber, "ConfigurationService").Uri);
             _mCServiceHost = new ServiceHostMc(
                 typeof(NuvoControl.Server.MonitorAndControlService.MonitorAndControlService), _zoneServer,
                 new UriBuilder("http", hostname, portnumber, "MonitorAndControlService").Uri);
@@ -301,6 +301,7 @@ namespace NuvoControl.Server.WcfHostConsole
                     LogHelper.LogException(">>> Cannot open Discovery for Configuration service!", exc);
                 }
 
+/*
                 // make the service discoverable by adding the discovery behavior
                 _mCServiceHost.Description.Behaviors.Add(new ServiceDiscoveryBehavior());
                 // add the discovery endpoint that specifies where to publish the services
@@ -317,6 +318,7 @@ namespace NuvoControl.Server.WcfHostConsole
                     // see comment above, to set correct required permissions
                     LogHelper.LogException(">>> Cannot open Discovery for Monitor and control service!", exc);
                 }
+*/
 
                 // make the service discoverable by adding the discovery behavior
                 _functionServiceHost.Description.Behaviors.Add(new ServiceDiscoveryBehavior());
