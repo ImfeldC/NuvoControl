@@ -11,4 +11,14 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\NuvoControl.Common\NuvoControl.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="CommandLine">
+      <HintPath>..\..\ExternalLibraries\CommandLine.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

@@ -1,3 +1,21 @@
+using NuvoControl.Common;
+using NuvoControl.Server.WebConsole;
+
+
+// Load command line argumnets
+Options _options = new Options();
+CommandLine.Parser.Default.ParseArguments(args, _options);
+
+// Set global verbose mode
+LogHelper.SetOptions(_options);
+LogHelper.LogAppStart("Server Console");
+LogHelper.LogArgs(args);
+if (_options.Help)
+{
+    Console.WriteLine(_options.GetUsage());
+}
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

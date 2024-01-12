@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Collections.ObjectModel;
-using System.ServiceModel.Discovery;
+//using System.ServiceModel.Discovery;
 using Common.Logging;
 using System.Windows.Forms;
 
