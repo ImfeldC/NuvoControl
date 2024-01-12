@@ -32,10 +32,6 @@ using System.Runtime.InteropServices;
 
 using CommandLine;
 using CommandLine.Text;
-#endregion
-
-[assembly: AssemblyTitle("demoapp.exe")]
-[assembly: AssemblyDescription("Sample Application for Command Line Library")]
 [assembly: AssemblyCulture("")]
 
 // here we're using new CommandLine.Text attributes
@@ -48,7 +44,6 @@ using CommandLine.Text;
     "       SampleApp -rMath.xml -wReport.bin -o *;/;+;-")]
 
 #if DEBUG
-[assembly: AssemblyConfiguration("Debug")]
 #else
 [assembly: AssemblyConfiguration("Release")]
 #endif
