@@ -34,7 +34,6 @@ namespace NuvoControl.Server.FunctionService
     /// <summary>
     /// Implements the functions for the function server.
     /// </summary>
-    //TODO -> [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession, ConcurrencyMode = ConcurrencyMode.Single)]
     public class FunctionService: IFunction, IDisposable
     {
         #region Fields
