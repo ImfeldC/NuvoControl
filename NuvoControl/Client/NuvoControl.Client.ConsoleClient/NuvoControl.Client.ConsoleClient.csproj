@@ -23,7 +23,6 @@
     <ProjectReference Include="..\..\Common\NuvoControl.Common\NuvoControl.Common.csproj" />
     <ProjectReference Include="..\..\Server\NuvoControl.Server.ConfigurationService\NuvoControl.Server.ConfigurationService.csproj" />
     <ProjectReference Include="..\..\Server\NuvoControl.Server.FunctionService\NuvoControl.Server.FunctionService.csproj" />
-    <ProjectReference Include="..\..\Server\NuvoControl.Server.MonitorAndControlService\NuvoControl.Server.MonitorAndControlService.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />

@@ -34,7 +34,6 @@ using Common.Logging;
 using NuvoControl.Common;
 
 using NuvoControl.Server.FunctionService;
-using NuvoControl.Server.MonitorAndControlService;
 using NuvoControl.Server.ConfigurationService;
 //using NuvoControl.Client.ServiceAccess;
 
