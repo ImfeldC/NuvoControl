@@ -33,7 +33,6 @@ using CommandLine.Text; // if you want text formatting helpers (recommended)
 using Common.Logging;
 using NuvoControl.Common;
 
-using NuvoControl.Server.FunctionService;
 using NuvoControl.Server.ConfigurationService;
 //using NuvoControl.Client.ServiceAccess;
 
