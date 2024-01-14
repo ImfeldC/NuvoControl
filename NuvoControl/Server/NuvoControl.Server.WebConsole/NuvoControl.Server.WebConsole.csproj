@@ -8,17 +8,53 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="..\..\Config\NuvoControlKonfiguration.xml" Link="Config\NuvoControlKonfiguration.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Bespoken\Bespoke.Common.Osc\Bespoke.Common.Osc.csproj" />
+    <ProjectReference Include="..\..\Bespoken\Bespoke.Common\Bespoke.Common.csproj" />
     <ProjectReference Include="..\..\Common\NuvoControl.Common\NuvoControl.Common.csproj" />
+    <ProjectReference Include="..\..\NuvoControl.Server.OscServer\NuvoControl.Server.OscServer.csproj" />
+    <ProjectReference Include="..\NuvoControl.Server.ConfigurationService\NuvoControl.Server.ConfigurationService.csproj" />
+    <ProjectReference Include="..\NuvoControl.Server.FunctionServer\NuvoControl.Server.FunctionServer.csproj" />
+    <ProjectReference Include="..\NuvoControl.Server.ProtocolDriver.Interface\NuvoControl.Server.ProtocolDriver.Interface.csproj" />
+    <ProjectReference Include="..\NuvoControl.Server.ProtocolDriver\NuvoControl.Server.ProtocolDriver.csproj" />
+    <ProjectReference Include="..\NuvoControl.Server.ZoneServer\NuvoControl.Server.ZoneServer.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="CommandLine">
       <HintPath>..\..\ExternalLibraries\CommandLine.dll</HintPath>
     </Reference>
+    <Reference Include="Common.Logging">
+      <HintPath>..\..\ExternalLibraries\Common.Logging.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Config\" />
   </ItemGroup>
 
 </Project>

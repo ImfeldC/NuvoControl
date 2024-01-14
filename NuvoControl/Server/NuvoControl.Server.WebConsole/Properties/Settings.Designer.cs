@@ -43,7 +43,7 @@ namespace NuvoControl.Server.WebConsole.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("./Config/NuvoControlKonfiguration.xml")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:/NuvoControl 2024/NuvoControl/NuvoControl/Config/NuvoControlKonfiguration.xml")]
         public string NuvoControlKonfigurationFile {
             get {
                 return ((string)(this["NuvoControlKonfigurationFile"]));
