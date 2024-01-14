@@ -533,12 +533,15 @@ namespace NuvoControl.Server.ProtocolDriver
         /// <returns>true, if all placeholders have been replaced. false, if not.</returns>
         private bool checkOutgoingCommand(string command)
         {
-            foreach (char c in command)
+            if(command != null)
             {
-                if (Char.IsLetter(c) && Char.IsLower(c))
+                foreach (char c in command)
                 {
-                    // not all placeholders replaced.
-                    return false;
+                    if (Char.IsLetter(c) && Char.IsLower(c))
+                    {
+                        // not all placeholders replaced.
+                        return false;
+                    }
                 }
             }
             return true;
@@ -1089,16 +1092,23 @@ namespace NuvoControl.Server.ProtocolDriver
         /// <returns>Command string with replaced placeholders.</returns>
         static private string replacePlaceholderForZone(string command, ENuvoEssentiaZones zone, string placeholder)
         {
-            if (command.Contains(placeholder))
+            if( command != null )
             {
-                if (zone != ENuvoEssentiaZones.NoZone)
+                if (command.Contains(placeholder))
                 {
-                    command = replacePlaceholderWithNumber(command, (int)zone, placeholder);
+                    if (zone != ENuvoEssentiaZones.NoZone)
+                    {
+                        command = replacePlaceholderWithNumber(command, (int)zone, placeholder);
+                    }
+                    else
+                    {
+                        LogManager.GetCurrentClassLogger().Warn(m => m("Replace ERROR: Cannot replace '{0}' in command '{1}', because Zone member is not set", placeholder, command));
+                    }
                 }
-                else
-                {
-                    LogManager.GetCurrentClassLogger().Warn(m => m("Replace ERROR: Cannot replace '{0}' in command '{1}', because Zone member is not set", placeholder, command));
-                }
+            }
+            else 
+            {
+                LogManager.GetCurrentClassLogger().Fatal(m => m("Replace ERROR: Cannot replace '{0}' in command because it is empty!", placeholder));
             }
             return command;
         }

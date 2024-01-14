@@ -31,7 +31,7 @@ namespace NuvoControl.Server.HostConsole
             CommandLine.Parser.Default.ParseArguments(args, _options);
             // Set global verbose mode
             LogHelper.SetOptions(_options );
-            LogHelper.LogAppStart("Server Console"); 
+            LogHelper.LogAppStart("Server Host Console"); 
             LogHelper.LogArgs(args);
             if (_options.Help)
             {

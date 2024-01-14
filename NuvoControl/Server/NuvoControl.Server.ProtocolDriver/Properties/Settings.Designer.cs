@@ -52,7 +52,8 @@ namespace NuvoControl.Server.ProtocolDriver.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("./Config/NuvoEssentiaProfile.xml")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\NuvoControl 2024\\NuvoControl\\NuvoControl\\Server\\NuvoControl.Server.ProtocolDri" +
+            "ver\\Config/NuvoEssentiaProfile.xml")]
         public string NuvoEssentiaProfileFile {
             get {
                 return ((string)(this["NuvoEssentiaProfileFile"]));
