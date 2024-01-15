@@ -111,6 +111,23 @@ namespace NuvoControl.Server.ZoneServer
         /// <summary>
         /// <see cref="IZoneServer"/>
         /// </summary>
+        /// <returns></returns>
+        public Dictionary<Address, ZoneState> GetZoneStates()
+        {
+            lock (this)
+            {
+                Dictionary<Address, ZoneState> _zoneStates = new Dictionary<Address, ZoneState>();
+                foreach (IZoneController zoneController in _zoneControllers.Values)
+                {
+                    _zoneStates.Add(zoneController.UniqueZoneId ,zoneController.ZoneState );
+                }
+                return _zoneStates;
+            }
+        }
+
+        /// <summary>
+        /// <see cref="IZoneServer"/>
+        /// </summary>
         /// <param name="zoneId"></param>
         /// <returns></returns>
         public ZoneState GetZoneState(Address zoneId)
