@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NuvoControl.Common;
 using NuvoControl.Common.Configuration;
-using NuvoControl.Server.ZoneServer;
-using System.Security.Policy;
+
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 

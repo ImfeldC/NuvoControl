@@ -5,7 +5,6 @@ using NuvoControl.Server.FunctionServer;
 using NuvoControl.Server.OscServer;
 using NuvoControl.Server.ProtocolDriver;
 using NuvoControl.Server.ProtocolDriver.Interface;
-using NuvoControl.Server.WebConsole;
 using NuvoControl.Server.ZoneServer;
 using LogLevel = Common.Logging.LogLevel;
 
@@ -540,17 +539,7 @@ namespace NuvoControl.Server.WebConsole
 
         public NuvoControlController()
         {
-            // Load command line argumnets
-            //_options = new Options();
-            //CommandLine.Parser.Default.ParseArguments(args, _options);
-            // Set global verbose mode
-            LogHelper.SetOptions(_options);
-            LogHelper.LogAppStart("Server Console");
-            //LogHelper.LogArgs(args);
-            if (_options.Help)
-            {
-                Console.WriteLine(_options.GetUsage());
-            }
+            LogHelper.Log(LogLevel.Debug, String.Format("Create 'NuvoControlController' ..."));
 
             LogHelper.Log(LogLevel.Debug, String.Format("Check configuration timer started, each {0}[s]", Properties.Settings.Default.ConfigurationCheckIntervall));
             _timerCheckConfiguration.Interval = (Properties.Settings.Default.ConfigurationCheckIntervall < 30 ? 30 : Properties.Settings.Default.ConfigurationCheckIntervall) * 1000;
@@ -559,14 +548,15 @@ namespace NuvoControl.Server.WebConsole
 
             LoadAllServices();
 
-            LogHelper.Log(LogLevel.All, ">>> ");
-            LogHelper.Log(LogLevel.All, ">>> ");
-            LogHelper.Log(LogLevel.All, ">>> Press <Enter> to stop the console application.");
+            //LogHelper.Log(LogLevel.All, ">>> ");
+            //LogHelper.Log(LogLevel.All, ">>> ");
+            //LogHelper.Log(LogLevel.All, ">>> Press <Enter> to stop the console application.");
             //Console.ReadLine();
         }
 
         ~NuvoControlController()
         {
+            LogHelper.Log(LogLevel.Debug, String.Format("Destroy 'NuvoControlController' ..."));
         }
 
 
