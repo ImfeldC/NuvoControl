@@ -1,6 +1,7 @@
 ﻿using Common.Logging;
 using NuvoControl.Common;
 using NuvoControl.Common.Configuration;
+using NuvoControl.Server.ConfigurationService;
 using NuvoControl.Server.FunctionServer;
 using NuvoControl.Server.OscServer;
 using NuvoControl.Server.ProtocolDriver;
@@ -21,7 +22,8 @@ namespace NuvoControl.Server.WebConsole
         /// <summary>
         /// Holds the loaded system configuration.
         /// </summary>
-        NuvoControl.Server.ConfigurationService.ConfigurationService _configurationService = null;
+        static NuvoControl.Server.ConfigurationService.ConfigurationService _configurationService = null;
+        public static IConfigure ConfgurationServer { get => _configurationService; }
 
         /// <summary>
         /// Holds the protocol drivers per NuvoEssentia.
