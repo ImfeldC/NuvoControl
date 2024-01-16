@@ -47,7 +47,7 @@ namespace NuvoControl.Server.WebConsole.Controllers
             return null;
         }
 
-        // c api/Zones/5
+        // GET api/Zones/{zoneId}
         [HttpGet("{zoneId}")]
         public ZoneState Get(string zoneId)
         {
@@ -60,17 +60,53 @@ namespace NuvoControl.Server.WebConsole.Controllers
             return null;
         }
 
-        // PUT api/Zones/5
+        // PUT api/Zones/{zoneId}
         [HttpPut("{zoneId}")]
-        public void Put(string zoneId, [FromBody] ZoneState value)
+        public ZoneState Put(string zoneId, [FromBody] ZoneState value)
         {
             LogZoneState(zoneId, String.Format("PUT api/Zones/{0}", zoneId));
 
             if (NuvoControlController.ZoneServer != null)
             {
                 NuvoControlController.ZoneServer.SetZoneState(new Address(zoneId),value);
-                NuvoControlController.ZoneServer.GetZoneState(new Address(zoneId));
+                return NuvoControlController.ZoneServer.GetZoneState(new Address(zoneId));
             }
+            return new ZoneState();
         }
+
+        // PUT api/Zones/{zoneId}/SetVolume/{volume}
+        [HttpPut]
+        [Route("api/Zones/{zoneId}/SetVolume/{volume}")]
+        public ZoneState PutZoneVolume(string zoneId, int volume)
+        {
+            LogZoneState(zoneId, String.Format("PUT api/Zones/{0}/SetVolume/{1}", zoneId, volume));
+
+            if (NuvoControlController.ZoneServer != null)
+            {
+                ZoneState zonestate = NuvoControlController.ZoneServer.GetZoneState(new Address(zoneId));
+                zonestate.Volume = volume;  
+                NuvoControlController.ZoneServer.SetZoneState(new Address(zoneId), zonestate);
+                return NuvoControlController.ZoneServer.GetZoneState(new Address(zoneId));
+            }
+            return new ZoneState();
+        }
+
+        // PUT api/Zones/{zoneId}/SetSource/{sourceId}
+        [HttpPut]
+        [Route("api/Zones/{zoneId}/SetSource/{sourceId}")]
+        public ZoneState PutZoneVolume(string zoneId, string sourceId)
+        {
+            LogZoneState(zoneId, String.Format("PUT api/Zones/{0}/SetSource/{1}", zoneId, sourceId));
+
+            if (NuvoControlController.ZoneServer != null)
+            {
+                ZoneState zonestate = NuvoControlController.ZoneServer.GetZoneState(new Address(zoneId));
+                zonestate.Source = new Address(sourceId);
+                NuvoControlController.ZoneServer.SetZoneState(new Address(zoneId), zonestate);
+                return NuvoControlController.ZoneServer.GetZoneState(new Address(zoneId));
+            }
+            return new ZoneState();
+        }
+
     }
 }
