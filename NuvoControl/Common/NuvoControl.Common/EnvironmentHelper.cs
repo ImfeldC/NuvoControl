@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Diagnostics;
-using Common.Logging;
 using System.Net;
+using static NuvoControl.Common.LogHelper;
 
 namespace NuvoControl.Common
 {

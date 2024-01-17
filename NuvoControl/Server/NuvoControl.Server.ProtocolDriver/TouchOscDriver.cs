@@ -11,13 +11,13 @@
 
 using Bespoke.Common;
 using Bespoke.Common.Osc;
-using Common.Logging;
 using NuvoControl.Common;
 using NuvoControl.Common.Configuration;
 using NuvoControl.Server.ProtocolDriver.Interface;
 using System;
 using System.Collections.Generic;
 using System.Net;
+using static NuvoControl.Common.LogHelper;
 
 
 

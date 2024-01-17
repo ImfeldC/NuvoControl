@@ -5,7 +5,7 @@ using System.Text;
 using NuvoControl.Common;
 using NuvoControl.Server.ProtocolDriver.Interface;
 using NuvoControl.Common.Configuration;
-using Common.Logging;
+using static NuvoControl.Common.LogHelper;
 
 namespace NuvoControl.Server.Simulator
 {
@@ -75,7 +75,6 @@ namespace NuvoControl.Server.Simulator
     {
         #region Common Logger
         /// <summary>
-        /// Common logger object. Requires the using directive <c>Common.Logging</c>. See 
         /// <see cref="LogManager"/> for more information.
         /// </summary>
         private ILog _log = LogManager.GetCurrentClassLogger();

@@ -11,8 +11,6 @@ using System.Net;
 using System.Diagnostics;       // ProcessStartInfo
 using System.Threading;         // Sleep
 
-using Common.Logging;
-
 using NuvoControl.Common;
 using NuvoControl.Common.Configuration;
 
@@ -20,6 +18,7 @@ using NuvoControl.Server.ProtocolDriver;
 using NuvoControl.Server.ProtocolDriver.Interface;
 
 using NuvoControl.ThingSpeak;
+using static NuvoControl.Common.LogHelper;
 
 
 

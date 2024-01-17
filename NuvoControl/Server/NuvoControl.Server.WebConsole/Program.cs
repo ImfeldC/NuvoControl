@@ -1,4 +1,4 @@
-using Common.Logging;
+using static NuvoControl.Common.LogHelper;
 using NuvoControl.Common;
 using NuvoControl.Common.Configuration;
 using NuvoControl.Server.FunctionServer;
@@ -8,7 +8,6 @@ using NuvoControl.Server.ProtocolDriver.Interface;
 using NuvoControl.Server.WebConsole;
 using NuvoControl.Server.ZoneServer;
 using System.DirectoryServices;
-using LogLevel = Common.Logging.LogLevel;
 
 
 // Load command line argumnets

@@ -36,4 +36,11 @@ This requires to install the 'MSMQ' on all systems which shall be used for testi
 Specifiy "QUEUE" instead of "COM1" to connect to this (test) channel.
 
 
+5) Implement SeriLog support
+----------------------------
+Homepage: Getting Started - https://github.com/serilog/serilog/wiki/Getting-Started
+$ dotnet add package Serilog
+$ dotnet add package Serilog.Sinks.Console
+
+
 CI / 04-Jan-2024

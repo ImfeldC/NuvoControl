@@ -23,8 +23,8 @@ using System.Linq;
 using System.Text;
 using NuvoControl.Server.ProtocolDriver.Interface;
 using NuvoControl.Server.ProtocolDriver;
-using Common.Logging;
 using NuvoControl.Server.ProtocolDriver.Simulator;
+using static NuvoControl.Common.LogHelper;
 
 namespace NuvoControl.Server.ProtocolDriver
 {
@@ -164,7 +164,6 @@ namespace NuvoControl.Server.ProtocolDriver
     {
         #region Common Logger
         /// <summary>
-        /// Common logger object. Requires the using directive <c>Common.Logging</c>. See 
         /// <see cref="LogManager"/> for more information.
         /// </summary>
         private ILog _log = LogManager.GetCurrentClassLogger();

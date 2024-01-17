@@ -27,13 +27,13 @@ using System.Text;
 using System.Windows.Forms;
 //using System.Messaging;
 using MSMQ.Messaging;
-using Common.Logging;
 using NuvoControl.Server.ProtocolDriver.Interface;
 using NuvoControl.Server.ProtocolDriver;
 using NuvoControl.Server.ProtocolDriver.Simulator;
 using NuvoControl.Common;
 using NuvoControl.Common.Configuration;
 using System.Threading;
+using static NuvoControl.Common.LogHelper;
 
 namespace NuvoControl.Server.Simulator
 {
@@ -48,7 +48,6 @@ namespace NuvoControl.Server.Simulator
 
         #region Common Logger
         /// <summary>
-        /// Common logger object. Requires the using directive <c>Common.Logging</c>. See 
         /// <see cref="LogManager"/> for more information.
         /// </summary>
         private ILog _log = LogManager.GetCurrentClassLogger();

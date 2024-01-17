@@ -9,13 +9,13 @@
  * 
  **************************************************************************************************/
 
-using Common.Logging;
 using NuvoControl.Common;
 using NuvoControl.Common.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading;
+using static NuvoControl.Common.LogHelper;
 
 
 namespace NuvoControl.Server.OscServer

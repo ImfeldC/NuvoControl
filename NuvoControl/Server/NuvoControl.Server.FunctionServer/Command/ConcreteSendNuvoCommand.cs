@@ -14,11 +14,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using Common.Logging;
-
 using NuvoControl.Common;
 using NuvoControl.Common.Configuration;
 using NuvoControl.Server.ZoneServer;
+using static NuvoControl.Common.LogHelper;
 
 namespace NuvoControl.Server.FunctionServer
 {

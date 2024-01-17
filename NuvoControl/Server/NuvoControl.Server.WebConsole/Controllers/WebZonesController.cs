@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Common.Logging;
+using static NuvoControl.Common.LogHelper;
 using NuvoControl.Common;
 using NuvoControl.Common.Configuration;
 using NuvoControl.Server.ConfigurationService;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
-using LogLevel = Common.Logging.LogLevel;
+using LogLevel = NuvoControl.Common.LogHelper.LogLevel;
 
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860

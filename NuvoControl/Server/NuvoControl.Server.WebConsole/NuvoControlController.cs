@@ -1,4 +1,4 @@
-﻿using Common.Logging;
+﻿using static NuvoControl.Common.LogHelper;
 using NuvoControl.Common;
 using NuvoControl.Common.Configuration;
 using NuvoControl.Server.ConfigurationService;
@@ -7,7 +7,7 @@ using NuvoControl.Server.OscServer;
 using NuvoControl.Server.ProtocolDriver;
 using NuvoControl.Server.ProtocolDriver.Interface;
 using NuvoControl.Server.ZoneServer;
-using LogLevel = Common.Logging.LogLevel;
+using LogLevel = NuvoControl.Common.LogHelper.LogLevel;
 
 namespace NuvoControl.Server.WebConsole
 {

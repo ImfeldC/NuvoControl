@@ -30,10 +30,10 @@ using System.Collections.ObjectModel;
 using CommandLine;
 using CommandLine.Text; // if you want text formatting helpers (recommended)
 
-using Common.Logging;
 using NuvoControl.Common;
 
 using NuvoControl.Server.ConfigurationService;
+using static NuvoControl.Common.LogHelper;
 //using NuvoControl.Client.ServiceAccess;
 
 namespace NuvoControl.Client.ConsoleClient

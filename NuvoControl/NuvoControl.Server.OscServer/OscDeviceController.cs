@@ -15,13 +15,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Common.Logging;
-
 using NuvoControl.Common;
 using NuvoControl.Common.Configuration;
 using NuvoControl.Server.ProtocolDriver.Interface;
 using NuvoControl.Server.ProtocolDriver;
 using System.Diagnostics.Eventing.Reader;
+using static NuvoControl.Common.LogHelper;
 
 
 

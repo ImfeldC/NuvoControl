@@ -23,13 +23,12 @@ using System.Linq;
 using System.Text;
 using System.Diagnostics;
 
-using Common.Logging;
-
 using NuvoControl.Common;       // required for ToString<T> list extension
 using NuvoControl.Common.Configuration;
 using NuvoControl.Server.Dal;
 
 using System.ServiceModel;
+using static NuvoControl.Common.LogHelper;
 
 
 namespace NuvoControl.Server.ConfigurationService

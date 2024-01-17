@@ -22,7 +22,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using Common.Logging;
+using static NuvoControl.Common.LogHelper;
 
 using NuvoControl.Common;
 using NuvoControl.Common.Configuration;

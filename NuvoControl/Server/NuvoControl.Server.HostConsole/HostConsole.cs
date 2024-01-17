@@ -9,7 +9,6 @@
  * 
  **************************************************************************************************/
 
-using Common.Logging;
 using NuvoControl.Common;
 using NuvoControl.Common.Configuration;
 using NuvoControl.Server.OscServer;
@@ -18,6 +17,7 @@ using NuvoControl.Server.ProtocolDriver.Interface;
 using NuvoControl.Server.ZoneServer;
 using System;
 using System.Collections.Generic;
+using static NuvoControl.Common.LogHelper;
 
 
 namespace NuvoControl.Server.HostConsole

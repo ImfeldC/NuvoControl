@@ -6,9 +6,14 @@ using System.Collections.ObjectModel;
 //using System.ServiceModel.Discovery;
 using System.Windows.Forms;
 using static NuvoControl.Common.LogHelper;
-using FormatMessageCallback = System.Action<NuvoControl.Common.FormatMessageHandler>;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using Serilog;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration.Json; // required for AddJsonFile(), loaded with Microsoft.Extensions.Configuration.Json
+
+using FormatMessageCallback = System.Action<NuvoControl.Common.FormatMessageHandler>;
+using static System.Windows.Forms.DataFormats;
 
 
 namespace NuvoControl.Common
@@ -23,8 +28,189 @@ namespace NuvoControl.Common
     /// </summary>
     public class LogHelper
     {
+        private static NuvoControlLogger _logger = new NuvoControlLogger();
+
+
+        /// <summary>
+        /// Do the actual logging by constructing the log message using a <see cref="StringBuilder" /> then
+        /// sending the output to <see cref="Console.Out" />.
+        /// </summary>
+        /// <param name="level">The <see cref="LogLevel" /> of the message.</param>
+        /// <param name="message">The log message.</param>
+        /// <param name="e">An optional <see cref="Exception" /> associated with the message.</param>
+        private static void WriteInternal(LogLevel level, object message, Exception e)
+        {
+            // Print to the appropriate destination
+            //TODO send message to SeriLog logger
+            Console.Out.WriteLine(message.ToString());
+        }
+
+
+        private class NuvoControlLogger : ILog
+        {
+            public NuvoControlLogger()
+            {
+                Write = new WriteHandler(WriteInternal);
+
+                var configuration = new ConfigurationBuilder()
+                    .AddJsonFile("appsettings.json")
+                    .Build();
+
+                Serilog.Log.Logger = new LoggerConfiguration()
+                    .ReadFrom.Configuration(configuration)
+                    .CreateLogger();
+
+                Serilog.Log.Information("Logger created ...");
+            }
+
+            public void Debug(FormatMessageCallback formatMessageCallback)
+            {
+                Write(LogLevel.Debug, new FormatMessageCallbackFormattedMessage(formatMessageCallback), null);
+            }
+
+            public void Error(object message, Exception exception)
+            {
+                Write(LogLevel.Error, message, exception);
+                //Serilog.Log.Error(message.ToString(), exception);
+            }
+
+            public void Error(FormatMessageCallback formatMessageCallback)
+            {
+                Write(LogLevel.Error, new FormatMessageCallbackFormattedMessage(formatMessageCallback), null);
+            }
+
+            public void Error(FormatMessageCallback formatMessageCallback, Exception exception)
+            {
+                Write(LogLevel.Error, new FormatMessageCallbackFormattedMessage(formatMessageCallback), exception);
+            }
+
+            public void ErrorFormat(string format, params object[] args)
+            {
+                Write(LogLevel.Error, new StringFormatFormattedMessage(null, format, args), null);
+                //Serilog.Log.Error(format, args);
+            }
+
+            public void Fatal(object message, Exception exception)
+            {
+                Write(LogLevel.Fatal, message, exception);
+                //Serilog.Log.Fatal(message.ToString(), exception);
+            }
+
+            public void Fatal(FormatMessageCallback formatMessageCallback)
+            {
+                Write(LogLevel.Fatal, new FormatMessageCallbackFormattedMessage(formatMessageCallback), null);
+            }
+
+            public void Info(FormatMessageCallback formatMessageCallback)
+            {
+                Write(LogLevel.Info, new FormatMessageCallbackFormattedMessage(formatMessageCallback), null);
+            }
+
+            public void Trace(FormatMessageCallback formatMessageCallback)
+            {
+                Write(LogLevel.Trace, new FormatMessageCallbackFormattedMessage(formatMessageCallback), null);
+            }
+
+            public void TraceFormat(string format, params object[] args)
+            {
+                //TODO Write(LogLevel.Trace, new StringFormatFormattedMessage(formatProvider, format, args), null);
+            }
+
+            public void Warn(object message, Exception exception)
+            {
+                //TODO Write(LogLevel.Warn, new FormatMessageCallbackFormattedMessage(formatMessageCallback), exception);
+                //Serilog.Log.Warning(message.ToString(), exception);
+            }
+
+            public void Warn(FormatMessageCallback formatMessageCallback)
+            {
+                Write(LogLevel.Warn, new FormatMessageCallbackFormattedMessage(formatMessageCallback), null);
+            }
+        }
+
+        ///////////////////////////////////////////////////
 
         // Copied from  Common.Logging (3rd party project)
+
+
+        /// <summary>
+        /// Represents a method responsible for writing a message to the log system.
+        /// </summary>
+        protected delegate void WriteHandler(LogLevel level, object message, Exception exception);
+
+        /// <summary>
+        /// Holds the method for writing a message to the log system.
+        /// </summary>
+        private static WriteHandler Write;
+
+
+        #region FormatMessageCallbackFormattedMessage
+
+        private class FormatMessageCallbackFormattedMessage
+        {
+            private volatile string cachedMessage;
+
+            private readonly IFormatProvider formatProvider;
+            private readonly FormatMessageCallback formatMessageCallback;
+
+            public FormatMessageCallbackFormattedMessage(FormatMessageCallback formatMessageCallback)
+            {
+                this.formatMessageCallback = formatMessageCallback;
+            }
+
+            public FormatMessageCallbackFormattedMessage(IFormatProvider formatProvider, FormatMessageCallback formatMessageCallback)
+            {
+                this.formatProvider = formatProvider;
+                this.formatMessageCallback = formatMessageCallback;
+            }
+
+            public override string ToString()
+            {
+                if (cachedMessage == null && formatMessageCallback != null)
+                {
+                    formatMessageCallback(new FormatMessageHandler(FormatMessage));
+                }
+                return cachedMessage;
+            }
+
+            private string FormatMessage(string format, params object[] args)
+            {
+                cachedMessage = string.Format(formatProvider, format, args);
+                return cachedMessage;
+            }
+        }
+
+        #endregion
+
+        #region StringFormatFormattedMessage
+
+        private class StringFormatFormattedMessage
+        {
+            private volatile string cachedMessage;
+
+            private readonly IFormatProvider FormatProvider;
+            private readonly string Message;
+            private readonly object[] Args;
+
+            public StringFormatFormattedMessage(IFormatProvider formatProvider, string message, params object[] args)
+            {
+                FormatProvider = formatProvider;
+                Message = message;
+                Args = args;
+            }
+
+            public override string ToString()
+            {
+                if (cachedMessage == null)
+                {
+                    cachedMessage = string.Format(FormatProvider, Message, Args);
+                }
+                return cachedMessage;
+            }
+        }
+
+        #endregion
+
 
         #region LogLevel
         /// <summary>
@@ -188,14 +374,16 @@ namespace NuvoControl.Common
         #endregion
 
         #region LogManager
+        /// <summary>
+        /// Static class to access logger instance.
+        /// Use GetCurrentClassLogger() to get current logger instance.
+        /// </summary>
         public static class LogManager
         {
+
             public static ILog GetCurrentClassLogger()
             {
-                //TODO: Instantiate SeriLog logger
-                //StackFrame frame = new StackFrame(1, false);
-                //return Adapter.GetLogger(frame.GetMethod().DeclaringType);
-                return null;
+                return _logger;
             }
 
         }

@@ -22,7 +22,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Reflection;
-using Common.Logging;
+using static NuvoControl.Common.LogHelper;
 
 namespace NuvoControl.Server.ProtocolDriver.Interface
 {
@@ -35,7 +35,6 @@ namespace NuvoControl.Server.ProtocolDriver.Interface
 
         #region Common Logger
         /// <summary>
-        /// Common logger object. Requires the using directive <c>Common.Logging</c>. See 
         /// <see cref="LogManager"/> for more information.
         /// </summary>
         private static ILog _log = LogManager.GetCurrentClassLogger();

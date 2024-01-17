@@ -27,13 +27,12 @@ using System.Windows;
 
 using System.Net.Mail;
 
-using Common.Logging;
-
 using NuvoControl.Common;
 using NuvoControl.Common.Configuration;
 using System.Net;
 using System.Security.Cryptography;
 using System.Drawing;
+using static NuvoControl.Common.LogHelper;
 
 
 namespace NuvoControl.Server.Dal

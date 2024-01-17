@@ -24,9 +24,8 @@ using System.Linq;
 using System.Text;
 using System.Runtime.Serialization;
 
-using Common.Logging;
-
 using NuvoControl.Common.Configuration;
+using static NuvoControl.Common.LogHelper;
 
 
 namespace NuvoControl.Common
@@ -94,7 +93,6 @@ namespace NuvoControl.Common
 
         #region Common Logger
         /// <summary>
-        /// Common logger object. Requires the using directive <c>Common.Logging</c>. See 
         /// <see cref="LogManager"/> for more information.
         /// </summary>
         private ILog _log = LogManager.GetCurrentClassLogger();

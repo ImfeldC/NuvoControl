@@ -17,7 +17,7 @@
  * 
  **************************************************************************************************/
 
-using Common.Logging;
+using static NuvoControl.Common.LogHelper;
 using NuvoControl.Common;
 using NuvoControl.Common.Configuration;
 using NuvoControl.Server.ProtocolDriver.Interface;

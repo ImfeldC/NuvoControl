@@ -14,13 +14,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using Common.Logging;
-
 using NuvoControl.Common;
 using NuvoControl.Common.Configuration;
 using NuvoControl.Server.ZoneServer;
 using NuvoControl.Server.ProtocolDriver.Interface;
 using System.Runtime.CompilerServices;
+using static NuvoControl.Common.LogHelper;
 
 [assembly: InternalsVisibleTo("NuvoControl.Server.FunctionServer.UnitTest.dll")]
 

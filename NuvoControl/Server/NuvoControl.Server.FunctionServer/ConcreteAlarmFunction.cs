@@ -15,9 +15,9 @@ using System.Linq;
 using System.Text;
 using NuvoControl.Common.Configuration;
 using NuvoControl.Server.ZoneServer;
-using Common.Logging;
 using NuvoControl.Common;
 using NuvoControl.Server.ProtocolDriver.Interface;
+using static NuvoControl.Common.LogHelper;
 
 namespace NuvoControl.Server.FunctionServer
 {

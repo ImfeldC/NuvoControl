@@ -25,8 +25,8 @@ using System.IO.Ports;
 using NuvoControl.Server.ProtocolDriver.Interface;
 using System.Timers;
 
-using Common.Logging;
 using NuvoControl.Common;
+using static NuvoControl.Common.LogHelper;
 
 
 namespace NuvoControl.Server.ProtocolDriver
@@ -35,7 +35,6 @@ namespace NuvoControl.Server.ProtocolDriver
     {
         #region Common Logger
         /// <summary>
-        /// Common logger object. Requires the using directive <c>Common.Logging</c>. See 
         /// <see cref="LogManager"/> for more information.
         /// </summary>
         private ILog _log = LogManager.GetCurrentClassLogger();
