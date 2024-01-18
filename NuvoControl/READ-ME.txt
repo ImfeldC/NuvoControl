@@ -42,5 +42,13 @@ Homepage: Getting Started - https://github.com/serilog/serilog/wiki/Getting-Star
 $ dotnet add package Serilog
 $ dotnet add package Serilog.Sinks.Console
 
+This requires that logging is called properly.
+Do not use String.Fomat when calling logging, method:
+    Log(LogLevel.All, String.Format("**** {0} started. *******", strStartMessage));
+Pass-in instead the parametrs, this ensures that Serilog can properly store them.
+    Log(LogLevel.All, "**** {0} started. *******", strStartMessage);
 
-CI / 04-Jan-2024
+Theres is a "in-build" console logger, which is switched-off per default. It can be enabled by set command line option "-v" (for verbose).
+
+
+CI / 18-Jan-2024

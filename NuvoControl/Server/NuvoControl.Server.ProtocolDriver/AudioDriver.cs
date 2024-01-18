@@ -143,9 +143,9 @@ namespace NuvoControl.Server.ProtocolDriver
             // - http://drs3.radio.net/
             // - http://asx.skypro.ch/radio/internet-128/virus.asx
 
-            LogHelper.Log(LogLevel.All, "   Beep!");
+            LogHelper.Log(LogLevel.Debug, "   Beep!");
             _isSoundPlaying = true;
-            LogHelper.Log(LogLevel.Info, String.Format("Play sound on Windows! SourceId={0}, URL={1}, Process={2}", _sourceId, _url, (_process != null ? _process.ToString() : "(null)")));
+            LogHelper.Log(LogLevel.Info, "Play sound on Windows! SourceId={0}, URL={1}, Process={2}", _sourceId, _url, (_process != null ? _process.ToString() : "(null)"));
         }
 
         /// <summary>
@@ -163,7 +163,7 @@ namespace NuvoControl.Server.ProtocolDriver
                     _audioDevice.DeviceType, _audioDevice.Device, _url);
                 _process = EnvironmentHelper.run_cmd("/usr/bin/mpg321", args);
                 _isSoundPlaying = true;
-                LogHelper.Log(LogLevel.Info, String.Format("Play sound on Unix! SourceId={0}, URL={1}, args={2}, ProcessName={3}", _sourceId, _url, args, (_process != null ? _process.ProcessName : "(null)")));
+                LogHelper.Log(LogLevel.Info, "Play sound on Unix! SourceId={0}, URL={1}, args={2}, ProcessName={3}", _sourceId, _url, args, (_process != null ? _process.ProcessName : "(null)"));
             }
         }
 
@@ -194,7 +194,7 @@ namespace NuvoControl.Server.ProtocolDriver
                         LogHelper.LogException("Cannot kill process in 'killProcess' method!", exc);
                     }
                     _isSoundPlaying = false;
-                    LogHelper.Log(LogLevel.Debug, String.Format("Play sound stopped! SourceId={0}, Process={1}", _sourceId, (_process != null ? _process.ToString() : "(null)")));
+                    LogHelper.Log(LogLevel.Debug, "Play sound stopped! SourceId={0}, Process={1}", _sourceId, (_process != null ? _process.ToString() : "(null)"));
                 }
             }
         }
@@ -209,9 +209,9 @@ namespace NuvoControl.Server.ProtocolDriver
             {
                 String args = String.Format("{0} {1}", (LogHelper.MinVerboseLogLevel <= LogLevel.Debug ? "" : "-q"), "mpg321");
                 Process process = EnvironmentHelper.run_cmd("killall", args);
-                LogHelper.Log(LogLevel.Debug, String.Format("Kill all processes on Unix! args={0} ProcessName={1}", args, (_process != null ? _process.ProcessName : "(null)")));
+                LogHelper.Log(LogLevel.Debug, "Kill all processes on Unix! args={0} ProcessName={1}", args, (_process != null ? _process.ProcessName : "(null)"));
                 bool bRet = process.WaitForExit(1000);
-                LogHelper.Log((bRet ? LogLevel.Debug : LogLevel.Warn), String.Format("Kill all processes on Unix exited! ProcessName={0}", (process != null ? process.ProcessName : "(null)")));
+                LogHelper.Log((bRet ? LogLevel.Debug : LogLevel.Warn), "Kill all processes on Unix exited! ProcessName={0}", (process != null ? process.ProcessName : "(null)"));
             }
             catch (Exception exc)
             {
@@ -225,7 +225,7 @@ namespace NuvoControl.Server.ProtocolDriver
 
         private void StartTime()
         {
-            LogHelper.Log(LogLevel.Debug, String.Format("Renew play sound command, each {0}[min]", Properties.Settings.Default.RenewPlaySoundCommandIntervall));
+            LogHelper.Log(LogLevel.Debug, "Renew play sound command, each {0}[min]", Properties.Settings.Default.RenewPlaySoundCommandIntervall);
             _timerRenewPlaySoundCommand.Interval = (Properties.Settings.Default.RenewPlaySoundCommandIntervall < 10 ? 10 : Properties.Settings.Default.RenewPlaySoundCommandIntervall) * 1000 * 60;
             _timerRenewPlaySoundCommand.Elapsed += new System.Timers.ElapsedEventHandler(_timerRenewPlaySoundCommand_Elapsed);
             _timerRenewPlaySoundCommand.Start();
@@ -240,7 +240,7 @@ namespace NuvoControl.Server.ProtocolDriver
         {
             if (_isSoundPlaying)
             {
-                LogHelper.Log(LogLevel.Info, String.Format(">>> Renew play sound command for SourceId={0}", _sourceId));
+                LogHelper.Log(LogLevel.Info, ">>> Renew play sound command for SourceId={0}", _sourceId);
                 playSound();
             }
         }
@@ -261,7 +261,7 @@ namespace NuvoControl.Server.ProtocolDriver
         /// </summary>
         public void Dispose()
         {
-            LogHelper.Log(LogLevel.Info, String.Format(">>> Close audio driver for SourceId={0}", _sourceId));
+            LogHelper.Log(LogLevel.Info, ">>> Close audio driver for SourceId={0}", _sourceId);
             Close();
         }
     }

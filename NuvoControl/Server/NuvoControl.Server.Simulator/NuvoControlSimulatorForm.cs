@@ -474,6 +474,8 @@ namespace NuvoControl.Server.Simulator
         [STAThread]
         private void DisplayData(MessageType type, string msg)
         {
+            //TODO: Support in 'DisplayData' also 'args' as paarameter, to allow to forward them to Serilog!
+
             if ((msg == null) || (msg.Length == 0) || (msg[msg.Length - 1] != '\n'))
             {
                 msg += '\n';
@@ -492,12 +494,12 @@ namespace NuvoControl.Server.Simulator
                             rtbCOM.AppendText(msg);
                             rtbCOM.ScrollToCaret();
                         }));
-                        _log.Trace(m => m(string.Format("Output on UI: {0}", msg)));
+                        _log.Trace(m => m("Output on UI: {0}", msg));
                     }
                     else
                     {
                         // Output on window not possible yet
-                        _log.Trace(m => m(string.Format("Output: {0}", msg)));
+                        _log.Trace(m => m("Output: {0}", msg));
                     }
                 }
             }

@@ -91,7 +91,7 @@ namespace NuvoControl.Server.FunctionServer
                 }
                 else 
                 {
-                    LogHelper.Log( LogLevel.Fatal, String.Format("Invalid command found in command list! Function={0}", _function.ToString()));
+                    LogHelper.Log( LogLevel.Fatal, "Invalid command found in command list! Function={0}", _function.ToString());
                 }
             }
         }
@@ -177,7 +177,7 @@ namespace NuvoControl.Server.FunctionServer
         /// </summary>
         protected void onFunctionError()
         {
-            LogHelper.Log(LogLevel.Debug, String.Format(">>> onFunctionError: {0} [Function={1}]", this.ToString(), (_function!=null?_function.ToString():"<null>")));
+            LogHelper.Log(LogLevel.Debug, ">>> onFunctionError: {0} [Function={1}]", this.ToString(), (_function!=null?_function.ToString():"<null>"));
             onFunctionEvent(eCommandType.onFunctionError);
         }
 
@@ -186,7 +186,7 @@ namespace NuvoControl.Server.FunctionServer
         /// </summary>
         protected void onFunctionStart()
         {
-            LogHelper.Log(LogLevel.Debug, String.Format(">>> onFunctionStart: {0}", _function.ToString()));
+            LogHelper.Log(LogLevel.Debug, ">>> onFunctionStart: {0}", _function.ToString());
             onFunctionEvent(eCommandType.onFunctionStart);
         }
 
@@ -195,7 +195,7 @@ namespace NuvoControl.Server.FunctionServer
         /// </summary>
         protected void onFunctionEnd()
         {
-            LogHelper.Log(LogLevel.Debug, String.Format(">>> onFunctionEnd: {0}", _function.ToString()));
+            LogHelper.Log(LogLevel.Debug, ">>> onFunctionEnd: {0}", _function.ToString());
             onFunctionEvent(eCommandType.onFunctionEnd);
         }
 
@@ -204,7 +204,7 @@ namespace NuvoControl.Server.FunctionServer
         /// </summary>
         protected void onValidityStart()
         {
-            LogHelper.Log(LogLevel.Debug, String.Format(">>> onValidityStart: {0}", _function.ToString()));
+            LogHelper.Log(LogLevel.Debug, ">>> onValidityStart: {0}", _function.ToString());
             onFunctionEvent(eCommandType.onValidityStart);
         }
 
@@ -213,7 +213,7 @@ namespace NuvoControl.Server.FunctionServer
         /// </summary>
         protected void onValidityEnd()
         {
-            LogHelper.Log(LogLevel.Debug, String.Format(">>> onValidityEnd: {0}", _function.ToString()));
+            LogHelper.Log(LogLevel.Debug, ">>> onValidityEnd: {0}", _function.ToString());
             onFunctionEvent(eCommandType.onValidityEnd);
         }
 
@@ -231,7 +231,7 @@ namespace NuvoControl.Server.FunctionServer
                 }
                 else
                 {
-                    LogHelper.Log(LogLevel.Error, String.Format("Ignore <null> concrete command, in list [{0}]", _commands.ToString()));
+                    LogHelper.Log(LogLevel.Error, "Ignore <null> concrete command, in list [{0}]", _commands.ToString());
                 }
             }
         }

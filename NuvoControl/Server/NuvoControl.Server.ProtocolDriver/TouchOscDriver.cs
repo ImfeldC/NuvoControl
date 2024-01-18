@@ -149,22 +149,22 @@ namespace NuvoControl.Server.ProtocolDriver
         {
             sBundlesReceivedCount++;
             OscBundle bundle = e.Bundle;
-            LogHelper.Log(LogLevel.Info, string.Format("[OSC] Bundle Rcv [{0}:{1}]: Nested Bundles: {2} Nested Messages: {3} [{4}]", bundle.SourceEndPoint.Address, bundle.TimeStamp, bundle.Bundles.Count, bundle.Messages.Count, sBundlesReceivedCount));
+            LogHelper.Log(LogLevel.Info, "[OSC] Bundle Rcv [{0}:{1}]: Nested Bundles: {2} Nested Messages: {3} [{4}]", bundle.SourceEndPoint.Address, bundle.TimeStamp, bundle.Bundles.Count, bundle.Messages.Count, sBundlesReceivedCount);
         }
 
         private void oscServer_MessageReceived(object sender, OscMessageReceivedEventArgs e)
         {
             sMessagesReceivedCount++;
-            LogHelper.Log(LogLevel.Info, string.Format("[OSC] Msg Rcv [{0}]: {1} / Message contains {2} objects. [{3}]", e.Message.SourceEndPoint.Address, e.Message.Address, e.Message.Data.Count, sMessagesReceivedCount));
+            LogHelper.Log(LogLevel.Info, "[OSC] Msg Rcv [{0}]: {1} / Message contains {2} objects. [{3}]", e.Message.SourceEndPoint.Address, e.Message.Address, e.Message.Data.Count, sMessagesReceivedCount);
             for (int i = 0; i < e.Message.Data.Count; i++)
             {
-                LogHelper.Log(LogLevel.Debug, string.Format("[OSC] {0}: Value={1}", i, convertDataString(e.Message.Data[i])));
+                LogHelper.Log(LogLevel.Debug, "[OSC] {0}: Value={1}", i, convertDataString(e.Message.Data[i]));
             }
 
             OscEvent oscEvent = processTouchOscMessageForNuvoControl(e.Message);
             if (oscEvent != null)
             {
-                LogHelper.Log(LogLevel.Info, string.Format("[OSC] NuvoControl OscEvent={0}", oscEvent.ToString()));
+                LogHelper.Log(LogLevel.Info, "[OSC] NuvoControl OscEvent={0}", oscEvent.ToString());
                 //raise the event, and pass data to next layer
                 if (onOscNuvoEventReceived != null)
                 {
@@ -180,7 +180,7 @@ namespace NuvoControl.Server.ProtocolDriver
                 oscEvent = processTouchOscMessageFromDefaultLayouts(e.Message);
                 if (oscEvent != null)
                 {
-                    LogHelper.Log(LogLevel.Info, string.Format("[OSC] OscEvent={0}", oscEvent.ToString()));
+                    LogHelper.Log(LogLevel.Info, "[OSC] OscEvent={0}", oscEvent.ToString());
                     //raise the event, and pass data to next layer
                     if (onOscEventReceived != null)
                     {
@@ -189,14 +189,14 @@ namespace NuvoControl.Server.ProtocolDriver
                 }
                 else
                 {
-                    LogHelper.Log(LogLevel.Warn, string.Format("[OSC] Unknown message: {0}", e.Message.Address));
+                    LogHelper.Log(LogLevel.Warn, "[OSC] Unknown message: {0}", e.Message.Address);
                 }
             }
         }
 
         private void oscServer_ReceiveErrored(object sender, ExceptionEventArgs e)
         {
-            LogHelper.Log(LogLevel.Error, string.Format("[OSC] Error during reception of osc packet: {0}", e.Exception.Message));
+            LogHelper.Log(LogLevel.Error, "[OSC] Error during reception of osc packet: {0}", e.Exception.Message);
         }
 
         #endregion

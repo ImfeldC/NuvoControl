@@ -136,7 +136,7 @@ namespace NuvoControl.Server.FunctionServer
                     {
                         // the zone is off, and no switch 'on' command was issued since
                         // the alarm window is active ...
-                        LogHelper.Log(LogLevel.Trace, String.Format("ConcreteAlarmFunction: Switch zone '{2}' ON! AkTime={0}, LastChangeToON={1}", aktTime, _lastZoneChangeToON, _function.ZoneId));
+                        LogHelper.Log(LogLevel.Trace, "ConcreteAlarmFunction: Switch zone '{2}' ON! AkTime={0}, LastChangeToON={1}", aktTime, _lastZoneChangeToON, _function.ZoneId);
                         if (_zoneServer != null)
                         {
                             ZoneState newState = new ZoneState(_zoneState);
@@ -157,7 +157,7 @@ namespace NuvoControl.Server.FunctionServer
                     if (_zoneState.PowerStatus == true && _alarmCommandHasBeenSent)
                     {
                         // the zone is 'on' and an alarm has been send ...
-                        LogHelper.Log(LogLevel.Trace, String.Format("ConcreteAlarmFunction: Switch zone '{2}' OFF! AkTime={0}, LastChangeToON={1}", aktTime, _lastZoneChangeToON, _function.ZoneId));
+                        LogHelper.Log(LogLevel.Trace, "ConcreteAlarmFunction: Switch zone '{2}' OFF! AkTime={0}, LastChangeToON={1}", aktTime, _lastZoneChangeToON, _function.ZoneId);
                         if (_zoneServer != null)
                         {
                             ZoneState newState = new ZoneState(_zoneState);

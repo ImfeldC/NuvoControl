@@ -75,7 +75,7 @@ namespace NuvoControl.Server.OscServer
 
         public void Start()
         {
-            _log.Trace(m => m(String.Format("OscServer: Start ...")));
+            _log.Trace(m => m("OscServer: Start ..."));
             foreach (OscDeviceController oscDeviceController in _oscDeviceControllers.Values )
             {
                 oscDeviceController.GetOscDriver().SendMessage("/NuvoControl/message", String.Format("Start ... {0}", oscDeviceController.OscDeviceId));
@@ -102,7 +102,7 @@ namespace NuvoControl.Server.OscServer
 
         private void StartTime()
         {
-            LogHelper.Log(LogLevel.Debug, String.Format("Renew play sound command, each {0}[min]", Properties.Settings.Default.UpdateServerStatusLEDIntervall));
+            LogHelper.Log(LogLevel.Debug, "Renew play sound command, each {0}[min]", Properties.Settings.Default.UpdateServerStatusLEDIntervall);
             _timerUpdateServerStatus.Interval = (Properties.Settings.Default.UpdateServerStatusLEDIntervall < 2 ? 2 : Properties.Settings.Default.UpdateServerStatusLEDIntervall) * 1000;
             _timerUpdateServerStatus.Elapsed += new System.Timers.ElapsedEventHandler(_timerUpdateServerStatus_Elapsed);
             _timerUpdateServerStatus.Start();
@@ -115,7 +115,7 @@ namespace NuvoControl.Server.OscServer
         /// <param name="e"></param>
         void _timerUpdateServerStatus_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            _log.Trace(m => m(String.Format("OscServer: Server Status ... ")));
+            _log.Trace(m => m("OscServer: Server Status ... "));
             lock (_oscDeviceControllers)
             {
                 foreach (OscDeviceController oscDeviceController in _oscDeviceControllers.Values)

@@ -107,7 +107,7 @@ namespace NuvoControl.Server.ZoneServer
         {
             lock (this)
             {
-                _log.Trace(m=>m(String.Format("ZC.SetZoneState: Address={0}, Command={1}", _zoneId.ToString(), zoneState.ToString())));
+                _log.Trace(m=>m("ZC.SetZoneState: Address={0}, Command={1}", _zoneId.ToString(), zoneState.ToString()));
                 _protocolDriver.SetZoneState(_zoneId, zoneState);
                 _zoneState = new ZoneState(zoneState);
                 _zoneState.CommandUnacknowledged = true;
@@ -197,7 +197,7 @@ namespace NuvoControl.Server.ZoneServer
         {
             if (_zoneNotification != null)
             {
-                _log.Trace(m=>m(String.Format("ZC.NotifySubscribers: Address={0}, Command={1}",_zoneId.ToString(), _zoneState.ToString())));
+                _log.Trace(m=>m("ZC.NotifySubscribers: Address={0}, Command={1}",_zoneId.ToString(), _zoneState.ToString()));
                 _zoneNotification(this, new ZoneStateEventArgs(_zoneState));
             }
         }
@@ -226,7 +226,7 @@ namespace NuvoControl.Server.ZoneServer
             {
                 if (e.ZoneAddress.Equals(_zoneId))
                 {
-                    _log.Trace(m=>m(String.Format("ZC.onZoneStatusUpdate: Address={0}, Command={1}", _zoneId.ToString(), e.ZoneState.ToString())));
+                    _log.Trace(m=>m("ZC.onZoneStatusUpdate: Address={0}, Command={1}", _zoneId.ToString(), e.ZoneState.ToString()));
                     UpdateZoneStateFromDriver(e.ZoneState);
                     notifyClient = true;
                 }
@@ -252,7 +252,7 @@ namespace NuvoControl.Server.ZoneServer
             {
                 if (e.DeviceId == _zoneId.DeviceId)
                 {
-                    _log.Trace(m=>m(String.Format("ZC.onDeviceStatusUpdate: Address={0}, Command={1}", _zoneId.ToString(), _zoneState.ToString())));
+                    _log.Trace(m=>m("ZC.onDeviceStatusUpdate: Address={0}, Command={1}", _zoneId.ToString(), _zoneState.ToString()));
                     // update the device quality. Which in this case means, update the zone quality
                     _zoneState.ZoneQuality = e.DeviceQuality;
                     notifyClient = true;

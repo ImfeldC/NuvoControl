@@ -19,12 +19,14 @@ namespace NuvoControl.Server.WebConsole.Controllers
     {
         private void LogZoneState(string zoneId, string message)
         {
+            //TODO: Support in 'LogZoneState' teh 'args' parameter, to allow to forward them to Serilog.
+
             if (NuvoControlController.ZoneServer != null)
             {
                 ZoneState zoneStatus = NuvoControlController.ZoneServer.GetZoneState(new Address(zoneId));
                 Zone zone = NuvoControlController.ConfgurationServer.GetZoneHWConfiguration(new Address(zoneId));
                 //Source source = NuvoControlController.ConfgurationServer.GetSourceHWConfiguration(e.ZoneState.Source);
-                LogHelper.Log(LogLevel.Debug, String.Format(">>>   [{0}]  Zone '{1}'({2})  {3}: {4}", DateTime.Now.ToShortTimeString(), zoneId, zone.Name, message, zoneStatus.ToString()));
+                LogHelper.Log(LogLevel.Debug, ">>>   [{0}]  Zone '{1}'({2})  {3}: {4}", DateTime.Now.ToShortTimeString(), zoneId, zone.Name, message, zoneStatus.ToString());
             }
         }
 

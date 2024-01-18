@@ -13,7 +13,7 @@
     },
     "https": {
       "commandName": "Project",
-      "commandLineArgs": "-p COM1 -r 700 -v -l 1 --senddata *Z01OFF --command SetSource --zone Zone2 --source Source2 --powerstatus ZoneStatusOFF",
+      "commandLineArgs": "-p COM1 -r 700 -l 1 --senddata *Z01OFF --command SetSource --zone Zone2 --source Source2 --powerstatus ZoneStatusOFF",
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {

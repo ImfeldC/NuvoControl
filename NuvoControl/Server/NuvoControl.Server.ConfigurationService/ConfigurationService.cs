@@ -158,7 +158,7 @@ namespace NuvoControl.Server.ConfigurationService
         /// <returns></returns>
         public ZoneGraphic GetZoneGraphicConfiguration(Address zoneId)
         {
-            _log.Trace(m => m(String.Format("Configuration Service; GetZoneGrpahicConfiguration(ZoneId={0}).", zoneId.ToString())));
+            _log.Trace(m => m("Configuration Service; GetZoneGrpahicConfiguration(ZoneId={0}).", zoneId.ToString()));
 
             List<ZoneGraphic> zones = new List<ZoneGraphic>();
             foreach (Floor floor in _systemConfiguration.Graphic.Building.Floors)
@@ -223,19 +223,19 @@ namespace NuvoControl.Server.ConfigurationService
         /// <returns></returns>
         public Function GetFunction(SimpleId id)
         {
-            _log.Trace(m => m(String.Format("Configuration Service; GetFunction(Id={0}).", id.ToString())));
+            _log.Trace(m => m("Configuration Service; GetFunction(Id={0}).", id.ToString()));
 
             // Search function with the specified Guid
             foreach (Function function in _systemConfiguration.Functions)
             {
                 if (function.Id == id)
                 {
-                    _log.Trace(m => m(String.Format("Function with Id={0} found: {1}.", id.ToString(), function.ToString())));
+                    _log.Trace(m => m("Function with Id={0} found: {1}.", id.ToString(), function.ToString()));
                     return function;
                 }
             }
 
-            _log.Warn(m => m(String.Format("Function with Id={0} NOT found: {1}.", id.ToString(), _systemConfiguration.Functions.ToString<Function>(" / "))));
+            _log.Warn(m => m("Function with Id={0} NOT found: {1}.", id.ToString(), _systemConfiguration.Functions.ToString<Function>(" / ")));
             return null;
         }
 
@@ -246,7 +246,7 @@ namespace NuvoControl.Server.ConfigurationService
         /// <returns></returns>
         public List<Function> GetFunctions(Address zoneId)
         {
-            _log.Trace(m => m(String.Format("Configuration Service; GetFunctions(ZoneId={0}).", zoneId.ToString())));
+            _log.Trace(m => m("Configuration Service; GetFunctions(ZoneId={0}).", zoneId.ToString()));
 
             // Search functions of the specified zone
             List<Function> zoneFunctions = new List<Function>();
@@ -258,7 +258,7 @@ namespace NuvoControl.Server.ConfigurationService
                 }
             }
 
-            _log.Trace(m => m(String.Format("Functions of ZoneId={0}: {1}.", zoneId.ToString(), zoneFunctions.ToString<Function>(" / "))));
+            _log.Trace(m => m("Functions of ZoneId={0}: {1}.", zoneId.ToString(), zoneFunctions.ToString<Function>(" / ")));
             return zoneFunctions;
         }
 

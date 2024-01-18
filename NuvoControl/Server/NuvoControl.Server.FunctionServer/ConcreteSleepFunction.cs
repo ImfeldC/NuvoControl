@@ -120,9 +120,9 @@ namespace NuvoControl.Server.FunctionServer
             {
                 if (aktTime < _lastZoneChangeToON)
                 {
-                    String strMessage = String.Format("The update time of last zone change {0} is in the future! Actual Time = {1}", _lastZoneChangeToON, aktTime);
-                    LogHelper.Log(LogLevel.Fatal, strMessage);
+                    LogHelper.Log(LogLevel.Fatal, "The update time of last zone change {0} is in the future! Actual Time = {1}", _lastZoneChangeToON, aktTime);
                     onFunctionError();
+                    String strMessage = String.Format("The update time of last zone change {0} is in the future! Actual Time = {1}", _lastZoneChangeToON, aktTime);
                     throw new FunctionServerException(strMessage);
                 }
 
@@ -147,7 +147,7 @@ namespace NuvoControl.Server.FunctionServer
                         if (onTime >= _function.SleepDuration)
                         {
                             // Zone power status is ON  and the sleep duration has been reached, switch off zone
-                            LogHelper.Log(LogLevel.Trace, String.Format("ConcreteSleepFunction: Switch zone '{0}' OFF! AkTime={1}, LastChangeToON={2}", _function.ZoneId, aktTime, _lastZoneChangeToON));
+                            LogHelper.Log(LogLevel.Trace, "ConcreteSleepFunction: Switch zone '{0}' OFF! AkTime={1}, LastChangeToON={2}", _function.ZoneId, aktTime, _lastZoneChangeToON);
                             if (_zoneServer != null)
                             {
                                 ZoneState newState = new ZoneState(_zoneState);
@@ -161,12 +161,12 @@ namespace NuvoControl.Server.FunctionServer
                     }
                     else
                     {
-                        LogHelper.Log(LogLevel.Trace, String.Format("Don't switch off zone! PowerStatus={0}, onTime={1}, AkTime={2}, LastChangeToON={3}", _zoneState.PowerStatus, onTime, aktTime, _lastZoneChangeToON));
+                        LogHelper.Log(LogLevel.Trace, "Don't switch off zone! PowerStatus={0}, onTime={1}, AkTime={2}, LastChangeToON={3}", _zoneState.PowerStatus, onTime, aktTime, _lastZoneChangeToON);
                     }
                 }
                 else
                 {
-                    LogHelper.Log(LogLevel.Error, String.Format("ConcreteSleepFunction: Cannot switch zone '{0}', because zone status is missing! LastChangeToON={1}", _function.ZoneId, _lastZoneChangeToON));
+                    LogHelper.Log(LogLevel.Error, "ConcreteSleepFunction: Cannot switch zone '{0}', because zone status is missing! LastChangeToON={1}", _function.ZoneId, _lastZoneChangeToON);
                     onFunctionError();
                 }
             }

@@ -62,12 +62,12 @@ namespace NuvoControl.Common
             int p = (int)Environment.OSVersion.Platform;
             if ((p == 4) || (p == 6) || (p == 128))
             {
-                //LogHelper.Log(LogLevel.Trace, String.Format("Running on Unix"));
+                //LogHelper.Log(LogLevel.Trace, "Running on Unix");
                 return true;
             }
             else
             {
-                //LogHelper.Log(LogLevel.Trace, String.Format("NOT running on Unix"));
+                //LogHelper.Log(LogLevel.Trace, "NOT running on Unix");
                 return false;
             }
         }
@@ -84,7 +84,7 @@ namespace NuvoControl.Common
                 start.UseShellExecute = false;
                 start.RedirectStandardOutput = true;
                 process = Process.Start(start);
-                LogHelper.Log(LogLevel.Debug, String.Format("   Process {0} {1} started .... id={2} [{3}]", cmd, args, process.Id, process.ToString()));
+                LogHelper.Log(LogLevel.Debug, "   Process {0} {1} started .... id={2} [{3}]", cmd, args, process.Id, process.ToString());
 
                 /*
                 using (StreamReader reader = process.StandardOutput)
@@ -96,7 +96,7 @@ namespace NuvoControl.Common
             }
             catch (Exception exc)
             {
-                LogHelper.Log(LogLevel.Fatal, String.Format("   EXCEPTION to start Process {0} {1} started .... exc={2}", cmd, args, exc.ToString()));
+                LogHelper.Log(LogLevel.Fatal, "   EXCEPTION to start Process {0} {1} started .... exc={2}", cmd, args, exc.ToString());
                 process = null;
             }
 

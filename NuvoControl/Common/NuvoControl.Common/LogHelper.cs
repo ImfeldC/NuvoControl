@@ -14,6 +14,9 @@ using Microsoft.Extensions.Configuration.Json; // required for AddJsonFile(), lo
 
 using FormatMessageCallback = System.Action<NuvoControl.Common.FormatMessageHandler>;
 using static System.Windows.Forms.DataFormats;
+using Serilog.Events;
+using System.ComponentModel;
+using System.Reflection;
 
 
 namespace NuvoControl.Common
@@ -30,6 +33,23 @@ namespace NuvoControl.Common
     {
         private static NuvoControlLogger _logger = new NuvoControlLogger();
 
+        /// <summary>
+        /// Converts enumeratiion from (custom) LogLevel to Serilog LogEventLevel enumartion.
+        /// </summary>
+        /// <param name="level"></param>
+        /// <returns></returns>
+        public static LogEventLevel ConvertToLogEventLevel(LogLevel level)
+        {
+            FieldInfo fi = level.GetType().GetField(level.ToString());
+            DescriptionAttribute[] attributes =
+                  (DescriptionAttribute[])fi.GetCustomAttributes(
+                  typeof(DescriptionAttribute), false);
+
+            // DayOfWeek inputAsEnum = (DayOfWeek)Enum.Parse(typeof(DayOfWeek), inputString);
+            string inputString = (attributes.Length > 0) ? attributes[0].Description : level.ToString();
+            LogEventLevel inputAsEnum = (LogEventLevel)Enum.Parse(typeof(LogEventLevel), inputString);
+            return inputAsEnum;
+        }
 
         /// <summary>
         /// Do the actual logging by constructing the log message using a <see cref="StringBuilder" /> then
@@ -41,8 +61,24 @@ namespace NuvoControl.Common
         private static void WriteInternal(LogLevel level, object message, Exception e)
         {
             // Print to the appropriate destination
-            //TODO send message to SeriLog logger
-            Console.Out.WriteLine(message.ToString());
+            //Console.Out.WriteLine(message.ToString());
+            LogEventLevel outLevel = ConvertToLogEventLevel(level);
+            Serilog.Log.Write(outLevel, message.ToString(), e);
+        }
+
+        /// <summary>
+        /// Do the actual logging by constructing the log message using a <see cref="StringBuilder" /> then
+        /// sending the output to <see cref="Console.Out" />.
+        /// </summary>
+        /// <param name="level">The <see cref="LogLevel" /> of the message.</param>
+        /// <param name="message">The log message.</param>
+        /// <param name="e">An optional <see cref="Exception" /> associated with the message.</param>
+        private static void WriteInternal(LogLevel level, object message, params object[] args)
+        {
+            // Print to the appropriate destination
+            //Console.Out.WriteLine(message.ToString());
+            LogEventLevel outLevel = ConvertToLogEventLevel(level);
+            Serilog.Log.Write(outLevel, message.ToString(), args);
         }
 
 
@@ -56,8 +92,13 @@ namespace NuvoControl.Common
                     .AddJsonFile("appsettings.json")
                     .Build();
 
+                //Serilog.Log.Logger = new LoggerConfiguration()
+                //    .ReadFrom.Configuration(configuration)
+                //    .CreateLogger();
+
                 Serilog.Log.Logger = new LoggerConfiguration()
-                    .ReadFrom.Configuration(configuration)
+                    .MinimumLevel.Verbose()
+                    .WriteTo.Console()
                     .CreateLogger();
 
                 Serilog.Log.Information("Logger created ...");
@@ -71,7 +112,6 @@ namespace NuvoControl.Common
             public void Error(object message, Exception exception)
             {
                 Write(LogLevel.Error, message, exception);
-                //Serilog.Log.Error(message.ToString(), exception);
             }
 
             public void Error(FormatMessageCallback formatMessageCallback)
@@ -87,13 +127,11 @@ namespace NuvoControl.Common
             public void ErrorFormat(string format, params object[] args)
             {
                 Write(LogLevel.Error, new StringFormatFormattedMessage(null, format, args), null);
-                //Serilog.Log.Error(format, args);
             }
 
             public void Fatal(object message, Exception exception)
             {
                 Write(LogLevel.Fatal, message, exception);
-                //Serilog.Log.Fatal(message.ToString(), exception);
             }
 
             public void Fatal(FormatMessageCallback formatMessageCallback)
@@ -118,8 +156,7 @@ namespace NuvoControl.Common
 
             public void Warn(object message, Exception exception)
             {
-                //TODO Write(LogLevel.Warn, new FormatMessageCallbackFormattedMessage(formatMessageCallback), exception);
-                //Serilog.Log.Warning(message.ToString(), exception);
+                Write(LogLevel.Warn, message, exception);
             }
 
             public void Warn(FormatMessageCallback formatMessageCallback)
@@ -214,43 +251,43 @@ namespace NuvoControl.Common
 
         #region LogLevel
         /// <summary>
-        /// The 7 possible logging levels
+        /// The 7 possible logging levels.
+        /// The description contians the mapping to Serilog level, defined in LogEventLevel enumeration.
         /// </summary>
-        /// <author>Gilles Bayon</author>
         public enum LogLevel
         {
             /// <summary>
             /// All logging levels
             /// </summary>
-            All = 0,
+            [Description("Verbose")]  All = 0,
             /// <summary>
             /// A trace logging level
             /// </summary>
-            Trace = 1,
+            [Description("Verbose")] Trace = 1,
             /// <summary>
             /// A debug logging level
             /// </summary>
-            Debug = 2,
+            [Description("Debug")] Debug = 2,
             /// <summary>
             /// A info logging level
             /// </summary>
-            Info = 3,
+            [Description("Information")] Info = 3,
             /// <summary>
             /// A warn logging level
             /// </summary>
-            Warn = 4,
+            [Description("Warning")] Warn = 4,
             /// <summary>
             /// An error logging level
             /// </summary>
-            Error = 5,
+            [Description("Error")] Error = 5,
             /// <summary>
             /// A fatal logging level
             /// </summary>
-            Fatal = 6,
+            [Description("Fatal")] Fatal = 6,
             /// <summary>
             /// Do not log anything.
             /// </summary>
-            Off = 7,
+            //[Description("(Off)")] Off = 7,
         }
         #endregion
 
@@ -426,11 +463,11 @@ namespace NuvoControl.Common
         /// <summary>
         /// Public accessor for verbose mode
         /// </summary>
-        public static bool Verbose
-        {
-            get { return LogHelper._verbose; }
-            set { LogHelper._verbose = value; }
-        }
+        //public static bool Verbose
+        //{
+        //    get { return LogHelper._verbose; }
+        //    set { LogHelper._verbose = value; }
+        //}
 
         /// <summary>
         /// Set all options, passed with command line options.
@@ -438,7 +475,7 @@ namespace NuvoControl.Common
         /// <param name="options">Options passed with command line options.</param>
         public static void SetOptions(CommonOptions options)
         {
-            Verbose = options.verbose;
+            _verbose = options.verbose;
             MinVerboseLogLevel = options.minVerboseLevel;
         }
 
@@ -447,10 +484,21 @@ namespace NuvoControl.Common
         /// <summary>
         /// Logs a message in a "standard" way to console and Logger.
         /// </summary>
+        /// <param name="logLevel"></param>
         /// <param name="strMessage">Message to log.</param>
         public static void Log(LogLevel logLevel, string strMessage)
         {
-            Log(logLevel, strMessage, LogManager.GetCurrentClassLogger());
+            LogInternal(logLevel, strMessage);
+        }
+
+        /// <summary>
+        /// Logs a message in a "standard" way to console and Logger.
+        /// </summary>
+        /// <param name="logLevel"></param>
+        /// <param name="strMessage">Message to log.</param>
+        public static void Log(LogLevel logLevel, string strMessage, params object[] args)
+        {
+            LogInternal(logLevel, strMessage, args);
         }
 
         /// <summary>
@@ -459,51 +507,19 @@ namespace NuvoControl.Common
         /// <param name="logLevel">Log Level to log</param>
         /// <param name="strMessage">Message to log.</param>
         /// <param name="logger">Logger to log the message.</param>
-        public static void Log(LogLevel logLevel, string strMessage, ILog logger)
+        private static void LogInternal(LogLevel logLevel, string strMessage, params object[] args)
         {
-            if (Verbose && (logLevel >= _minVerboseLogLevel | logLevel == LogLevel.All) )
+            ILog logger = LogManager.GetCurrentClassLogger();
+
+            if (_verbose && (logLevel >= _minVerboseLogLevel | logLevel == LogLevel.All) )
             {
-                Console.WriteLine(String.Format("{0} [{1}] {2}", DateTime.Now.ToString(), logLevel.ToString()[0], strMessage));
+                // Theres is a "in-build" console logger, which is switched-off per default. It can be enabled by set command line option "-v" (for verbose).
+                string strFormattedMessage = string.Format(strMessage, args);
+                Console.WriteLine(String.Format("{0} [{1}] {2}", DateTime.Now.ToString(), logLevel.ToString()[0], strFormattedMessage));
             }
 
-            switch (logLevel)
-            {
-                // All Level
-                case LogLevel.All:
-                    // Log "All Level" as "Info"
-                    logger.Info(m => m(strMessage));
-                    break;
-                // 6.fatal (the most serious)
-                case LogLevel.Fatal:
-                    logger.Fatal(m => m(strMessage));
-                    break;
-                // 5.error
-                case LogLevel.Error:
-                    logger.Error(m => m(strMessage));
-                    break;
-                // 4.warn
-                case LogLevel.Warn:
-                    logger.Warn(m => m(strMessage));
-                    break;
-                // 3.info
-                case LogLevel.Info:
-                    logger.Info(m => m(strMessage));
-                    break;
-                // 2.debug
-                case LogLevel.Debug:
-                    logger.Debug(m => m(strMessage));
-                    break;
-                // 1.trace (the least serious)
-                case LogLevel.Trace:
-                    logger.Trace(m => m(strMessage));
-                    break;
-                // No Level
-                case LogLevel.Off:
-                    break;
-                // default
-                default:
-                    break;
-            }
+            WriteInternal(logLevel, strMessage, args);
+
         }
 
         /// <summary>
@@ -512,12 +528,11 @@ namespace NuvoControl.Common
         /// <param name="strStartMessage"></param>
         public static void LogAppStart(string strStartMessage)
         {
-            Log(LogLevel.All, String.Format("**** {0} started. *******", strStartMessage));
-            Log(LogLevel.Info, String.Format(">>> Starting {0}  --- Assembly Version={1} / Deployment Version={2} / Product Version={3} (using .NET 4.0) ... ",
-                strStartMessage, "n/a", "n/a", Application.ProductVersion));
+            Log(LogLevel.All, "**** {0} started. *******", strStartMessage);
+            Log(LogLevel.Info, ">>> Starting {0}  --- Assembly Version={1} / Deployment Version={2} / Product Version={3} ... ", strStartMessage, "n/a", "n/a", Application.ProductVersion);
             //Console.WriteLine(">>> Starting Server Console  --- Assembly Version={0} / Deployment Version={1} / Product Version={2} (using .NET 4.0) ... ",
             //    AppInfoHelper.getAssemblyVersion(), AppInfoHelper.getDeploymentVersion(), Application.ProductVersion);
-            Log(LogLevel.Info, String.Format("    Linux={0} / Detected environment: {1}", EnvironmentHelper.isRunningOnLinux(), EnvironmentHelper.getOperatingSystem()));
+            Log(LogLevel.Info, "    Linux={0} / Detected environment: {1}", EnvironmentHelper.isRunningOnLinux(), EnvironmentHelper.getOperatingSystem());
         }
 
         /// <summary>
@@ -527,7 +542,7 @@ namespace NuvoControl.Common
         /// <param name="exc">Exception to log.</param>
         public static void LogException(string strMessage, Exception exc)
         {
-            Log(LogLevel.Fatal, String.Format("----------------\nException! {0} [{1}]\n----------------\n", strMessage, exc.ToString()));
+            Log(LogLevel.Fatal, "----------------\nException! {0} [{1}]\n----------------\n", strMessage, exc.ToString());
         }
 
         /// <summary>
@@ -542,51 +557,8 @@ namespace NuvoControl.Common
                 strargs += arg;
                 strargs += " ";
             }
-            Log(LogLevel.Info, String.Format("    Command line arguments: {0}\n", strargs));
+            Log(LogLevel.Info, "    Command line arguments: {0}\n", strargs);
         }
-
-/*
-        /// <summary>
-        /// Static method to print the endpoint collection to the logger.
-        /// </summary>
-        /// <param name="logger">Logger object.</param>
-        /// <param name="endpointCollection">Endpoint collection to print.</param>
-        public static void LogEndPoint(ILog logger, Collection<EndpointDiscoveryMetadata> endpointCollection)
-        {
-            foreach (EndpointDiscoveryMetadata ep in endpointCollection)
-            {
-                Log(LogLevel.Info, String.Format("Address={0}", ep.Address.ToString()), logger);
-                foreach (Uri uri in ep.ListenUris)
-                {
-                    Log(LogLevel.Info, String.Format("  Uri.AbsolutePath={0}", uri.AbsolutePath), logger);
-                    Log(LogLevel.Info, String.Format("  Uri.AbsoluteUri={0}", uri.AbsoluteUri), logger);
-                    Log(LogLevel.Info, String.Format("  Uri.Host={0}", uri.Host));
-                }
-                Log(LogLevel.Info, String.Format("Version={0}", ep.Version), logger);
-            }
-        }
-*/
-
-/*
-        /// <summary>
-        /// Static method to print the endpoint collection to the console.
-        /// </summary>
-        /// <param name="endpointCollection">Endpoint collection to print.</param>
-        public static void PrintEndPoints(Collection<EndpointDiscoveryMetadata> endpointCollection)
-        {
-            foreach (EndpointDiscoveryMetadata ep in endpointCollection)
-            {
-                Console.WriteLine("Address={0}", ep.Address.ToString());
-                foreach (Uri uri in ep.ListenUris)
-                {
-                    Console.WriteLine("  Uri.AbsolutePath={0}", uri.AbsolutePath);
-                    Console.WriteLine("  Uri.AbsoluteUri={0}", uri.AbsoluteUri);
-                    Console.WriteLine("  Uri.Host={0}", uri.Host);
-                }
-                Console.WriteLine("Version={0}", ep.Version);
-            }
-        }
-*/
 
     }
 }
