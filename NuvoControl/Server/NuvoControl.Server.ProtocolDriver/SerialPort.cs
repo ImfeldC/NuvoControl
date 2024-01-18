@@ -191,13 +191,13 @@ namespace NuvoControl.Server.ProtocolDriver
             try
             {
                 tmpByte = (byte)_comPort.ReadByte();
-                //LogHelper.Log(LogLevelTrace, String.Format("Start ...." + tmpByte));
+                //LogHelper.Log(LogLevelTrace, String.Format("Start .... {0}", tmpByte));
 
                 while (tmpByte != 255)
                 {
                     rxString += ((char)tmpByte);
                     tmpByte = (byte)_comPort.ReadByte();
-                    //LogHelper.Log(LogLevel.Trace, String.Format("Get data ...." + tmpByte));
+                    //LogHelper.Log(LogLevel.Trace, String.Format("Get data .... {0}", tmpByte));
                 }
             }
             catch (System.TimeoutException exc)

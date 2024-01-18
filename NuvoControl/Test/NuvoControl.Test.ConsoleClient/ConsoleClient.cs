@@ -359,7 +359,7 @@ namespace NuvoControl.Test.ConsoleClient
             if (mySerial != null)
             {
                 mySerial.Write(Data);
-                LogHelper.Log(LogLevel.Info, "Message send:" + Data);
+                LogHelper.Log(LogLevel.Info, "Message send: {0}", Data);
                 return true;
             }
             else
@@ -419,7 +419,7 @@ namespace NuvoControl.Test.ConsoleClient
                 EDIPSwitchOverrideStatus.DIPSwitchOverrideOFF,
                 EVolumeResetStatus.VolumeResetOFF,
                 ESourceGroupStatus.SourceGroupOFF, "V1.0");
-            LogHelper.Log(LogLevel.Info, "Send command: " + command.OutgoingCommand);
+            LogHelper.Log(LogLevel.Info, "Send command: {0}", command.OutgoingCommand);
             if (_nuvoServer != null)
             {
                 _nuvoServer.SendCommand(_address, command);
@@ -428,7 +428,7 @@ namespace NuvoControl.Test.ConsoleClient
 
         void nuvoServer_onCommandReceived(object sender, ProtocolCommandReceivedEventArgs e)
         {
-            LogHelper.Log(LogLevel.Info, "Command Received:" + e.Command.IncomingCommand);
+            LogHelper.Log(LogLevel.Info, "Command Received: {0}", e.Command.IncomingCommand);
         }
 
         void _nuvoServer_onZoneStatusUpdate(object sender, ProtocolZoneUpdatedEventArgs e)

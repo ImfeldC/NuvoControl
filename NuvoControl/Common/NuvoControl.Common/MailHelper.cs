@@ -96,7 +96,7 @@ namespace NuvoControl.Common
             }
             catch (Exception e)
             {
-                //LogHelper.Log(LogLevel.Fatal, "Could not send email\n\n" + e.ToString());
+                //LogHelper.Log(LogLevel.Fatal, "Could not send email\n\n {0}", e.ToString());
                 return false;
             }
         }

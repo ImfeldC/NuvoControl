@@ -154,7 +154,7 @@ namespace Bespoke.Common.Osc
                         break;
 
 					default:
-						Debug.WriteLine("Unknown tag: " + tag);
+						Debug.WriteLine("Unknown tag: [0]", tag);
 						continue;
 				}
 

@@ -5,7 +5,6 @@ using Serilog;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Json; // required for AddJsonFile(), loaded with Microsoft.Extensions.Configuration.Json
 
-//using FormatMessageCallback = System.Action<NuvoControl.Common.FormatMessageHandler>;
 using Serilog.Events;
 using System.ComponentModel;
 using System.Reflection;
@@ -13,11 +12,6 @@ using System.Reflection;
 
 namespace NuvoControl.Common
 {
-    // Copied from  Common.Logging (3rd party project)
-    public delegate string FormatMessageHandler(string format, params object[] args);
-    public delegate string FormatMessageCallback(string format, params object[] args);
-
-
     /// <summary>
     /// Helper class to collect logger and console output methods for complex
     /// structures, like endpoint collection as example.
@@ -79,8 +73,6 @@ namespace NuvoControl.Common
         {
             public NuvoControlLogger()
             {
-                Write = new WriteHandler(WriteInternal);
-
                 var configuration = new ConfigurationBuilder()
                     .AddJsonFile("appsettings.json")
                     .Build();
@@ -107,9 +99,14 @@ namespace NuvoControl.Common
                 WriteInternal(LogLevel.Debug, format, args);
             }
 
-            public void Error(object message, Exception exception)
+            public void Info(string format, params object[] args)
             {
-                Write(LogLevel.Error, message, exception);
+                WriteInternal(LogLevel.Info, format, args);
+            }
+
+            public void Warn(string format, params object[] args)
+            {
+                WriteInternal(LogLevel.Warn, format, args);
             }
 
             public void Error(string format, params object[] args)
@@ -122,38 +119,13 @@ namespace NuvoControl.Common
                 WriteInternal(LogLevel.Fatal, format, args);
             }
 
-            public void Fatal(object message, Exception exception)
-            {
-                Write(LogLevel.Fatal, message, exception);
-            }
-
-            public void Warn(string format, params object[] args)
-            {
-                WriteInternal(LogLevel.Warn, format, args);
-            }
-
-            public void Warn(object message, Exception exception)
-            {
-                Write(LogLevel.Warn, message, exception);
-            }
-
         }
 
         ///////////////////////////////////////////////////
 
-        // Copied from  Common.Logging (3rd party project)
+        // (Mainly) copied from  Common.Logging (3rd party project)
 
         #region Deprecated methods and interfaces from Common.Logging to be backward compatible
-
-        /// <summary>
-        /// Represents a method responsible for writing a message to the log system.
-        /// </summary>
-        protected delegate void WriteHandler(LogLevel level, object message, Exception exception);
-
-        /// <summary>
-        /// Holds the method for writing a message to the log system.
-        /// </summary>
-        private static WriteHandler Write;
 
         #region LogLevel
         /// <summary>
@@ -220,25 +192,14 @@ namespace NuvoControl.Common
             /// </summary>
             /// <param name="format">The format of the message object to log.<see cref="string.Format(string,object[])"/> </param>
             /// <param name="args">the list of format arguments</param>
+            void Info(string format, params object[] args);
+
+            /// <summary>
+            /// Log a message with the <see cref="LogLevel.Trace"/> level.
+            /// </summary>
+            /// <param name="format">The format of the message object to log.<see cref="string.Format(string,object[])"/> </param>
+            /// <param name="args">the list of format arguments</param>
             void Warn(string format, params object[] args);
-
-            /// <summary>
-            /// Log a message object with the <see cref="LogLevel.Warn"/> level including
-            /// the stack trace of the <see cref="Exception"/> passed
-            /// as a parameter.
-            /// </summary>
-            /// <param name="message">The message object to log.</param>
-            /// <param name="exception">The exception to log, including its stack trace.</param>
-            void Warn(object message, Exception exception);
-
-            /// <summary>
-            /// Log a message object with the <see cref="LogLevel.Error"/> level including
-            /// the stack trace of the <see cref="Exception"/> passed
-            /// as a parameter.
-            /// </summary>
-            /// <param name="message">The message object to log.</param>
-            /// <param name="exception">The exception to log, including its stack trace.</param>
-            void Error(object message, Exception exception);
 
             /// <summary>
             /// Log a message with the <see cref="LogLevel.Error"/> level.
@@ -253,15 +214,6 @@ namespace NuvoControl.Common
             /// <param name="format">The format of the message object to log.<see cref="string.Format(string,object[])"/> </param>
             /// <param name="args">the list of format arguments</param>
             void Fatal(string format, params object[] args);
-
-            /// <summary>
-            /// Log a message object with the <see cref="LogLevel.Fatal"/> level including
-            /// the stack trace of the <see cref="Exception"/> passed
-            /// as a parameter.
-            /// </summary>
-            /// <param name="message">The message object to log.</param>
-            /// <param name="exception">The exception to log, including its stack trace.</param>
-            void Fatal(object message, Exception exception);
 
         }
         #endregion
@@ -346,6 +298,27 @@ namespace NuvoControl.Common
         /// <summary>
         /// Logs a message in a "standard" way to console and Logger.
         /// </summary>
+        /// <param name="logLevel">Log Level to log</param>
+        /// <param name="strMessage">Message to log.</param>
+        /// <param name="args"></param>
+        private static void LogInternal(LogLevel logLevel, string strMessage, params object[] args)
+        {
+            ILog logger = LogManager.GetCurrentClassLogger();
+
+            if (_verbose && (logLevel >= _minVerboseLogLevel | logLevel == LogLevel.All))
+            {
+                // Theres is a "in-build" console logger, which is switched-off per default. It can be enabled by set command line option "-v" (for verbose).
+                string strFormattedMessage = string.Format(strMessage, args);
+                Console.WriteLine(String.Format("{0} [{1}] {2}", DateTime.Now.ToString(), logLevel.ToString()[0], strFormattedMessage));
+            }
+
+            WriteInternal(logLevel, strMessage, args);
+
+        }
+
+        /// <summary>
+        /// Logs a message in a "standard" way to console and Logger.
+        /// </summary>
         /// <param name="logLevel"></param>
         /// <param name="strMessage">Message to log.</param>
         public static void Log(LogLevel logLevel, string strMessage)
@@ -358,29 +331,10 @@ namespace NuvoControl.Common
         /// </summary>
         /// <param name="logLevel"></param>
         /// <param name="strMessage">Message to log.</param>
+        /// <param name="args"></param>
         public static void Log(LogLevel logLevel, string strMessage, params object[] args)
         {
             LogInternal(logLevel, strMessage, args);
-        }
-
-        /// <summary>
-        /// Logs a message in a "standard" way to console and Logger.
-        /// </summary>
-        /// <param name="logLevel">Log Level to log</param>
-        /// <param name="strMessage">Message to log.</param>
-        private static void LogInternal(LogLevel logLevel, string strMessage, params object[] args)
-        {
-            ILog logger = LogManager.GetCurrentClassLogger();
-
-            if (_verbose && (logLevel >= _minVerboseLogLevel | logLevel == LogLevel.All) )
-            {
-                // Theres is a "in-build" console logger, which is switched-off per default. It can be enabled by set command line option "-v" (for verbose).
-                string strFormattedMessage = string.Format(strMessage, args);
-                Console.WriteLine(String.Format("{0} [{1}] {2}", DateTime.Now.ToString(), logLevel.ToString()[0], strFormattedMessage));
-            }
-
-            WriteInternal(logLevel, strMessage, args);
-
         }
 
         /// <summary>
