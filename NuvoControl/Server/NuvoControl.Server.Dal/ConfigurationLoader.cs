@@ -134,7 +134,7 @@ namespace NuvoControl.Server.Dal
             }
             catch (Exception exc)
             {
-                _log.Error("Validation of the xml configuration file failed.", exc);
+                NuvoControl.Common.LogHelper.LogException("Validation of the xml configuration file failed.", exc);
                 return false;
             }
         }
@@ -273,7 +273,7 @@ namespace NuvoControl.Server.Dal
             }
             else
             {
-                _log.Trace(m => m("\nThe configuration file {2} was NOT modified. GetLastWriteTime={0} calculateHash={1}", File.GetLastWriteTime(_configurationFilename).ToString(), ByteArrayToString(calculateHash(_configurationFilename)), _configurationFilename));
+                _log.Trace("\nThe configuration file {2} was NOT modified. GetLastWriteTime={0} calculateHash={1}", File.GetLastWriteTime(_configurationFilename).ToString(), ByteArrayToString(calculateHash(_configurationFilename)), _configurationFilename);
                 //Console.WriteLine("\n\nThe configuration file {2} was NOT modified. GetLastWriteTime={0} calculateHash={1}", File.GetLastWriteTime(_configurationFilename).ToString(), ByteArrayToString(calculateHash(_configurationFilename)), _configurationFilename);
             }
             return fileChanged;
@@ -292,7 +292,7 @@ namespace NuvoControl.Server.Dal
             HttpWebResponse myHttpWebResponse = (HttpWebResponse)myHttpWebRequest.GetResponse();
             if (myHttpWebResponse.StatusCode == HttpStatusCode.OK)
             {
-                _log.Trace(m => m("Request succeeded and the requested information is in the response , Description : {0}", myHttpWebResponse.StatusDescription));
+                _log.Trace("Request succeeded and the requested information is in the response , Description : {0}", myHttpWebResponse.StatusDescription);
                 //Console.WriteLine("\r\nRequest succeeded and the requested information is in the response , Description : {0}", myHttpWebResponse.StatusDescription);
             }
             // Uses the LastModified property to compare with stored date/time 

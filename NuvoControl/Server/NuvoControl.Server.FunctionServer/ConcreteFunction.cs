@@ -68,7 +68,7 @@ namespace NuvoControl.Server.FunctionServer
             _zoneServer = zoneServer;
             if (_zoneServer == null)
             {
-                _log.Warn(m => m("Zone Server not available, cannot monitor any zone ..."));
+                _log.Warn("Zone Server not available, cannot monitor any zone ...");
             }
 
             _audioDrivers = audioDrivers;
@@ -104,12 +104,12 @@ namespace NuvoControl.Server.FunctionServer
         {
             if (_zoneServer != null)
             {
-                _log.Trace(m => m("ConcreteFunction: monitor the zone {0} ...", zoneId.ToString()));
+                _log.Trace("ConcreteFunction: monitor the zone {0} ...", zoneId.ToString());
                 _zoneServer.Monitor(zoneId, OnZoneNotification);
             }
             else
             {
-                _log.Error(m => m("Zone Server not available, cannot monitor the zone {0} ...", zoneId.ToString()));
+                _log.Error("Zone Server not available, cannot monitor the zone {0} ...", zoneId.ToString());
             }
         }
 
@@ -121,7 +121,7 @@ namespace NuvoControl.Server.FunctionServer
         {
             if (_zoneServer != null)
             {
-                _log.Trace(m => m("ConcreteFunction: remove monitor for zone {0} ...", zoneId.ToString()));
+                _log.Trace("ConcreteFunction: remove monitor for zone {0} ...", zoneId.ToString());
                 _zoneServer.RemoveMonitor(zoneId, OnZoneNotification);
             }
         }

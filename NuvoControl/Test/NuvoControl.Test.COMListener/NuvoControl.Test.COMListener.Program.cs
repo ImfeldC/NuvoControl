@@ -69,13 +69,13 @@ namespace NuvoControl.Test.COMListener
         static void Main()
         {
             ILog log = LogManager.GetCurrentClassLogger();
-            log.Debug( m=>m("Start of COMListener! (Version={0})", Application.ProductVersion) );
+            log.Debug("Start of COMListener! (Version={0})", Application.ProductVersion);
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new COMListener());
 
-            log.Debug(m => m("End of COMListener! (Version={0})", Application.ProductVersion));
+            log.Debug("End of COMListener! (Version={0})", Application.ProductVersion);
         }
     }
 }

@@ -323,7 +323,7 @@ namespace NuvoControl.Test.ConsoleClient
                 if (mySerial != null)
                 {
                     string inputData = ReadData();
-                    //Console.WriteLine("Message received:" + inputData);
+                    //Console.WriteLine("Message received: {0}", inputData);
                 }
             }
         }
@@ -350,7 +350,7 @@ namespace NuvoControl.Test.ConsoleClient
                 // ignore timeout, finish read-out
             }
 
-            LogHelper.Log(LogLevel.Info, "Message received:" + rxString.Trim().Replace('\r', '-'));
+            LogHelper.Log(LogLevel.Info, "Message received: {0}", rxString.Trim().Replace('\r', '-'));
             return rxString;
         }
  

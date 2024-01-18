@@ -51,7 +51,7 @@ namespace NuvoControl.Server.ProtocolDriver
         /// </summary>
         public SerialPortQueue()
         {
-            _log.Debug(m => m("SerialPortQueue object created ... sendQueue={0}, rcvQueue={0}", _sendQueueName, _rcvQueueName));
+            _log.Debug("SerialPortQueue object created ... sendQueue={0}, rcvQueue={0}", _sendQueueName, _rcvQueueName);
 
             // it is important to set this to false, otherwise the message receiver event
             // handler keeps still active even after closing the message queue object
@@ -97,7 +97,7 @@ namespace NuvoControl.Server.ProtocolDriver
 
         void _rcvQueue_ReceiveCompleted(object sender, ReceiveCompletedEventArgs eventArg)
         {
-            _log.Debug(m => m("Message received from queue: {0}", eventArg.Message.Body.ToString()));
+            _log.Debug("Message received from queue: {0}", eventArg.Message.Body.ToString());
 
             try
             {
@@ -111,7 +111,7 @@ namespace NuvoControl.Server.ProtocolDriver
             }
             catch( Exception e)
             {
-                _log.Error(m=>m("Incoming message was corrupt! Exception = {0}", e.ToString()));
+                _log.Error("Incoming message was corrupt! Exception = {0}", e.ToString());
             }
 
             _rcvQueue.BeginReceive();   // prepare to receive next message

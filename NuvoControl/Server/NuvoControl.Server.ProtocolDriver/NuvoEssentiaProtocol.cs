@@ -119,7 +119,7 @@ namespace NuvoControl.Server.ProtocolDriver
                     // incoming command indicates an error, assign them to the first command in queue
                     command = _runningCommands.Dequeue();
                     command.IncomingCommand = incomingCommand.IncomingCommand;
-                    _log.Error(m => m("An error returned by Nuvo Essentia to the command '{0}'", command));
+                    _log.Error("An error returned by Nuvo Essentia to the command '{0}'", command);
                 }
                 else
                 {
@@ -204,7 +204,7 @@ namespace NuvoControl.Server.ProtocolDriver
             int delaySinceLastCommand = 0;
             while ((delaySinceLastCommand=(DateTime.Now - _lastTimeACommandHasBeenSent).Milliseconds) < 50)
             {
-                _log.Debug(m => m("Wait with command '{0}' execution, because the delay of {1}[ms] is too small.", command, delaySinceLastCommand));
+                _log.Debug("Wait with command '{0}' execution, because the delay of {1}[ms] is too small.", command, delaySinceLastCommand);
                 Thread.Sleep(50 - delaySinceLastCommand);
             }
             if (command.Command != ENuvoEssentiaCommands.NoCommand)
@@ -216,7 +216,7 @@ namespace NuvoControl.Server.ProtocolDriver
             }
             else
             {
-                _log.Warn(m => m("Invalid command (NoCommand) received, not sent to the serial port!"));
+                _log.Warn("Invalid command (NoCommand) received, not sent to the serial port!");
             }
         }
 

@@ -43,7 +43,7 @@ namespace NuvoControl.Server.FunctionServer
             _zoneServer = zoneServer;
             if (_zoneServer == null)
             {
-                _log.Warn(m => m("Zone Server not available, cannot monitor any zone ..."));
+                _log.Warn("Zone Server not available, cannot monitor any zone ...");
             }
             _sendNuvoCommand = command;
         }

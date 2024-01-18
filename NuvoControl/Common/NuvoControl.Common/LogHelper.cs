@@ -5,7 +5,7 @@ using Serilog;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Json; // required for AddJsonFile(), loaded with Microsoft.Extensions.Configuration.Json
 
-using FormatMessageCallback = System.Action<NuvoControl.Common.FormatMessageHandler>;
+//using FormatMessageCallback = System.Action<NuvoControl.Common.FormatMessageHandler>;
 using Serilog.Events;
 using System.ComponentModel;
 using System.Reflection;
@@ -15,6 +15,7 @@ namespace NuvoControl.Common
 {
     // Copied from  Common.Logging (3rd party project)
     public delegate string FormatMessageHandler(string format, params object[] args);
+    public delegate string FormatMessageCallback(string format, params object[] args);
 
 
     /// <summary>
@@ -30,7 +31,7 @@ namespace NuvoControl.Common
         /// </summary>
         /// <param name="level"></param>
         /// <returns></returns>
-        public static LogEventLevel ConvertToLogEventLevel(LogLevel level)
+        private static LogEventLevel ConvertToLogEventLevel(LogLevel level)
         {
             FieldInfo fi = level.GetType().GetField(level.ToString());
             DescriptionAttribute[] attributes =
@@ -96,9 +97,14 @@ namespace NuvoControl.Common
                 Serilog.Log.Information("Logger created ...");
             }
 
-            public void Debug(FormatMessageCallback formatMessageCallback)
+            public void Trace(string format, params object[] args)
             {
-                Write(LogLevel.Debug, new FormatMessageCallbackFormattedMessage(formatMessageCallback), null);
+                WriteInternal(LogLevel.Trace, format, args);
+            }
+
+            public void Debug(string format, params object[] args)
+            {
+                WriteInternal(LogLevel.Debug, format, args);
             }
 
             public void Error(object message, Exception exception)
@@ -106,19 +112,14 @@ namespace NuvoControl.Common
                 Write(LogLevel.Error, message, exception);
             }
 
-            public void Error(FormatMessageCallback formatMessageCallback)
+            public void Error(string format, params object[] args)
             {
-                Write(LogLevel.Error, new FormatMessageCallbackFormattedMessage(formatMessageCallback), null);
+                WriteInternal(LogLevel.Error, format, args);
             }
 
-            public void Error(FormatMessageCallback formatMessageCallback, Exception exception)
+            public void Fatal(string format, params object[] args)
             {
-                Write(LogLevel.Error, new FormatMessageCallbackFormattedMessage(formatMessageCallback), exception);
-            }
-
-            public void ErrorFormat(string format, params object[] args)
-            {
-                Write(LogLevel.Error, new StringFormatFormattedMessage(null, format, args), null);
+                WriteInternal(LogLevel.Fatal, format, args);
             }
 
             public void Fatal(object message, Exception exception)
@@ -126,24 +127,9 @@ namespace NuvoControl.Common
                 Write(LogLevel.Fatal, message, exception);
             }
 
-            public void Fatal(FormatMessageCallback formatMessageCallback)
+            public void Warn(string format, params object[] args)
             {
-                Write(LogLevel.Fatal, new FormatMessageCallbackFormattedMessage(formatMessageCallback), null);
-            }
-
-            public void Info(FormatMessageCallback formatMessageCallback)
-            {
-                Write(LogLevel.Info, new FormatMessageCallbackFormattedMessage(formatMessageCallback), null);
-            }
-
-            public void Trace(FormatMessageCallback formatMessageCallback)
-            {
-                Write(LogLevel.Trace, new FormatMessageCallbackFormattedMessage(formatMessageCallback), null);
-            }
-
-            public void TraceFormat(string format, params object[] args)
-            {
-                //TODO Write(LogLevel.Trace, new StringFormatFormattedMessage(formatProvider, format, args), null);
+                WriteInternal(LogLevel.Warn, format, args);
             }
 
             public void Warn(object message, Exception exception)
@@ -151,10 +137,6 @@ namespace NuvoControl.Common
                 Write(LogLevel.Warn, message, exception);
             }
 
-            public void Warn(FormatMessageCallback formatMessageCallback)
-            {
-                Write(LogLevel.Warn, new FormatMessageCallbackFormattedMessage(formatMessageCallback), null);
-            }
         }
 
         ///////////////////////////////////////////////////
@@ -172,75 +154,6 @@ namespace NuvoControl.Common
         /// Holds the method for writing a message to the log system.
         /// </summary>
         private static WriteHandler Write;
-
-
-        #region FormatMessageCallbackFormattedMessage
-
-        private class FormatMessageCallbackFormattedMessage
-        {
-            private volatile string cachedMessage;
-
-            private readonly IFormatProvider formatProvider;
-            private readonly FormatMessageCallback formatMessageCallback;
-
-            public FormatMessageCallbackFormattedMessage(FormatMessageCallback formatMessageCallback)
-            {
-                this.formatMessageCallback = formatMessageCallback;
-            }
-
-            public FormatMessageCallbackFormattedMessage(IFormatProvider formatProvider, FormatMessageCallback formatMessageCallback)
-            {
-                this.formatProvider = formatProvider;
-                this.formatMessageCallback = formatMessageCallback;
-            }
-
-            public override string ToString()
-            {
-                if (cachedMessage == null && formatMessageCallback != null)
-                {
-                    formatMessageCallback(new FormatMessageHandler(FormatMessage));
-                }
-                return cachedMessage;
-            }
-
-            private string FormatMessage(string format, params object[] args)
-            {
-                cachedMessage = string.Format(formatProvider, format, args);
-                return cachedMessage;
-            }
-        }
-
-        #endregion
-
-        #region StringFormatFormattedMessage
-
-        private class StringFormatFormattedMessage
-        {
-            private volatile string cachedMessage;
-
-            private readonly IFormatProvider FormatProvider;
-            private readonly string Message;
-            private readonly object[] Args;
-
-            public StringFormatFormattedMessage(IFormatProvider formatProvider, string message, params object[] args)
-            {
-                FormatProvider = formatProvider;
-                Message = message;
-                Args = args;
-            }
-
-            public override string ToString()
-            {
-                if (cachedMessage == null)
-                {
-                    cachedMessage = string.Format(FormatProvider, Message, Args);
-                }
-                return cachedMessage;
-            }
-        }
-
-        #endregion
-
 
         #region LogLevel
         /// <summary>
@@ -293,37 +206,21 @@ namespace NuvoControl.Common
             /// </summary>
             /// <param name="format">The format of the message object to log.<see cref="string.Format(string,object[])"/> </param>
             /// <param name="args">the list of format arguments</param>
-            void TraceFormat(string format, params object[] args);
+            void Trace(string format, params object[] args);
 
             /// <summary>
-            /// Log a message with the <see cref="LogLevel.Trace"/> level using a callback to obtain the message
+            /// Log a message with the <see cref="LogLevel.Trace"/> level.
             /// </summary>
-            /// <remarks>
-            /// Using this method avoids the cost of creating a message and evaluating message arguments 
-            /// that probably won't be logged due to loglevel settings.
-            /// </remarks>
-            /// <param name="formatMessageCallback">A callback used by the logger to obtain the message if log level is matched</param>
-            void Trace(FormatMessageCallback formatMessageCallback);
+            /// <param name="format">The format of the message object to log.<see cref="string.Format(string,object[])"/> </param>
+            /// <param name="args">the list of format arguments</param>
+            void Debug(string format, params object[] args);
 
             /// <summary>
-            /// Log a message with the <see cref="LogLevel.Debug"/> level using a callback to obtain the message
+            /// Log a message with the <see cref="LogLevel.Trace"/> level.
             /// </summary>
-            /// <remarks>
-            /// Using this method avoids the cost of creating a message and evaluating message arguments 
-            /// that probably won't be logged due to loglevel settings.
-            /// </remarks>
-            /// <param name="formatMessageCallback">A callback used by the logger to obtain the message if log level is matched</param>
-            void Debug(FormatMessageCallback formatMessageCallback);
-
-            /// <summary>
-            /// Log a message with the <see cref="LogLevel.Info"/> level using a callback to obtain the message
-            /// </summary>
-            /// <remarks>
-            /// Using this method avoids the cost of creating a message and evaluating message arguments 
-            /// that probably won't be logged due to loglevel settings.
-            /// </remarks>
-            /// <param name="formatMessageCallback">A callback used by the logger to obtain the message if log level is matched</param>
-            void Info(FormatMessageCallback formatMessageCallback);
+            /// <param name="format">The format of the message object to log.<see cref="string.Format(string,object[])"/> </param>
+            /// <param name="args">the list of format arguments</param>
+            void Warn(string format, params object[] args);
 
             /// <summary>
             /// Log a message object with the <see cref="LogLevel.Warn"/> level including
@@ -333,16 +230,6 @@ namespace NuvoControl.Common
             /// <param name="message">The message object to log.</param>
             /// <param name="exception">The exception to log, including its stack trace.</param>
             void Warn(object message, Exception exception);
-
-            /// <summary>
-            /// Log a message with the <see cref="LogLevel.Warn"/> level using a callback to obtain the message
-            /// </summary>
-            /// <remarks>
-            /// Using this method avoids the cost of creating a message and evaluating message arguments 
-            /// that probably won't be logged due to loglevel settings.
-            /// </remarks>
-            /// <param name="formatMessageCallback">A callback used by the logger to obtain the message if log level is matched</param>
-            void Warn(FormatMessageCallback formatMessageCallback);
 
             /// <summary>
             /// Log a message object with the <see cref="LogLevel.Error"/> level including
@@ -358,28 +245,14 @@ namespace NuvoControl.Common
             /// </summary>
             /// <param name="format">The format of the message object to log.<see cref="string.Format(string,object[])"/> </param>
             /// <param name="args">the list of format arguments</param>
-            void ErrorFormat(string format, params object[] args);
+            void Error(string format, params object[] args);
 
             /// <summary>
-            /// Log a message with the <see cref="LogLevel.Error"/> level using a callback to obtain the message
+            /// Log a message with the <see cref="LogLevel.Trace"/> level.
             /// </summary>
-            /// <remarks>
-            /// Using this method avoids the cost of creating a message and evaluating message arguments 
-            /// that probably won't be logged due to loglevel settings.
-            /// </remarks>
-            /// <param name="formatMessageCallback">A callback used by the logger to obtain the message if log level is matched</param>
-            void Error(FormatMessageCallback formatMessageCallback);
-
-            /// <summary>
-            /// Log a message with the <see cref="LogLevel.Error"/> level using a callback to obtain the message
-            /// </summary>
-            /// <remarks>
-            /// Using this method avoids the cost of creating a message and evaluating message arguments 
-            /// that probably won't be logged due to loglevel settings.
-            /// </remarks>
-            /// <param name="formatMessageCallback">A callback used by the logger to obtain the message if log level is matched</param>
-            /// <param name="exception">The exception to log, including its stack trace.</param>
-            void Error(FormatMessageCallback formatMessageCallback, Exception exception);
+            /// <param name="format">The format of the message object to log.<see cref="string.Format(string,object[])"/> </param>
+            /// <param name="args">the list of format arguments</param>
+            void Fatal(string format, params object[] args);
 
             /// <summary>
             /// Log a message object with the <see cref="LogLevel.Fatal"/> level including
@@ -389,16 +262,6 @@ namespace NuvoControl.Common
             /// <param name="message">The message object to log.</param>
             /// <param name="exception">The exception to log, including its stack trace.</param>
             void Fatal(object message, Exception exception);
-
-            /// <summary>
-            /// Log a message with the <see cref="LogLevel.Fatal"/> level using a callback to obtain the message
-            /// </summary>
-            /// <remarks>
-            /// Using this method avoids the cost of creating a message and evaluating message arguments 
-            /// that probably won't be logged due to loglevel settings.
-            /// </remarks>
-            /// <param name="formatMessageCallback">A callback used by the logger to obtain the message if log level is matched</param>
-            void Fatal(FormatMessageCallback formatMessageCallback);
 
         }
         #endregion

@@ -18,10 +18,6 @@
  **************************************************************************************************/
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Reflection;
 using static NuvoControl.Common.LogHelper;
 
 namespace NuvoControl.Server.ProtocolDriver.Interface
@@ -58,7 +54,7 @@ namespace NuvoControl.Server.ProtocolDriver.Interface
             }
             catch (Exception exc)
             {
-                _log.Fatal("Protocol driver could not be loaded.", exc);
+                NuvoControl.Common.LogHelper.LogException("Protocol driver could not be loaded.", exc);
                 return null;
             }
         }

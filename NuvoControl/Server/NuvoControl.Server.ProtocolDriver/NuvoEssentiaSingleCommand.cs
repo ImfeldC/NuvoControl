@@ -446,7 +446,7 @@ namespace NuvoControl.Server.ProtocolDriver
                 string incomingCommand = (string)profile.GetValue(section,"IncomingCommand");
                 if (NuvoEssentiaSingleCommand.compareCommandString(incomingCommand, commandString))
                 {
-                    LogManager.GetCurrentClassLogger().Debug(m => m("Entry found: Command={0}, IncomingCommand={1}, Section={2}", commandString, incomingCommand, section));
+                    LogManager.GetCurrentClassLogger().Debug("Entry found: Command={0}, IncomingCommand={1}, Section={2}", commandString, incomingCommand, section);
                     return (ENuvoEssentiaCommands)Enum.Parse(typeof(ENuvoEssentiaCommands), section, true);
                 }
             }
@@ -468,7 +468,7 @@ namespace NuvoControl.Server.ProtocolDriver
             {
                 if (compareCommandString((string)profile.GetValue(section, "OutgoingCommand"), command))
                 {
-                    LogManager.GetCurrentClassLogger().Debug(m => m("Entry found: Command={0}, Section={1}", command, section));
+                    LogManager.GetCurrentClassLogger().Debug("Entry found: Command={0}, Section={1}", command, section);
                     return (ENuvoEssentiaCommands)Enum.Parse(typeof(ENuvoEssentiaCommands), section, true);
                 }
             }
@@ -851,7 +851,7 @@ namespace NuvoControl.Server.ProtocolDriver
                     case ENuvoEssentiaCommands.ExternalMuteDeactivated:
                     case ENuvoEssentiaCommands.ErrorInCommand:
                         outgoingCommand = "";
-                        _log.Error(m => m("Error, cannot build outgoing command string for the command '{0}'!", _command));
+                        _log.Error("Error, cannot build outgoing command string for the command '{0}'!", _command);
                         break;
 
                     // combined commands -> not handled by the single command class
@@ -863,19 +863,19 @@ namespace NuvoControl.Server.ProtocolDriver
                     default:
                         // replace all knwon replacements so far
                         outgoingCommand = replacePlaceholders(_outgoingCommandTemplate,_zoneId,_sourceId,_volume,_basslevel,_treblelevel,_powerStatus,_irCarrierFrequencySource);
-                        _log.Warn(m => m("Warning, for this command '{0}' may not all required replacements implemented!", _command));
+                        _log.Warn("Warning, for this command '{0}' may not all required replacements implemented!", _command);
                         break;
                 }
             }
             else
             {
-                _log.Warn(m => m("Cannot build outgoing command, because command is unkown!"));
+                _log.Warn("Cannot build outgoing command, because command is unkown!");
             }
 
             if (!checkOutgoingCommand(outgoingCommand))
             {
                 string message = string.Format("Not all placeholders have been replaced, for the command '{0}'", _command );
-                _log.Warn(m => m(message));
+                _log.Warn(message);
                 throw new ProtocolDriverException(message);
             }
 
@@ -983,7 +983,7 @@ namespace NuvoControl.Server.ProtocolDriver
                 }
                 else
                 {
-                    LogManager.GetCurrentClassLogger().Warn(m => m("Replace ERROR: Cannot replace '{0}' in command '{1}', because volume level '{2}' is not in allowed range.", placeholder, command, volume));
+                    LogManager.GetCurrentClassLogger().Warn("Replace ERROR: Cannot replace '{0}' in command '{1}', because volume level '{2}' is not in allowed range.", placeholder, command, volume);
                 }
             }
             return command;
@@ -1031,7 +1031,7 @@ namespace NuvoControl.Server.ProtocolDriver
                 }
                 else
                 {
-                    LogManager.GetCurrentClassLogger().Warn(m => m("Replace ERROR: Cannot replace '{0}' in command '{1}', because bass or treble level '{2}' is not in allowed range.", placeholder, command, level));
+                    LogManager.GetCurrentClassLogger().Warn("Replace ERROR: Cannot replace '{0}' in command '{1}', because bass or treble level '{2}' is not in allowed range.", placeholder, command, level);
                 }
             }
             return command;
@@ -1065,7 +1065,7 @@ namespace NuvoControl.Server.ProtocolDriver
                 }
                 else
                 {
-                    LogManager.GetCurrentClassLogger().Warn(m => m("Replace ERROR: Cannot replace '{0}' in command '{1}', because Zone status member is not set", placeholder, command));
+                    LogManager.GetCurrentClassLogger().Warn("Replace ERROR: Cannot replace '{0}' in command '{1}', because Zone status member is not set", placeholder, command);
                 }
             }
             return command;
@@ -1101,13 +1101,13 @@ namespace NuvoControl.Server.ProtocolDriver
                     }
                     else
                     {
-                        LogManager.GetCurrentClassLogger().Warn(m => m("Replace ERROR: Cannot replace '{0}' in command '{1}', because Zone member is not set", placeholder, command));
+                        LogManager.GetCurrentClassLogger().Warn("Replace ERROR: Cannot replace '{0}' in command '{1}', because Zone member is not set", placeholder, command);
                     }
                 }
             }
             else 
             {
-                LogManager.GetCurrentClassLogger().Fatal(m => m("Replace ERROR: Cannot replace '{0}' in command because it is empty!", placeholder));
+                LogManager.GetCurrentClassLogger().Fatal("Replace ERROR: Cannot replace '{0}' in command because it is empty!", placeholder);
             }
             return command;
         }
@@ -1146,7 +1146,7 @@ namespace NuvoControl.Server.ProtocolDriver
                 }
                 else
                 {
-                    LogManager.GetCurrentClassLogger().Warn(m => m("Replace ERROR: Cannot replace '{0}' in command '{1}', because IR Carrier Frequency member is not set", placeholder, command));
+                    LogManager.GetCurrentClassLogger().Warn("Replace ERROR: Cannot replace '{0}' in command '{1}', because IR Carrier Frequency member is not set", placeholder, command);
                 }
             }
             return command;
@@ -1180,7 +1180,7 @@ namespace NuvoControl.Server.ProtocolDriver
                 }
                 else
                 {
-                    LogManager.GetCurrentClassLogger().Error(m => m("Replace ERROR: Cannot replace '{0}' in command '{1}', because Source member is not set", placeholder, command));
+                    LogManager.GetCurrentClassLogger().Error("Replace ERROR: Cannot replace '{0}' in command '{1}', because Source member is not set", placeholder, command);
                 }
             }
             return command;
@@ -1252,7 +1252,7 @@ namespace NuvoControl.Server.ProtocolDriver
                 }
                 else
                 {
-                    LogManager.GetCurrentClassLogger().Error(m => m("Replace ERROR: Cannot replace '{0}' in command '{1}', because Source Group Member Status member is not set", placeholder, command));
+                    LogManager.GetCurrentClassLogger().Error("Replace ERROR: Cannot replace '{0}' in command '{1}', because Source Group Member Status member is not set", placeholder, command);
                 }
             }
             return command;
@@ -1286,7 +1286,7 @@ namespace NuvoControl.Server.ProtocolDriver
                 }
                 else
                 {
-                    LogManager.GetCurrentClassLogger().Error(m => m("Replace ERROR: Cannot replace '{0}' in command '{1}', because Volume Reset Status Member member is not set", placeholder, command));
+                    LogManager.GetCurrentClassLogger().Error("Replace ERROR: Cannot replace '{0}' in command '{1}', because Volume Reset Status Member member is not set", placeholder, command);
                 }
             }
             return command;
@@ -1320,7 +1320,7 @@ namespace NuvoControl.Server.ProtocolDriver
                 }
                 else
                 {
-                    LogManager.GetCurrentClassLogger().Error(m => m("Replace ERROR: Cannot replace '{0}' in command '{1}', because DIP Switch Override Status Member member is not set", placeholder, command));
+                    LogManager.GetCurrentClassLogger().Error("Replace ERROR: Cannot replace '{0}' in command '{1}', because DIP Switch Override Status Member member is not set", placeholder, command);
                 }
             }
             return command;
@@ -1438,29 +1438,29 @@ namespace NuvoControl.Server.ProtocolDriver
                         case ENuvoEssentiaCommands.ExternalMuteActivated:
                         case ENuvoEssentiaCommands.ExternalMuteDeactivated:
                             // No parsing (incoming command has not parameters)
-                            _log.Debug(m => m("External mute has changed '{0}'!", _command));
+                            _log.Debug("External mute has changed '{0}'!", _command);
                             break;
 
                         case ENuvoEssentiaCommands.ErrorInCommand:
-                            _log.Error(m => m("Error, received error command '{0}' from Nuvo Essentia!", _command));
+                            _log.Error("Error, received error command '{0}' from Nuvo Essentia!", _command);
                             break;
 
                         // unkown command 
                         default:
                             // replace all knwon replacements so far
                             parseCommand(_incomingCommand,_incomingCommandTemplate);
-                            _log.Warn(m => m("Warning, for this command '{0}' may not all required parsers are implemented!", _command));
+                            _log.Warn("Warning, for this command '{0}' may not all required parsers are implemented!", _command);
                             break;
                     }
                 }
                 else
                 {
-                    _log.Warn(m => m("Cannot parse incoming command, because the underlying command is unkown! (_incomingCommand={0})", _incomingCommand));
+                    _log.Warn("Cannot parse incoming command, because the underlying command is unkown! (_incomingCommand={0})", _incomingCommand);
                 }
             }
             else
             {
-                _log.Warn(m => m("Cannot parse incoming command, because command is empty!"));
+                _log.Warn("Cannot parse incoming command, because command is empty!");
             }
         }
 
@@ -1528,7 +1528,7 @@ namespace NuvoControl.Server.ProtocolDriver
                     irCarrierFrequency = EIRCarrierFrequency.IRUnknown;
                     break;
                 default:
-                    LogManager.GetCurrentClassLogger().Fatal(m => m("Parse EXCEPTION: Cannot parse IR Carrier Frequency. Wrong command '{0}' received!", stringIRCarrierFrequency));
+                    LogManager.GetCurrentClassLogger().Fatal("Parse EXCEPTION: Cannot parse IR Carrier Frequency. Wrong command '{0}' received!", stringIRCarrierFrequency);
                     irCarrierFrequency = EIRCarrierFrequency.IRUnknown;
                     break;
             }
@@ -1553,7 +1553,7 @@ namespace NuvoControl.Server.ProtocolDriver
                 }
                 catch (System.ArgumentException ex)
                 {
-                    LogManager.GetCurrentClassLogger().Fatal(m => m("Parse EXCEPTION: Cannot parse Zone. Wrong zone id '{0}' received! Exception={1}", stringZone, ex));
+                    LogManager.GetCurrentClassLogger().Fatal("Parse EXCEPTION: Cannot parse Zone. Wrong zone id '{0}' received! Exception={1}", stringZone, ex);
                 }
             }
             return ENuvoEssentiaZones.NoZone;
@@ -1577,7 +1577,7 @@ namespace NuvoControl.Server.ProtocolDriver
                 }
                 catch (System.ArgumentException ex)
                 {
-                    LogManager.GetCurrentClassLogger().Fatal(m => m("Parse EXCEPTION: Cannot parse Source. Wrong source id '{0}' received! Exception={1}", stringSource, ex));
+                    LogManager.GetCurrentClassLogger().Fatal("Parse EXCEPTION: Cannot parse Source. Wrong source id '{0}' received! Exception={1}", stringSource, ex);
                 }
             }
             return ENuvoEssentiaSources.NoSource;
@@ -1607,7 +1607,7 @@ namespace NuvoControl.Server.ProtocolDriver
                     zonePowerStatus = EZonePowerStatus.ZoneStatusUnknown;
                     break;
                 default:
-                    LogManager.GetCurrentClassLogger().Fatal(m => m("Parse EXCEPTION: Cannot parse Power Status. Wrong status '{0}' received!", stringPowerStatus));
+                    LogManager.GetCurrentClassLogger().Fatal("Parse EXCEPTION: Cannot parse Power Status. Wrong status '{0}' received!", stringPowerStatus);
                     zonePowerStatus = EZonePowerStatus.ZoneStatusUnknown;
                     break;
             }
@@ -1635,7 +1635,7 @@ namespace NuvoControl.Server.ProtocolDriver
                     }
                     catch (System.FormatException ex)
                     {
-                        LogManager.GetCurrentClassLogger().Fatal(m => m("Parse EXCEPTION: Cannot parse Volume Level. Wrong command '{0}' received! Exception={1}", stringVolumeLevel, ex));
+                        LogManager.GetCurrentClassLogger().Fatal("Parse EXCEPTION: Cannot parse Volume Level. Wrong command '{0}' received! Exception={1}", stringVolumeLevel, ex);
                     }
                 }
                 else
@@ -1665,7 +1665,7 @@ namespace NuvoControl.Server.ProtocolDriver
                 }
                catch (System.FormatException ex)
                {
-                   LogManager.GetCurrentClassLogger().Fatal(m => m("Parse EXCEPTION: Cannot parse Bass Level. Wrong command '{0}' received! Exception={1}", stringBassLevel, ex));
+                   LogManager.GetCurrentClassLogger().Fatal("Parse EXCEPTION: Cannot parse Bass Level. Wrong command '{0}' received! Exception={1}", stringBassLevel, ex);
                }
             }
             return ZoneState.VALUE_UNDEFINED;
@@ -1689,7 +1689,7 @@ namespace NuvoControl.Server.ProtocolDriver
                 }
                catch (System.FormatException ex)
                {
-                   LogManager.GetCurrentClassLogger().Fatal(m => m("Parse EXCEPTION: Cannot parse Treble Level. Wrong command '{0}' received! Exception={1}", stringTrebleLevel, ex));
+                   LogManager.GetCurrentClassLogger().Fatal("Parse EXCEPTION: Cannot parse Treble Level. Wrong command '{0}' received! Exception={1}", stringTrebleLevel, ex);
                }
             }
             return ZoneState.VALUE_UNDEFINED;
@@ -1713,7 +1713,7 @@ namespace NuvoControl.Server.ProtocolDriver
                 }
                 catch (System.ArgumentException ex)
                 {
-                    LogManager.GetCurrentClassLogger().Fatal(m => m("Parse EXCEPTION: Cannot parse Volume Reset Status. Wrong command '{0}' received! Exception={1}", stringVolumeResetStatus, ex));
+                    LogManager.GetCurrentClassLogger().Fatal("Parse EXCEPTION: Cannot parse Volume Reset Status. Wrong command '{0}' received! Exception={1}", stringVolumeResetStatus, ex);
                 }
             }
             return EVolumeResetStatus.VolumeResetUnknown;
@@ -1737,7 +1737,7 @@ namespace NuvoControl.Server.ProtocolDriver
                 }
                 catch (System.ArgumentException ex)
                 {
-                    LogManager.GetCurrentClassLogger().Fatal(m => m("Parse EXCEPTION: Cannot parse Source Group Status. Wrong command '{0}' received! Exception={1}", stringSourceGroupStatus, ex));
+                    LogManager.GetCurrentClassLogger().Fatal("Parse EXCEPTION: Cannot parse Source Group Status. Wrong command '{0}' received! Exception={1}", stringSourceGroupStatus, ex);
                 }
             }
             return ESourceGroupStatus.SourceGroupUnknown;
@@ -1761,7 +1761,7 @@ namespace NuvoControl.Server.ProtocolDriver
                 }
                 catch (System.ArgumentException ex)
                 {
-                    LogManager.GetCurrentClassLogger().Fatal(m => m("Parse EXCEPTION: Cannot parse DIP Switch Override Status. Wrong command '{0}' received! Exception={1}", stringEDIPSwitchOverrideStatus, ex));
+                    LogManager.GetCurrentClassLogger().Fatal("Parse EXCEPTION: Cannot parse DIP Switch Override Status. Wrong command '{0}' received! Exception={1}", stringEDIPSwitchOverrideStatus, ex);
                 }
             }
             return EDIPSwitchOverrideStatus.DIPSwitchOverrideUnknown;

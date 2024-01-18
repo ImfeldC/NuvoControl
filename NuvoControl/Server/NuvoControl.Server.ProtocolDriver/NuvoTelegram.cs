@@ -241,12 +241,12 @@ namespace NuvoControl.Server.ProtocolDriver
 
             if (_serialPortPassedByCaller != null)
             {
-                _log.Debug(m => m("Start of NuvoTelegram .... use passed-in serial port object!"));
+                _log.Debug("Start of NuvoTelegram .... use passed-in serial port object!");
                 _serialPort = _serialPortPassedByCaller;
             }
             else
             {
-                _log.Debug(m => m("Start of NuvoTelegram .... create own serial port object!"));
+                _log.Debug("Start of NuvoTelegram .... create own serial port object!");
                 if (_serialPortConnectInformation.PortName.Equals(defaultPortSim))
                 {
                     // Create serial port simulator
@@ -289,7 +289,7 @@ namespace NuvoControl.Server.ProtocolDriver
             }
             else
             {
-                _log.Warn(m => m("Empty telegram received, not passed to the serial port!"));
+                _log.Warn("Empty telegram received, not passed to the serial port!");
             }
         }
 
@@ -335,7 +335,7 @@ namespace NuvoControl.Server.ProtocolDriver
             {
                 // Start sign not received ...
                 // Discarge the content and wait for start sign
-                _log.Debug(m => m("Delete content received on serial port, start sign is missing. {0}", telegram));
+                _log.Debug("Delete content received on serial port, start sign is missing. {0}", telegram);
                 telegram = "";
             }
             else if (startSignPosition > 0)
@@ -344,7 +344,7 @@ namespace NuvoControl.Server.ProtocolDriver
                 // Discarge starting characters, till the start sign
                 string delChars = telegram.Substring(0, startSignPosition);
                 telegram = telegram.Remove(0, startSignPosition);
-                _log.Debug(m => m("Delete content received on serial port, up to the start sign. {0}", delChars));
+                _log.Debug("Delete content received on serial port, up to the start sign. {0}", delChars);
             }
             return telegram;
         }
@@ -358,7 +358,7 @@ namespace NuvoControl.Server.ProtocolDriver
                 // Discarge starting characters, till the start sign
                 string delChars = telegram.Substring(0, startSignPosition);
                 telegram = telegram.Remove(0, startSignPosition+1);
-                _log.Debug(m => m("Delete content received on serial port, up to the start sign. {0}", delChars));
+                _log.Debug("Delete content received on serial port, up to the start sign. {0}", delChars);
             }
             return telegram;
         }
@@ -391,7 +391,7 @@ namespace NuvoControl.Server.ProtocolDriver
                 }
                 else
                 {
-                    _log.Error(m => m("Start sign missing. {0}", _currentTelegramBuffer));
+                    _log.Error("Start sign missing. {0}", _currentTelegramBuffer);
                 }
             }
         }

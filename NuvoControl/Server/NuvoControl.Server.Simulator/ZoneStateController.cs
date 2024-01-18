@@ -101,7 +101,7 @@ namespace NuvoControl.Server.Simulator
         /// <param name="deviceId">Device Id, where this zone states belong to.</param>
         public ZoneStateController(int numOfZones, int deviceId)
         {
-            _log.Debug(m => m("Create zone state controller, for {0} zones and the device {1}.", numOfZones, deviceId));
+            _log.Debug("Create zone state controller, for {0} zones and the device {1}.", numOfZones, deviceId);
             _numOfZones = numOfZones;
             _deviceId = deviceId;
             initZoneState();
@@ -144,7 +144,7 @@ namespace NuvoControl.Server.Simulator
         /// <param name="newZoneState">New Zone State.</param>
         private void notifyZoneStateSubscribers(ENuvoEssentiaZones zoneId, ZoneState oldZoneState, ZoneState newZoneState)
         {
-            _log.Trace(m => m("Zone State with zoneId='{0}' has changed, notify the subscribers. oldState='{1}' newState='{2}'.", zoneId.ToString(), oldZoneState.ToString(), newZoneState.ToString()));
+            _log.Trace("Zone State with zoneId='{0}' has changed, notify the subscribers. oldState='{1}' newState='{2}'.", zoneId.ToString(), oldZoneState.ToString(), newZoneState.ToString());
             if (onZoneUpdated != null)
             {
                 if (oldZoneState != newZoneState)

@@ -157,7 +157,7 @@ namespace NuvoControl.Server.Simulator
         /// <param name="args"></param>
         private void Trace(string format, params object[] args)
         {
-            _log.TraceFormat(format, args);
+            _log.Trace(format, args);
             DisplayData(MessageType.Normal, string.Format(format, args));
         }
 
@@ -283,7 +283,7 @@ namespace NuvoControl.Server.Simulator
             }
             catch( Exception ex)
             {
-                _log.Fatal(m=>m("Excpetion on zone state update on control {0}. Exception={1}",uc.Name,ex.ToString()));
+                _log.Fatal("Excpetion on zone state update on control {0}. Exception={1}", uc.Name, ex.ToString());
             }
         }
 
@@ -295,7 +295,7 @@ namespace NuvoControl.Server.Simulator
         /// <param name="e">Event Argument.</param>
         private void NuvoControlSimulator_Load(object sender, EventArgs e)
         {
-            _log.Debug(m => m("Form loaded: {0}", e.ToString()));
+            _log.Debug("Form loaded: {0}", e.ToString());
 
             initComSelect();
             importEnumeration(typeof(ENuvoEssentiaZones), cmbZoneSelect);
@@ -324,7 +324,7 @@ namespace NuvoControl.Server.Simulator
         /// <param name="e">Event Argument.</param>
         private void NuvoControlSimulator_FormClosed(object sender, FormClosedEventArgs e)
         {
-            _log.Debug(m => m("Form closed: {0}", e.CloseReason.ToString()));
+            _log.Debug("Form closed: {0}", e.CloseReason.ToString());
 
             timerSendOut.Stop();
             timerSimulate.Stop();
@@ -334,7 +334,7 @@ namespace NuvoControl.Server.Simulator
         }
 
 
-        #region MSMQ queue
+            #region MSMQ queue
         /// <summary>
         /// Event method to receive messages via the MSMQ queue.
         /// </summary>
@@ -344,7 +344,7 @@ namespace NuvoControl.Server.Simulator
         {
             try
             {
-                _log.Debug(m => m("Message received from queue: {0}", eventArg.Message.Body.ToString()));
+                _log.Debug("Message received from queue: {0}", eventArg.Message.Body.ToString());
                 _incommingQueueMessages.Enqueue(eventArg);
                 DisplayData(MessageType.Incoming, string.Format("({1}) {0}", (string)eventArg.Message.Body, _incommingQueueMessages.Count));
             }
@@ -404,7 +404,7 @@ namespace NuvoControl.Server.Simulator
                 if (msgs.Count() > 0)
                 {
                     msgQueue.Purge();
-                    _log.Warn(m => m("{0} message(s) disposed from queue '{1}'", msgs.Count(), msgQueue.FormatName));
+                    _log.Warn("{0} message(s) disposed from queue '{1}'", msgs.Count(), msgQueue.FormatName);
                 }
             }
         }
@@ -453,9 +453,9 @@ namespace NuvoControl.Server.Simulator
             {
                 // No message queue system installed (Message Queuing has not been installed on this computer.)
                 msgQueue = null;
-                _log.Fatal(m => m("Message Queuing has not been installed on this computer."));
-                _log.Fatal(m => m("Cannot create queue: {0} ", queueName));
-                _log.Fatal(m => m("Exception: {0} ", e.ToString()));
+                _log.Fatal("Message Queuing has not been installed on this computer.");
+                _log.Fatal("Cannot create queue: {0} ", queueName);
+                _log.Fatal("Exception: {0} ", e.ToString());
                 DisplayData(MessageType.Warning, "Message Queuing has not been installed on this computer.");
             }
 
@@ -494,12 +494,12 @@ namespace NuvoControl.Server.Simulator
                             rtbCOM.AppendText(msg);
                             rtbCOM.ScrollToCaret();
                         }));
-                        _log.Trace(m => m("Output on UI: {0}", msg));
+                        _log.Trace("Output on UI: {0}", msg);
                     }
                     else
                     {
                         // Output on window not possible yet
-                        _log.Trace(m => m("Output: {0}", msg));
+                        _log.Trace("Output: {0}", msg);
                     }
                 }
             }
@@ -579,7 +579,7 @@ namespace NuvoControl.Server.Simulator
             {
                 do
                 {
-                    _log.Debug(m => m("Process incomming response {0}", _incommingResponses.Peek().Command.ToString()));
+                    _log.Debug("Process incomming response {0}", _incommingResponses.Peek().Command.ToString());
                     ProtocolCommandReceivedEventArgs eventArg = _incommingResponses.Dequeue();
 
                     DisplayData(MessageType.Normal, "Response received: ");
@@ -598,7 +598,7 @@ namespace NuvoControl.Server.Simulator
             {
                 do
                 {
-                    _log.Debug(m => m("Process incomming command {0}", _incommingCommands.Peek()));
+                    _log.Debug("Process incomming command {0}", _incommingCommands.Peek());
                     string strCommand = _incommingCommands.Dequeue();
 
                     DisplayData(MessageType.Normal, "Command received: ");
@@ -617,7 +617,7 @@ namespace NuvoControl.Server.Simulator
             {
                 do
                 {
-                    _log.Debug(m => m("Process incomming update {0}", _incomingUpdates.Peek().ZoneState.ToString()));
+                    _log.Debug("Process incomming update {0}", _incomingUpdates.Peek().ZoneState.ToString());
                     ProtocolZoneUpdatedEventArgs eventArg = _incomingUpdates.Dequeue();
                     if ((string)cmbSimModeSelect.SelectedItem != ProtocolDriverSimulator.EProtocolDriverSimulationMode.NoSimulation.ToString() && chkReceive.Checked)
                     {
@@ -909,7 +909,7 @@ namespace NuvoControl.Server.Simulator
         /// <param name="eventArg"></param>
         private void Zonex_onZoneChanged(ZoneUserControl zoneUserControl, ZoneUserControl.ZoneUserControlEventArgs eventArg)
         {
-            _log.Trace(m=>m("Zone changed in zone user control {0}. EventArg={1}.", zoneUserControl.Name, eventArg.ToString() ));
+            _log.Trace("Zone changed in zone user control {0}. EventArg={1}.", zoneUserControl.Name, eventArg.ToString());
             if (eventArg.CurrentSelectedZone != ENuvoEssentiaZones.NoZone)
                 zoneUserControl.updateZoneState(_zoneSateController[zoneUserControl.GetSelectedZone()]);
         }
@@ -989,7 +989,7 @@ namespace NuvoControl.Server.Simulator
         {
             try
             {
-                _log.Debug(m => m("Command received from protocol driver: {0}", (string)e.Command.IncomingCommand));
+                _log.Debug("Command received from protocol driver: {0}", (string)e.Command.IncomingCommand);
                 DisplayData(MessageType.Normal, "Command received via protocol driver: ");
                 DisplayData(MessageType.Incoming, string.Format("({1}) {0}", (string)e.Command.IncomingCommand, _incommingResponses.Count));
                 _incommingResponses.Enqueue(e);  // put responeses received via protocol driver into the queue
@@ -1011,7 +1011,7 @@ namespace NuvoControl.Server.Simulator
         {
             try
             {
-                _log.Debug(m => m("Zone Udpate: Zone='{0}' State='{1}'", e.ZoneAddress, e.ZoneState));
+                _log.Debug("Zone Udpate: Zone='{0}' State='{1}'", e.ZoneAddress, e.ZoneState);
                 DisplayData(MessageType.Normal, "Zone status update received via protocol driver: ");
                 DisplayData(MessageType.Incoming, string.Format("Zone Udpate: Zone='{0}' State='{1}'", e.ZoneAddress, e.ZoneState));
                 _incomingUpdates.Enqueue(e);
@@ -1229,7 +1229,7 @@ namespace NuvoControl.Server.Simulator
             {
                 // Start sign not received ...
                 // Discarge the content and wait for start sign
-                _log.Debug(m => m("Delete content received on serial port, start sign is missing. {0}", _currentTelegramBuffer));
+                _log.Debug("Delete content received on serial port, start sign is missing. {0}", _currentTelegramBuffer);
                 _currentTelegramBuffer = "";
             }
             else if (startSignPosition > 0)
@@ -1238,7 +1238,7 @@ namespace NuvoControl.Server.Simulator
                 // Discarge starting characters, till the start sign
                 string delChars = _currentTelegramBuffer.Substring(0, startSignPosition);
                 _currentTelegramBuffer = _currentTelegramBuffer.Remove(0, startSignPosition);
-                _log.Debug(m => m("Delete content received on serial port, up to the start sign. {0}", delChars));
+                _log.Debug("Delete content received on serial port, up to the start sign. {0}", delChars);
             }
 
             int endSignPosition = _currentTelegramBuffer.IndexOf('\r');

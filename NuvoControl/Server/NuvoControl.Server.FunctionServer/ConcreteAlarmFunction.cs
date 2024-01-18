@@ -83,7 +83,7 @@ namespace NuvoControl.Server.FunctionServer
         /// <param name="e">Event argument, passed by the notification event.</param>
         protected override void notifyOnZoneUpdate(ZoneStateEventArgs e)
         {
-            _log.Trace(m => m("notifyOnZoneUpdate() EventArgs={0} ...", e.ToString()));
+            _log.Trace("notifyOnZoneUpdate() EventArgs={0} ...", e.ToString());
             _lastZoneChangeToON = calculateZoneChangeToON(_lastZoneChangeToON, _zoneState, e.ZoneState);
             _zoneState = new ZoneState(e.ZoneState);
         }
@@ -120,8 +120,7 @@ namespace NuvoControl.Server.FunctionServer
                 if ((aktTime.TimeOfDay >= _function.AlarmTime) &&
                     (aktTime.TimeOfDay < (_function.AlarmTime + _function.AlarmDuration)) )
                 {
-                    _log.Trace(m => m("calculateFunction at {0}: Function is in an active window. PowerStatus={1}, LastChangeToON={2}, Function={3}, Active={4}", 
-                        aktTime, _zoneState.PowerStatus, _lastZoneChangeToON.TimeOfDay, Function, isFunctionActiveToday(aktTime)));
+                    _log.Trace("calculateFunction at {0}: Function is in an active window. PowerStatus={1}, LastChangeToON={2}, Function={3}, Active={4}", aktTime, _zoneState.PowerStatus, _lastZoneChangeToON.TimeOfDay, Function, isFunctionActiveToday(aktTime));
 
                     if (!_alarmRunning)
                     {
