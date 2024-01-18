@@ -1,19 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Collections.ObjectModel;
-//using System.ServiceModel.Discovery;
 using System.Windows.Forms;
-using static NuvoControl.Common.LogHelper;
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
 using Serilog;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Json; // required for AddJsonFile(), loaded with Microsoft.Extensions.Configuration.Json
 
 using FormatMessageCallback = System.Action<NuvoControl.Common.FormatMessageHandler>;
-using static System.Windows.Forms.DataFormats;
 using Serilog.Events;
 using System.ComponentModel;
 using System.Reflection;
@@ -31,7 +23,7 @@ namespace NuvoControl.Common
     /// </summary>
     public class LogHelper
     {
-        private static NuvoControlLogger _logger = new NuvoControlLogger();
+        private static NuvoControlLogger _logger = null;
 
         /// <summary>
         /// Converts enumeratiion from (custom) LogLevel to Serilog LogEventLevel enumartion.
@@ -72,7 +64,7 @@ namespace NuvoControl.Common
         /// </summary>
         /// <param name="level">The <see cref="LogLevel" /> of the message.</param>
         /// <param name="message">The log message.</param>
-        /// <param name="e">An optional <see cref="Exception" /> associated with the message.</param>
+        /// <param name="args">The arguments to be inserted in placeholders in message.</param>        
         private static void WriteInternal(LogLevel level, object message, params object[] args)
         {
             // Print to the appropriate destination
@@ -169,6 +161,7 @@ namespace NuvoControl.Common
 
         // Copied from  Common.Logging (3rd party project)
 
+        #region Deprecated methods and interfaces from Common.Logging to be backward compatible
 
         /// <summary>
         /// Represents a method responsible for writing a message to the log system.
@@ -420,14 +413,30 @@ namespace NuvoControl.Common
 
             public static ILog GetCurrentClassLogger()
             {
+                if( _logger == null )
+                {
+                    _logger = new NuvoControlLogger();
+                }
                 return _logger;
             }
 
+            public static void ReleaseCurrentClassLogger()
+            {
+                if (_logger != null)
+                {
+                    // Finally, once just before the application exits...
+                    Serilog.Log.CloseAndFlush();
+                }
+                _logger = null; 
+            } 
         }
+        #endregion
+
         #endregion
 
         ///////////////////////////////////////////////////
 
+        // Theres is a "in-build" console logger, which is switched-off per default. It can be enabled by set command line option "-v" (for verbose).
         #region Verbose Mode
         /*
         The six logging levels used by Log are (in order): 
@@ -451,7 +460,6 @@ namespace NuvoControl.Common
         public static LogLevel MinVerboseLogLevel
         {
             get { return LogHelper._minVerboseLogLevel; }
-            set { LogHelper._minVerboseLogLevel = value; }
         }
 
 
@@ -461,22 +469,13 @@ namespace NuvoControl.Common
         private static bool _verbose = false;
 
         /// <summary>
-        /// Public accessor for verbose mode
-        /// </summary>
-        //public static bool Verbose
-        //{
-        //    get { return LogHelper._verbose; }
-        //    set { LogHelper._verbose = value; }
-        //}
-
-        /// <summary>
         /// Set all options, passed with command line options.
         /// </summary>
         /// <param name="options">Options passed with command line options.</param>
         public static void SetOptions(CommonOptions options)
         {
             _verbose = options.verbose;
-            MinVerboseLogLevel = options.minVerboseLevel;
+            _minVerboseLogLevel = options.minVerboseLevel;
         }
 
         #endregion
@@ -506,7 +505,6 @@ namespace NuvoControl.Common
         /// </summary>
         /// <param name="logLevel">Log Level to log</param>
         /// <param name="strMessage">Message to log.</param>
-        /// <param name="logger">Logger to log the message.</param>
         private static void LogInternal(LogLevel logLevel, string strMessage, params object[] args)
         {
             ILog logger = LogManager.GetCurrentClassLogger();
