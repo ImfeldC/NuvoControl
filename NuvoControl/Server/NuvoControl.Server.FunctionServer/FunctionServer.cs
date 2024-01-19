@@ -14,12 +14,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using Common.Logging;
-
 using NuvoControl.Server.ZoneServer;
 using NuvoControl.Common.Configuration;
 using NuvoControl.Common;
 using NuvoControl.Server.ProtocolDriver.Interface;
+using static NuvoControl.Common.LogHelper;
 
 namespace NuvoControl.Server.FunctionServer
 {
@@ -70,7 +69,7 @@ namespace NuvoControl.Server.FunctionServer
 
             traceFunctions();
 
-            _log.Trace(m => m("Function timer started, each {0}[s]", Properties.FunctionServer.Default.FunctionIntervall));
+            _log.Trace("Function timer started, each {0}[s]", Properties.FunctionServer.Default.FunctionIntervall);
             _timerFunction.Interval = (Properties.FunctionServer.Default.FunctionIntervall < 10 ? 10 : Properties.FunctionServer.Default.FunctionIntervall) * 1000;
             _timerFunction.Elapsed += new System.Timers.ElapsedEventHandler(_timerFunction_Elapsed);
             _timerFunction.Start();
@@ -111,7 +110,7 @@ namespace NuvoControl.Server.FunctionServer
         /// </summary>
         public void traceFunctions()
         {
-            _log.Trace(m => m("Functions: {0} ... loaded", this.ToString()));
+            _log.Trace("Functions: {0} ... loaded", this.ToString());
         }
 
         /// <summary>
@@ -145,7 +144,7 @@ namespace NuvoControl.Server.FunctionServer
 
         public void Dispose()
         {
-            _log.Trace(m => m("Function server disposed!"));
+            _log.Trace("Function server disposed!");
             _timerFunction.Stop();
 
             // Dispose all functions ...

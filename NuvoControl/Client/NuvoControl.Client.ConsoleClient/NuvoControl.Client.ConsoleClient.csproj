@@ -15,9 +15,6 @@
     <Reference Include="CommandLine">
       <HintPath>..\..\ExternalLibraries\CommandLine.dll</HintPath>
     </Reference>
-    <Reference Include="Common.Logging">
-      <HintPath>..\..\ExternalLibraries\Common.Logging.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\NuvoControl.Common\NuvoControl.Common.csproj" />

@@ -23,13 +23,12 @@ using System.Linq;
 using System.Text;
 using System.Diagnostics;
 
-using Common.Logging;
-
 using NuvoControl.Common;       // required for ToString<T> list extension
 using NuvoControl.Common.Configuration;
 using NuvoControl.Server.Dal;
 
 using System.ServiceModel;
+using static NuvoControl.Common.LogHelper;
 
 
 namespace NuvoControl.Server.ConfigurationService
@@ -108,7 +107,7 @@ namespace NuvoControl.Server.ConfigurationService
         /// <returns></returns>
         public Graphic GetGraphicConfiguration()
         {
-            _log.Trace(m=>m("Configuration Service; GetGraphicConfiguration()."));
+            _log.Trace("Configuration Service; GetGraphicConfiguration().");
 
             return _systemConfiguration.Graphic;
         }
@@ -120,16 +119,16 @@ namespace NuvoControl.Server.ConfigurationService
         /// <returns></returns>
         public NuvoImage GetImage(string picturePath)
         {
-            _log.Trace(m => m("Configuration Service; GetImage( {0} ).", picturePath));
+            _log.Trace("Configuration Service; GetImage( {0} ).", picturePath);
             NuvoImage img = null;
             try
             {
                 img = new NuvoImage(picturePath);
-                _log.Trace(m => m("Configuration Service; return image {0}.", img.ToString()));
+                _log.Trace("Configuration Service; return image {0}.", img.ToString());
             }
             catch (ArgumentException exc)
             {
-                _log.Fatal(m => m("Cannot load image {0}! Exception={1}", picturePath, exc));
+                _log.Fatal( "Cannot load image {0}! Exception={1}", picturePath, exc);
             }
             return img;
         }
@@ -159,7 +158,7 @@ namespace NuvoControl.Server.ConfigurationService
         /// <returns></returns>
         public ZoneGraphic GetZoneGraphicConfiguration(Address zoneId)
         {
-            _log.Trace(m => m(String.Format("Configuration Service; GetZoneGrpahicConfiguration(ZoneId={0}).", zoneId.ToString())));
+            _log.Trace("Configuration Service; GetZoneGrpahicConfiguration(ZoneId={0}).", zoneId.ToString());
 
             List<ZoneGraphic> zones = new List<ZoneGraphic>();
             foreach (Floor floor in _systemConfiguration.Graphic.Building.Floors)
@@ -169,12 +168,12 @@ namespace NuvoControl.Server.ConfigurationService
 
             if (zones.Count == 0)
             {
-                _log.ErrorFormat("No zone found for the specified address: {0}.", zoneId);
+                _log.Error("No zone found for the specified address: {0}.", zoneId);
                 throw new ArgumentException(String.Format("No zone found for the specified address: {0}.", zoneId));
             }
             if (zones.Count > 1)
             {
-                _log.ErrorFormat("More than one zone found for the specified address: {0}.", zoneId);
+                _log.Error("More than one zone found for the specified address: {0}.", zoneId);
                 throw new ArgumentException(String.Format("More than one zone found for the specified address: {0}.", zoneId));
             }
 
@@ -224,19 +223,19 @@ namespace NuvoControl.Server.ConfigurationService
         /// <returns></returns>
         public Function GetFunction(SimpleId id)
         {
-            _log.Trace(m => m(String.Format("Configuration Service; GetFunction(Id={0}).", id.ToString())));
+            _log.Trace("Configuration Service; GetFunction(Id={0}).", id.ToString());
 
             // Search function with the specified Guid
             foreach (Function function in _systemConfiguration.Functions)
             {
                 if (function.Id == id)
                 {
-                    _log.Trace(m => m(String.Format("Function with Id={0} found: {1}.", id.ToString(), function.ToString())));
+                    _log.Trace("Function with Id={0} found: {1}.", id.ToString(), function.ToString());
                     return function;
                 }
             }
 
-            _log.Warn(m => m(String.Format("Function with Id={0} NOT found: {1}.", id.ToString(), _systemConfiguration.Functions.ToString<Function>(" / "))));
+            _log.Warn("Function with Id={0} NOT found: {1}.", id.ToString(), _systemConfiguration.Functions.ToString<Function>(" / "));
             return null;
         }
 
@@ -247,7 +246,7 @@ namespace NuvoControl.Server.ConfigurationService
         /// <returns></returns>
         public List<Function> GetFunctions(Address zoneId)
         {
-            _log.Trace(m => m(String.Format("Configuration Service; GetFunctions(ZoneId={0}).", zoneId.ToString())));
+            _log.Trace("Configuration Service; GetFunctions(ZoneId={0}).", zoneId.ToString());
 
             // Search functions of the specified zone
             List<Function> zoneFunctions = new List<Function>();
@@ -259,7 +258,7 @@ namespace NuvoControl.Server.ConfigurationService
                 }
             }
 
-            _log.Trace(m => m(String.Format("Functions of ZoneId={0}: {1}.", zoneId.ToString(), zoneFunctions.ToString<Function>(" / "))));
+            _log.Trace("Functions of ZoneId={0}: {1}.", zoneId.ToString(), zoneFunctions.ToString<Function>(" / "));
             return zoneFunctions;
         }
 
@@ -314,7 +313,7 @@ namespace NuvoControl.Server.ConfigurationService
                 }
                 catch (Exception exc)
                 {
-                    _log.Error("Validation of the xml configuration file failed.", exc);
+                    NuvoControl.Common.LogHelper.LogException("Validation of the xml configuration file failed.", exc);
                     return false;
                 }
             }
@@ -513,7 +512,7 @@ namespace NuvoControl.Server.ConfigurationService
 
                     if (zoneIds.Count > 1)
                     {
-                        _log.ErrorFormat("There is more than one zone with the same Id = {0} in the same device = {1}.", address.ObjectId, address.DeviceId);
+                        _log.Error("There is more than one zone with the same Id = {0} in the same device = {1}.", address.ObjectId, address.DeviceId);
                         throw new Exception(String.Format("There is more than one zone with the same Id = {0} in the same device {1}.", address.DeviceId, address.DeviceId));
                     }
                 }
@@ -540,7 +539,7 @@ namespace NuvoControl.Server.ConfigurationService
 
                 if (sourceIds.Count > 1)
                 {
-                    _log.ErrorFormat("There is more than one source with the same Id = {0} in the same device = {1}.", address.ObjectId, address.DeviceId);
+                    _log.Error("There is more than one source with the same Id = {0} in the same device = {1}.", address.ObjectId, address.DeviceId);
                     throw new Exception(String.Format("There is more than one source with the same Id = {0} in the same device {1}.", address.DeviceId, address.DeviceId));
                 }
             }
@@ -561,7 +560,7 @@ namespace NuvoControl.Server.ConfigurationService
 
             if (devices.Count > 1)
             {
-                _log.ErrorFormat("There is more than one device with the same Id = {0} in the configuration.", address.DeviceId);
+                _log.Error("There is more than one device with the same Id = {0} in the configuration.", address.DeviceId);
                 throw new Exception(String.Format("There is more than one device with the same Id = {0} in the configuration.", address.DeviceId));
             }
             return devices[0];

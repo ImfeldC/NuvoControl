@@ -14,11 +14,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using Common.Logging;
-
 using NuvoControl.Common;
 using NuvoControl.Common.Configuration;
 using NuvoControl.Server.ZoneServer;
+using static NuvoControl.Common.LogHelper;
 
 namespace NuvoControl.Server.FunctionServer
 {
@@ -44,7 +43,7 @@ namespace NuvoControl.Server.FunctionServer
             _zoneServer = zoneServer;
             if (_zoneServer == null)
             {
-                _log.Warn(m => m("Zone Server not available, cannot monitor any zone ..."));
+                _log.Warn("Zone Server not available, cannot monitor any zone ...");
             }
             _sendNuvoCommand = command;
         }
@@ -53,8 +52,8 @@ namespace NuvoControl.Server.FunctionServer
         {
             if (checkCommandType(cmdType))
             {
-                LogHelper.Log(LogLevel.Info, String.Format(">>> Execute SendNuvoCommand command on event {0}", cmdType));
-                LogHelper.Log(LogLevel.Trace, String.Format("      SendNuvoCommand={0} / Function={1}", _sendNuvoCommand.ToString(), function.ToString()));
+                LogHelper.Log(LogLevel.Info, ">>> Execute SendNuvoCommand command on event {0}", cmdType);
+                LogHelper.Log(LogLevel.Trace, "      SendNuvoCommand={0} / Function={1}", _sendNuvoCommand.ToString(), function.ToString());
 
                 // Send Nuvo command ...
                 if (_zoneServer != null)
@@ -67,7 +66,7 @@ namespace NuvoControl.Server.FunctionServer
                 }
                 else
                 {
-                    LogHelper.Log(LogLevel.Error, String.Format("      Execute SendNuvoCommand FAILED!"));
+                    LogHelper.Log(LogLevel.Error, "      Execute SendNuvoCommand FAILED!");
                 }
 
             }

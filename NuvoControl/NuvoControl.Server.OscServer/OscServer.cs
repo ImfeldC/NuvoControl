@@ -9,13 +9,13 @@
  * 
  **************************************************************************************************/
 
-using Common.Logging;
 using NuvoControl.Common;
 using NuvoControl.Common.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading;
+using static NuvoControl.Common.LogHelper;
 
 
 namespace NuvoControl.Server.OscServer
@@ -75,7 +75,7 @@ namespace NuvoControl.Server.OscServer
 
         public void Start()
         {
-            _log.Trace(m => m(String.Format("OscServer: Start ...")));
+            _log.Trace("OscServer: Start ...");
             foreach (OscDeviceController oscDeviceController in _oscDeviceControllers.Values )
             {
                 oscDeviceController.GetOscDriver().SendMessage("/NuvoControl/message", String.Format("Start ... {0}", oscDeviceController.OscDeviceId));
@@ -87,7 +87,7 @@ namespace NuvoControl.Server.OscServer
 
         public void Stop()
         {
-            _log.Trace(m => m(String.Format("OscServer: Stop ...")));
+            _log.Trace(String.Format("OscServer: Stop ..."));
             foreach (OscDeviceController oscDeviceController in _oscDeviceControllers.Values)
             {
                 oscDeviceController.GetOscDriver().SendMessage("/NuvoControl/message", String.Format("Stop ... {0}", oscDeviceController.OscDeviceId));
@@ -102,7 +102,7 @@ namespace NuvoControl.Server.OscServer
 
         private void StartTime()
         {
-            LogHelper.Log(LogLevel.Debug, String.Format("Renew play sound command, each {0}[min]", Properties.Settings.Default.UpdateServerStatusLEDIntervall));
+            LogHelper.Log(LogLevel.Debug, "Renew play sound command, each {0}[min]", Properties.Settings.Default.UpdateServerStatusLEDIntervall);
             _timerUpdateServerStatus.Interval = (Properties.Settings.Default.UpdateServerStatusLEDIntervall < 2 ? 2 : Properties.Settings.Default.UpdateServerStatusLEDIntervall) * 1000;
             _timerUpdateServerStatus.Elapsed += new System.Timers.ElapsedEventHandler(_timerUpdateServerStatus_Elapsed);
             _timerUpdateServerStatus.Start();
@@ -115,7 +115,7 @@ namespace NuvoControl.Server.OscServer
         /// <param name="e"></param>
         void _timerUpdateServerStatus_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            _log.Trace(m => m(String.Format("OscServer: Server Status ... ")));
+            _log.Trace("OscServer: Server Status ... ");
             lock (_oscDeviceControllers)
             {
                 foreach (OscDeviceController oscDeviceController in _oscDeviceControllers.Values)
@@ -142,7 +142,7 @@ namespace NuvoControl.Server.OscServer
         void OscServer_onOscEventReceived(object sender, ProtocolDriver.Interface.OscEventReceivedEventArgs e)
         {
             sOscMessagesReceivedCount++;
-            _log.Trace(m => m("OSCS: Device (id={0}) osc event ({1}) from {2}: {3}", e.OscDevice, sOscMessagesReceivedCount, e.SourceEndPoint, e.OscEvent.ToString()));
+            _log.Trace("OSCS: Device (id={0}) osc event ({1}) from {2}: {3}", e.OscDevice, sOscMessagesReceivedCount, e.SourceEndPoint, e.OscEvent.ToString());
             _oscDeviceLastUpdate[e.SourceEndPoint.Address] = DateTime.Now;
         }
 
@@ -158,7 +158,7 @@ namespace NuvoControl.Server.OscServer
         void OscServer_onOscNuvoEventReceived(object sender, ProtocolDriver.Interface.OscEventReceivedEventArgs e)
         {
             sNuvoMessagesReceivedCount++;
-            _log.Trace(m => m("OSCS: Device (id={0}) nuvo control event ({1}) from {2}: {3}", e.OscDevice, sNuvoMessagesReceivedCount, e.SourceEndPoint, e.OscEvent.ToString()));
+            _log.Trace("OSCS: Device (id={0}) nuvo control event ({1}) from {2}: {3}", e.OscDevice, sNuvoMessagesReceivedCount, e.SourceEndPoint, e.OscEvent.ToString());
             _oscDeviceLastUpdate[e.SourceEndPoint.Address] = DateTime.Now;
 
             bool bKnown = false;
@@ -179,7 +179,7 @@ namespace NuvoControl.Server.OscServer
             if (!bKnown)
             {
                 // ... create "ad-hoc" controller, to start updating this client, assuming the client listen to port 9000
-                _log.Trace(m => m("OSCS.onOscNuvoEventReceived: Client {0} not known, add with id={1}!", e.SourceEndPoint, adhocDeviceIdCounter));
+                _log.Trace("OSCS.onOscNuvoEventReceived: Client {0} not known, add with id={1}!", e.SourceEndPoint, adhocDeviceIdCounter);
                 lock (_oscDeviceControllers)
                 {
                     Address address = new Address(e.OscDeviceId, adhocDeviceIdCounter);

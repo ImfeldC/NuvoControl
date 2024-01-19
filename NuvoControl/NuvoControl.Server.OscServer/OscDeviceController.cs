@@ -15,13 +15,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Common.Logging;
-
 using NuvoControl.Common;
 using NuvoControl.Common.Configuration;
 using NuvoControl.Server.ProtocolDriver.Interface;
 using NuvoControl.Server.ProtocolDriver;
 using System.Diagnostics.Eventing.Reader;
+using static NuvoControl.Common.LogHelper;
 
 
 
@@ -177,7 +176,7 @@ namespace NuvoControl.Server.OscServer
         /// <param name="e">Event Argument, contains the zone state.</param>
         void _protocolDriver_onZoneStatusUpdate(object sender, ProtocolZoneUpdatedEventArgs e)
         {
-            _log.Trace(m => m(String.Format("OSCC.onZoneStatusUpdate: Address={0}, Command={1}", e.ZoneAddress.ToString(), e.ZoneState.ToString())));
+            _log.Trace("OSCC.onZoneStatusUpdate: Address={0}, Command={1}", e.ZoneAddress, e.ZoneState);
             if (_oscDriver != null)
             {
                 _oscDriver.SendMessage("/NuvoControl/message", String.Format("Zone {0} Update at {1}", e.ZoneAddress, DateTime.Now));
@@ -239,7 +238,7 @@ namespace NuvoControl.Server.OscServer
         /// <param name="e">Event Argument, contains the device (=zone) quality.</param>
         private void _protocolDriver_onDeviceStatusUpdate(object sender, ProtocolDeviceUpdatedEventArgs e)
         {
-            _log.Trace(m => m("OSCC.onDeviceStatusUpdate: Device (with id {0}) state change received: {1}", e.DeviceId.ToString(), e.DeviceQuality.ToString()));
+            _log.Trace("OSCC.onDeviceStatusUpdate: Device (with id {0}) state change received: {1}", e.DeviceId.ToString(), e.DeviceQuality.ToString());
             if (_oscDriver != null)
             {
                 _oscDriver.SendMessage(new OscEvent(eOscEvent.SetValue, "/NuvoControl/NuvoStatus", (e.DeviceQuality == ZoneQuality.Online ? 1.0 : 0.25)));
@@ -260,7 +259,7 @@ namespace NuvoControl.Server.OscServer
         /// <param name="e">Event Argument, contains the osc nuvo event message.</param>
         private void _oscDriver_onOscNuvoEventReceived(object sender, OscEventReceivedEventArgs e)
         {
-            _log.Trace(m => m("OSCC.onOscNuvoEventReceived: Osc Device (with id {0}) osc event received: {1}", e.OscDevice, e.OscEvent.ToString()));
+            _log.Trace("OSCC.onOscNuvoEventReceived: Osc Device (with id {0}) osc event received: {1}", e.OscDevice, e.OscEvent.ToString());
 
             if (e.OscEvent.OscLabel.Contains("/Generic"))
             {
@@ -306,7 +305,7 @@ namespace NuvoControl.Server.OscServer
                     {
                         if (_zoneStateList.ContainsKey(zoneAddress))
                         {
-                            LogHelper.Log(LogLevel.Trace, string.Format("[OSC] Zone state (with id {0}) found, can 'toogle' power status. Incoming OSC command: {1}", zoneAddress, oscEvent.ToString()));
+                            LogHelper.Log(LogLevel.Trace, "[OSC] Zone state (with id {0}) found, can 'toogle' power status. Incoming OSC command: {1}", zoneAddress, oscEvent.ToString());
                             if (_zoneStateList[zoneAddress].PowerStatus)
                             {
                                 // Zone is ON -> Switch off
@@ -320,7 +319,7 @@ namespace NuvoControl.Server.OscServer
                         }
                         else
                         {
-                            LogHelper.Log(LogLevel.Warn, string.Format("[OSC] Zone state (with id {0}) unknonw, cannot 'toogle' power status. Ignore incoming OSC command: {1}", zoneAddress, oscEvent.ToString()));
+                            LogHelper.Log(LogLevel.Warn, "[OSC] Zone state (with id {0}) unknonw, cannot 'toogle' power status. Ignore incoming OSC command: {1}", zoneAddress, oscEvent.ToString());
                         }
                     }
                 }
@@ -411,7 +410,7 @@ namespace NuvoControl.Server.OscServer
                     {
                         if (_zoneStateList.ContainsKey(zoneAddress))
                         {
-                            LogHelper.Log(LogLevel.Trace, string.Format("[OSC] Zone state (with id {0}) found, can 'toogle' mute. Incoming OSC command: {1}", zoneAddress, oscEvent.ToString()));
+                            LogHelper.Log(LogLevel.Trace, "[OSC] Zone state (with id {0}) found, can 'toogle' mute. Incoming OSC command: {1}", zoneAddress, oscEvent.ToString());
                             if ( _zoneStateList[zoneAddress].MuteStatus )
                             {
                                 // Zone is muted -> unmute them
@@ -425,7 +424,7 @@ namespace NuvoControl.Server.OscServer
                         }
                         else
                         {
-                            LogHelper.Log(LogLevel.Warn, string.Format("[OSC] Zone state (with id {0}) unknonw, cannot 'toogle' mute. Ignore incoming OSC command: {1}", zoneAddress, oscEvent.ToString()));
+                            LogHelper.Log(LogLevel.Warn, "[OSC] Zone state (with id {0}) unknonw, cannot 'toogle' mute. Ignore incoming OSC command: {1}", zoneAddress, oscEvent.ToString());
                         }
                     }
                 }

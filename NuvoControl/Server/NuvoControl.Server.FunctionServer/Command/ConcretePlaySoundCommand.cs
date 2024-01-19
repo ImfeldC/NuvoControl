@@ -14,12 +14,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using Common.Logging;
-
 using NuvoControl.Common;
 using NuvoControl.Common.Configuration;
 using NuvoControl.Server.ZoneServer;
 using NuvoControl.Server.ProtocolDriver.Interface;
+using static NuvoControl.Common.LogHelper;
 
 
 namespace NuvoControl.Server.FunctionServer
@@ -55,8 +54,8 @@ namespace NuvoControl.Server.FunctionServer
             // onFunctionStart & onValidityStart configured to run ...
             if (checkCommandType(cmdType) && (cmdType == eCommandType.onFunctionStart | cmdType == eCommandType.onValidityStart) )
             {
-                LogHelper.Log(LogLevel.Info, String.Format(">>> Execute PlaySound@START command on event {0}", cmdType));
-                LogHelper.Log(LogLevel.Trace, String.Format("      PlaySoundCommand={0} / Function={1}", _playSoundCommand.ToString(), function.ToString()));
+                LogHelper.Log(LogLevel.Info, ">>> Execute PlaySound@START command on event {0}", cmdType);
+                LogHelper.Log(LogLevel.Trace, "      PlaySoundCommand={0} / Function={1}", _playSoundCommand.ToString(), function.ToString());
 
                 _audioDriver.CommandPlaySound(_playSoundCommand.Url);           
             }
@@ -64,8 +63,8 @@ namespace NuvoControl.Server.FunctionServer
             // onFunctionEnd & onValidityEnd configured to run ...
             if (checkCommandType(cmdType) && (cmdType == eCommandType.onFunctionEnd | cmdType == eCommandType.onValidityEnd) )
             {
-                LogHelper.Log(LogLevel.Info, String.Format(">>> Execute PlaySound@END command on event {0}", cmdType));
-                LogHelper.Log(LogLevel.Trace, String.Format("      PlaySoundCommand={0} / Function={1}", _playSoundCommand.ToString(), function.ToString()));
+                LogHelper.Log(LogLevel.Info, ">>> Execute PlaySound@END command on event {0}", cmdType);
+                LogHelper.Log(LogLevel.Trace, "      PlaySoundCommand={0} / Function={1}", _playSoundCommand.ToString(), function.ToString());
 
                 _audioDriver.Close();
             }
@@ -74,8 +73,8 @@ namespace NuvoControl.Server.FunctionServer
             // ... stop any running process in case of an error
             if (checkCommandType(cmdType) && cmdType == eCommandType.onFunctionError)
             {
-                LogHelper.Log(LogLevel.Info, String.Format(">>> Execute PlaySound@ERROR command on event {0}", cmdType));
-                LogHelper.Log(LogLevel.Trace, String.Format("      PlaySoundCommand={0} / Function={1}", _playSoundCommand.ToString(), function.ToString()));
+                LogHelper.Log(LogLevel.Info, ">>> Execute PlaySound@ERROR command on event {0}", cmdType);
+                LogHelper.Log(LogLevel.Trace, "      PlaySoundCommand={0} / Function={1}", _playSoundCommand.ToString(), function.ToString());
 
                 _audioDriver.Close();
             }

@@ -51,7 +51,7 @@ namespace Receiver
 
             oscServer.Start();
 
-            Console.WriteLine("Osc Receiver: " + demoType.ToString());
+            Console.WriteLine("Osc Receiver: {0}", demoType);
             Console.WriteLine("with IP Address={0} on Port={1}", ipAddress, Properties.Settings.Default.Port);
             Console.WriteLine("Press any key to exit.");
             Console.ReadKey();

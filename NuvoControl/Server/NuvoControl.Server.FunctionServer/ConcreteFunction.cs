@@ -14,13 +14,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using Common.Logging;
-
 using NuvoControl.Common;
 using NuvoControl.Common.Configuration;
 using NuvoControl.Server.ZoneServer;
 using NuvoControl.Server.ProtocolDriver.Interface;
 using System.Runtime.CompilerServices;
+using static NuvoControl.Common.LogHelper;
 
 [assembly: InternalsVisibleTo("NuvoControl.Server.FunctionServer.UnitTest.dll")]
 
@@ -69,7 +68,7 @@ namespace NuvoControl.Server.FunctionServer
             _zoneServer = zoneServer;
             if (_zoneServer == null)
             {
-                _log.Warn(m => m("Zone Server not available, cannot monitor any zone ..."));
+                _log.Warn("Zone Server not available, cannot monitor any zone ...");
             }
 
             _audioDrivers = audioDrivers;
@@ -92,7 +91,7 @@ namespace NuvoControl.Server.FunctionServer
                 }
                 else 
                 {
-                    LogHelper.Log( LogLevel.Fatal, String.Format("Invalid command found in command list! Function={0}", _function.ToString()));
+                    LogHelper.Log( LogLevel.Fatal, "Invalid command found in command list! Function={0}", _function.ToString());
                 }
             }
         }
@@ -105,12 +104,12 @@ namespace NuvoControl.Server.FunctionServer
         {
             if (_zoneServer != null)
             {
-                _log.Trace(m => m("ConcreteFunction: monitor the zone {0} ...", zoneId.ToString()));
+                _log.Trace("ConcreteFunction: monitor the zone {0} ...", zoneId.ToString());
                 _zoneServer.Monitor(zoneId, OnZoneNotification);
             }
             else
             {
-                _log.Error(m => m("Zone Server not available, cannot monitor the zone {0} ...", zoneId.ToString()));
+                _log.Error("Zone Server not available, cannot monitor the zone {0} ...", zoneId.ToString());
             }
         }
 
@@ -122,7 +121,7 @@ namespace NuvoControl.Server.FunctionServer
         {
             if (_zoneServer != null)
             {
-                _log.Trace(m => m("ConcreteFunction: remove monitor for zone {0} ...", zoneId.ToString()));
+                _log.Trace("ConcreteFunction: remove monitor for zone {0} ...", zoneId.ToString());
                 _zoneServer.RemoveMonitor(zoneId, OnZoneNotification);
             }
         }
@@ -178,7 +177,7 @@ namespace NuvoControl.Server.FunctionServer
         /// </summary>
         protected void onFunctionError()
         {
-            LogHelper.Log(LogLevel.Debug, String.Format(">>> onFunctionError: {0} [Function={1}]", this.ToString(), (_function!=null?_function.ToString():"<null>")));
+            LogHelper.Log(LogLevel.Debug, ">>> onFunctionError: {0} [Function={1}]", this.ToString(), (_function!=null?_function.ToString():"<null>"));
             onFunctionEvent(eCommandType.onFunctionError);
         }
 
@@ -187,7 +186,7 @@ namespace NuvoControl.Server.FunctionServer
         /// </summary>
         protected void onFunctionStart()
         {
-            LogHelper.Log(LogLevel.Debug, String.Format(">>> onFunctionStart: {0}", _function.ToString()));
+            LogHelper.Log(LogLevel.Debug, ">>> onFunctionStart: {0}", _function.ToString());
             onFunctionEvent(eCommandType.onFunctionStart);
         }
 
@@ -196,7 +195,7 @@ namespace NuvoControl.Server.FunctionServer
         /// </summary>
         protected void onFunctionEnd()
         {
-            LogHelper.Log(LogLevel.Debug, String.Format(">>> onFunctionEnd: {0}", _function.ToString()));
+            LogHelper.Log(LogLevel.Debug, ">>> onFunctionEnd: {0}", _function.ToString());
             onFunctionEvent(eCommandType.onFunctionEnd);
         }
 
@@ -205,7 +204,7 @@ namespace NuvoControl.Server.FunctionServer
         /// </summary>
         protected void onValidityStart()
         {
-            LogHelper.Log(LogLevel.Debug, String.Format(">>> onValidityStart: {0}", _function.ToString()));
+            LogHelper.Log(LogLevel.Debug, ">>> onValidityStart: {0}", _function.ToString());
             onFunctionEvent(eCommandType.onValidityStart);
         }
 
@@ -214,7 +213,7 @@ namespace NuvoControl.Server.FunctionServer
         /// </summary>
         protected void onValidityEnd()
         {
-            LogHelper.Log(LogLevel.Debug, String.Format(">>> onValidityEnd: {0}", _function.ToString()));
+            LogHelper.Log(LogLevel.Debug, ">>> onValidityEnd: {0}", _function.ToString());
             onFunctionEvent(eCommandType.onValidityEnd);
         }
 
@@ -232,7 +231,7 @@ namespace NuvoControl.Server.FunctionServer
                 }
                 else
                 {
-                    LogHelper.Log(LogLevel.Error, String.Format("Ignore <null> concrete command, in list [{0}]", _commands.ToString()));
+                    LogHelper.Log(LogLevel.Error, "Ignore <null> concrete command, in list [{0}]", _commands.ToString());
                 }
             }
         }

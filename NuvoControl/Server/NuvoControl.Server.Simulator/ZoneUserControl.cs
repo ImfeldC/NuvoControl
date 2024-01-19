@@ -10,7 +10,7 @@ using NuvoControl.Server.ProtocolDriver.Interface;
 using NuvoControl.Server.ProtocolDriver;
 using NuvoControl.Common;
 using NuvoControl.Common.Configuration;
-using Common.Logging;
+using static NuvoControl.Common.LogHelper;
 
 namespace NuvoControl.Server.Simulator
 {
@@ -22,7 +22,6 @@ namespace NuvoControl.Server.Simulator
     {
         #region Common Logger
         /// <summary>
-        /// Common logger object. Requires the using directive <c>Common.Logging</c>. See 
         /// <see cref="LogManager"/> for more information.
         /// </summary>
         private ILog _log = LogManager.GetCurrentClassLogger();
@@ -238,7 +237,7 @@ namespace NuvoControl.Server.Simulator
         /// <param name="command">Command, which changes the zone state.</param>
         public void updateZoneState(NuvoEssentiaSingleCommand command)
         {
-            _log.Trace(m => m("Update Zone state in control {0}. Command='{1}'", this.Name, command));
+            _log.Trace("Update Zone state in control {0}. Command='{1}'", this.Name, command);
             if (command.ZoneId != ENuvoEssentiaZones.NoZone)
             {
                 // Select zone received by command string
@@ -291,8 +290,7 @@ namespace NuvoControl.Server.Simulator
         {
             if (_zoneState != zoneState)
             {
-                _log.Trace(m => m("Update Zone state in control {0}, for zone {1} ({2}). New State='{3}'",
-                    this.Name, GetSelectedZone().ToString(), _selectedZone.ToString(), zoneState));
+                _log.Trace("Update Zone state in control {0}, for zone {1} ({2}). New State='{3}'", this.Name, GetSelectedZone().ToString(), _selectedZone.ToString(), zoneState);
                 _zoneState = zoneState;
                 if ((cmbSourceSelect != null) && (cmbSourceSelect.Items.Count > 0))
                 {
@@ -418,7 +416,7 @@ namespace NuvoControl.Server.Simulator
             }
             catch (Exception ex)
             {
-                _log.Fatal(m => m("Exception in cmbPowerStatusSelect_SelectedIndexChanged! {0}", ex.ToString()));
+                _log.Fatal("Exception in cmbPowerStatusSelect_SelectedIndexChanged! {0}", ex.ToString());
             }
         }
 
@@ -451,7 +449,7 @@ namespace NuvoControl.Server.Simulator
             }
             catch (Exception ex)
             {
-                _log.Fatal(m => m("Exception in cmbSourceSelect_SelectedIndexChanged! {0}", ex.ToString())); 
+                _log.Fatal("Exception in cmbSourceSelect_SelectedIndexChanged! {0}", ex.ToString()); 
             }
         }
 
@@ -468,7 +466,7 @@ namespace NuvoControl.Server.Simulator
             }
             catch (Exception ex)
             {
-                _log.Fatal(m => m("Exception in trackVolume_Scroll! {0}", ex.ToString()));
+                _log.Fatal("Exception in trackVolume_Scroll! {0}", ex.ToString());
             }
         }
 
@@ -476,7 +474,7 @@ namespace NuvoControl.Server.Simulator
         {
             if (_zoneState != null)
             {
-                _log.Trace(m => m("Update Volume Level to {0}", trackVolume.Value));
+                _log.Trace("Update Volume Level to {0}", trackVolume.Value);
                 ZoneState prevZoneState = new ZoneState(_zoneState);
 
                 // Update zone state, store them in this user control, and notify the zone state controller

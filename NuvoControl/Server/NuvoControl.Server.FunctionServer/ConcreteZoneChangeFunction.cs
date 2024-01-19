@@ -14,12 +14,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using Common.Logging;
-
 using NuvoControl.Common;  
 using NuvoControl.Common.Configuration;             // ZoneChangeFunction
 using NuvoControl.Server.ZoneServer;                // IZoneServer
-using NuvoControl.Server.ProtocolDriver.Interface;  // IAudioDriver 
+using NuvoControl.Server.ProtocolDriver.Interface;
+using static NuvoControl.Common.LogHelper;  // IAudioDriver 
 
 
 
@@ -127,25 +126,25 @@ namespace NuvoControl.Server.FunctionServer
                             if (_function.OnStatusChange && (_zoneState.PowerStatus != newZoneState.PowerStatus))
                             {
                                 // Power status has changed, raise event ...
-                                LogHelper.Log(LogLevel.Debug, String.Format("ConcreteZoneChangeFunction: Power status changed from {0} to {1}, raise event! LastChangeToON={2}, Function={3}", _zoneState.PowerStatus.ToString(), newZoneState.PowerStatus.ToString(), _lastZoneChangeToON, _function.ZoneId));
+                                LogHelper.Log(LogLevel.Debug, "ConcreteZoneChangeFunction: Power status changed from {0} to {1}, raise event! LastChangeToON={2}, Function={3}", _zoneState.PowerStatus.ToString(), newZoneState.PowerStatus.ToString(), _lastZoneChangeToON, _function.ZoneId);
                                 onFunctionStart();
                             }
                             if (_function.OnSourceChange && (_zoneState.Source != newZoneState.Source))
                             {
                                 // Source has changed, raise event ...
-                                LogHelper.Log(LogLevel.Debug, String.Format("ConcreteZoneChangeFunction: Source changed from {0} to {1}, raise event! LastChangeToON={2}, Function={3}", _zoneState.Source.ToString(), newZoneState.Source.ToString(), _lastZoneChangeToON, _function.ZoneId));
+                                LogHelper.Log(LogLevel.Debug, "ConcreteZoneChangeFunction: Source changed from {0} to {1}, raise event! LastChangeToON={2}, Function={3}", _zoneState.Source.ToString(), newZoneState.Source.ToString(), _lastZoneChangeToON, _function.ZoneId);
                                 onFunctionStart();
                             }
                             if (_function.OnVolumeChange && (_zoneState.Volume != newZoneState.Volume))
                             {
                                 // Volume has changed, raise event ...
-                                LogHelper.Log(LogLevel.Debug, String.Format("ConcreteZoneChangeFunction: Volume changed from {0} to {1}, raise event! LastChangeToON={2}, Function={3}", _zoneState.Volume.ToString(), newZoneState.Volume.ToString(), _lastZoneChangeToON, _function.ZoneId));
+                                LogHelper.Log(LogLevel.Debug, "ConcreteZoneChangeFunction: Volume changed from {0} to {1}, raise event! LastChangeToON={2}, Function={3}", _zoneState.Volume.ToString(), newZoneState.Volume.ToString(), _lastZoneChangeToON, _function.ZoneId);
                                 onFunctionStart();
                             }
                             if (_function.OnQualityChange && (_zoneState.ZoneQuality != newZoneState.ZoneQuality))
                             {
                                 // Zone quality has changed, raise event ...
-                                LogHelper.Log(LogLevel.Debug, String.Format("ConcreteZoneChangeFunction: Zone quality changed from {0} to {1}, raise event! LastChangeToON={2}, Function={3}", _zoneState.ZoneQuality.ToString(), newZoneState.ZoneQuality.ToString(), _lastZoneChangeToON, _function.ZoneId));
+                                LogHelper.Log(LogLevel.Debug, "ConcreteZoneChangeFunction: Zone quality changed from {0} to {1}, raise event! LastChangeToON={2}, Function={3}", _zoneState.ZoneQuality.ToString(), newZoneState.ZoneQuality.ToString(), _lastZoneChangeToON, _function.ZoneId);
                                 onFunctionStart();
                             }
                         }

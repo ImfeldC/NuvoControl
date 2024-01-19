@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using Common.Logging; 
-
 // see https://commandline.codeplex.com/
 using CommandLine;
-using CommandLine.Text; // if you want text formatting helpers (recommended)
+using CommandLine.Text;
+using static NuvoControl.Common.LogHelper; // if you want text formatting helpers (recommended)
 
 
 namespace NuvoControl.Common

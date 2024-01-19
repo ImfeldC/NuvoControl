@@ -1,12 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Common.Logging;
 using NuvoControl.Common;
 using NuvoControl.Common.Configuration;
-using NuvoControl.Server.ConfigurationService;
-using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
-using LogLevel = Common.Logging.LogLevel;
+using static NuvoControl.Common.LogHelper;
+using LogLevel = NuvoControl.Common.LogHelper.LogLevel;
 
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -17,14 +15,18 @@ namespace NuvoControl.Server.WebConsole.Controllers
     [ApiController]
     public class WebZonesController : ControllerBase
     {
-        private void LogZoneState(string zoneId, string message)
+        private void LogZoneState(string zoneId, string message, params object[] args)
         {
+            // String.Format("GET api/Zones/{0}", zoneId)
+            // String.Format("PUT api/Zones/{0}/SetVolume/{1}", zoneId, volume)
+            LogHelper.Log(LogLevel.Debug, message, args);
+
             if (NuvoControlController.ZoneServer != null)
             {
                 ZoneState zoneStatus = NuvoControlController.ZoneServer.GetZoneState(new Address(zoneId));
                 Zone zone = NuvoControlController.ConfgurationServer.GetZoneHWConfiguration(new Address(zoneId));
                 //Source source = NuvoControlController.ConfgurationServer.GetSourceHWConfiguration(e.ZoneState.Source);
-                LogHelper.Log(LogLevel.Debug, String.Format(">>>   [{0}]  Zone '{1}'({2})  {3}: {4}", DateTime.Now.ToShortTimeString(), zoneId, zone.Name, message, zoneStatus.ToString()));
+                LogHelper.Log(LogLevel.Debug, ">>>   [{0}]  Zone '{1}'({2})  ZoneStatus={3}", DateTime.Now.ToShortTimeString(), zoneId, zone.Name, zoneStatus );
             }
         }
 
@@ -51,7 +53,7 @@ namespace NuvoControl.Server.WebConsole.Controllers
         [HttpGet("{zoneId}")]
         public ZoneState Get(string zoneId)
         {
-            LogZoneState(zoneId, String.Format("GET api/Zones/{0}", zoneId));
+            LogZoneState(zoneId, "GET api/Zones/{0}", zoneId);
 
             if (NuvoControlController.ZoneServer != null)
             {
@@ -64,7 +66,7 @@ namespace NuvoControl.Server.WebConsole.Controllers
         [HttpPut("{zoneId}")]
         public ZoneState Put(string zoneId, [FromBody] ZoneState value)
         {
-            LogZoneState(zoneId, String.Format("PUT api/Zones/{0}", zoneId));
+            LogZoneState(zoneId, "PUT api/Zones/{0}", zoneId);
 
             if (NuvoControlController.ZoneServer != null)
             {
@@ -79,7 +81,7 @@ namespace NuvoControl.Server.WebConsole.Controllers
         [Route("api/Zones/{zoneId}/SetVolume/{volume}")]
         public ZoneState PutZoneVolume(string zoneId, int volume)
         {
-            LogZoneState(zoneId, String.Format("PUT api/Zones/{0}/SetVolume/{1}", zoneId, volume));
+            LogZoneState(zoneId, "PUT api/Zones/{0}/SetVolume/{1}", zoneId, volume);
 
             if (NuvoControlController.ZoneServer != null)
             {
@@ -96,7 +98,7 @@ namespace NuvoControl.Server.WebConsole.Controllers
         [Route("api/Zones/{zoneId}/SetSource/{sourceId}")]
         public ZoneState PutZoneVolume(string zoneId, string sourceId)
         {
-            LogZoneState(zoneId, String.Format("PUT api/Zones/{0}/SetSource/{1}", zoneId, sourceId));
+            LogZoneState(zoneId, "PUT api/Zones/{0}/SetSource/{1}", zoneId, sourceId);
 
             if (NuvoControlController.ZoneServer != null)
             {

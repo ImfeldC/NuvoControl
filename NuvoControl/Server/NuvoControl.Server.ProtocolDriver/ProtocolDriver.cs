@@ -12,7 +12,6 @@
  **************************************************************************************************/
 
 
-using Common.Logging;
 using NuvoControl.Common;
 using NuvoControl.Common.Configuration;
 using NuvoControl.Server.ProtocolDriver.Interface;
@@ -21,6 +20,7 @@ using System.Collections.Generic;
 using System.IO.Ports;
 using System.Threading;
 using System.Timers;
+using static NuvoControl.Common.LogHelper;
 
 namespace NuvoControl.Server.ProtocolDriver
 {
@@ -44,7 +44,6 @@ namespace NuvoControl.Server.ProtocolDriver
     {
         #region Common Logger
         /// <summary>
-        /// Common logger object. Requires the using directive <c>Common.Logging</c>. See 
         /// <see cref="LogManager"/> for more information.
         /// </summary>
         private ILog _log = LogManager.GetCurrentClassLogger();
@@ -132,17 +131,17 @@ namespace NuvoControl.Server.ProtocolDriver
         /// </summary>
         public NuvoEssentiaProtocolDriver()
         {
-            _log.Trace(m=>m("Protocol Driver instantiated!"));
+            _log.Trace("Protocol Driver instantiated!");
             if (Properties.Settings.Default.PingIntervall > 0)
             {
-                _log.Trace(m => m("Ping timer started, each {0}[s]", Properties.Settings.Default.PingIntervall));
+                _log.Trace("Ping timer started, each {0}[s]", Properties.Settings.Default.PingIntervall);
                 _timerPing.Interval = (Properties.Settings.Default.PingIntervall < 2 ? 2 : Properties.Settings.Default.PingIntervall) * 1000;
                 _timerPing.Elapsed += new ElapsedEventHandler(_timerPing_Elapsed);
                 _timerPing.Start();
             }
             else
             {
-                _log.Warn(m => m("Ping timer is disabled !!! ({0}[s])", Properties.Settings.Default.PingIntervall));
+                _log.Warn("Ping timer is disabled !!! ({0}[s])", Properties.Settings.Default.PingIntervall);
             }
         }
 
@@ -232,11 +231,11 @@ namespace NuvoControl.Server.ProtocolDriver
                     {
                         onDeviceStatusUpdate(this, new ProtocolDeviceUpdatedEventArgs(entry.DeviceId, ZoneQuality.Offline, null));
                         entry.DeviceMarkedAsOffline = true; // local marker
-                        _log.Warn(m => m("Off-line! Update of device with id {0} is outdated, set device offline! Last Update was at {1}", entry.DeviceId, entry.LastTimeCommandReceived.ToString()));
+                        _log.Warn("Off-line! Update of device with id {0} is outdated, set device offline! Last Update was at {1}", entry.DeviceId, entry.LastTimeCommandReceived.ToString());
                     }
                     catch (Exception ex)
                     {
-                        _log.Fatal(m => m("Exception occured at forwarding event 'onDeviceStatusUpdate' to Device {0}! Exception={1}", entry.DeviceId, ex.ToString()));
+                        _log.Fatal("Exception occured at forwarding event 'onDeviceStatusUpdate' to Device {0}! Exception={1}", entry.DeviceId, ex.ToString());
                     }
                 }
             }
@@ -251,11 +250,11 @@ namespace NuvoControl.Server.ProtocolDriver
                     {
                         onDeviceStatusUpdate(this, new ProtocolDeviceUpdatedEventArgs(entry.DeviceId, ZoneQuality.Online, null));
                         entry.DeviceMarkedAsOffline = false;    // local marker
-                        _log.Warn(m => m("Update of device with id {0} is back, set device online! Last Update was at {1}", entry.DeviceId, entry.LastTimeCommandReceived.ToString()));
+                        _log.Warn("Update of device with id {0} is back, set device online! Last Update was at {1}", entry.DeviceId, entry.LastTimeCommandReceived.ToString());
                     }
                     catch (Exception ex)
                     {
-                        _log.Fatal(m => m("Exception occured at forwarding event 'onDeviceStatusUpdate' to Device {0}! Exception={1}", entry.DeviceId, ex.ToString()));
+                        _log.Fatal("Exception occured at forwarding event 'onDeviceStatusUpdate' to Device {0}! Exception={1}", entry.DeviceId, ex.ToString());
                     }
                 }
             }
@@ -340,7 +339,7 @@ namespace NuvoControl.Server.ProtocolDriver
                 }
                 else
                 {
-                    _log.Warn(m => m("Cannot find corresponding protocol layer associated to this device id {0}", e.DeviceId));
+                    _log.Warn("Cannot find corresponding protocol layer associated to this device id {0}", e.DeviceId);
                 }
             } // release lock
 
@@ -356,7 +355,7 @@ namespace NuvoControl.Server.ProtocolDriver
                     }
                     catch (Exception ex)
                     {
-                        _log.Fatal(m => m("Exception occured at forwarding event 'onCommandReceived' to Device {0} and Zone {1}! Exception={2}", e.DeviceId, e.Command.ZoneId, ex.ToString()));
+                        _log.Fatal("Exception occured at forwarding event 'onCommandReceived' to Device {0} and Zone {1}! Exception={2}", e.DeviceId, e.Command.ZoneId, ex.ToString());
                     }
                 }
             }
@@ -391,7 +390,7 @@ namespace NuvoControl.Server.ProtocolDriver
                 }
                 catch (Exception ex)
                 {
-                    _log.Fatal(m => m("Exception occured at forwarding event 'onZoneStatusUpdate' to Device {0} and Zone {1} (Command='{2}')! Exception={3}", e.DeviceId, e.Command.ZoneId, e.Command.ToString(), ex.ToString()));
+                    _log.Fatal("Exception occured at forwarding event 'onZoneStatusUpdate' to Device {0} and Zone {1} (Command='{2}')! Exception={3}", e.DeviceId, e.Command.ZoneId, e.Command.ToString(), ex.ToString());
                 }
             }
         }
@@ -823,7 +822,7 @@ namespace NuvoControl.Server.ProtocolDriver
                 {
                     // Device id is not available
                     string message = string.Format("A device with the id {0} is not available. Cannot close device with this id!", deviceId);
-                    _log.Warn(m => m(message));
+                    _log.Warn(message);
                     throw new ProtocolDriverException(message);
                 }
             }
@@ -861,7 +860,7 @@ namespace NuvoControl.Server.ProtocolDriver
         /// </summary>
         public void Dispose()
         {
-            _log.Trace(m => m("Protocol Driver disposed!"));
+            _log.Trace("Protocol Driver disposed!");
             _timerPing.Stop();
         }
 

@@ -23,7 +23,6 @@ using System.Linq;
 using System.Text;
 using NuvoControl.Server.ProtocolDriver.Interface;
 using NuvoControl.Common;
-using Common.Logging;
 
 namespace NuvoControl.Server.ProtocolDriver
 {

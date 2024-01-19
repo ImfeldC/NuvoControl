@@ -25,8 +25,8 @@ using System.IO.Ports;
 using NuvoControl.Server.ProtocolDriver.Interface;
 using System.Timers;
 
-using Common.Logging;
 using NuvoControl.Common;
+using static NuvoControl.Common.LogHelper;
 
 
 namespace NuvoControl.Server.ProtocolDriver
@@ -35,7 +35,6 @@ namespace NuvoControl.Server.ProtocolDriver
     {
         #region Common Logger
         /// <summary>
-        /// Common logger object. Requires the using directive <c>Common.Logging</c>. See 
         /// <see cref="LogManager"/> for more information.
         /// </summary>
         private ILog _log = LogManager.GetCurrentClassLogger();
@@ -83,7 +82,7 @@ namespace NuvoControl.Server.ProtocolDriver
             // (b) A limited environemnt is detected (whcih doesn't support events) (see http://www.mono-project.com/archived/howtosystemioports/ )
             if (Properties.Settings.Default.ReadIntervall > 0 && _limitedEnvironment)
             {
-                _log.Trace(m => m("Read intervall timer started, each {0}[s]", Properties.Settings.Default.PingIntervall));
+                _log.Trace("Read intervall timer started, each {0}[s]", Properties.Settings.Default.PingIntervall);
                 _timerPing.Interval = (Properties.Settings.Default.PingIntervall < 2 ? 2 : Properties.Settings.Default.PingIntervall) * 1000;
                 _timerPing.Elapsed += new ElapsedEventHandler(_timerReadIntervall_Elapsed);
                 _timerPing.Start();
@@ -91,7 +90,7 @@ namespace NuvoControl.Server.ProtocolDriver
             }
             else
             {
-                _log.Warn(m => m("Read intervall timer is disabled !!! ({0}[s])", Properties.Settings.Default.PingIntervall));
+                _log.Warn("Read intervall timer is disabled !!! ({0}[s])", Properties.Settings.Default.PingIntervall);
                 _readIntervalTimerRunning = false;
             }
 
@@ -128,13 +127,13 @@ namespace NuvoControl.Server.ProtocolDriver
         {
             if (IsOpen == false)
             {
-                _log.Warn(m => m("Port is not open yet, open it before sending data!"));
+                _log.Warn("Port is not open yet, open it before sending data!");
                 OpenPort();
             }
             if ( (_comPort != null) && (_comPort.IsOpen==true))
                 _comPort.Write(text);
             else
-                _log.Error(m => m("Port is not open, cannot send data {0} to serial port.", text));
+                _log.Error("Port is not open, cannot send data {0} to serial port.", text);
 
             if (_limitedEnvironment & !_readIntervalTimerRunning)
             {
@@ -172,7 +171,7 @@ namespace NuvoControl.Server.ProtocolDriver
 
             if (msg != "")
             {
-                LogHelper.Log(LogLevel.Debug, "(readData) Message received:" + msg.Trim().Replace('\r', '-'));
+                LogHelper.Log(LogLevel.Debug, "(readData) Message received: {0}", msg.Trim().Replace('\r', '-'));
                 //raise the event, and pass data to next layer
                 if (onDataReceived != null)
                 {
@@ -192,13 +191,13 @@ namespace NuvoControl.Server.ProtocolDriver
             try
             {
                 tmpByte = (byte)_comPort.ReadByte();
-                //LogHelper.Log(LogLevelTrace, String.Format("Start ...." + tmpByte));
+                //LogHelper.Log(LogLevelTrace, String.Format("Start .... {0}", tmpByte));
 
                 while (tmpByte != 255)
                 {
                     rxString += ((char)tmpByte);
                     tmpByte = (byte)_comPort.ReadByte();
-                    //LogHelper.Log(LogLevel.Trace, String.Format("Get data ...." + tmpByte));
+                    //LogHelper.Log(LogLevel.Trace, String.Format("Get data .... {0}", tmpByte));
                 }
             }
             catch (System.TimeoutException exc)
@@ -206,7 +205,7 @@ namespace NuvoControl.Server.ProtocolDriver
                 // ignore timeout, finish read-out
             }
 
-            LogHelper.Log(LogLevel.Debug, "(ReadByteData) Message received:" + rxString.Trim().Replace('\r', '-'));
+            LogHelper.Log(LogLevel.Debug, "(ReadByteData) Message received: {0}", rxString.Trim().Replace('\r', '-'));
             return rxString;
         }
         
@@ -239,7 +238,7 @@ namespace NuvoControl.Server.ProtocolDriver
         {
             if (_serialPortConnectInformation == null)
             {
-                _log.Error(m => m("No connection information available. Cannot open connection!"));
+                _log.Error("No connection information available. Cannot open connection!");
                 return false;
             }
 
@@ -265,8 +264,8 @@ namespace NuvoControl.Server.ProtocolDriver
                 _comPort.WriteTimeout = 500;
 
                 // now open the port
-                _log.Trace(m=>m("Open serial port {0} (Limited={1})", _serialPortConnectInformation.PortName, _limitedEnvironment ));
-                _log.Trace(m => m("--> {0}", this.ToString()));
+                _log.Trace("Open serial port {0} (Limited={1})", _serialPortConnectInformation.PortName, _limitedEnvironment);
+                _log.Trace("--> {0}", this.ToString());
                 _comPort.Open();
 
                 // add event handler
@@ -278,8 +277,7 @@ namespace NuvoControl.Server.ProtocolDriver
             }
             catch (Exception ex)
             {
-                _log.Fatal(m=>m("Exception occured opening the serial port {0}! SerialPortInformation='{1}' / Exception='{2}'",
-                    _serialPortConnectInformation.PortName, _serialPortConnectInformation, ex.ToString()));
+                _log.Fatal("Exception occured opening the serial port {0}! SerialPortInformation='{1}' / Exception='{2}'", _serialPortConnectInformation.PortName, _serialPortConnectInformation, ex.ToString());
                 return false;
             }
         }

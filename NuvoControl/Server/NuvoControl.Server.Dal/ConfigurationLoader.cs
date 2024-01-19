@@ -27,13 +27,12 @@ using System.Windows;
 
 using System.Net.Mail;
 
-using Common.Logging;
-
 using NuvoControl.Common;
 using NuvoControl.Common.Configuration;
 using System.Net;
 using System.Security.Cryptography;
 using System.Drawing;
+using static NuvoControl.Common.LogHelper;
 
 
 namespace NuvoControl.Server.Dal
@@ -135,7 +134,7 @@ namespace NuvoControl.Server.Dal
             }
             catch (Exception exc)
             {
-                _log.Error("Validation of the xml configuration file failed.", exc);
+                NuvoControl.Common.LogHelper.LogException("Validation of the xml configuration file failed.", exc);
                 return false;
             }
         }
@@ -196,7 +195,7 @@ namespace NuvoControl.Server.Dal
             _configurationFileWriteDateTime = File.GetLastWriteTime(_configurationFilename);
             _configurationFileHash = calculateHash(_configurationFilename);
             _configurationVersion = (string)_configuration.Root.Element("Configuration").Attribute("Version");
-            LogHelper.Log(LogLevel.Trace, String.Format("\nXML Configuration {0} loaded. Version={3}, GetLastWriteTime={1} calculateHash={2}", _configurationFilename, _configurationFileWriteDateTime.ToString(), ByteArrayToString(_configurationFileHash), _configurationVersion));
+            LogHelper.Log(LogLevel.Trace, "\nXML Configuration {0} loaded. Version={3}, GetLastWriteTime={1} calculateHash={2}", _configurationFilename, _configurationFileWriteDateTime.ToString(), ByteArrayToString(_configurationFileHash), _configurationVersion);
 
             if ((_appendConfigurationFilename != null) && (_appendConfigurationFilename != ""))
             {
@@ -213,14 +212,14 @@ namespace NuvoControl.Server.Dal
                     _appendConfigurationFileWriteDateTime = myHttpWebResponse.LastModified;
                     _appendConfigurationFileHash = null;
                     myHttpWebResponse.Close();
-                    LogHelper.Log(LogLevel.Trace, String.Format("\nXML Configuration {0} from remote added. Version={3}, GetLastWriteTime={1} calculateHash={2}", _appendConfigurationFilename, _appendConfigurationFileWriteDateTime.ToString(), ByteArrayToString(_appendConfigurationFileHash), _appendConfigurationVersion));
+                    LogHelper.Log(LogLevel.Trace, "\nXML Configuration {0} from remote added. Version={3}, GetLastWriteTime={1} calculateHash={2}", _appendConfigurationFilename, _appendConfigurationFileWriteDateTime.ToString(), ByteArrayToString(_appendConfigurationFileHash), _appendConfigurationVersion);
                 }
                 catch (UriFormatException ex)
                 {
                     // Load configuration from local server
                     _appendConfigurationFileWriteDateTime = File.GetLastWriteTime(_appendConfigurationFilename);
                     _appendConfigurationFileHash = calculateHash(_appendConfigurationFilename);
-                    LogHelper.Log(LogLevel.Trace, String.Format("\nXML Configuration {0} added. Version={3}, GetLastWriteTime={1} calculateHash={2}", _appendConfigurationFilename, _appendConfigurationFileWriteDateTime.ToString(), ByteArrayToString(_appendConfigurationFileHash), _appendConfigurationVersion));
+                    LogHelper.Log(LogLevel.Trace, "\nXML Configuration {0} added. Version={3}, GetLastWriteTime={1} calculateHash={2}", _appendConfigurationFilename, _appendConfigurationFileWriteDateTime.ToString(), ByteArrayToString(_appendConfigurationFileHash), _appendConfigurationVersion);
                 }
 
                 // Add Functions and Devices
@@ -264,17 +263,17 @@ namespace NuvoControl.Server.Dal
 
             if (DateTime.Compare(_configurationFileWriteDateTime, File.GetLastWriteTime(_configurationFilename)) != 0)
             {
-                LogHelper.Log(LogLevel.Info, String.Format("\n\nThe configuration file was modified (GetLastWriteTime). {0} vs. {1}", _configurationFileWriteDateTime.ToString(), File.GetLastWriteTime(_configurationFilename).ToString()));
+                LogHelper.Log(LogLevel.Info, "\n\nThe configuration file was modified (GetLastWriteTime). {0} vs. {1}", _configurationFileWriteDateTime.ToString(), File.GetLastWriteTime(_configurationFilename).ToString());
                 fileChanged = true;
             }
             else if (!compareHash(_configurationFileHash, calculateHash(_configurationFilename)))
             {
-                LogHelper.Log(LogLevel.Info, String.Format("\n\nThe configuration file was modified (calculateHash). {0} vs. {1}", _configurationFileHash.ToString(), ByteArrayToString(calculateHash(_configurationFilename))));
+                LogHelper.Log(LogLevel.Info, "\n\nThe configuration file was modified (calculateHash). {0} vs. {1}", _configurationFileHash.ToString(), ByteArrayToString(calculateHash(_configurationFilename)));
                 fileChanged = true;
             }
             else
             {
-                _log.Trace(m => m("\nThe configuration file {2} was NOT modified. GetLastWriteTime={0} calculateHash={1}", File.GetLastWriteTime(_configurationFilename).ToString(), ByteArrayToString(calculateHash(_configurationFilename)), _configurationFilename));
+                _log.Trace("\nThe configuration file {2} was NOT modified. GetLastWriteTime={0} calculateHash={1}", File.GetLastWriteTime(_configurationFilename).ToString(), ByteArrayToString(calculateHash(_configurationFilename)), _configurationFilename);
                 //Console.WriteLine("\n\nThe configuration file {2} was NOT modified. GetLastWriteTime={0} calculateHash={1}", File.GetLastWriteTime(_configurationFilename).ToString(), ByteArrayToString(calculateHash(_configurationFilename)), _configurationFilename);
             }
             return fileChanged;
@@ -293,7 +292,7 @@ namespace NuvoControl.Server.Dal
             HttpWebResponse myHttpWebResponse = (HttpWebResponse)myHttpWebRequest.GetResponse();
             if (myHttpWebResponse.StatusCode == HttpStatusCode.OK)
             {
-                _log.Trace(m => m("Request succeeded and the requested information is in the response , Description : {0}", myHttpWebResponse.StatusDescription));
+                _log.Trace("Request succeeded and the requested information is in the response , Description : {0}", myHttpWebResponse.StatusDescription);
                 //Console.WriteLine("\r\nRequest succeeded and the requested information is in the response , Description : {0}", myHttpWebResponse.StatusDescription);
             }
             // Uses the LastModified property to compare with stored date/time 

@@ -91,12 +91,12 @@ namespace NuvoControl.Common
                 mm.Body = body;
                 client.Send(mm);
 
-                //LogHelper.Log(LogLevel.Info, String.Format("Email Sent"));
+                //LogHelper.Log(LogLevel.Info, "Email Sent");
                 return true;
             }
             catch (Exception e)
             {
-                //LogHelper.Log(LogLevel.Fatal, String.Format("Could not send email\n\n" + e.ToString()));
+                //LogHelper.Log(LogLevel.Fatal, "Could not send email\n\n {0}", e.ToString());
                 return false;
             }
         }

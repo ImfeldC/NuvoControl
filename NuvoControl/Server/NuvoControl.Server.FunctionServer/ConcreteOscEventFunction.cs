@@ -14,12 +14,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using Common.Logging;
-
 using NuvoControl.Common;
 using NuvoControl.Common.Configuration;
 using NuvoControl.Server.ZoneServer;
 using NuvoControl.Server.ProtocolDriver.Interface;
+using static NuvoControl.Common.LogHelper;
 
 
 
@@ -102,7 +101,7 @@ namespace NuvoControl.Server.FunctionServer
             {
                 if ((_function.OscValue == -1) || (_function.OscValue == e.OscEvent.getOscData))
                 {
-                    LogHelper.Log(LogLevel.Info, String.Format("---   [{0}]  Device={1} OscEvent:{2}", DateTime.Now.ToShortTimeString(), e.OscDevice, (e.OscEvent == null ? "<null>" : e.OscEvent.ToString())));
+                    LogHelper.Log(LogLevel.Info, "---   [{0}]  Device={1} OscEvent:{2}", DateTime.Now.ToShortTimeString(), e.OscDevice, (e.OscEvent == null ? "<null>" : e.OscEvent.ToString()));
                     onFunctionStart();
                 }
             }
