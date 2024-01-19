@@ -263,18 +263,18 @@ namespace NuvoControl.Server.Dal
 
             if (DateTime.Compare(_configurationFileWriteDateTime, File.GetLastWriteTime(_configurationFilename)) != 0)
             {
-                LogHelper.Log(LogLevel.Info, "\n\nThe configuration file was modified (GetLastWriteTime). {0} vs. {1}", _configurationFileWriteDateTime.ToString(), File.GetLastWriteTime(_configurationFilename).ToString());
+                LogHelper.Log(LogLevel.Info, "The configuration file was modified (GetLastWriteTime). {0} vs. {1}", _configurationFileWriteDateTime.ToString(), File.GetLastWriteTime(_configurationFilename).ToString());
                 fileChanged = true;
             }
             else if (!compareHash(_configurationFileHash, calculateHash(_configurationFilename)))
             {
-                LogHelper.Log(LogLevel.Info, "\n\nThe configuration file was modified (calculateHash). {0} vs. {1}", _configurationFileHash.ToString(), ByteArrayToString(calculateHash(_configurationFilename)));
+                LogHelper.Log(LogLevel.Info, "The configuration file was modified (calculateHash). {0} vs. {1}", _configurationFileHash.ToString(), ByteArrayToString(calculateHash(_configurationFilename)));
                 fileChanged = true;
             }
             else
             {
-                _log.Trace("\nThe configuration file {2} was NOT modified. GetLastWriteTime={0} calculateHash={1}", File.GetLastWriteTime(_configurationFilename).ToString(), ByteArrayToString(calculateHash(_configurationFilename)), _configurationFilename);
-                //Console.WriteLine("\n\nThe configuration file {2} was NOT modified. GetLastWriteTime={0} calculateHash={1}", File.GetLastWriteTime(_configurationFilename).ToString(), ByteArrayToString(calculateHash(_configurationFilename)), _configurationFilename);
+                _log.Trace("The configuration file {2} was NOT modified. GetLastWriteTime={0} calculateHash={1}", File.GetLastWriteTime(_configurationFilename).ToString(), ByteArrayToString(calculateHash(_configurationFilename)), _configurationFilename);
+                //Console.WriteLine("The configuration file {2} was NOT modified. GetLastWriteTime={0} calculateHash={1}", File.GetLastWriteTime(_configurationFilename).ToString(), ByteArrayToString(calculateHash(_configurationFilename)), _configurationFilename);
             }
             return fileChanged;
         }
@@ -298,7 +298,7 @@ namespace NuvoControl.Server.Dal
             // Uses the LastModified property to compare with stored date/time 
             if (DateTime.Compare(_appendConfigurationFileWriteDateTime, myHttpWebResponse.LastModified) != 0)
             {
-                Console.WriteLine("\n\nThe configuration file to append was modified. {0} vs. {1}", _appendConfigurationFileWriteDateTime.ToString(), myHttpWebResponse.LastModified.ToString());
+                _log.Trace("The configuration file to append was modified. {0} vs. {1}", _appendConfigurationFileWriteDateTime.ToString(), myHttpWebResponse.LastModified.ToString());
                 fileChanged = true;
             }
             // Releases the resources of the response.

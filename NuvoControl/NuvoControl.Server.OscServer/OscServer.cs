@@ -115,7 +115,7 @@ namespace NuvoControl.Server.OscServer
         /// <param name="e"></param>
         void _timerUpdateServerStatus_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            _log.Trace("OscServer: Server Status ... ");
+            _log.Trace("OscServer: Server Status ... OSC Msg Received={0}, Nuvo Msg Received={1}", sOscMessagesReceivedCount, sNuvoMessagesReceivedCount);
             lock (_oscDeviceControllers)
             {
                 foreach (OscDeviceController oscDeviceController in _oscDeviceControllers.Values)
