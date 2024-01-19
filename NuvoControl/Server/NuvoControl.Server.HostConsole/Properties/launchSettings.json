@@ -2,7 +2,7 @@
   "profiles": {
     "NuvoControl.Server.HostConsole": {
       "commandName": "Project",
-      "commandLineArgs": " -p COM1 -r 700 -v -l 1 -p COM1 -r 700 -v -l 1"
+      "commandLineArgs": " -p COM1 -r 700 -l 1"
     }
   }
 }

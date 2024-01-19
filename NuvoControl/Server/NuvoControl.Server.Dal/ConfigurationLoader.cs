@@ -195,7 +195,7 @@ namespace NuvoControl.Server.Dal
             _configurationFileWriteDateTime = File.GetLastWriteTime(_configurationFilename);
             _configurationFileHash = calculateHash(_configurationFilename);
             _configurationVersion = (string)_configuration.Root.Element("Configuration").Attribute("Version");
-            LogHelper.Log(LogLevel.Trace, "\nXML Configuration {0} loaded. Version={3}, GetLastWriteTime={1} calculateHash={2}", _configurationFilename, _configurationFileWriteDateTime.ToString(), ByteArrayToString(_configurationFileHash), _configurationVersion);
+            LogHelper.Log(LogLevel.Trace, "XML Configuration {0} loaded. Version={3}, GetLastWriteTime={1} calculateHash={2}", _configurationFilename, _configurationFileWriteDateTime.ToString(), ByteArrayToString(_configurationFileHash), _configurationVersion);
 
             if ((_appendConfigurationFilename != null) && (_appendConfigurationFilename != ""))
             {
@@ -212,14 +212,14 @@ namespace NuvoControl.Server.Dal
                     _appendConfigurationFileWriteDateTime = myHttpWebResponse.LastModified;
                     _appendConfigurationFileHash = null;
                     myHttpWebResponse.Close();
-                    LogHelper.Log(LogLevel.Trace, "\nXML Configuration {0} from remote added. Version={3}, GetLastWriteTime={1} calculateHash={2}", _appendConfigurationFilename, _appendConfigurationFileWriteDateTime.ToString(), ByteArrayToString(_appendConfigurationFileHash), _appendConfigurationVersion);
+                    LogHelper.Log(LogLevel.Trace, "XML Configuration {0} from remote added. Version={3}, GetLastWriteTime={1} calculateHash={2}", _appendConfigurationFilename, _appendConfigurationFileWriteDateTime.ToString(), ByteArrayToString(_appendConfigurationFileHash), _appendConfigurationVersion);
                 }
                 catch (UriFormatException ex)
                 {
                     // Load configuration from local server
                     _appendConfigurationFileWriteDateTime = File.GetLastWriteTime(_appendConfigurationFilename);
                     _appendConfigurationFileHash = calculateHash(_appendConfigurationFilename);
-                    LogHelper.Log(LogLevel.Trace, "\nXML Configuration {0} added. Version={3}, GetLastWriteTime={1} calculateHash={2}", _appendConfigurationFilename, _appendConfigurationFileWriteDateTime.ToString(), ByteArrayToString(_appendConfigurationFileHash), _appendConfigurationVersion);
+                    LogHelper.Log(LogLevel.Trace, "XML Configuration {0} added. Version={3}, GetLastWriteTime={1} calculateHash={2}", _appendConfigurationFilename, _appendConfigurationFileWriteDateTime.ToString(), ByteArrayToString(_appendConfigurationFileHash), _appendConfigurationVersion);
                 }
 
                 // Add Functions and Devices

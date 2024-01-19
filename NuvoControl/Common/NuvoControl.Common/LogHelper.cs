@@ -73,13 +73,18 @@ namespace NuvoControl.Common
         {
             public NuvoControlLogger()
             {
-                var configuration = new ConfigurationBuilder()
-                    .AddJsonFile("appsettings.json")
-                    .Build();
+                //TODO: Implement to read-out Serilog configuration from config file
+
+                //var configuration = new ConfigurationBuilder()
+                //    .AddJsonFile("appsettings.json")
+                //    .Build();
 
                 //Serilog.Log.Logger = new LoggerConfiguration()
                 //    .ReadFrom.Configuration(configuration)
                 //    .CreateLogger();
+
+                var configuration = new ConfigurationBuilder()
+                    .Build();
 
                 Serilog.Log.Logger = new LoggerConfiguration()
                     .MinimumLevel.Verbose()
