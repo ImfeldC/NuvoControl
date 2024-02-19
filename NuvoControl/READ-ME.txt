@@ -21,6 +21,8 @@ Trotz dem solzen Alter von beinahe 25 Jahren konnte ich noch einen Firmware Upda
 Mittels 'Virtuelle COM-Ports für Windows' (https://www.wut.de/e-00102-ww-dade-000.php#Revisionlist) kann der Comm-Server via COM1 an den PC angeschlossen werden. Für die Applikation sieht die serielle Schnittstelle wir eine lokale Schnittstelle aus.
 Einmal aufgesetzt kann der NuVoControl Server via COM1 auf die NuVo Box zugrefifen.
 
+Wenn der Comm-Server 58211 mall nicht erreicht werden kann (ev. weil eine aktive Verbindung nicht sauber geschlossen wurde), kann er mittels telnet zurückgesetzt werden.
+Starte telnet (telnet 192.168.1.119 1111), wähle 2 (SETUP System) und dann 5 (Reset). Dies setzt den Comm-Server zurück.
 
 3) NuVo Products - End of Life Announcement
 -------------------------------------------

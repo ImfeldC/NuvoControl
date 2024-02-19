@@ -34,6 +34,8 @@ namespace NuvoControl.Server.OscServer
 
         private static ILog _log = LogManager.GetCurrentClassLogger();
 
+        private static DateTime _start = DateTime.Now;
+
         /// <summary>
         /// Holds the osc device controller per Id
         /// </summary>
@@ -115,7 +117,8 @@ namespace NuvoControl.Server.OscServer
         /// <param name="e"></param>
         void _timerUpdateServerStatus_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            _log.Trace("OscServer: Server Status ... OSC Msg Received={0}, Nuvo Msg Received={1}", sOscMessagesReceivedCount, sNuvoMessagesReceivedCount);
+            TimeSpan runningSince = DateTime.Now - _start;
+            _log.Trace("OscServer: Server Status ... OSC Msg={0}, Nuvo Msg={1}, Running since {2} Days {3} Hours {4} Minutes ({5})", sOscMessagesReceivedCount, sNuvoMessagesReceivedCount, runningSince.Days, runningSince.Hours, runningSince.Minutes, _start);
             lock (_oscDeviceControllers)
             {
                 foreach (OscDeviceController oscDeviceController in _oscDeviceControllers.Values)

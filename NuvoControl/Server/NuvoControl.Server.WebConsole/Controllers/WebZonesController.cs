@@ -93,6 +93,40 @@ namespace NuvoControl.Server.WebConsole.Controllers
             return new ZoneState();
         }
 
+        // PUT api/Zones/{zoneId}/VolmueDown/{volume}
+        [HttpPut]
+        [Route("api/Zones/{zoneId}/VolmueDown/{volume}")]
+        public ZoneState PutZoneVolumeDown(string zoneId, int volume)
+        {
+            LogZoneState(zoneId, "PUT api/Zones/{0}/VolmueDown/{1}", zoneId, volume);
+
+            if (NuvoControlController.ZoneServer != null)
+            {
+                ZoneState zonestate = NuvoControlController.ZoneServer.GetZoneState(new Address(zoneId));
+                zonestate.Volume = zonestate.Volume - volume;
+                NuvoControlController.ZoneServer.SetZoneState(new Address(zoneId), zonestate);
+                return NuvoControlController.ZoneServer.GetZoneState(new Address(zoneId));
+            }
+            return new ZoneState();
+        }
+
+        // PUT api/Zones/{zoneId}/VolmueUp/{volume}
+        [HttpPut]
+        [Route("api/Zones/{zoneId}/VolmueUp/{volume}")]
+        public ZoneState PutZoneVolumeUp(string zoneId, int volume)
+        {
+            LogZoneState(zoneId, "PUT api/Zones/{0}/VolmueUp/{1}", zoneId, volume);
+
+            if (NuvoControlController.ZoneServer != null)
+            {
+                ZoneState zonestate = NuvoControlController.ZoneServer.GetZoneState(new Address(zoneId));
+                zonestate.Volume = zonestate.Volume + volume;
+                NuvoControlController.ZoneServer.SetZoneState(new Address(zoneId), zonestate);
+                return NuvoControlController.ZoneServer.GetZoneState(new Address(zoneId));
+            }
+            return new ZoneState();
+        }
+
         // PUT api/Zones/{zoneId}/SetSource/{sourceId}
         [HttpPut]
         [Route("api/Zones/{zoneId}/SetSource/{sourceId}")]
