@@ -60,6 +60,9 @@ After that you can find the image 'nuvo-control' with docker images.
 
 A list of .NET SDK docker images can be found here: https://hub.docker.com/_/microsoft-dotnet-sdk/
 
+With 'docker run -it --rm nuvo-control-win powershell' you can start the docker image to openm a powershell prompt.
+Once the prompt is opened, you can start with '.\App\NuvoControl.Server.WebConsole.exe -p COM1 -r 700 -l 1' the NuvoControl web console.
+
 To build NuvControl use: dotnet publish -c Release -o Docker\out
 This creates in sub-folder Docker\out the whole NuvoControl, that it can be uploaded to the docker image.
 
