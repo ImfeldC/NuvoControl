@@ -1,11 +1,13 @@
-FROM mcr.microsoft.com/dotnet/sdk:8.0
+#FROM mcr.microsoft.com/dotnet/sdk:8.0
+FROM mcr.microsoft.com/windowsservercore:latest
 
-COPY . /home/src
-WORKDIR /home/src
-RUN dotnet build -c Release
-RUN dotnet publish -c Release -o out
+#COPY . /home/src
+#WORKDIR /home/src
+# RUN dotnet build -c Release
+#RUN dotnet publish -c Release -o out
 
-COPY /Server/NuvoControl.Server.WebConsole/bin/Release/net8.0-windows /home/app/WebConsole
-WORKDIR /home/app/WebConsole
+#COPY READ-ME.txt /home/app
+#COPY ./out /home/app
+#WORKDIR /home/app
 
-ENTRYPOINT ["dotnet", "/home/app/WebConsole/NuvoControl.Server.WebConsole.exe"]
+ENTRYPOINT ["powershell", ""]
