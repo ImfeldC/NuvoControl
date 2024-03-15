@@ -53,4 +53,8 @@ Pass-in instead the parametrs, this ensures that Serilog can properly store them
 Theres is a "in-build" console logger, which is switched-off per default. It can be enabled by set command line option "-v" (for verbose).
 
 
-CI / 18-Jan-2024
+6) Docker Support
+-----------------
+To create a docker image, use: docker build -t nuvo-control .
+
+CI / 15-Mar-2024

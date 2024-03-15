@@ -1,23 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;     // needed for Application
+//using System.Windows.Forms;     // needed for Application
 //using System.Windows.Controls;  // needed for MediaElement (not supported on Raspberry Pi!)
-using System.Text;
-using System.IO;                // FileStream
-using System.IO.Ports;
 using System.Media;             // SoundPlayer
-using System.Net;
 using System.Diagnostics;       // ProcessStartInfo
-using System.Threading;         // Sleep
 
 using NuvoControl.Common;
 using NuvoControl.Common.Configuration;
-
 using NuvoControl.Server.ProtocolDriver;
 using NuvoControl.Server.ProtocolDriver.Interface;
 
-using NuvoControl.ThingSpeak;
 using static NuvoControl.Common.LogHelper;
 
 

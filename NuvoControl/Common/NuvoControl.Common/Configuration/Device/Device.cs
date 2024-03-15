@@ -20,223 +20,221 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Runtime.Serialization;
 
-namespace NuvoControl.Common.Configuration
+namespace NuvoControl.Common.Configuration;
+
+
+/// <summary>
+/// This is a system configuration class. 
+/// 
+/// It is a data structurer.
+/// It defines attributes of a device. E.g. the NuvoEssentia.
+/// </summary>
+public class Device
 {
+    #region Private Members
+
     /// <summary>
-    /// This is a system configuration class. 
-    /// 
-    /// It is a data structurer.
-    /// It defines attributes of a device. E.g. the NuvoEssentia.
+    /// The id of the device.
     /// </summary>
-    public class Device
+    private int _id = SystemConfiguration.ID_UNDEFINED;
+
+    /// <summary>
+    /// The name of the device.
+    /// </summary>
+    private string _name = "";
+
+    /// <summary>
+    /// The communication parameters of the link to the device.
+    /// </summary>
+    Communication _communication = null;
+
+    /// <summary>
+    /// The protocol driver to be used to communicate with the device.
+    /// </summary>
+    private Protocol _protocolDriver = null;
+
+    /// <summary>
+    /// All zones of the device.
+    /// </summary>
+    private Dictionary<Address, Zone> _zones = new Dictionary<Address, Zone>();
+
+    /// <summary>
+    /// All sources of the device.
+    /// </summary>
+    private List<Source> _sources = new List<Source>();
+
+    /// <summary>
+    /// All audio devices of the device.
+    /// </summary>
+    private List<AudioDevice> _audioDevices = new List<AudioDevice>();
+
+    /// <summary>
+    /// All OSC devices of the device
+    /// </summary>
+    private List<OSCDevice> _oscDevices = new List<OSCDevice>();
+
+    #endregion
+
+    #region Constructors
+
+    /// <summary>
+    /// Constructor
+    /// </summary>
+    /// <param name="id">The id of the device.</param>
+    /// <param name="name">Name of the device.</param>
+    /// <param name="communication">The communication parameters of the link to the device.</param>
+    /// <param name="protocolDriver">The protocol driver to be used to communicate with the device.</param>
+    /// <param name="zones">All zones of the device.</param>
+    /// <param name="sources">All sources of the device.</param>
+    /// <param name="audioDevices">All audio devices of the device.</param>
+    public Device(int id, string name, Communication communication, Protocol protocolDriver, List<Zone> zones, List<Source> sources, List<AudioDevice> audioDevices, List<OSCDevice> oscDevices)
     {
-        #region Private Members
-
-        /// <summary>
-        /// The id of the device.
-        /// </summary>
-        private int _id = SystemConfiguration.ID_UNDEFINED;
-
-        /// <summary>
-        /// The name of the device.
-        /// </summary>
-        private string _name = "";
-
-        /// <summary>
-        /// The communication parameters of the link to the device.
-        /// </summary>
-        Communication _communication = null;
-
-        /// <summary>
-        /// The protocol driver to be used to communicate with the device.
-        /// </summary>
-        private Protocol _protocolDriver = null;
-
-        /// <summary>
-        /// All zones of the device.
-        /// </summary>
-        private Dictionary<Address, Zone> _zones = new Dictionary<Address, Zone>();
-
-        /// <summary>
-        /// All sources of the device.
-        /// </summary>
-        private List<Source> _sources = new List<Source>();
-
-        /// <summary>
-        /// All audio devices of the device.
-        /// </summary>
-        private List<AudioDevice> _audioDevices = new List<AudioDevice>();
-
-        /// <summary>
-        /// All OSC devices of the device
-        /// </summary>
-        private List<OSCDevice> _oscDevices = new List<OSCDevice>();
-
-        #endregion
-
-        #region Constructors
-
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="id">The id of the device.</param>
-        /// <param name="name">Name of the device.</param>
-        /// <param name="communication">The communication parameters of the link to the device.</param>
-        /// <param name="protocolDriver">The protocol driver to be used to communicate with the device.</param>
-        /// <param name="zones">All zones of the device.</param>
-        /// <param name="sources">All sources of the device.</param>
-        /// <param name="audioDevices">All audio devices of the device.</param>
-        public Device(int id, string name, Communication communication, Protocol protocolDriver, List<Zone> zones, List<Source> sources, List<AudioDevice> audioDevices, List<OSCDevice> oscDevices)
+        _id = id;
+        _name = name;
+        _communication = communication;
+        _protocolDriver = protocolDriver;
+        foreach( Zone zone in zones)
         {
-            _id = id;
-            _name = name;
-            _communication = communication;
-            _protocolDriver = protocolDriver;
-            foreach( Zone zone in zones)
-            {
-                _zones[zone.Id] = zone;
-            }
-            _sources = sources;
-            _audioDevices = audioDevices;
-            _oscDevices = oscDevices;
+            _zones[zone.Id] = zone;
         }
-
-        #endregion
-
-        #region Public Interface
-
-        /// <summary>
-        /// The id of the device.
-        /// </summary>
-        public int Id
-        {
-            get { return _id; }
-        }
-
-        /// <summary>
-        /// The name of the device.
-        /// </summary>
-        public string Name
-        {
-            get { return _name; }
-        }
-
-        /// <summary>
-        /// The communication parameters of the link to the device.
-        /// </summary>
-        public Communication Communication
-        {
-            get { return _communication; }
-        }
-
-        /// <summary>
-        /// The protocol driver to be used to communicate with the device.
-        /// </summary>
-        public Protocol ProtocolDriver
-        {
-            get { return _protocolDriver; }
-        }
-
-        /// <summary>
-        /// All zones of the device.
-        /// </summary>
-        public Dictionary<Address,Zone> ZoneDict
-        {
-            get { return _zones; }
-        }
-
-        /// <summary>
-        /// All zones of the device.
-        /// </summary>
-        public List<Zone> ZoneList
-        {
-            get { return _zones.Values.ToList<Zone>(); }
-        }
-
-        /// <summary>
-        /// All sources of the device.
-        /// </summary>
-        public List<Source> Sources
-        {
-            get { return _sources; }
-        }
-
-        /// <summary>
-        /// All audio devices of the device.
-        /// </summary>
-        public List<AudioDevice> AudioDevices
-        {
-            get { return _audioDevices; }
-        }
-
-        public List<OSCDevice> OscDevices
-        {
-            get { return _oscDevices; }
-        }
-
-        #endregion
-
-        /// <summary>
-        /// Returns string representative of this class.
-        /// </summary>
-        /// <returns>String representative of this class.</returns>
-        public override string ToString()
-        {
-            string strDevice = "";
-
-            strDevice += String.Format("{0} [Id={1}] /", _name, _id);
-            strDevice += String.Format("Communication=[{0}] /", _communication.ToString());
-            strDevice += String.Format("Protocol Driver=[{0}] /", _protocolDriver.ToString());
-
-            // all Zones ...
-            strDevice += String.Format("Zones=[");
-            foreach (Zone zone in _zones.Values)
-            {
-                strDevice += String.Format("Zone={0}, ", zone.ToString());
-            }
-            strDevice += String.Format("]");
-
-            // all Sources ...
-            strDevice += String.Format("Sources=[");
-            foreach (Source source in _sources)
-            {
-                strDevice += String.Format("Source={0}, ", source.ToString());
-            }
-            strDevice += String.Format("]");
-
-            // all Audio Devices ...
-            if (_audioDevices != null)
-            {
-                strDevice += String.Format("AudioDevices=[");
-                foreach (AudioDevice device in _audioDevices)
-                {
-                    strDevice += String.Format("Audio={0}, ", device.ToString());
-                }
-                strDevice += String.Format("]");
-            }
-
-            // all OSC Devices ...
-            if (_oscDevices != null)
-            { 
-                strDevice += String.Format("OSCDevices=[");
-                foreach (OSCDevice device in _oscDevices)
-                {
-                    strDevice += String.Format("OSC={0}, ", device.ToString());
-                }
-                strDevice += String.Format("]");
-            }
-
-            return strDevice;
-        }
-
+        _sources = sources;
+        _audioDevices = audioDevices;
+        _oscDevices = oscDevices;
     }
+
+    #endregion
+
+    #region Public Interface
+
+    /// <summary>
+    /// The id of the device.
+    /// </summary>
+    public int Id
+    {
+        get { return _id; }
+    }
+
+    /// <summary>
+    /// The name of the device.
+    /// </summary>
+    public string Name
+    {
+        get { return _name; }
+    }
+
+    /// <summary>
+    /// The communication parameters of the link to the device.
+    /// </summary>
+    public Communication Communication
+    {
+        get { return _communication; }
+    }
+
+    /// <summary>
+    /// The protocol driver to be used to communicate with the device.
+    /// </summary>
+    public Protocol ProtocolDriver
+    {
+        get { return _protocolDriver; }
+    }
+
+    /// <summary>
+    /// All zones of the device.
+    /// </summary>
+    public Dictionary<Address,Zone> ZoneDict
+    {
+        get { return _zones; }
+    }
+
+    /// <summary>
+    /// All zones of the device.
+    /// </summary>
+    public List<Zone> ZoneList
+    {
+        get { return _zones.Values.ToList<Zone>(); }
+    }
+
+    /// <summary>
+    /// All sources of the device.
+    /// </summary>
+    public List<Source> Sources
+    {
+        get { return _sources; }
+    }
+
+    /// <summary>
+    /// All audio devices of the device.
+    /// </summary>
+    public List<AudioDevice> AudioDevices
+    {
+        get { return _audioDevices; }
+    }
+
+    public List<OSCDevice> OscDevices
+    {
+        get { return _oscDevices; }
+    }
+
+    #endregion
+
+    /// <summary>
+    /// Returns string representative of this class.
+    /// </summary>
+    /// <returns>String representative of this class.</returns>
+    public override string ToString()
+    {
+        string strDevice = "";
+
+        strDevice += String.Format("{0} [Id={1}] /", _name, _id);
+        strDevice += String.Format("Communication=[{0}] /", _communication.ToString());
+        strDevice += String.Format("Protocol Driver=[{0}] /", _protocolDriver.ToString());
+
+        // all Zones ...
+        strDevice += String.Format("Zones=[");
+        foreach (Zone zone in _zones.Values)
+        {
+            strDevice += String.Format("Zone={0}, ", zone.ToString());
+        }
+        strDevice += String.Format("]");
+
+        // all Sources ...
+        strDevice += String.Format("Sources=[");
+        foreach (Source source in _sources)
+        {
+            strDevice += String.Format("Source={0}, ", source.ToString());
+        }
+        strDevice += String.Format("]");
+
+        // all Audio Devices ...
+        if (_audioDevices != null)
+        {
+            strDevice += String.Format("AudioDevices=[");
+            foreach (AudioDevice device in _audioDevices)
+            {
+                strDevice += String.Format("Audio={0}, ", device.ToString());
+            }
+            strDevice += String.Format("]");
+        }
+
+        // all OSC Devices ...
+        if (_oscDevices != null)
+        { 
+            strDevice += String.Format("OSCDevices=[");
+            foreach (OSCDevice device in _oscDevices)
+            {
+                strDevice += String.Format("OSC={0}, ", device.ToString());
+            }
+            strDevice += String.Format("]");
+        }
+
+        return strDevice;
+    }
+
 }
 
 /**************************************************************************************************
- * 
- *   Copyright (C) 2009 by B. Limacher, Ch. Imfeld. All Rights Reserved.
- * 
+* 
+*   Copyright (C) 2009 by B. Limacher, Ch. Imfeld. All Rights Reserved.
+* 
 **************************************************************************************************/
