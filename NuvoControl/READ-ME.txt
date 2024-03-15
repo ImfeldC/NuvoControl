@@ -58,5 +58,10 @@ Theres is a "in-build" console logger, which is switched-off per default. It can
 To create a docker image, use: docker build -t nuvo-control .
 After that you can find the image 'nuvo-control' with docker images.
 
+A list of .NET SDK docker images can be found here: https://hub.docker.com/_/microsoft-dotnet-sdk/
+
+To build NuvControl use: dotnet publish -c Release -o Docker\out
+This creates in sub-folder Docker\out the whole NuvoControl, that it can be uploaded to the docker image.
+
 
 CI / 15-Mar-2024

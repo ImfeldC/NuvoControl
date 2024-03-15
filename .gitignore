@@ -42,6 +42,7 @@ Thumbs.db
 **/obj/*
 **/build/VS*
 
+**/Docker/out/*
 **/bin/x86/*
 **/obj/x86/*
 **/bin/Debug/*
