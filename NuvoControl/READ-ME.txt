@@ -56,5 +56,7 @@ Theres is a "in-build" console logger, which is switched-off per default. It can
 6) Docker Support
 -----------------
 To create a docker image, use: docker build -t nuvo-control .
+After that you can find the image 'nuvo-control' with docker images.
+
 
 CI / 15-Mar-2024

@@ -4,8 +4,6 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4D3BB3D4-A8C6-4145-88F3-355FF74233CA}"
 	ProjectSection(SolutionItems) = preProject
-		Dockerfile = Dockerfile
-		Dokerfile = Dokerfile
 		READ-ME.txt = READ-ME.txt
 		SharedAssemblyInfo.cs = SharedAssemblyInfo.cs
 	EndProjectSection
@@ -69,6 +67,11 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NuvoControl.Common", "Common\NuvoControl.Common\NuvoControl.Common.csproj", "{14CF5049-BD29-4FD5-B134-74A5D52A2C42}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{4ED1C40D-2C34-4724-8EC1-435CAD1E8E5B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{7A89B7AB-AD68-4D88-8852-4AC685460445}"
+	ProjectSection(SolutionItems) = preProject
+		Docker\Dockerfile = Docker\Dockerfile
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -171,6 +174,7 @@ Global
 		{25450D86-B93F-4DFC-A315-E53CA6206BEF} = {692AB041-90FC-458E-823D-7259896462C1}
 		{692AB041-90FC-458E-823D-7259896462C1} = {9D46B0CC-8007-469D-BE8A-7C14EE109FA6}
 		{14CF5049-BD29-4FD5-B134-74A5D52A2C42} = {4ED1C40D-2C34-4724-8EC1-435CAD1E8E5B}
+		{7A89B7AB-AD68-4D88-8852-4AC685460445} = {4D3BB3D4-A8C6-4145-88F3-355FF74233CA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6653D42A-2A96-4898-B57F-81A52ECFEFC8}
