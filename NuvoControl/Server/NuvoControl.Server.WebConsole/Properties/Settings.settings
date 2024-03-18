@@ -11,5 +11,8 @@
     <Setting Name="NuvoControlKonfigurationFile" Type="System.String" Scope="Application">
       <Value Profile="(Default)">C:/NuvoControl 2024/NuvoControl/NuvoControl/Config/NuvoControlKonfiguration.xml</Value>
     </Setting>
+    <Setting Name="NuvoControlDockerKonfigurationFile" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:/App/Config/NuvoControlKonfiguration.docker.xml</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

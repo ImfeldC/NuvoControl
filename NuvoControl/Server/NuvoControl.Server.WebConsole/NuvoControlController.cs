@@ -95,7 +95,18 @@ namespace NuvoControl.Server.WebConsole
             {
                 //LoadConfigurationService(Properties.Settings.Default.NuvoControlKonfigurationFile);
                 // Remote File: http://www.imfeld.net/publish/configuration/NuvoControlKonfigurationRemote.xml
-                LoadConfigurationService(NuvoControl.Server.WebConsole.Properties.Settings.Default.NuvoControlKonfigurationFile, NuvoControl.Server.WebConsole.Properties.Settings.Default.NuvoControlRemoteKonfigurationFile);
+
+                string strConfigFile = "";
+                if ( EnvironmentHelper.isRunningInDocker() )
+                {
+                    strConfigFile = Properties.Settings.Default.NuvoControlDockerKonfigurationFile;
+                }
+                else
+                {
+                    strConfigFile = Properties.Settings.Default.NuvoControlKonfigurationFile;
+                }
+
+                LoadConfigurationService(strConfigFile, NuvoControl.Server.WebConsole.Properties.Settings.Default.NuvoControlRemoteKonfigurationFile);
             }
             catch (Exception exc)
             {

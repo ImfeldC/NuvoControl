@@ -8,6 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="..\..\Config\NuvoControlKonfiguration.docker.xml" Link="Config\NuvoControlKonfiguration.docker.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\..\Config\NuvoControlKonfiguration.xml" Link="Config\NuvoControlKonfiguration.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -48,10 +51,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Config\" />
   </ItemGroup>
 
 </Project>

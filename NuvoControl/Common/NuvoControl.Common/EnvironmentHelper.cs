@@ -70,6 +70,24 @@ public class EnvironmentHelper
         }
     }
 
+    /// <summary>
+    /// Check value of 'DOTNET_RUNNING_IN_CONTAINER'; if it is true, the application is running in Docker.
+    /// See https://www.hanselman.com/blog/detecting-that-a-net-core-app-is-running-in-a-docker-container-and-skippablefacts-in-xunit
+    /// </summary>
+    /// <returns></returns>
+    public static bool isRunningInDocker()
+    {
+        string isRunningInDocker = Environment.GetEnvironmentVariable("DOTNET_RUNNING_IN_CONTAINER");
+        if((isRunningInDocker != null) && isRunningInDocker.Equals("true"))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     // See http://stackoverflow.com/questions/11779143/run-a-python-script-from-c-sharp
     public static Process run_cmd(string cmd, string args)
     {

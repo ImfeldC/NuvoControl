@@ -49,5 +49,14 @@ namespace NuvoControl.Server.WebConsole.Properties {
                 return ((string)(this["NuvoControlKonfigurationFile"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:/App/Config/NuvoControlKonfiguration.docker.xml")]
+        public string NuvoControlDockerKonfigurationFile {
+            get {
+                return ((string)(this["NuvoControlDockerKonfigurationFile"]));
+            }
+        }
     }
 }

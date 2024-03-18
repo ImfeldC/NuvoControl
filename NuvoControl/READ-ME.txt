@@ -55,16 +55,31 @@ Theres is a "in-build" console logger, which is switched-off per default. It can
 
 6) Docker Support
 -----------------
+To build NuvControl use: dotnet publish -c Release -o Docker\out
+This creates in sub-folder Docker\out the whole NuvoControl, that it can be uploaded to the docker image.
+
+One Dockerfile was based on a prepared build on host machine. Create this build with the following command:
+ C:\NuvoControl 2024\NuvoControl\NuvoControl> dotnet publish -c Release -o Docker\out
+Once the build is available in the 'out' folder continue, with the steps below.
+
 To create a docker image, use: docker build -t nuvo-control .
 After that you can find the image 'nuvo-control' with docker images.
 
 A list of .NET SDK docker images can be found here: https://hub.docker.com/_/microsoft-dotnet-sdk/
 
-With 'docker run -it --rm nuvo-control-win powershell' you can start the docker image to openm a powershell prompt.
+With 'docker run -it --rm nuvo-control-win powershell' you can start the docker image to open a powershell prompt.
 Once the prompt is opened, you can start with '.\App\NuvoControl.Server.WebConsole.exe -p COM1 -r 700 -l 1' the NuvoControl web console.
 
-To build NuvControl use: dotnet publish -c Release -o Docker\out
-This creates in sub-folder Docker\out the whole NuvoControl, that it can be uploaded to the docker image.
+If the application is running on docker is shown on startup; check for 'Docker=True'
+See also EnvironmentHelper.isRunningInDocker() for more details.
+
+Problem sharing COM1!
+---------------------
+Trying to share teh COM1 port, was not working:
+docker run --isolation=process --device="class/86E0D1E0-8089-11D0-9CE4-08003E301F73" --rm nuvo-control-win powershell
+-> docker: Error response from daemon: hcs::CreateComputeSystem a4d516b556d2af0778a20468975c2d33e45eb0be4d203d53fdc8bcc64ac72691: The container operating system does not match the host operating system.
+(see also https://learn.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/hardware-devices-in-containers)
+I was not able to fix this!
 
 
-CI / 15-Mar-2024
+CI / 18-Mar-2024

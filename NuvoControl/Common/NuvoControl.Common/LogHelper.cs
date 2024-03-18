@@ -351,7 +351,7 @@ public class LogHelper
         Log(LogLevel.Info, ">>> Starting {0}  --- Assembly Version={1} / Deployment Version={2} / Product Version={3} ... ", strStartMessage, "n/a", "n/a", "(tbf)" /*Application.ProductVersion*/);
         //Console.WriteLine(">>> Starting Server Console  --- Assembly Version={0} / Deployment Version={1} / Product Version={2} (using .NET 4.0) ... ",
         //    AppInfoHelper.getAssemblyVersion(), AppInfoHelper.getDeploymentVersion(), Application.ProductVersion);
-        Log(LogLevel.Info, "    Linux={0} / Detected environment: {1}", EnvironmentHelper.isRunningOnLinux(), EnvironmentHelper.getOperatingSystem());
+        Log(LogLevel.Info, "    Linux={0} / Docker={1} / Detected environment: {2}", EnvironmentHelper.isRunningOnLinux(), EnvironmentHelper.isRunningInDocker(), EnvironmentHelper.getOperatingSystem());
     }
 
     /// <summary>
