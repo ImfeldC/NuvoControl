@@ -2,10 +2,6 @@
   <PropertyGroup>
     <TargetFramework>net8.0-windows</TargetFramework>
     <OutputType>Library</OutputType>
-    <SccProjectName>Rational ClearCase</SccProjectName>
-    <SccLocalPath>Rational ClearCase</SccLocalPath>
-    <SccAuxPath>Rational ClearCase</SccAuxPath>
-    <SccProvider>Rational ClearCase</SccProvider>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWindowsForms>true</UseWindowsForms>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>

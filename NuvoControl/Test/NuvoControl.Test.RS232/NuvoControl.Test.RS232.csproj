@@ -3,10 +3,6 @@
     <TargetFramework>net8.0-windows</TargetFramework>
     <OutputType>WinExe</OutputType>
     <AssemblyName>RS232</AssemblyName>
-    <SccProjectName>Rational ClearCase</SccProjectName>
-    <SccLocalPath>Rational ClearCase</SccLocalPath>
-    <SccAuxPath>Rational ClearCase</SccAuxPath>
-    <SccProvider>Rational ClearCase</SccProvider>
     <ApplicationIcon>NuvoControl.ico</ApplicationIcon>
     <IsWebBootstrapper>true</IsWebBootstrapper>
     <PublishUrl>http://localhost/RS232/</PublishUrl>

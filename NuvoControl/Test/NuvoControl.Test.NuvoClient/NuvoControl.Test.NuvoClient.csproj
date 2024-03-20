@@ -2,10 +2,6 @@
   <PropertyGroup>
     <TargetFramework>net8.0-windows</TargetFramework>
     <OutputType>WinExe</OutputType>
-    <SccProjectName>Rational ClearCase</SccProjectName>
-    <SccLocalPath>Rational ClearCase</SccLocalPath>
-    <SccAuxPath>Rational ClearCase</SccAuxPath>
-    <SccProvider>Rational ClearCase</SccProvider>
     <IsWebBootstrapper>true</IsWebBootstrapper>
     <ApplicationIcon>NuvoControl.ico</ApplicationIcon>
     <PublishUrl>http://localhost/NuvoControl.Test.COMListener/</PublishUrl>
